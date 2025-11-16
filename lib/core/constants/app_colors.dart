@@ -58,4 +58,8 @@ class AppColors {
 
   // Text colors (extended)
   static const Color textLight = Color(0xFFFFFFFF);    // Белый текст (White text)
+
+  // Character-specific colors for CharacterWidget
+  static const Color elliBlue = Color(0xFF90CAF9);      // Elli's blue color
+  static const Color elliDarkBlue = Color(0xFF42A5F5);  // Elli's dark blue border
 }
