@@ -1,0 +1,40 @@
+{
+  "@@locale": "my",
+
+  "appTitle": "Elli & သူငယ်ချင်းများ",
+  "homeWelcome": "မင်္ဂလာပါ! ကျွန်တော် Elli ပါ!",
+  "homeSubtitle": "အတူတူသင်ယူကြရအောင်!",
+
+  "btnLessons": "သင်ခန်းစာများ",
+  "btnGames": "ဂိမ်းများ",
+  "btnProgress": "တိုးတက်မှု",
+  "btnSettings": "ဆက်တင်များ",
+
+  "settingsTitle": "ဆက်တင်များ",
+  "settingsLanguage": "ဘာသာစကား",
+  "settingsMusic": "ဂီတ",
+  "settingsSoundEffects": "အသံအကျိုးသက်ရောက်မှုများ",
+  "settingsVoice": "အသံ",
+
+  "languageEnglish": "English",
+  "languageFrench": "Français",
+  "languageGerman": "Deutsch",
+  "languageItalian": "Italiano",
+  "languageBurmese": "မြန်မာ",
+
+  "lessonCounting": "ရေတွက်ခြင်း",
+  "lessonAlphabet": "အက္ခရာ",
+  "lessonShapes": "ပုံသဏ္ဍာန်များ",
+  "lessonColors": "အရောင်များ",
+
+  "gameCountingTitle": "ရေတွက်ဂိမ်း",
+  "gameStart": "စတင်ပါ",
+  "gameRestart": "ထပ်ကစားပါ",
+
+  "feedbackCorrect": "မှန်ကန်ပါသည်!",
+  "feedbackWrong": "ထပ်ကြိုးစားကြည့်ပါ!",
+  "feedbackGreatJob": "အလွန်ကောင်းပါသည်!",
+
+  "progressStars": "ရရှိထားသောကြယ်များ",
+  "progressLessonsCompleted": "ပြီးမြောက်ထားသောသင်ခန်းစာများ"
+}

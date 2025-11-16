@@ -1,0 +1,40 @@
+{
+  "@@locale": "it",
+
+  "appTitle": "Elli & Amici",
+  "homeWelcome": "Ciao! Sono Elli!",
+  "homeSubtitle": "Impariamo insieme!",
+
+  "btnLessons": "Lezioni",
+  "btnGames": "Giochi",
+  "btnProgress": "Progressi",
+  "btnSettings": "Impostazioni",
+
+  "settingsTitle": "Impostazioni",
+  "settingsLanguage": "Lingua",
+  "settingsMusic": "Musica",
+  "settingsSoundEffects": "Effetti sonori",
+  "settingsVoice": "Voce",
+
+  "languageEnglish": "English",
+  "languageFrench": "Français",
+  "languageGerman": "Deutsch",
+  "languageItalian": "Italiano",
+  "languageBurmese": "မြန်မာ",
+
+  "lessonCounting": "Contare",
+  "lessonAlphabet": "Alfabeto",
+  "lessonShapes": "Forme",
+  "lessonColors": "Colori",
+
+  "gameCountingTitle": "Gioco di conteggio",
+  "gameStart": "Inizia",
+  "gameRestart": "Gioca ancora",
+
+  "feedbackCorrect": "Corretto!",
+  "feedbackWrong": "Riprova!",
+  "feedbackGreatJob": "Ottimo lavoro!",
+
+  "progressStars": "Stelle guadagnate",
+  "progressLessonsCompleted": "Lezioni completate"
+}

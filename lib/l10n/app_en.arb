@@ -1,0 +1,51 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "Elli & Friends",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+
+  "homeWelcome": "Hello! I'm Elli!",
+  "@homeWelcome": {
+    "description": "Welcome message on home screen"
+  },
+
+  "homeSubtitle": "Let's learn together!",
+  "@homeSubtitle": {
+    "description": "Subtitle on home screen"
+  },
+
+  "btnLessons": "Lessons",
+  "btnGames": "Games",
+  "btnProgress": "Progress",
+  "btnSettings": "Settings",
+
+  "settingsTitle": "Settings",
+  "settingsLanguage": "Language",
+  "settingsMusic": "Music",
+  "settingsSoundEffects": "Sound Effects",
+  "settingsVoice": "Voice",
+
+  "languageEnglish": "English",
+  "languageFrench": "Français",
+  "languageGerman": "Deutsch",
+  "languageItalian": "Italiano",
+  "languageBurmese": "မြန်မာ",
+
+  "lessonCounting": "Counting",
+  "lessonAlphabet": "Alphabet",
+  "lessonShapes": "Shapes",
+  "lessonColors": "Colors",
+
+  "gameCountingTitle": "Counting Game",
+  "gameStart": "Start",
+  "gameRestart": "Play Again",
+
+  "feedbackCorrect": "Correct!",
+  "feedbackWrong": "Try again!",
+  "feedbackGreatJob": "Great job!",
+
+  "progressStars": "Stars earned",
+  "progressLessonsCompleted": "Lessons completed"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "lesson_counting",
+  "title": "Friends Game - Counting",
+  "topic": "counting",
+  "description": "Learn to count from 1 to 5 with Bono and Hippo",
+  "difficulty": 1,
+  "scenes": [
+    {
+      "id": "scene_greeting",
+      "duration": 2,
+      "character": "bono",
+      "dialogue": "Hello, friends! I'm Bono, the elephant.",
+      "tone": "friendly",
+      "animals": [],
+      "isPause": false,
+      "isQuestion": false
+    },
+    {
+      "id": "scene_butterfly_question",
+      "duration": 5,
+      "character": "bono",
+      "dialogue": "Do you see the butterfly? How many butterflies?",
+      "tone": "question",
+      "animals": [
+        {"type": "butterfly", "emoji": "🦋", "count": 1}
+      ],
+      "isPause": false,
+      "isQuestion": true
+    },
+    {
+      "id": "scene_butterfly_answer",
+      "duration": 5,
+      "character": null,
+      "dialogue": null,
+      "animals": [
+        {"type": "butterfly", "emoji": "🦋", "count": 1}
+      ],
+      "isPause": true,
+      "correctAnswer": 1,
+      "isQuestion": false
+    }
+  ]
+}
