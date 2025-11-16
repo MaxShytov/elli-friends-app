@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import '../../domain/entities/activity.dart';
 
 /// Base class for all Home screen states
 abstract class HomeState extends Equatable {
@@ -23,25 +24,29 @@ class HomeReady extends HomeState {
   final String greeting;
   final String characterMessage;
   final bool elliIsAnimating;
+  final List<Activity> activities;
 
   const HomeReady({
     required this.greeting,
     required this.characterMessage,
     this.elliIsAnimating = false,
+    required this.activities,
   });
 
   @override
-  List<Object?> get props => [greeting, characterMessage, elliIsAnimating];
+  List<Object?> get props => [greeting, characterMessage, elliIsAnimating, activities];
 
   HomeReady copyWith({
     String? greeting,
     String? characterMessage,
     bool? elliIsAnimating,
+    List<Activity>? activities,
   }) {
     return HomeReady(
       greeting: greeting ?? this.greeting,
       characterMessage: characterMessage ?? this.characterMessage,
       elliIsAnimating: elliIsAnimating ?? this.elliIsAnimating,
+      activities: activities ?? this.activities,
     );
   }
 }

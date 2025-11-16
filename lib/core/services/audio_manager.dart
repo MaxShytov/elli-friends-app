@@ -34,15 +34,15 @@ class AudioManager {
     _currentLanguage = languageCode;
     await _setupTts(languageCode);
 
-    // Настройка музыкального плеера (loop)
+    // Setup music player (loop)
     await _musicPlayer.setReleaseMode(ReleaseMode.loop);
     await _musicPlayer.setVolume(_musicVolume);
 
-    // Настройка эффектов (не зацикливать)
+    // Setup sound effects (don't loop)
     await _sfxPlayer.setReleaseMode(ReleaseMode.stop);
     await _sfxPlayer.setVolume(_sfxVolume);
 
-    // Настройка звуков животных
+    // Setup animal sounds
     await _animalSoundPlayer.setReleaseMode(ReleaseMode.stop);
     await _animalSoundPlayer.setVolume(_sfxVolume);
 

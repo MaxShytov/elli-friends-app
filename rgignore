@@ -1,0 +1,81 @@
+# === КРИТИЧНО: Flutter/Dart ===
+# Эти папки ОГРОМНЫЕ и замедляют поиск
+
+# Build директории
+**/build/
+build/
+**/flutter_build/
+flutter_build/
+
+# Dart tool
+**/.dart_tool/
+.dart_tool/
+
+# Генерируемые файлы
+**/*.g.dart
+**/*.freezed.dart
+**/*.gr.dart
+**/*.config.dart
+**/*.mocks.dart
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/
+ios/.generated/
+**/ios/Runner.xcworkspace/
+**/ios/Runner.xcodeproj/
+
+# Android
+android/.gradle/
+android/.idea/
+android/app/build/
+android/gradle/
+android/captures/
+android/local.properties
+
+# FVM
+.fvm/
+
+# === Стандартные ===
+
+# IDE
+.idea/
+.vscode/
+*.iml
+.DS_Store
+
+# Git
+.git/
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+htmlcov/
+
+# Dependencies
+node_modules/
+venv/
+.venv/
+env/
+__pycache__/
+
+# Binaries
+*.so
+*.dylib
+*.zip
+*.tar.gz
+
+# Media (если большие)
+# assets/videos/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Cache
+.cache/
+*.tmp

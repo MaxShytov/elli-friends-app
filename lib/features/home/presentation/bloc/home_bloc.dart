@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'home_event.dart';
 import 'home_state.dart';
+import '../../domain/entities/activity.dart';
 import '../../../../core/services/audio_manager.dart';
 
 /// BLoC for managing Home screen state and logic
@@ -26,10 +27,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       // In a real app, you might load user data here
       await Future.delayed(const Duration(milliseconds: 500));
 
-      emit(const HomeReady(
+      // Load activities
+      final activities = _loadActivities();
+
+      emit(HomeReady(
         greeting: 'Hi! I\'m Elli the Elephant!',
         characterMessage: 'What do you want to do?',
         elliIsAnimating: false,
+        activities: activities,
       ));
 
       // Optionally play a welcome sound
@@ -37,6 +42,39 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     } catch (e) {
       emit(HomeError('Failed to initialize home screen: $e'));
     }
+  }
+
+  /// Load activities (temporary hardcoded data)
+  /// Note: titles will be localized in the UI layer
+  List<Activity> _loadActivities() {
+    return const [
+      Activity(
+        id: 'counting',
+        title: 'counting', // Used as key for localization
+        emoji: '🔢',
+      ),
+      Activity(
+        id: 'letters',
+        title: 'letters', // Used as key for localization
+        emoji: '🔤',
+        isLocked: true,
+        requiredStars: 10,
+      ),
+      Activity(
+        id: 'shapes',
+        title: 'shapes', // Used as key for localization
+        emoji: '🔷',
+        isLocked: true,
+        requiredStars: 20,
+      ),
+      Activity(
+        id: 'colors',
+        title: 'colors', // Used as key for localization
+        emoji: '🎨',
+        isLocked: true,
+        requiredStars: 30,
+      ),
+    ];
   }
 
   /// Handle activity button tap

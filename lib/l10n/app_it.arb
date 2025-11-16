@@ -1,0 +1,13 @@
+{
+  "@@locale": "it",
+  "settings": "Impostazioni",
+  "learnNumbers": "Impara i numeri",
+  "learnLetters": "Impara le lettere",
+  "learnShapes": "Impara le forme",
+  "learnColors": "Impara i colori",
+  "hello": "Ciao!",
+  "tapMe": "Toccami!",
+  "languageSettings": "Impostazioni lingua",
+  "selectLanguage": "Seleziona la tua lingua",
+  "languageChanged": "Lingua cambiata in {language}"
+}

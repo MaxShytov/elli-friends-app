@@ -1,0 +1,49 @@
+{
+  "@@locale": "en",
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings button label"
+  },
+  "learnNumbers": "Learn Numbers",
+  "@learnNumbers": {
+    "description": "Activity title for learning numbers"
+  },
+  "learnLetters": "Learn Letters",
+  "@learnLetters": {
+    "description": "Activity title for learning letters"
+  },
+  "learnShapes": "Learn Shapes",
+  "@learnShapes": {
+    "description": "Activity title for learning shapes"
+  },
+  "learnColors": "Learn Colors",
+  "@learnColors": {
+    "description": "Activity title for learning colors"
+  },
+  "hello": "Hello!",
+  "@hello": {
+    "description": "Greeting message"
+  },
+  "tapMe": "Tap me!",
+  "@tapMe": {
+    "description": "Character tap prompt"
+  },
+  "languageSettings": "Language Settings",
+  "@languageSettings": {
+    "description": "Language settings section title"
+  },
+  "selectLanguage": "Select your language",
+  "@selectLanguage": {
+    "description": "Language selection prompt"
+  },
+  "languageChanged": "Language changed to {language}",
+  "@languageChanged": {
+    "description": "Language change confirmation message",
+    "placeholders": {
+      "language": {
+        "type": "String",
+        "example": "English"
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+# === КРИТИЧНО: Flutter/Dart генерируемые файлы ===
+# Эти файлы ОГРОМНЫЕ и не нужны Claude для понимания кода
+
+# Build директории (САМЫЕ БОЛЬШИЕ!)
+**/build/
+build/
+**/flutter_build/
+flutter_build/
+
+# Dart tool кэши
+**/.dart_tool/
+.dart_tool/
+
+# Генерируемые Dart файлы (автоматически создаются)
+**/*.g.dart
+**/*.freezed.dart
+**/*.gr.dart
+**/*.config.dart
+**/*.mocks.dart
+
+# iOS специфичные (ОГРОМНЫЕ если есть Pods)
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/.generated/
+**/ios/Runner.xcworkspace/
+**/ios/Runner.xcodeproj/
+
+# Android специфичные (ОЧЕНЬ БОЛЬШИЕ!)
+android/.gradle/
+android/.idea/
+android/app/build/
+android/gradle/
+android/captures/
+android/local.properties
+**/*.jks
+**/*.keystore
+
+# FVM (Flutter Version Management)
+.fvm/
+
+# === Стандартные игнорируемые ===
+
+# IDE
+.idea/
+.vscode/
+*.iml
+.DS_Store
+*.swp
+*.swo
+
+# Git
+.git/
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+.coverage
+htmlcov/
+
+# Testing кэши
+.test_coverage/
+.pytest_cache/
+
+# === Медиа файлы (могут быть большими) ===
+# Если у вас есть большие изображения/видео
+
+# Раскомментируйте если нужно:
+# assets/images/*.mp4
+# assets/images/*.mov
+# assets/videos/
+
+# === Зависимости (если используете) ===
+
+# Node (если есть web версия)
+node_modules/
+package-lock.json
+
+# Python virtual env (если есть скрипты)
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# === Документация (большие файлы) ===
+
+# Раскомментируйте если есть большие PDF/документы:
+# docs/**/*.pdf
+# docs/images/
+
+# === Бинарные файлы ===
+
+*.so
+*.dylib
+*.zip
+*.tar.gz
+*.rar
+
+# Animations (если очень большие - оставьте нужные)
+# Раскомментируйте если .riv файлы > 500KB:
+# assets/animations/*.riv
+
+# === Специфичные для проекта ===
+
+# Если у вас есть папка со screenshots
+screenshots/
+
+# Если у вас есть локальная БД
+*.db
+*.sqlite
+*.sqlite3
+
+# Временные файлы
+*.tmp
+*.temp
+.cache/
+
+# === ВАЖНО: НЕ игнорируйте ===
+# Убедитесь что эти файлы ВИДНЫ для Claude:
+
+# !lib/**/*.dart (основной код)
+# !test/**/*.dart (тесты)
+# !pubspec.yaml (зависимости)
+# !analysis_options.yaml (линтер)
+# !README.md (документация)

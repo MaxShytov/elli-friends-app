@@ -1,0 +1,13 @@
+{
+  "@@locale": "ru",
+  "settings": "Настройки",
+  "learnNumbers": "Учим цифры",
+  "learnLetters": "Учим буквы",
+  "learnShapes": "Учим фигуры",
+  "learnColors": "Учим цвета",
+  "hello": "Привет!",
+  "tapMe": "Нажми на меня!",
+  "languageSettings": "Настройки языка",
+  "selectLanguage": "Выберите свой язык",
+  "languageChanged": "Язык изменён на {language}"
+}

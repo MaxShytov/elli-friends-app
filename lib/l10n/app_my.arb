@@ -1,0 +1,13 @@
+{
+  "@@locale": "my",
+  "settings": "ဆက်တင်များ",
+  "learnNumbers": "ဂဏန်းများကို လေ့လာပါ",
+  "learnLetters": "အက္ခရာများကို လေ့လာပါ",
+  "learnShapes": "ပုံသဏ္ဍာန်များကို လေ့လာပါ",
+  "learnColors": "အရောင်များကို လေ့လာပါ",
+  "hello": "မင်္ဂလာပါ!",
+  "tapMe": "ငါ့ကို နှိပ်ပါ!",
+  "languageSettings": "ဘာသာစကား ဆက်တင်များ",
+  "selectLanguage": "သင့်ဘာသာစကားကို ရွေးချယ်ပါ",
+  "languageChanged": "{language} သို့ ဘာသာစကား ပြောင်းလဲပြီးပါပြီ"
+}

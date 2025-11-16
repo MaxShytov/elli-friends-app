@@ -8,7 +8,7 @@ import '../constants/app_colors.dart';
 class AppTextStyles {
   AppTextStyles._();
 
-  // Заголовки (Headers)
+  // Headers
   static const TextStyle h1 = TextStyle(
     fontSize: 32,
     fontWeight: FontWeight.bold,
@@ -23,7 +23,7 @@ class AppTextStyles {
     height: 1.3,
   );
 
-  // Для детей - крупнее! (For kids - bigger!)
+  // For kids - bigger!
   static const TextStyle dialogue = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w500,
@@ -37,7 +37,7 @@ class AppTextStyles {
     color: Colors.white,
   );
 
-  // Числа в игре (Numbers in game)
+  // Numbers in game
   static const TextStyle number = TextStyle(
     fontSize: 48,
     fontWeight: FontWeight.bold,
