@@ -1,8 +1,8 @@
 {
   "id": "lesson_counting",
-  "title": "Counting as a Game of Friends",
+  "title": "သူငယ်ချင်းများ၏ဂိမ်းအဖြစ် ရေတွက်ခြင်း",
   "topic": "counting",
-  "description": "Learn to count from 1 to 5 with Bono and Hippo",
+  "description": "Bono နှင့် Hippo နှင့်အတူ ၁ မှ ၅ အထိ ရေတွက်ရန် လေ့လာပါ",
   "difficulty": 1,
   "targetAge": "3-7",
   "estimatedDuration": 95,
@@ -21,14 +21,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Morning jungle scene. Bono walks in and waves."
+      "description": "နံနက်ခင်း သစ်တောမြင်ကွင်း။ Bono လမ်းလျှောက်ဝင်လာပြီး လက်ဝှေ့သည်။"
     },
     {
       "id": "scene_greeting",
       "timeRange": "00:05-00:07",
       "duration": 2,
       "character": "bono",
-      "dialogue": "Hello, my friends! I'm Bono the Elephant.",
+      "dialogue": "မင်္ဂလာပါ၊ ကျွန်တော့်သူငယ်ချင်းများ! ကျွန်တော်က Bono ဆင်ပါ။",
       "tone": "friendly",
       "visual": "bono_wave",
       "animation": "wave",
@@ -37,14 +37,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Bono greets warmly"
+      "description": "Bono နွေးထွေးစွာ နှုတ်ဆက်သည်"
     },
     {
       "id": "scene_game_intro",
       "timeRange": "00:07-00:10",
       "duration": 3,
       "character": "bono",
-      "dialogue": "Let's play the Game of Friends!",
+      "dialogue": "သူငယ်ချင်းများရဲ့ဂိမ်း ကစားကြရအောင်!",
       "tone": "excited",
       "visual": "bono_excited",
       "animation": "jump",
@@ -53,14 +53,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Bono cheerfully suggests the game"
+      "description": "Bono ပျော်ရွှင်စွာ ဂိမ်းကို အကြံပြုသည်"
     },
     {
       "id": "scene_hippo_curious",
       "timeRange": "00:10-00:13",
       "duration": 3,
       "character": "hippo",
-      "dialogue": "A game? I love games! What do we do, Bono?",
+      "dialogue": "ဂိမ်းလား? ကျွန်တော် ဂိမ်းတွေကို ကြိုက်တယ်! ဘာလုပ်မလဲ Bono?",
       "tone": "curious",
       "visual": "hippo_curious",
       "animation": "bounce",
@@ -69,14 +69,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Hippo is curious and excited"
+      "description": "Hippo သိလိုစိတ်ပြင်းပြီး စိတ်လှုပ်ရှားနေသည်"
     },
     {
       "id": "scene_game_explanation",
       "timeRange": "00:13-00:16",
       "duration": 3,
       "character": "bono",
-      "dialogue": "We look around and count our animal friends.",
+      "dialogue": "ကျွန်တော်တို့ ပတ်ဝန်းကျင်ကို ကြည့်ပြီး တိရစ္ဆာန်သူငယ်ချင်းတွေကို ရေတွက်ကြမယ်။",
       "tone": "calm",
       "visual": "bono_explain",
       "animation": null,
@@ -85,7 +85,7 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Bono explains the rules calmly"
+      "description": "Bono တည်ငြိမ်စွာ စည်းမျဉ်းများကို ရှင်းပြသည်"
     },
     {
       "id": "scene_butterfly_appears",
@@ -108,14 +108,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "One butterfly flutters near Bono and Hippo"
+      "description": "လိပ်ပြာတစ်ကောင် Bono နှင့် Hippo အနီးတွင် ပျံဝဲနေသည်"
     },
     {
       "id": "scene_butterfly_question",
       "timeRange": "00:18-00:23",
       "duration": 5,
       "character": "bono",
-      "dialogue": "Can you see the butterfly? How many butterflies are there?",
+      "dialogue": "လိပ်ပြာကို မြင်သလား? လိပ်ပြာ ဘယ်နှစ်ကောင် ရှိသလဲ?",
       "tone": "question",
       "visual": "bono_question",
       "animation": null,
@@ -131,7 +131,7 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": true,
-      "description": "Bono asks about the butterfly"
+      "description": "Bono လိပ်ပြာအကြောင်း မေးသည်"
     },
     {
       "id": "scene_butterfly_answer",
@@ -154,7 +154,7 @@
       "isPause": true,
       "correctAnswer": 1,
       "isQuestion": false,
-      "description": "Wait for children's answer - butterfly on screen"
+      "description": "အဖြေစောင့်နေသည် - လိပ်ပြာ ဖန်သားပြင်ပေါ်တွင်"
     },
     {
       "id": "scene_monkeys_appear",
@@ -177,14 +177,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Four monkeys swing down from the trees"
+      "description": "မျောက်လေးကောင် သစ်ပင်များမှ ဆင်းလာသည်"
     },
     {
       "id": "scene_monkeys_question",
       "timeRange": "00:31-00:37",
       "duration": 6,
       "character": "hippo",
-      "dialogue": "Look! The monkeys are here. How many monkeys can you see?",
+      "dialogue": "ကြည့်စမ်း! မျောက်တွေ ရောက်လာပြီ။ မျောက် ဘယ်နှစ်ကောင် မြင်သလဲ?",
       "tone": "enthusiastic",
       "visual": "hippo_excited",
       "animation": null,
@@ -200,7 +200,7 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": true,
-      "description": "Hippo enthusiastically asks about monkeys"
+      "description": "Hippo စိတ်လှုပ်ရှားစွာ မေးသည်"
     },
     {
       "id": "scene_monkeys_answer",
@@ -223,7 +223,7 @@
       "isPause": true,
       "correctAnswer": 4,
       "isQuestion": false,
-      "description": "Wait for answer - monkeys visible on screen"
+      "description": "အဖြေစောင့်နေသည် - မျောက်များ မြင်ရသည်"
     },
     {
       "id": "scene_birds_appear",
@@ -246,14 +246,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Two colourful birds land near a flower bush"
+      "description": "ငှက်ရောင်စုံနှစ်ကောင် ပန်းချုံအနီးတွင် ဆင်းသက်သည်"
     },
     {
       "id": "scene_birds_question",
       "timeRange": "00:44-00:50",
       "duration": 6,
       "character": "bono",
-      "dialogue": "Do you see the birds? How many birds are there?",
+      "dialogue": "ငှက်များကို မြင်သလား? ငှက် ဘယ်နှစ်ကောင် ရှိသလဲ?",
       "tone": "gentle",
       "visual": "bono_question",
       "animation": null,
@@ -269,7 +269,7 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": true,
-      "description": "Bono gently asks about birds"
+      "description": "Bono နူးညံ့စွာ မေးသည်"
     },
     {
       "id": "scene_birds_answer",
@@ -292,7 +292,7 @@
       "isPause": true,
       "correctAnswer": 2,
       "isQuestion": false,
-      "description": "Wait for answer - birds on screen"
+      "description": "အဖြေစောင့်နေသည် - ငှက်များ ဖန်သားပြင်ပေါ်တွင်"
     },
     {
       "id": "scene_turtles_appear",
@@ -315,14 +315,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Five turtles slowly walk across the ground"
+      "description": "လိပ်ငါးကောင် မြေပြင်ပေါ်တွင် နှေးကွေးစွာ လမ်းလျှောက်နေသည်"
     },
     {
       "id": "scene_turtles_question",
       "timeRange": "00:57-01:04",
       "duration": 7,
       "character": "hippo",
-      "dialogue": "Oh, turtles! Count them carefully. How many do you see?",
+      "dialogue": "အို၊ လိပ်တွေ! ဂရုတစိုက် ရေတွက်ပါ။ ဘယ်နှစ်ကောင် မြင်သလဲ?",
       "tone": "encouraging",
       "visual": "hippo_calm",
       "animation": null,
@@ -338,7 +338,7 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": true,
-      "description": "Hippo calmly encourages counting turtles"
+      "description": "Hippo တည်ငြိမ်စွာ အားပေးသည်"
     },
     {
       "id": "scene_turtles_answer",
@@ -361,7 +361,7 @@
       "isPause": true,
       "correctAnswer": 5,
       "isQuestion": false,
-      "description": "Wait for answer - turtles keep moving"
+      "description": "အဖြေစောင့်နေသည် - လိပ်များ ဆက်လက်လှုပ်ရှားနေသည်"
     },
     {
       "id": "scene_frogs_appear",
@@ -384,14 +384,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Three frogs hop near Bono's feet"
+      "description": "ဖားသုံးကောင် Bono ၏ခြေဖဝါးအနီးတွင် ခုန်နေသည်"
     },
     {
       "id": "scene_frogs_question",
       "timeRange": "01:11-01:17",
       "duration": 6,
       "character": "bono",
-      "dialogue": "Listen to the frogs! How many frogs can you see?",
+      "dialogue": "ဖားတွေရဲ့အသံ နားထောင်ပါ! ဖား ဘယ်နှစ်ကောင် မြင်သလဲ?",
       "tone": "friendly_challenge",
       "visual": "bono_challenge",
       "animation": null,
@@ -407,7 +407,7 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": true,
-      "description": "Bono offers a friendly challenge to count frogs"
+      "description": "Bono ဖော်ရွေသော စိန်ခေါ်မှု ပေးသည်"
     },
     {
       "id": "scene_frogs_answer",
@@ -430,7 +430,7 @@
       "isPause": true,
       "correctAnswer": 3,
       "isQuestion": false,
-      "description": "Wait for answer - frogs on screen"
+      "description": "အဖြေစောင့်နေသည် - ဖားများ ဖန်သားပြင်ပေါ်တွင်"
     },
     {
       "id": "scene_all_animals",
@@ -477,14 +477,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "All animals gather around Bono and Hippo"
+      "description": "တိရစ္ဆာန်အားလုံး Bono နှင့် Hippo ပတ်လည်တွင် စုဝေးနေကြသည်"
     },
     {
       "id": "scene_celebration",
       "timeRange": "01:27-01:31",
       "duration": 4,
       "character": "hippo",
-      "dialogue": "So many animals! Did you count them all?",
+      "dialogue": "တိရစ္ဆာန် အများကြီးပဲ! အားလုံးကို ရေတွက်နိုင်ခဲ့သလား?",
       "tone": "proud",
       "visual": "hippo_proud",
       "animation": "celebrate",
@@ -493,14 +493,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Hippo proudly celebrates"
+      "description": "Hippo ဂုဏ်ယူစွာ ဆင်နွှဲသည်"
     },
     {
       "id": "scene_goodbye",
       "timeRange": "01:31-01:35",
       "duration": 4,
       "character": "bono",
-      "dialogue": "Great job, everyone! See you next time for more fun with numbers!",
+      "dialogue": "အလွန်ကောင်းပါသည်! နံပါတ်များနှင့် ပိုမိုပျော်ရွှင်ရန် နောက်တစ်ကြိမ် တွေ့ကြမယ်!",
       "tone": "warm",
       "visual": "bono_goodbye",
       "animation": "wave",
@@ -509,7 +509,7 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Bono's warm farewell"
+      "description": "Bono ၏ နွေးထွေးသော နှုတ်ဆက်"
     }
   ]
 }

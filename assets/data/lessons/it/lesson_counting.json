@@ -1,8 +1,8 @@
 {
   "id": "lesson_counting",
-  "title": "Counting as a Game of Friends",
+  "title": "Contare come un Gioco degli Amici",
   "topic": "counting",
-  "description": "Learn to count from 1 to 5 with Bono and Hippo",
+  "description": "Impara a contare da 1 a 5 con Bono e Hippo",
   "difficulty": 1,
   "targetAge": "3-7",
   "estimatedDuration": 95,
@@ -21,14 +21,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Morning jungle scene. Bono walks in and waves."
+      "description": "Scena mattutina nella giungla. Bono entra e saluta."
     },
     {
       "id": "scene_greeting",
       "timeRange": "00:05-00:07",
       "duration": 2,
       "character": "bono",
-      "dialogue": "Hello, my friends! I'm Bono the Elephant.",
+      "dialogue": "Ciao, amici miei! Sono Bono l'Elefante.",
       "tone": "friendly",
       "visual": "bono_wave",
       "animation": "wave",
@@ -37,14 +37,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Bono greets warmly"
+      "description": "Bono saluta calorosamente"
     },
     {
       "id": "scene_game_intro",
       "timeRange": "00:07-00:10",
       "duration": 3,
       "character": "bono",
-      "dialogue": "Let's play the Game of Friends!",
+      "dialogue": "Giochiamo al Gioco degli Amici!",
       "tone": "excited",
       "visual": "bono_excited",
       "animation": "jump",
@@ -53,14 +53,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Bono cheerfully suggests the game"
+      "description": "Bono propone allegramente il gioco"
     },
     {
       "id": "scene_hippo_curious",
       "timeRange": "00:10-00:13",
       "duration": 3,
       "character": "hippo",
-      "dialogue": "A game? I love games! What do we do, Bono?",
+      "dialogue": "Un gioco? Adoro i giochi! Cosa facciamo, Bono?",
       "tone": "curious",
       "visual": "hippo_curious",
       "animation": "bounce",
@@ -69,14 +69,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Hippo is curious and excited"
+      "description": "Hippo è curioso ed eccitato"
     },
     {
       "id": "scene_game_explanation",
       "timeRange": "00:13-00:16",
       "duration": 3,
       "character": "bono",
-      "dialogue": "We look around and count our animal friends.",
+      "dialogue": "Guardiamo intorno e contiamo i nostri amici animali.",
       "tone": "calm",
       "visual": "bono_explain",
       "animation": null,
@@ -85,7 +85,7 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Bono explains the rules calmly"
+      "description": "Bono spiega le regole con calma"
     },
     {
       "id": "scene_butterfly_appears",
@@ -108,14 +108,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "One butterfly flutters near Bono and Hippo"
+      "description": "Una farfalla svolazza vicino a Bono e Hippo"
     },
     {
       "id": "scene_butterfly_question",
       "timeRange": "00:18-00:23",
       "duration": 5,
       "character": "bono",
-      "dialogue": "Can you see the butterfly? How many butterflies are there?",
+      "dialogue": "Vedi la farfalla? Quante farfalle ci sono?",
       "tone": "question",
       "visual": "bono_question",
       "animation": null,
@@ -131,7 +131,7 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": true,
-      "description": "Bono asks about the butterfly"
+      "description": "Bono chiede della farfalla"
     },
     {
       "id": "scene_butterfly_answer",
@@ -154,7 +154,7 @@
       "isPause": true,
       "correctAnswer": 1,
       "isQuestion": false,
-      "description": "Wait for children's answer - butterfly on screen"
+      "description": "Attesa della risposta - farfalla sullo schermo"
     },
     {
       "id": "scene_monkeys_appear",
@@ -177,14 +177,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Four monkeys swing down from the trees"
+      "description": "Quattro scimmie scendono dagli alberi"
     },
     {
       "id": "scene_monkeys_question",
       "timeRange": "00:31-00:37",
       "duration": 6,
       "character": "hippo",
-      "dialogue": "Look! The monkeys are here. How many monkeys can you see?",
+      "dialogue": "Guarda! Le scimmie sono qui. Quante scimmie vedi?",
       "tone": "enthusiastic",
       "visual": "hippo_excited",
       "animation": null,
@@ -200,7 +200,7 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": true,
-      "description": "Hippo enthusiastically asks about monkeys"
+      "description": "Hippo chiede con entusiasmo"
     },
     {
       "id": "scene_monkeys_answer",
@@ -223,7 +223,7 @@
       "isPause": true,
       "correctAnswer": 4,
       "isQuestion": false,
-      "description": "Wait for answer - monkeys visible on screen"
+      "description": "Attesa della risposta - scimmie visibili"
     },
     {
       "id": "scene_birds_appear",
@@ -246,14 +246,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Two colourful birds land near a flower bush"
+      "description": "Due uccelli colorati si posano vicino a un cespuglio"
     },
     {
       "id": "scene_birds_question",
       "timeRange": "00:44-00:50",
       "duration": 6,
       "character": "bono",
-      "dialogue": "Do you see the birds? How many birds are there?",
+      "dialogue": "Vedi gli uccelli? Quanti uccelli ci sono?",
       "tone": "gentle",
       "visual": "bono_question",
       "animation": null,
@@ -269,7 +269,7 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": true,
-      "description": "Bono gently asks about birds"
+      "description": "Bono chiede gentilmente"
     },
     {
       "id": "scene_birds_answer",
@@ -292,7 +292,7 @@
       "isPause": true,
       "correctAnswer": 2,
       "isQuestion": false,
-      "description": "Wait for answer - birds on screen"
+      "description": "Attesa della risposta - uccelli sullo schermo"
     },
     {
       "id": "scene_turtles_appear",
@@ -315,14 +315,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Five turtles slowly walk across the ground"
+      "description": "Cinque tartarughe camminano lentamente"
     },
     {
       "id": "scene_turtles_question",
       "timeRange": "00:57-01:04",
       "duration": 7,
       "character": "hippo",
-      "dialogue": "Oh, turtles! Count them carefully. How many do you see?",
+      "dialogue": "Oh, tartarughe! Contale bene. Quante ne vedi?",
       "tone": "encouraging",
       "visual": "hippo_calm",
       "animation": null,
@@ -338,7 +338,7 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": true,
-      "description": "Hippo calmly encourages counting turtles"
+      "description": "Hippo incoraggia con calma"
     },
     {
       "id": "scene_turtles_answer",
@@ -361,7 +361,7 @@
       "isPause": true,
       "correctAnswer": 5,
       "isQuestion": false,
-      "description": "Wait for answer - turtles keep moving"
+      "description": "Attesa della risposta - tartarughe continuano"
     },
     {
       "id": "scene_frogs_appear",
@@ -384,14 +384,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Three frogs hop near Bono's feet"
+      "description": "Tre rane saltano vicino ai piedi di Bono"
     },
     {
       "id": "scene_frogs_question",
       "timeRange": "01:11-01:17",
       "duration": 6,
       "character": "bono",
-      "dialogue": "Listen to the frogs! How many frogs can you see?",
+      "dialogue": "Senti le rane! Quante rane vedi?",
       "tone": "friendly_challenge",
       "visual": "bono_challenge",
       "animation": null,
@@ -407,7 +407,7 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": true,
-      "description": "Bono offers a friendly challenge to count frogs"
+      "description": "Bono offre una sfida amichevole"
     },
     {
       "id": "scene_frogs_answer",
@@ -430,7 +430,7 @@
       "isPause": true,
       "correctAnswer": 3,
       "isQuestion": false,
-      "description": "Wait for answer - frogs on screen"
+      "description": "Attesa della risposta - rane sullo schermo"
     },
     {
       "id": "scene_all_animals",
@@ -477,14 +477,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "All animals gather around Bono and Hippo"
+      "description": "Tutti gli animali si radunano intorno a Bono e Hippo"
     },
     {
       "id": "scene_celebration",
       "timeRange": "01:27-01:31",
       "duration": 4,
       "character": "hippo",
-      "dialogue": "So many animals! Did you count them all?",
+      "dialogue": "Così tanti animali! Li hai contati tutti?",
       "tone": "proud",
       "visual": "hippo_proud",
       "animation": "celebrate",
@@ -493,14 +493,14 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Hippo proudly celebrates"
+      "description": "Hippo celebra con orgoglio"
     },
     {
       "id": "scene_goodbye",
       "timeRange": "01:31-01:35",
       "duration": 4,
       "character": "bono",
-      "dialogue": "Great job, everyone! See you next time for more fun with numbers!",
+      "dialogue": "Ottimo lavoro! Ci vediamo la prossima volta per più divertimento con i numeri!",
       "tone": "warm",
       "visual": "bono_goodbye",
       "animation": "wave",
@@ -509,7 +509,7 @@
       "isPause": false,
       "correctAnswer": null,
       "isQuestion": false,
-      "description": "Bono's warm farewell"
+      "description": "Addio caloroso di Bono"
     }
   ]
 }
