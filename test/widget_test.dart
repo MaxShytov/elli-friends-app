@@ -1,9 +1,4 @@
 // This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,20 +6,34 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:elli_friends_app/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('App launches with correct title', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const MyApp(initialLocale: Locale('en')));
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Wait for async initialization
+    await tester.pumpAndSettle();
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // Verify that the app title is displayed
+    expect(find.text('Elli & Friends'), findsOneWidget);
+  });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  testWidgets('Language can be changed', (WidgetTester tester) async {
+    // Build our app
+    await tester.pumpWidget(const MyApp(initialLocale: Locale('en')));
+    await tester.pumpAndSettle();
+
+    // Verify English is displayed
+    expect(find.text('Hello! I\'m Elli!'), findsOneWidget);
+
+    // Tap settings button
+    await tester.tap(find.byIcon(Icons.settings));
+    await tester.pumpAndSettle();
+
+    // Select French
+    await tester.tap(find.text('Français'));
+    await tester.pumpAndSettle();
+
+    // Verify French is displayed
+    expect(find.text('Bonjour! Je suis Elli!'), findsOneWidget);
   });
 }

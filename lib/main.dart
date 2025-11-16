@@ -27,6 +27,7 @@ class MyApp extends StatefulWidget {
   @override
   State<MyApp> createState() => _MyAppState();
 
+  // ignore: library_private_types_in_public_api
   static _MyAppState? of(BuildContext context) =>
       context.findAncestorStateOfType<_MyAppState>();
 }
@@ -232,17 +233,12 @@ class HomeScreen extends StatelessWidget {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: SupportedLanguages.supportedLocales.map((locale) {
+            final isSelected = locale.languageCode == currentLocale.languageCode;
             return ListTile(
               title: Text(SupportedLanguages.getLanguageName(locale.languageCode)),
-              leading: Radio<String>(
-                value: locale.languageCode,
-                groupValue: currentLocale.languageCode,
-                onChanged: (value) {
-                  if (value != null) {
-                    MyApp.of(context)?.setLocale(Locale(value));
-                    Navigator.pop(dialogContext);
-                  }
-                },
+              leading: Icon(
+                isSelected ? Icons.radio_button_checked : Icons.radio_button_unchecked,
+                color: isSelected ? Colors.green : Colors.grey,
               ),
               onTap: () {
                 MyApp.of(context)?.setLocale(locale);
