@@ -105,8 +105,24 @@ class _HomeScreenContent extends StatelessWidget {
               ),
             ),
 
-            // Settings button
+            // TEST: Demo lesson button
             const SizedBox(height: AppDimensions.paddingMedium),
+            ElevatedButton.icon(
+              onPressed: () => context.push('/lesson/counting'),
+              icon: const Icon(Icons.play_arrow),
+              label: Text(AppLocalizations.of(context)!.lessonCountingDemo),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.correct,
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppDimensions.paddingLarge,
+                  vertical: AppDimensions.paddingMedium,
+                ),
+              ),
+            ),
+
+            // Settings button
+            const SizedBox(height: AppDimensions.paddingSmall),
             OutlinedButton.icon(
               onPressed: () => context.push('/settings'),
               icon: const Icon(Icons.settings),

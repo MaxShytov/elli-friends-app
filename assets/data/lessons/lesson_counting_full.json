@@ -1,0 +1,300 @@
+{
+  "id": "lesson_counting",
+  "title": "Игра друзей - Счёт",
+  "topic": "counting",
+  "description": "Учимся считать от 1 до 5 с Боно и Гиппо",
+  "difficulty": 1,
+  "tags": ["counting", "numbers", "1-5", "animals"],
+  "scenes": [
+    {
+      "time": "00:00-00:05",
+      "type": "visual",
+      "description": "Morning jungle scene. Bono walks in and waves",
+      "visuals": {
+        "background": "jungle_morning",
+        "animation": "bono_walks_and_waves"
+      },
+      "audio": {
+        "ambient": "gentle_jungle"
+      }
+    },
+    {
+      "time": "00:05-00:07",
+      "character": "bono",
+      "dialogue": "Hello, my friends! I'm Bono the Elephant.",
+      "dialogue_ru": "Здравствуйте, друзья! Я Боно, слон.",
+      "duration": 2,
+      "tone": "warm_friendly"
+    },
+    {
+      "time": "00:07-00:10",
+      "character": "bono",
+      "dialogue": "Let's play the Game of Friends!",
+      "dialogue_ru": "Давайте играть в Игру Друзей!",
+      "duration": 3,
+      "tone": "cheerful_excited"
+    },
+    {
+      "time": "00:10-00:13",
+      "character": "hippo",
+      "dialogue": "A game? I love games! What do we do, Bono?",
+      "dialogue_ru": "Игра? Я люблю игры! Что мы делаем, Боно?",
+      "duration": 3,
+      "tone": "curious_lively"
+    },
+    {
+      "time": "00:13-00:16",
+      "character": "bono",
+      "dialogue": "We look around and count our animal friends.",
+      "dialogue_ru": "Мы смотрим вокруг и считаем наших друзей-животных.",
+      "duration": 3,
+      "tone": "calm_clear"
+    },
+    {
+      "time": "00:16-00:18",
+      "type": "visual",
+      "description": "One butterfly flutters near Bono and Hippo",
+      "visuals": {
+        "action": "butterfly_appears"
+      },
+      "audio": {
+        "sound": "soft_wing_flutter"
+      },
+      "animals": [
+        {
+          "type": "butterfly",
+          "emoji": "🦋",
+          "count": 1,
+          "animation": "flutter"
+        }
+      ]
+    },
+    {
+      "time": "00:18-00:23",
+      "character": "bono",
+      "dialogue": "Can you see the butterfly? How many butterflies are there?",
+      "dialogue_ru": "Видишь бабочку? Сколько бабочек?",
+      "duration": 5,
+      "tone": "question",
+      "isQuestion": true
+    },
+    {
+      "time": "00:23-00:28",
+      "type": "pause",
+      "description": "Children's response time",
+      "isPause": true,
+      "waitForAnswer": true,
+      "correctAnswer": 1,
+      "duration": 5,
+      "visuals": {
+        "keep": "butterfly_on_screen"
+      }
+    },
+    {
+      "time": "00:28-00:31",
+      "type": "visual",
+      "description": "Four monkeys swing down from the trees",
+      "visuals": {
+        "action": "monkeys_swing_down"
+      },
+      "audio": {
+        "sound": "monkey_chatter",
+        "ambient": "leaves_rustling"
+      },
+      "animals": [
+        {
+          "type": "monkey",
+          "emoji": "🐒",
+          "count": 4,
+          "animation": "swing"
+        }
+      ]
+    },
+    {
+      "time": "00:31-00:37",
+      "character": "hippo",
+      "dialogue": "Look! The monkeys are here. How many monkeys can you see?",
+      "dialogue_ru": "Смотри! Обезьянки пришли. Сколько обезьянок ты видишь?",
+      "duration": 6,
+      "tone": "enthusiastic_question",
+      "isQuestion": true
+    },
+    {
+      "time": "00:37-00:42",
+      "type": "pause",
+      "description": "Children's response time",
+      "isPause": true,
+      "waitForAnswer": true,
+      "correctAnswer": 4,
+      "duration": 5,
+      "visuals": {
+        "keep": "monkeys_visible"
+      }
+    },
+    {
+      "time": "00:42-00:44",
+      "type": "visual",
+      "description": "Two colourful birds land near a flower bush",
+      "visuals": {
+        "action": "birds_land"
+      },
+      "audio": {
+        "sound": "light_chirping"
+      },
+      "animals": [
+        {
+          "type": "bird",
+          "emoji": "🐦",
+          "count": 2,
+          "animation": "land_and_chirp"
+        }
+      ]
+    },
+    {
+      "time": "00:44-00:50",
+      "character": "bono",
+      "dialogue": "Do you see the birds? How many birds are there?",
+      "dialogue_ru": "Видишь птичек? Сколько птичек?",
+      "duration": 6,
+      "tone": "gentle_curiosity_question",
+      "isQuestion": true
+    },
+    {
+      "time": "00:50-00:55",
+      "type": "pause",
+      "description": "Children's response time",
+      "isPause": true,
+      "waitForAnswer": true,
+      "correctAnswer": 2,
+      "duration": 5,
+      "visuals": {
+        "keep": "birds_on_screen"
+      }
+    },
+    {
+      "time": "00:55-00:57",
+      "type": "visual",
+      "description": "Five turtles slowly walk across the ground",
+      "visuals": {
+        "action": "turtles_walk"
+      },
+      "audio": {
+        "sound": "soft_step_rhythm"
+      },
+      "animals": [
+        {
+          "type": "turtle",
+          "emoji": "🐢",
+          "count": 5,
+          "animation": "walk_slowly"
+        }
+      ]
+    },
+    {
+      "time": "00:57-01:04",
+      "character": "hippo",
+      "dialogue": "Oh, turtles! Count them carefully. How many do you see?",
+      "dialogue_ru": "О, черепашки! Посчитай их внимательно. Сколько ты видишь?",
+      "duration": 7,
+      "tone": "calm_encouragement_question",
+      "isQuestion": true
+    },
+    {
+      "time": "01:04-01:09",
+      "type": "pause",
+      "description": "Children's response time",
+      "isPause": true,
+      "waitForAnswer": true,
+      "correctAnswer": 5,
+      "duration": 5,
+      "visuals": {
+        "keep": "turtles_moving"
+      }
+    },
+    {
+      "time": "01:09-01:11",
+      "type": "visual",
+      "description": "Three frogs hop near Bono's feet",
+      "visuals": {
+        "action": "frogs_hop"
+      },
+      "audio": {
+        "sound": "croaks_and_splashes"
+      },
+      "animals": [
+        {
+          "type": "frog",
+          "emoji": "🐸",
+          "count": 3,
+          "animation": "hop"
+        }
+      ]
+    },
+    {
+      "time": "01:11-01:17",
+      "character": "bono",
+      "dialogue": "Listen to the frogs! How many frogs can you see?",
+      "dialogue_ru": "Послушай лягушек! Сколько лягушек ты видишь?",
+      "duration": 6,
+      "tone": "friendly_challenge_question",
+      "isQuestion": true
+    },
+    {
+      "time": "01:17-01:22",
+      "type": "pause",
+      "description": "Children's response time",
+      "isPause": true,
+      "waitForAnswer": true,
+      "correctAnswer": 3,
+      "duration": 5,
+      "visuals": {
+        "keep": "frogs_on_screen"
+      }
+    },
+    {
+      "time": "01:22-01:27",
+      "type": "visual",
+      "description": "All animals gather around Bono and Hippo",
+      "visuals": {
+        "action": "animals_gather",
+        "animals": ["butterfly", "monkeys", "birds", "turtles", "frogs"]
+      },
+      "audio": {
+        "music": "soft_uplifting"
+      }
+    },
+    {
+      "time": "01:27-01:31",
+      "character": "hippo",
+      "dialogue": "So many animals! Did you count them all?",
+      "dialogue_ru": "Так много животных! Ты всех посчитал?",
+      "duration": 4,
+      "tone": "proud_cheerful"
+    },
+    {
+      "time": "01:31-01:35",
+      "character": "bono",
+      "dialogue": "Great job, everyone! See you next time for more fun with numbers!",
+      "dialogue_ru": "Отличная работа, друзья! До встречи в следующий раз для новых приключений с цифрами!",
+      "duration": 4,
+      "tone": "warm_farewell"
+    }
+  ],
+  "summary": {
+    "total_duration": "01:35",
+    "questions_count": 5,
+    "animals_covered": {
+      "butterfly": 1,
+      "monkeys": 4,
+      "birds": 2,
+      "turtles": 5,
+      "frogs": 3
+    },
+    "learning_outcomes": [
+      "Count from 1 to 5",
+      "Recognize different animals",
+      "Answer 'How many?' questions",
+      "Practice number recognition"
+    ]
+  }
+}

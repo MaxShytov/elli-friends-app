@@ -39,4 +39,45 @@ class AppLocalizationsRu extends AppLocalizations {
   String languageChanged(String language) {
     return 'Язык изменён на $language';
   }
+
+  @override
+  String get lessonCountingDemo => '🦋 Урок: Счёт (Демо)';
+
+  @override
+  String get loadingLesson => 'Загрузка урока...';
+
+  @override
+  String get lessonLoadError => 'Ошибка загрузки урока';
+
+  @override
+  String get tryAgain => 'Попробовать снова';
+
+  @override
+  String get noData => 'Нет данных';
+
+  @override
+  String lessonScenes(int count) {
+    return 'Сцены урока ($count)';
+  }
+
+  @override
+  String get character => 'Персонаж';
+
+  @override
+  String get pause => '⏸️ Пауза';
+
+  @override
+  String get scene => 'Сцена';
+
+  @override
+  String get startLesson => 'Начать урок';
+
+  @override
+  String get comingSoon => 'Скоро: интерактивное проигрывание урока! 🎉';
+
+  @override
+  String get topic => 'Тема';
+
+  @override
+  String get level => 'Уровень';
 }

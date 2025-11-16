@@ -1,8 +1,8 @@
 {
   "id": "lesson_counting",
-  "title": "Counting as a Game of Friends",
+  "title": "Игра друзей - Счёт",
   "topic": "counting",
-  "description": "Learn to count from 1 to 5 with Bono and Hippo",
+  "description": "Учимся считать от 1 до 5 с Боно и Гиппо",
   "difficulty": 1,
   "tags": ["counting", "numbers", "basic"],
   "scenes": [
@@ -12,25 +12,25 @@
     },
     {
       "character": "bono",
-      "dialogue": "Hello, my friends! I'm Bono the Elephant.",
+      "dialogue": "Здравствуйте, друзья! Я Боно, слон.",
       "duration": 2,
       "tone": "friendly"
     },
     {
       "character": "bono",
-      "dialogue": "Let's play the Game of Friends!",
+      "dialogue": "Давайте сыграем в Игру друзей!",
       "duration": 3,
       "tone": "excited"
     },
     {
       "character": "hippo",
-      "dialogue": "A game? I love games! What do we do, Bono?",
+      "dialogue": "Игра? Я люблю игры! Что мы будем делать, Боно?",
       "duration": 3,
       "tone": "curious"
     },
     {
       "character": "bono",
-      "dialogue": "We look around and count our animal friends.",
+      "dialogue": "Мы посмотрим вокруг и посчитаем наших друзей-животных.",
       "duration": 3,
       "tone": "calm"
     },
@@ -47,7 +47,7 @@
     },
     {
       "character": "bono",
-      "dialogue": "Can you see the butterfly? How many butterflies are there?",
+      "dialogue": "Видишь бабочку? Сколько бабочек?",
       "animals": [
         {
           "type": "butterfly",
@@ -77,7 +77,7 @@
     },
     {
       "character": "hippo",
-      "dialogue": "Look! The monkeys are here. How many monkeys can you see?",
+      "dialogue": "Смотри! Обезьянки пришли. Сколько обезьянок ты видишь?",
       "animals": [
         {
           "type": "monkey",
@@ -107,7 +107,7 @@
     },
     {
       "character": "bono",
-      "dialogue": "Do you see the birds? How many birds are there?",
+      "dialogue": "Видишь птиц? Сколько птиц?",
       "animals": [
         {
           "type": "bird",
@@ -137,7 +137,7 @@
     },
     {
       "character": "hippo",
-      "dialogue": "Oh, turtles! Count them carefully. How many do you see?",
+      "dialogue": "О, черепахи! Считай их внимательно. Сколько ты видишь?",
       "animals": [
         {
           "type": "turtle",
@@ -167,7 +167,7 @@
     },
     {
       "character": "bono",
-      "dialogue": "Listen to the frogs! How many frogs can you see?",
+      "dialogue": "Слушай лягушек! Сколько лягушек ты видишь?",
       "animals": [
         {
           "type": "frog",
@@ -186,13 +186,13 @@
     },
     {
       "character": "hippo",
-      "dialogue": "So many animals! Did you count them all?",
+      "dialogue": "Так много животных! Ты всех посчитал?",
       "duration": 4,
       "tone": "proud"
     },
     {
       "character": "bono",
-      "dialogue": "Great job, everyone! See you next time for more fun with numbers!",
+      "dialogue": "Отличная работа, друзья! До встречи в следующий раз для новых приключений с цифрами!",
       "duration": 4,
       "tone": "warm"
     },

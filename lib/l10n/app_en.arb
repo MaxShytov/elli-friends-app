@@ -45,5 +45,63 @@
         "example": "English"
       }
     }
+  },
+  "lessonCountingDemo": "🦋 Lesson: Counting (Demo)",
+  "@lessonCountingDemo": {
+    "description": "Demo counting lesson button label"
+  },
+  "loadingLesson": "Loading lesson...",
+  "@loadingLesson": {
+    "description": "Loading message for lesson page"
+  },
+  "lessonLoadError": "Error loading lesson",
+  "@lessonLoadError": {
+    "description": "Error message when lesson fails to load"
+  },
+  "tryAgain": "Try Again",
+  "@tryAgain": {
+    "description": "Try again button label"
+  },
+  "noData": "No data",
+  "@noData": {
+    "description": "No data available message"
+  },
+  "lessonScenes": "Lesson Scenes ({count})",
+  "@lessonScenes": {
+    "description": "Lesson scenes count header",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "9"
+      }
+    }
+  },
+  "character": "Character",
+  "@character": {
+    "description": "Character label"
+  },
+  "pause": "⏸️ Pause",
+  "@pause": {
+    "description": "Pause scene indicator"
+  },
+  "scene": "Scene",
+  "@scene": {
+    "description": "Generic scene label"
+  },
+  "startLesson": "Start Lesson",
+  "@startLesson": {
+    "description": "Start lesson button label"
+  },
+  "comingSoon": "Coming soon: Interactive lesson playback! 🎉",
+  "@comingSoon": {
+    "description": "Coming soon message for interactive features"
+  },
+  "topic": "Topic",
+  "@topic": {
+    "description": "Topic label"
+  },
+  "level": "Level",
+  "@level": {
+    "description": "Level/difficulty label"
   }
 }

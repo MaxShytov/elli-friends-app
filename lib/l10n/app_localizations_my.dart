@@ -39,4 +39,45 @@ class AppLocalizationsMy extends AppLocalizations {
   String languageChanged(String language) {
     return '$language သို့ ဘာသာစကား ပြောင်းလဲပြီးပါပြီ';
   }
+
+  @override
+  String get lessonCountingDemo => '🦋 Lesson: Counting (Demo)';
+
+  @override
+  String get loadingLesson => 'Loading lesson...';
+
+  @override
+  String get lessonLoadError => 'Error loading lesson';
+
+  @override
+  String get tryAgain => 'Try Again';
+
+  @override
+  String get noData => 'No data';
+
+  @override
+  String lessonScenes(int count) {
+    return 'Lesson Scenes ($count)';
+  }
+
+  @override
+  String get character => 'Character';
+
+  @override
+  String get pause => '⏸️ Pause';
+
+  @override
+  String get scene => 'Scene';
+
+  @override
+  String get startLesson => 'Start Lesson';
+
+  @override
+  String get comingSoon => 'Coming soon: Interactive lesson playback! 🎉';
+
+  @override
+  String get topic => 'Topic';
+
+  @override
+  String get level => 'Level';
 }

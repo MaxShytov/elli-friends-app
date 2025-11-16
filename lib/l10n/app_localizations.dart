@@ -165,6 +165,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Language changed to {language}'**
   String languageChanged(String language);
+
+  /// Demo counting lesson button label
+  ///
+  /// In en, this message translates to:
+  /// **'🦋 Lesson: Counting (Demo)'**
+  String get lessonCountingDemo;
+
+  /// Loading message for lesson page
+  ///
+  /// In en, this message translates to:
+  /// **'Loading lesson...'**
+  String get loadingLesson;
+
+  /// Error message when lesson fails to load
+  ///
+  /// In en, this message translates to:
+  /// **'Error loading lesson'**
+  String get lessonLoadError;
+
+  /// Try again button label
+  ///
+  /// In en, this message translates to:
+  /// **'Try Again'**
+  String get tryAgain;
+
+  /// No data available message
+  ///
+  /// In en, this message translates to:
+  /// **'No data'**
+  String get noData;
+
+  /// Lesson scenes count header
+  ///
+  /// In en, this message translates to:
+  /// **'Lesson Scenes ({count})'**
+  String lessonScenes(int count);
+
+  /// Character label
+  ///
+  /// In en, this message translates to:
+  /// **'Character'**
+  String get character;
+
+  /// Pause scene indicator
+  ///
+  /// In en, this message translates to:
+  /// **'⏸️ Pause'**
+  String get pause;
+
+  /// Generic scene label
+  ///
+  /// In en, this message translates to:
+  /// **'Scene'**
+  String get scene;
+
+  /// Start lesson button label
+  ///
+  /// In en, this message translates to:
+  /// **'Start Lesson'**
+  String get startLesson;
+
+  /// Coming soon message for interactive features
+  ///
+  /// In en, this message translates to:
+  /// **'Coming soon: Interactive lesson playback! 🎉'**
+  String get comingSoon;
+
+  /// Topic label
+  ///
+  /// In en, this message translates to:
+  /// **'Topic'**
+  String get topic;
+
+  /// Level/difficulty label
+  ///
+  /// In en, this message translates to:
+  /// **'Level'**
+  String get level;
 }
 
 class _AppLocalizationsDelegate
