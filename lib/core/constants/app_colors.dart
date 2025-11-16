@@ -1,49 +1,61 @@
 import 'package:flutter/material.dart';
 
-/// App color palette based on design system
+/// App color palette based on jungle/nature theme design system
 class AppColors {
   AppColors._();
 
-  // Primary colors
-  static const primary = Color(0xFF4A90E2); // Blue
-  static const secondary = Color(0xFFFFA726); // Orange
-  static const accent = Color(0xFF66BB6A); // Green
+  // Основные цвета (Primary colors)
+  static const Color primary = Color(0xFF4CAF50);      // Зелёный джунглей (Jungle green)
+  static const Color secondary = Color(0xFF8BC34A);    // Светло-зелёный (Light green)
+  static const Color accent = Color(0xFFFFEB3B);       // Жёлтый солнечный (Sunny yellow)
 
-  // Background colors
-  static const background = Color(0xFFFFFDE7); // Light yellow/cream
-  static const cardBackground = Color(0xFFFFFFFF); // White
+  // UI элементы (UI elements)
+  static const Color background = Color(0xFFF5F9F5);   // Светлый фон (Light background)
+  static const Color surface = Color(0xFFFFFFFF);      // Белая поверхность (White surface)
+  static const Color cardBg = Color(0xFFE8F5E9);       // Фон карточек (Card background)
 
-  // Character colors
-  static const elliBg = Color(0xFFFFF9C4); // Yellow (Elli)
-  static const bonoBg = Color(0xFFE3F2FD); // Light Blue (Bono)
-  static const hippoBg = Color(0xFFF3E5F5); // Light Purple (Hippo)
+  // Текст (Text)
+  static const Color textPrimary = Color(0xFF2E7D32);  // Тёмно-зелёный текст (Dark green text)
+  static const Color textSecondary = Color(0xFF66BB6A); // Средне-зелёный текст (Medium green text)
+
+  // Обратная связь (Feedback)
+  static const Color success = Color(0xFF4CAF50);      // Успех (Success)
+  static const Color error = Color(0xFFFF6B6B);        // Ошибка (Error)
+  static const Color warning = Color(0xFFFFA726);      // Предупреждение (Warning)
+
+  // Персонажи (Characters)
+  static const Color elli = Color(0xFF9E9E9E);         // Серый слон (Grey elephant - Elli)
+  static const Color bono = Color(0xFFBCAAA4);         // Коричневый слон (Brown elephant - Bono)
+  static const Color hippo = Color(0xFFB39DDB);        // Фиолетовый бегемот (Purple hippo)
+
+  // Дополнительные UI цвета для совместимости с существующим кодом
+  // Additional UI colors for compatibility with existing code
+
+  // Character backgrounds
+  static const Color elliBg = Color(0xFFE0E0E0);       // Светло-серый фон для Elli
+  static const Color bonoBg = Color(0xFFD7CCC8);       // Светло-коричневый фон для Bono
+  static const Color hippoBg = Color(0xFFE1BEE7);      // Светло-фиолетовый фон для Hippo
 
   // Activity button colors
-  static const watchAgain = Color(0xFFB39DDB); // Purple
-  static const tryAgain = Color(0xFFFFCC80); // Orange
-  static const askForHint = Color(0xFF81D4FA); // Light Blue
-  static const seeMyScore = Color(0xFF81C784); // Green
+  static const Color watchAgain = Color(0xFFB39DDB);   // Purple
+  static const Color tryAgain = Color(0xFFFFCC80);     // Orange
+  static const Color askForHint = Color(0xFF81D4FA);   // Light Blue
+  static const Color seeMyScore = Color(0xFF81C784);   // Green
 
   // Round button colors
-  static const speak = Color(0xFFEF9A9A); // Coral/Red
-  static const draw = Color(0xFFFFE082); // Yellow
-  static const think = Color(0xFF90CAF9); // Blue
+  static const Color speak = Color(0xFFEF9A9A);        // Coral/Red
+  static const Color draw = Color(0xFFFFE082);         // Yellow
+  static const Color think = Color(0xFF90CAF9);        // Blue
 
   // Border colors
-  static const borderPrimary = Color(0xFF1E3A8A); // Dark blue
-  static const borderSecondary = Color(0xFFFFA726); // Orange
+  static const Color borderPrimary = Color(0xFF2E7D32); // Dark green
+  static const Color borderSecondary = Color(0xFF8BC34A); // Light green
 
-  // Feedback colors
-  static const correct = Color(0xFF4CAF50); // Green
-  static const incorrect = Color(0xFFFF9800); // Orange
-  static const hint = Color(0xFF2196F3); // Blue
+  // Feedback colors (extended)
+  static const Color correct = success;                 // Правильно (Correct)
+  static const Color incorrect = error;                 // Неправильно (Incorrect)
+  static const Color hint = Color(0xFF2196F3);         // Подсказка (Hint - Blue)
 
-  // Text colors
-  static const textPrimary = Color(0xFF1E3A8A); // Dark blue
-  static const textSecondary = Color(0xFF5C6BC0); // Medium blue
-  static const textLight = Color(0xFFFFFFFF); // White
-
-  // Elli character colors
-  static const elliBlue = Color(0xFF7DD3FC); // Light blue for Elli
-  static const elliDarkBlue = Color(0xFF1E3A8A); // Dark blue outline
+  // Text colors (extended)
+  static const Color textLight = Color(0xFFFFFFFF);    // Белый текст (White text)
 }
