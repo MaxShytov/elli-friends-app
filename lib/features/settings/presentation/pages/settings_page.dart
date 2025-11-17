@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/constants/supported_languages.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_dimensions.dart';
@@ -137,6 +138,17 @@ class SettingsPage extends StatelessWidget {
                 const ListTile(
                   title: Text('Voice'),
                   trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                ),
+                ListTile(
+                  leading: Icon(
+                    Icons.mic,
+                    color: AppColors.primary,
+                  ),
+                  title: Text(l10n.testVoice),
+                  trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                  onTap: () {
+                    context.push('/tts-test');
+                  },
                 ),
               ],
             ),

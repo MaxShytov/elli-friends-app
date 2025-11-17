@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import '../bloc/lesson_bloc.dart';
+import '../widgets/scene_widget.dart';
+import '../widgets/answer_buttons.dart';
+import '../widgets/confetti_celebration.dart';
+import '../widgets/wrong_answer_animation.dart';
+import '../widgets/lesson_intro_widget.dart';
 import '../../data/datasources/lesson_local_data_source.dart';
 import '../../data/repositories/lesson_repository_impl.dart';
 import '../../domain/usecases/get_lesson.dart';
+import '../../../../core/constants/app_dimensions.dart';
 import '../../../../core/constants/app_colors.dart';
+import '../../../../core/services/audio_manager.dart';
 import '../../../../l10n/app_localizations.dart';
 
-/// Lesson page for displaying individual lessons
-class LessonPage extends StatefulWidget {
+class LessonPage extends StatelessWidget {
   final String lessonId;
 
   const LessonPage({
@@ -15,244 +24,411 @@ class LessonPage extends StatefulWidget {
   });
 
   @override
-  State<LessonPage> createState() => _LessonPageState();
+  Widget build(BuildContext context) {
+    final currentLocale = Localizations.localeOf(context).languageCode;
+    final dataSource = LessonLocalDataSourceImpl();
+    final repository = LessonRepositoryImpl(dataSource, languageCode: currentLocale);
+    final getLesson = GetLesson(repository);
+
+    return BlocProvider(
+      create: (context) => LessonBloc(getLesson: getLesson)..add(LoadLesson(lessonId)),
+      child: const LessonView(),
+    );
+  }
 }
 
-class _LessonPageState extends State<LessonPage> {
-  GetLesson? _getLesson;
-  bool _isLoading = true;
-  String? _error;
-  Map<String, dynamic>? _lessonData;
-  bool _isInitialized = false;
+class LessonView extends StatefulWidget {
+  const LessonView({super.key});
+
+  @override
+  State<LessonView> createState() => _LessonViewState();
+}
+
+class _LessonViewState extends State<LessonView> {
+  final _audioManager = AudioManager();
+  bool _audioInitialized = false;
+  bool _showConfetti = false;
+  bool _showNextButton = false;
+  bool _showWrongAnimation = false;
+  bool _showTryAgain = false;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-
-    // Initialize or reload lesson if locale changes
-    final currentLocale = Localizations.localeOf(context).languageCode;
-    final dataSource = LessonLocalDataSourceImpl();
-    final repository = LessonRepositoryImpl(dataSource, languageCode: currentLocale);
-    _getLesson = GetLesson(repository);
-
-    // Load lesson only on first initialization
-    if (!_isInitialized) {
-      _isInitialized = true;
-      _loadLesson();
+    if (!_audioInitialized) {
+      _initializeAudio();
+      _audioInitialized = true;
     }
   }
 
-  Future<void> _loadLesson() async {
-    try {
-      setState(() {
-        _isLoading = true;
-        _error = null;
-      });
-
-      final lesson = await _getLesson!(widget.lessonId);
-
-      setState(() {
-        _lessonData = {
-          'id': lesson.id,
-          'title': lesson.title,
-          'topic': lesson.topic,
-          'description': lesson.description,
-          'difficulty': lesson.difficulty,
-          'tags': lesson.tags,
-          'sceneCount': lesson.scenes.length,
-          'scenes': lesson.scenes,
-        };
-        _isLoading = false;
-      });
-    } catch (e) {
-      setState(() {
-        _error = e.toString();
-        _isLoading = false;
-      });
-    }
+  Future<void> _initializeAudio() async {
+    final locale = Localizations.localeOf(context).languageCode;
+    await _audioManager.initialize(languageCode: locale);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_lessonData?['title'] ?? 'Lesson'),
+        title: Text(AppLocalizations.of(context)!.lesson),
         backgroundColor: AppColors.primary,
         foregroundColor: Colors.white,
+        leading: IconButton(
+          icon: const Icon(Icons.close),
+          onPressed: () => context.pop(),
+        ),
       ),
-      body: _buildBody(),
+      body: BlocConsumer<LessonBloc, LessonState>(
+        listener: (context, state) {
+          if (state is LessonLoaded) {
+            _playScene(state.currentScene);
+            // Сбрасываем флаги при загрузке новой сцены
+            setState(() {
+              _showNextButton = false;
+              _showConfetti = false;
+              _showWrongAnimation = false;
+              _showTryAgain = false;
+            });
+          } else if (state is LessonAnswered) {
+            _playFeedback(state.isCorrect);
+
+            if (state.isCorrect) {
+              // Показываем конфетти при правильном ответе
+              setState(() {
+                _showConfetti = true;
+              });
+
+              // Через 3 секунды показываем кнопку "Дальше"
+              Future.delayed(const Duration(seconds: 3)).then((_) {
+                if (mounted) {
+                  setState(() {
+                    _showNextButton = true;
+                  });
+                }
+              });
+            } else {
+              // Показываем анимацию неправильного ответа
+              setState(() {
+                _showWrongAnimation = true;
+              });
+
+              // Через 0.6 секунды показываем сообщение "Попробуй ещё раз"
+              Future.delayed(const Duration(milliseconds: 600)).then((_) {
+                if (mounted) {
+                  setState(() {
+                    _showWrongAnimation = false;
+                    _showTryAgain = true;
+                  });
+                }
+              });
+            }
+          } else if (state is LessonCompleted) {
+            _showCompletionDialog(context, state);
+          }
+        },
+        builder: (context, state) {
+          if (state is LessonLoading) {
+            return const Center(
+              child: CircularProgressIndicator(
+                color: AppColors.primary,
+              ),
+            );
+          }
+
+          if (state is LessonError) {
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.error_outline,
+                      size: 64,
+                      color: AppColors.incorrect,
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      AppLocalizations.of(context)!.lessonLoadError,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      state.message,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(color: Colors.grey),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+
+          if (state is LessonIntro) {
+            return Scaffold(
+              appBar: AppBar(
+                title: Text(AppLocalizations.of(context)!.lesson),
+                backgroundColor: AppColors.primary,
+                foregroundColor: Colors.white,
+                leading: IconButton(
+                  icon: const Icon(Icons.close),
+                  onPressed: () => context.pop(),
+                ),
+              ),
+              body: LessonIntroWidget(
+                lesson: state.lesson,
+                onStart: () {
+                  context.read<LessonBloc>().add(StartLesson());
+                },
+              ),
+            );
+          }
+
+          if (state is LessonLoaded || state is LessonAnswered) {
+            final loadedState = state is LessonLoaded
+              ? state
+              : (state as LessonAnswered).loadedState;
+            final scene = loadedState.currentScene;
+
+            return Stack(
+              fit: StackFit.expand,
+              children: [
+                SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.all(AppDimensions.paddingLarge),
+                    child: Column(
+                      children: [
+                        // Счетчик шагов
+                        Text(
+                          '${loadedState.currentSceneIndex + 1} / ${loadedState.lesson.scenes.length}',
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.primary,
+                          ),
+                        ),
+                        const SizedBox(height: AppDimensions.paddingSmall),
+                        // Прогресс
+                        LinearProgressIndicator(
+                          value: (loadedState.currentSceneIndex + 1) /
+                                 loadedState.lesson.scenes.length,
+                          backgroundColor: Colors.grey[200],
+                          valueColor: const AlwaysStoppedAnimation<Color>(AppColors.correct),
+                          minHeight: 8,
+                        ),
+
+                        const SizedBox(height: AppDimensions.paddingLarge),
+
+                        // Сцена
+                        Expanded(
+                          child: Center(
+                            child: SceneWidget(
+                              scene: scene,
+                            ),
+                          ),
+                        ),
+
+                        // Обратная связь на ответ
+                        if (state is LessonAnswered) ...[
+                          const SizedBox(height: AppDimensions.paddingLarge),
+                          _buildAnswerFeedback(state.isCorrect),
+                        ],
+
+                        // Кнопки ответа (если это вопрос)
+                        if (scene.waitForAnswer) ...[
+                          const SizedBox(height: AppDimensions.paddingLarge),
+                          AnswerButtons(
+                            maxNumber: 5,
+                            onAnswer: (answer) {
+                              context.read<LessonBloc>().add(
+                                AnswerQuestion(answer),
+                              );
+                            },
+                            selectedAnswer: state is LessonAnswered
+                              ? state.selectedAnswer
+                              : null,
+                            correctAnswer: state is LessonAnswered
+                              ? scene.correctAnswer
+                              : null,
+                          ),
+                        ],
+
+                        // Навигация
+                        if (state is LessonLoaded) ...[
+                          const SizedBox(height: AppDimensions.paddingLarge),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              // Кнопка "Назад" (показывается, если не на первой сцене)
+                              if (loadedState.currentSceneIndex > 0) ...[
+                                OutlinedButton(
+                                  onPressed: () {
+                                    context.read<LessonBloc>().add(PreviousScene());
+                                  },
+                                  style: OutlinedButton.styleFrom(
+                                    foregroundColor: AppColors.primary,
+                                    side: const BorderSide(color: AppColors.primary, width: 2),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 32,
+                                      vertical: 16,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    AppLocalizations.of(context)!.back,
+                                    style: const TextStyle(fontSize: 18),
+                                  ),
+                                ),
+                                const SizedBox(width: AppDimensions.paddingMedium),
+                              ],
+                              // Кнопка "Дальше"
+                              ElevatedButton(
+                                onPressed: () {
+                                  context.read<LessonBloc>().add(NextScene());
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: AppColors.primary,
+                                  foregroundColor: Colors.white,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 32,
+                                    vertical: 16,
+                                  ),
+                                ),
+                                child: Text(
+                                  AppLocalizations.of(context)!.next,
+                                  style: const TextStyle(fontSize: 18),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+
+                        // Кнопки "Назад" и "Дальше" после правильного ответа
+                        if (state is LessonAnswered && _showNextButton) ...[
+                          const SizedBox(height: AppDimensions.paddingLarge),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              // Кнопка "Назад" (показывается, если не на первой сцене)
+                              if (loadedState.currentSceneIndex > 0) ...[
+                                OutlinedButton(
+                                  onPressed: () {
+                                    // Сбрасываем флаги при возврате назад
+                                    setState(() {
+                                      _showConfetti = false;
+                                      _showNextButton = false;
+                                    });
+                                    context.read<LessonBloc>().add(PreviousScene());
+                                  },
+                                  style: OutlinedButton.styleFrom(
+                                    foregroundColor: AppColors.primary,
+                                    side: const BorderSide(color: AppColors.primary, width: 2),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 32,
+                                      vertical: 16,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    AppLocalizations.of(context)!.back,
+                                    style: const TextStyle(fontSize: 18),
+                                  ),
+                                ),
+                                const SizedBox(width: AppDimensions.paddingMedium),
+                              ],
+                              // Кнопка "Дальше"
+                              ElevatedButton(
+                                onPressed: () {
+                                  context.read<LessonBloc>().add(NextScene());
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: AppColors.primary,
+                                  foregroundColor: Colors.white,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 48,
+                                    vertical: 20,
+                                  ),
+                                ),
+                                child: Text(
+                                  AppLocalizations.of(context)!.next,
+                                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ],
+                    ),
+                  ),
+                ),
+
+                // Слой конфетти поверх всего
+                if (_showConfetti)
+                  Positioned.fill(
+                    child: IgnorePointer(
+                      child: ConfettiCelebration(
+                        duration: const Duration(hours: 1), // Очень долго, пока не остановим вручную
+                        onComplete: () {
+                          // Не останавливаем автоматически
+                        },
+                      ),
+                    ),
+                  ),
+
+                // Сообщение "Попробуй ещё раз" при неправильном ответе
+                if (_showTryAgain)
+                  Positioned.fill(
+                    child: Center(
+                      child: TryAgainMessage(
+                        onTryAgain: () {
+                          // Скрываем сообщение и возвращаемся в состояние LessonLoaded
+                          setState(() {
+                            _showTryAgain = false;
+                          });
+                          context.read<LessonBloc>().add(RetryQuestion());
+                        },
+                        onSkip: () {
+                          // Скрываем сообщение и переходим к следующей сцене
+                          setState(() {
+                            _showTryAgain = false;
+                          });
+                          context.read<LessonBloc>().add(NextScene());
+                        },
+                      ),
+                    ),
+                  ),
+              ],
+            );
+          }
+
+          return const SizedBox();
+        },
+      ),
     );
   }
 
-  Widget _buildBody() {
-    if (_isLoading) {
-      return const Center(
-        child: CircularProgressIndicator(
-          color: AppColors.primary,
-        ),
-      );
-    }
-
-    if (_error != null) {
-      return Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(
-                Icons.error_outline,
-                size: 64,
-                color: AppColors.incorrect,
-              ),
-              const SizedBox(height: 16),
-              Text(
-                AppLocalizations.of(context)!.lessonLoadError,
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                _error!,
-                textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.grey),
-              ),
-              const SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: _loadLesson,
-                child: Text(AppLocalizations.of(context)!.tryAgain),
-              ),
-            ],
-          ),
-        ),
-      );
-    }
-
-    if (_lessonData == null) {
-      return Center(
-        child: Text(AppLocalizations.of(context)!.noData),
-      );
-    }
-
-    return SingleChildScrollView(
+  Widget _buildAnswerFeedback(bool isCorrect) {
+    return Container(
       padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      decoration: BoxDecoration(
+        color: isCorrect ? AppColors.correct : AppColors.incorrect,
+        borderRadius: BorderRadius.circular(AppDimensions.radiusMedium),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Lesson header
-          Card(
-            color: AppColors.cardBg,
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    _lessonData!['title'],
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.primary,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    _lessonData!['description'],
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      _buildInfoChip(
-                        '${AppLocalizations.of(context)!.topic}: ${_lessonData!['topic']}',
-                        Icons.book,
-                      ),
-                      const SizedBox(width: 8),
-                      _buildInfoChip(
-                        '${AppLocalizations.of(context)!.level}: ${_lessonData!['difficulty']}',
-                        Icons.star,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Wrap(
-                    spacing: 8,
-                    children: (_lessonData!['tags'] as List<String>)
-                        .map((tag) => Chip(
-                              label: Text(tag),
-                              backgroundColor: AppColors.correct.withValues(alpha: 0.2),
-                            ))
-                        .toList(),
-                  ),
-                ],
-              ),
-            ),
+          Icon(
+            isCorrect ? Icons.check_circle : Icons.cancel,
+            color: Colors.white,
+            size: 32,
           ),
-
-          const SizedBox(height: 24),
-
-          // Scenes preview
+          const SizedBox(width: 12),
           Text(
-            AppLocalizations.of(context)!.lessonScenes(_lessonData!['sceneCount'] as int),
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+            isCorrect
+              ? AppLocalizations.of(context)!.correct
+              : AppLocalizations.of(context)!.tryAgain,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 16),
-
-          ...(_lessonData!['scenes'] as List).asMap().entries.map((entry) {
-            final index = entry.key;
-            final scene = entry.value;
-            return Card(
-              margin: const EdgeInsets.only(bottom: 12),
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: AppColors.primary,
-                  child: Text(
-                    '${index + 1}',
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                ),
-                title: Text(
-                  scene.dialogue ?? scene.character ?? AppLocalizations.of(context)!.scene,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                subtitle: scene.character != null
-                    ? Text('${AppLocalizations.of(context)!.character}: ${scene.character}')
-                    : scene.isPause
-                        ? Text(AppLocalizations.of(context)!.pause)
-                        : null,
-                trailing: scene.animals != null && scene.animals!.isNotEmpty
-                    ? Text(
-                        scene.animals!.map((a) => a.emoji).join(' '),
-                        style: const TextStyle(fontSize: 24),
-                      )
-                    : null,
-              ),
-            );
-          }),
-
-          const SizedBox(height: 24),
-
-          // Start lesson button
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton.icon(
-              onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(AppLocalizations.of(context)!.comingSoon),
-                    backgroundColor: AppColors.correct,
-                  ),
-                );
-              },
-              icon: const Icon(Icons.play_circle_filled),
-              label: Text(AppLocalizations.of(context)!.startLesson),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.correct,
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                textStyle: const TextStyle(fontSize: 18),
-              ),
             ),
           ),
         ],
@@ -260,11 +436,86 @@ class _LessonPageState extends State<LessonPage> {
     );
   }
 
-  Widget _buildInfoChip(String label, IconData icon) {
-    return Chip(
-      avatar: Icon(icon, size: 16, color: AppColors.primary),
-      label: Text(label),
-      backgroundColor: Colors.white,
+  Future<void> _playScene(scene) async {
+    if (scene.dialogue != null && scene.character != null) {
+      await _audioManager.speakDialogue(
+        scene.dialogue!,
+        character: scene.character!,
+      );
+    }
+  }
+
+  Future<void> _playFeedback(bool isCorrect) async {
+    if (isCorrect) {
+      await _audioManager.playSfx(SoundEffect.wow);
+    } else {
+      await _audioManager.playSfx(SoundEffect.wrong);
+    }
+  }
+
+  void _showCompletionDialog(BuildContext context, LessonCompleted state) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (dialogContext) => AlertDialog(
+        title: Row(
+          children: [
+            const Text('🎉 '),
+            Text(AppLocalizations.of(context)!.excellent),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              AppLocalizations.of(context)!.youEarnedStars(state.stars),
+              style: const TextStyle(fontSize: 18),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              '${state.correctAnswers} ${AppLocalizations.of(context)!.outOf} ${state.totalQuestions} ${AppLocalizations.of(context)!.correct}',
+              style: const TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                3,
+                (index) => Text(
+                  index < state.stars ? '⭐' : '☆',
+                  style: const TextStyle(fontSize: 32),
+                ),
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop(); // Закрываем диалог
+              context.pop(); // Возвращаемся на home
+            },
+            child: Text(AppLocalizations.of(context)!.done),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop(); // Закрываем диалог
+              context.read<LessonBloc>().add(ResetLesson());
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.primary,
+              foregroundColor: Colors.white,
+            ),
+            child: Text(AppLocalizations.of(context)!.again),
+          ),
+        ],
+      ),
     );
+  }
+
+  @override
+  void dispose() {
+    _audioManager.stopSpeaking();
+    super.dispose();
   }
 }

@@ -41,43 +41,107 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get lessonCountingDemo => '🦋 Lesson: Counting (Demo)';
+  String get lessonCountingDemo => '🦋 Leçon: Compter (Démo)';
 
   @override
-  String get loadingLesson => 'Loading lesson...';
+  String get loadingLesson => 'Chargement de la leçon...';
 
   @override
-  String get lessonLoadError => 'Error loading lesson';
+  String get lessonLoadError => 'Erreur de chargement de la leçon';
 
   @override
-  String get tryAgain => 'Try Again';
+  String get tryAgain => 'Réessayer';
 
   @override
-  String get noData => 'No data';
+  String get skip => 'Passer';
+
+  @override
+  String get noData => 'Aucune donnée';
 
   @override
   String lessonScenes(int count) {
-    return 'Lesson Scenes ($count)';
+    return 'Scènes de la leçon ($count)';
   }
 
   @override
-  String get character => 'Character';
+  String get character => 'Personnage';
 
   @override
   String get pause => '⏸️ Pause';
 
   @override
-  String get scene => 'Scene';
+  String get scene => 'Scène';
 
   @override
-  String get startLesson => 'Start Lesson';
+  String get startLesson => 'Commencer la leçon';
 
   @override
-  String get comingSoon => 'Coming soon: Interactive lesson playback! 🎉';
+  String get comingSoon => 'Bientôt: Lecture interactive de la leçon! 🎉';
 
   @override
-  String get topic => 'Topic';
+  String get topic => 'Sujet';
 
   @override
-  String get level => 'Level';
+  String get level => 'Niveau';
+
+  @override
+  String get lesson => 'Leçon';
+
+  @override
+  String get next => 'Suivant';
+
+  @override
+  String get back => 'Retour';
+
+  @override
+  String get correct => 'Correct!';
+
+  @override
+  String get excellent => 'Excellent!';
+
+  @override
+  String youEarnedStars(int stars) {
+    return 'Vous avez gagné $stars étoiles!';
+  }
+
+  @override
+  String get outOf => 'sur';
+
+  @override
+  String get done => 'Terminé';
+
+  @override
+  String get again => 'Réessayer';
+
+  @override
+  String get elliGreeting => 'Salut! Je suis Elli l\'Éléphant!';
+
+  @override
+  String get letsTogether => 'Apprenons ensemble!';
+
+  @override
+  String get chooseActivity => 'Choisis une activité!';
+
+  @override
+  String get happyToSee => 'Je suis si heureuse de te voir!';
+
+  @override
+  String get testVoice => 'Tester la voix';
+
+  @override
+  String get start => 'Commencer';
+
+  @override
+  String get difficultyEasy => 'Facile';
+
+  @override
+  String get difficultyMedium => 'Moyen';
+
+  @override
+  String get difficultyHard => 'Difficile';
+
+  @override
+  String difficultyLevel(int level) {
+    return 'Niveau $level';
+  }
 }

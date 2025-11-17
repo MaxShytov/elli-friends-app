@@ -53,6 +53,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get tryAgain => 'Попробовать снова';
 
   @override
+  String get skip => 'Пропустить';
+
+  @override
   String get noData => 'Нет данных';
 
   @override
@@ -80,4 +83,65 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get level => 'Уровень';
+
+  @override
+  String get lesson => 'Урок';
+
+  @override
+  String get next => 'Дальше';
+
+  @override
+  String get back => 'Назад';
+
+  @override
+  String get correct => 'Правильно!';
+
+  @override
+  String get excellent => 'Отлично!';
+
+  @override
+  String youEarnedStars(int stars) {
+    return 'Вы заработали $stars звёзд!';
+  }
+
+  @override
+  String get outOf => 'из';
+
+  @override
+  String get done => 'Готово';
+
+  @override
+  String get again => 'Ещё раз';
+
+  @override
+  String get elliGreeting => 'Привет! Я Элли, слониха!';
+
+  @override
+  String get letsTogether => 'Давай учиться вместе!';
+
+  @override
+  String get chooseActivity => 'Выбери занятие!';
+
+  @override
+  String get happyToSee => 'Я так рада тебя видеть!';
+
+  @override
+  String get testVoice => 'Тест голоса';
+
+  @override
+  String get start => 'Начать';
+
+  @override
+  String get difficultyEasy => 'Легко';
+
+  @override
+  String get difficultyMedium => 'Средне';
+
+  @override
+  String get difficultyHard => 'Сложно';
+
+  @override
+  String difficultyLevel(int level) {
+    return 'Уровень $level';
+  }
 }

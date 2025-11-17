@@ -43,41 +43,47 @@ class ActivityCard extends StatelessWidget {
           padding: const EdgeInsets.all(AppDimensions.paddingLarge),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
             children: [
               // Emoji
               Opacity(
                 opacity: activity.isLocked ? 0.3 : 1.0,
                 child: Text(
                   activity.emoji,
-                  style: const TextStyle(fontSize: 48),
+                  style: const TextStyle(fontSize: 40),
                 ),
               ),
 
-              const SizedBox(height: AppDimensions.paddingSmall),
+              const SizedBox(height: 6),
 
               // Title (localized)
-              Text(
-                _getLocalizedTitle(context, activity.title),
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: activity.isLocked
-                          ? Colors.grey
-                          : AppColors.textPrimary,
-                    ),
-                textAlign: TextAlign.center,
+              Flexible(
+                child: Text(
+                  _getLocalizedTitle(context, activity.title),
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: activity.isLocked
+                            ? Colors.grey
+                            : AppColors.textPrimary,
+                        fontSize: 14,
+                      ),
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
 
               // Lock icon if locked
               if (activity.isLocked) ...[
-                const SizedBox(height: AppDimensions.paddingSmall),
+                const SizedBox(height: 4),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.lock, size: 16, color: Colors.grey),
+                    const Icon(Icons.lock, size: 14, color: Colors.grey),
                     const SizedBox(width: 4),
                     Text(
                       '${activity.requiredStars} ⭐',
                       style: const TextStyle(
-                        fontSize: 12,
+                        fontSize: 11,
                         color: Colors.grey,
                       ),
                     ),

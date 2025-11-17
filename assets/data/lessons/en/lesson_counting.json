@@ -7,10 +7,6 @@
   "tags": ["counting", "numbers", "basic"],
   "scenes": [
     {
-      "duration": 5,
-      "tone": "gentle"
-    },
-    {
       "character": "bono",
       "dialogue": "Hello, my friends! I'm Bono the Elephant.",
       "duration": 2,
@@ -35,19 +31,8 @@
       "tone": "calm"
     },
     {
-      "duration": 2,
-      "tone": "gentle",
-      "animals": [
-        {
-          "type": "butterfly",
-          "emoji": "🦋",
-          "count": 1
-        }
-      ]
-    },
-    {
       "character": "bono",
-      "dialogue": "Can you see the butterfly? How many butterflies are there?",
+      "dialogue": "Look, very beautiful butterflies have flown to us.",
       "animals": [
         {
           "type": "butterfly",
@@ -55,29 +40,42 @@
           "count": 1
         }
       ],
-      "duration": 5,
-      "tone": "question",
-      "isQuestion": true
+      "duration": 3,
+      "tone": "excited",
+      "animation": "flying_butterflies"
     },
     {
-      "isPause": true,
+      "character": "bono",
+      "dialogue": "How many butterflies?",
+      "animals": [
+        {
+          "type": "butterfly",
+          "emoji": "🦋",
+          "count": 1
+        }
+      ],
+      "isQuestion": true,
       "correctAnswer": 1,
-      "waitForAnswer": true
+      "waitForAnswer": true,
+      "animation": "flying_butterflies"
     },
     {
+      "character": "bono",
+      "dialogue": "Playful monkeys have climbed down from the trees.",
+      "animals": [
+        {
+          "type": "monkey",
+          "emoji": "🐒",
+          "count": 4
+        }
+      ],
       "duration": 3,
       "tone": "playful",
-      "animals": [
-        {
-          "type": "monkey",
-          "emoji": "🐒",
-          "count": 4
-        }
-      ]
+      "animation": "playful_monkeys"
     },
     {
-      "character": "hippo",
-      "dialogue": "Look! The monkeys are here. How many monkeys can you see?",
+      "character": "bono",
+      "dialogue": "How many monkeys?",
       "animals": [
         {
           "type": "monkey",
@@ -85,29 +83,14 @@
           "count": 4
         }
       ],
-      "duration": 6,
-      "tone": "enthusiastic",
-      "isQuestion": true
-    },
-    {
-      "isPause": true,
+      "isQuestion": true,
       "correctAnswer": 4,
-      "waitForAnswer": true
-    },
-    {
-      "duration": 2,
-      "tone": "gentle",
-      "animals": [
-        {
-          "type": "bird",
-          "emoji": "🐦",
-          "count": 2
-        }
-      ]
+      "waitForAnswer": true,
+      "animation": "playful_monkeys"
     },
     {
       "character": "bono",
-      "dialogue": "Do you see the birds? How many birds are there?",
+      "dialogue": "Listen to the birds singing merrily on the branches.",
       "animals": [
         {
           "type": "bird",
@@ -115,117 +98,65 @@
           "count": 2
         }
       ],
-      "duration": 6,
+      "duration": 3,
       "tone": "gentle",
-      "isQuestion": true
+      "animation": "singing_birds"
     },
     {
-      "isPause": true,
+      "character": "bono",
+      "dialogue": "How many birds?",
+      "animals": [
+        {
+          "type": "bird",
+          "emoji": "🐦",
+          "count": 2
+        }
+      ],
+      "isQuestion": true,
       "correctAnswer": 2,
-      "waitForAnswer": true
-    },
-    {
-      "duration": 2,
-      "tone": "calm",
-      "animals": [
-        {
-          "type": "turtle",
-          "emoji": "🐢",
-          "count": 5
-        }
-      ]
-    },
-    {
-      "character": "hippo",
-      "dialogue": "Oh, turtles! Count them carefully. How many do you see?",
-      "animals": [
-        {
-          "type": "turtle",
-          "emoji": "🐢",
-          "count": 5
-        }
-      ],
-      "duration": 7,
-      "tone": "calm",
-      "isQuestion": true
-    },
-    {
-      "isPause": true,
-      "correctAnswer": 5,
-      "waitForAnswer": true
-    },
-    {
-      "duration": 2,
-      "tone": "playful",
-      "animals": [
-        {
-          "type": "frog",
-          "emoji": "🐸",
-          "count": 3
-        }
-      ]
+      "waitForAnswer": true,
+      "animation": "singing_birds"
     },
     {
       "character": "bono",
-      "dialogue": "Listen to the frogs! How many frogs can you see?",
+      "dialogue": "Look, slow turtles are basking in the sun.",
       "animals": [
         {
-          "type": "frog",
-          "emoji": "🐸",
-          "count": 3
+          "type": "turtle",
+          "emoji": "🐢",
+          "count": 5
         }
       ],
-      "duration": 6,
-      "tone": "friendly",
-      "isQuestion": true
+      "duration": 3,
+      "tone": "calm",
+      "animation": "slow_turtles"
     },
     {
-      "isPause": true,
-      "correctAnswer": 3,
-      "waitForAnswer": true
+      "character": "bono",
+      "dialogue": "How many turtles?",
+      "animals": [
+        {
+          "type": "turtle",
+          "emoji": "🐢",
+          "count": 5
+        }
+      ],
+      "isQuestion": true,
+      "correctAnswer": 5,
+      "waitForAnswer": true,
+      "animation": "slow_turtles"
     },
     {
       "character": "hippo",
-      "dialogue": "So many animals! Did you count them all?",
+      "dialogue": "So many animals! You counted them all?",
       "duration": 4,
       "tone": "proud"
     },
     {
       "character": "bono",
-      "dialogue": "Great job, everyone! See you next time for more fun with numbers!",
+      "dialogue": "Great! See you next time!",
       "duration": 4,
       "tone": "warm"
-    },
-    {
-      "duration": 5,
-      "tone": "joyful",
-      "animals": [
-        {
-          "type": "butterfly",
-          "emoji": "🦋",
-          "count": 1
-        },
-        {
-          "type": "monkey",
-          "emoji": "🐒",
-          "count": 4
-        },
-        {
-          "type": "bird",
-          "emoji": "🐦",
-          "count": 2
-        },
-        {
-          "type": "turtle",
-          "emoji": "🐢",
-          "count": 5
-        },
-        {
-          "type": "frog",
-          "emoji": "🐸",
-          "count": 3
-        }
-      ]
     }
   ]
 }

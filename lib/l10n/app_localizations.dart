@@ -190,6 +190,12 @@ abstract class AppLocalizations {
   /// **'Try Again'**
   String get tryAgain;
 
+  /// Skip button label
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
   /// No data available message
   ///
   /// In en, this message translates to:
@@ -243,6 +249,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Level'**
   String get level;
+
+  /// Lesson label
+  ///
+  /// In en, this message translates to:
+  /// **'Lesson'**
+  String get lesson;
+
+  /// Next button label
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// Back button label
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
+  /// Correct answer feedback
+  ///
+  /// In en, this message translates to:
+  /// **'Correct!'**
+  String get correct;
+
+  /// Completion dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Excellent!'**
+  String get excellent;
+
+  /// Stars earned message
+  ///
+  /// In en, this message translates to:
+  /// **'You earned {stars} stars!'**
+  String youEarnedStars(int stars);
+
+  /// Out of separator for scores
+  ///
+  /// In en, this message translates to:
+  /// **'out of'**
+  String get outOf;
+
+  /// Done button label
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
+  /// Play again button label
+  ///
+  /// In en, this message translates to:
+  /// **'Try Again'**
+  String get again;
+
+  /// Elli's greeting on home screen
+  ///
+  /// In en, this message translates to:
+  /// **'Hi! I\'m Elli the Elephant!'**
+  String get elliGreeting;
+
+  /// Elli's encouraging message
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s learn together!'**
+  String get letsTogether;
+
+  /// Prompt to choose an activity
+  ///
+  /// In en, this message translates to:
+  /// **'Choose an activity!'**
+  String get chooseActivity;
+
+  /// Elli's happy greeting
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m so happy to see you!'**
+  String get happyToSee;
+
+  /// Button to test TTS voice
+  ///
+  /// In en, this message translates to:
+  /// **'Test Voice'**
+  String get testVoice;
+
+  /// Start button label for lessons
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get start;
+
+  /// Easy difficulty level
+  ///
+  /// In en, this message translates to:
+  /// **'Easy'**
+  String get difficultyEasy;
+
+  /// Medium difficulty level
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get difficultyMedium;
+
+  /// Hard difficulty level
+  ///
+  /// In en, this message translates to:
+  /// **'Hard'**
+  String get difficultyHard;
+
+  /// Generic difficulty level
+  ///
+  /// In en, this message translates to:
+  /// **'Level {level}'**
+  String difficultyLevel(int level);
 }
 
 class _AppLocalizationsDelegate

@@ -4,512 +4,159 @@
   "topic": "counting",
   "description": "Bono နှင့် Hippo နှင့်အတူ ၁ မှ ၅ အထိ ရေတွက်ရန် လေ့လာပါ",
   "difficulty": 1,
-  "targetAge": "3-7",
-  "estimatedDuration": 95,
+  "tags": ["counting", "numbers", "basic"],
   "scenes": [
     {
-      "id": "scene_intro",
-      "timeRange": "00:00-00:05",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "jungle_morning",
-      "animation": "bono_enters",
-      "sound": "jungle_ambience",
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "နံနက်ခင်း သစ်တောမြင်ကွင်း။ Bono လမ်းလျှောက်ဝင်လာပြီး လက်ဝှေ့သည်။"
-    },
-    {
-      "id": "scene_greeting",
-      "timeRange": "00:05-00:07",
-      "duration": 2,
       "character": "bono",
       "dialogue": "မင်္ဂလာပါ၊ ကျွန်တော့်သူငယ်ချင်းများ! ကျွန်တော်က Bono ဆင်ပါ။",
-      "tone": "friendly",
-      "visual": "bono_wave",
-      "animation": "wave",
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Bono နွေးထွေးစွာ နှုတ်ဆက်သည်"
+      "duration": 2,
+      "tone": "friendly"
     },
     {
-      "id": "scene_game_intro",
-      "timeRange": "00:07-00:10",
-      "duration": 3,
       "character": "bono",
       "dialogue": "သူငယ်ချင်းများရဲ့ဂိမ်း ကစားကြရအောင်!",
-      "tone": "excited",
-      "visual": "bono_excited",
-      "animation": "jump",
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Bono ပျော်ရွှင်စွာ ဂိမ်းကို အကြံပြုသည်"
+      "duration": 3,
+      "tone": "excited"
     },
     {
-      "id": "scene_hippo_curious",
-      "timeRange": "00:10-00:13",
-      "duration": 3,
       "character": "hippo",
       "dialogue": "ဂိမ်းလား? ကျွန်တော် ဂိမ်းတွေကို ကြိုက်တယ်! ဘာလုပ်မလဲ Bono?",
-      "tone": "curious",
-      "visual": "hippo_curious",
-      "animation": "bounce",
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Hippo သိလိုစိတ်ပြင်းပြီး စိတ်လှုပ်ရှားနေသည်"
+      "duration": 3,
+      "tone": "curious"
     },
     {
-      "id": "scene_game_explanation",
-      "timeRange": "00:13-00:16",
-      "duration": 3,
       "character": "bono",
       "dialogue": "ကျွန်တော်တို့ ပတ်ဝန်းကျင်ကို ကြည့်ပြီး တိရစ္ဆာန်သူငယ်ချင်းတွေကို ရေတွက်ကြမယ်။",
-      "tone": "calm",
-      "visual": "bono_explain",
-      "animation": null,
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Bono တည်ငြိမ်စွာ စည်းမျဉ်းများကို ရှင်းပြသည်"
-    },
-    {
-      "id": "scene_butterfly_appears",
-      "timeRange": "00:16-00:18",
-      "duration": 2,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "butterfly_appears",
-      "animation": "flutter",
-      "sound": "butterfly_flutter",
-      "animals": [
-        {
-          "type": "butterfly",
-          "emoji": "🦋",
-          "count": 1,
-          "soundEffect": "butterfly"
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "လိပ်ပြာတစ်ကောင် Bono နှင့် Hippo အနီးတွင် ပျံဝဲနေသည်"
-    },
-    {
-      "id": "scene_butterfly_question",
-      "timeRange": "00:18-00:23",
-      "duration": 5,
-      "character": "bono",
-      "dialogue": "လိပ်ပြာကို မြင်သလား? လိပ်ပြာ ဘယ်နှစ်ကောင် ရှိသလဲ?",
-      "tone": "question",
-      "visual": "bono_question",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "butterfly",
-          "emoji": "🦋",
-          "count": 1,
-          "soundEffect": null
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": true,
-      "description": "Bono လိပ်ပြာအကြောင်း မေးသည်"
-    },
-    {
-      "id": "scene_butterfly_answer",
-      "timeRange": "00:23-00:28",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "wait_for_answer",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "butterfly",
-          "emoji": "🦋",
-          "count": 1,
-          "soundEffect": null
-        }
-      ],
-      "isPause": true,
-      "correctAnswer": 1,
-      "isQuestion": false,
-      "description": "အဖြေစောင့်နေသည် - လိပ်ပြာ ဖန်သားပြင်ပေါ်တွင်"
-    },
-    {
-      "id": "scene_monkeys_appear",
-      "timeRange": "00:28-00:31",
       "duration": 3,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "monkeys_appear",
-      "animation": "swing",
-      "sound": "monkey_chatter",
-      "animals": [
-        {
-          "type": "monkey",
-          "emoji": "🐵",
-          "count": 4,
-          "soundEffect": "monkey"
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "မျောက်လေးကောင် သစ်ပင်များမှ ဆင်းလာသည်"
+      "tone": "calm"
     },
     {
-      "id": "scene_monkeys_question",
-      "timeRange": "00:31-00:37",
-      "duration": 6,
-      "character": "hippo",
-      "dialogue": "ကြည့်စမ်း! မျောက်တွေ ရောက်လာပြီ။ မျောက် ဘယ်နှစ်ကောင် မြင်သလဲ?",
-      "tone": "enthusiastic",
-      "visual": "hippo_excited",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "monkey",
-          "emoji": "🐵",
-          "count": 4,
-          "soundEffect": null
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": true,
-      "description": "Hippo စိတ်လှုပ်ရှားစွာ မေးသည်"
-    },
-    {
-      "id": "scene_monkeys_answer",
-      "timeRange": "00:37-00:42",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "wait_for_answer",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "monkey",
-          "emoji": "🐵",
-          "count": 4,
-          "soundEffect": null
-        }
-      ],
-      "isPause": true,
-      "correctAnswer": 4,
-      "isQuestion": false,
-      "description": "အဖြေစောင့်နေသည် - မျောက်များ မြင်ရသည်"
-    },
-    {
-      "id": "scene_birds_appear",
-      "timeRange": "00:42-00:44",
-      "duration": 2,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "birds_appear",
-      "animation": "fly_in",
-      "sound": "bird_chirp",
-      "animals": [
-        {
-          "type": "bird",
-          "emoji": "🐦",
-          "count": 2,
-          "soundEffect": "bird"
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "ငှက်ရောင်စုံနှစ်ကောင် ပန်းချုံအနီးတွင် ဆင်းသက်သည်"
-    },
-    {
-      "id": "scene_birds_question",
-      "timeRange": "00:44-00:50",
-      "duration": 6,
       "character": "bono",
-      "dialogue": "ငှက်များကို မြင်သလား? ငှက် ဘယ်နှစ်ကောင် ရှိသလဲ?",
-      "tone": "gentle",
-      "visual": "bono_question",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "bird",
-          "emoji": "🐦",
-          "count": 2,
-          "soundEffect": null
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": true,
-      "description": "Bono နူးညံ့စွာ မေးသည်"
-    },
-    {
-      "id": "scene_birds_answer",
-      "timeRange": "00:50-00:55",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "wait_for_answer",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "bird",
-          "emoji": "🐦",
-          "count": 2,
-          "soundEffect": null
-        }
-      ],
-      "isPause": true,
-      "correctAnswer": 2,
-      "isQuestion": false,
-      "description": "အဖြေစောင့်နေသည် - ငှက်များ ဖန်သားပြင်ပေါ်တွင်"
-    },
-    {
-      "id": "scene_turtles_appear",
-      "timeRange": "00:55-00:57",
-      "duration": 2,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "turtles_appear",
-      "animation": "walk_slow",
-      "sound": "turtle_steps",
-      "animals": [
-        {
-          "type": "turtle",
-          "emoji": "🐢",
-          "count": 5,
-          "soundEffect": "turtle"
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "လိပ်ငါးကောင် မြေပြင်ပေါ်တွင် နှေးကွေးစွာ လမ်းလျှောက်နေသည်"
-    },
-    {
-      "id": "scene_turtles_question",
-      "timeRange": "00:57-01:04",
-      "duration": 7,
-      "character": "hippo",
-      "dialogue": "အို၊ လိပ်တွေ! ဂရုတစိုက် ရေတွက်ပါ။ ဘယ်နှစ်ကောင် မြင်သလဲ?",
-      "tone": "encouraging",
-      "visual": "hippo_calm",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "turtle",
-          "emoji": "🐢",
-          "count": 5,
-          "soundEffect": null
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": true,
-      "description": "Hippo တည်ငြိမ်စွာ အားပေးသည်"
-    },
-    {
-      "id": "scene_turtles_answer",
-      "timeRange": "01:04-01:09",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "wait_for_answer",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "turtle",
-          "emoji": "🐢",
-          "count": 5,
-          "soundEffect": null
-        }
-      ],
-      "isPause": true,
-      "correctAnswer": 5,
-      "isQuestion": false,
-      "description": "အဖြေစောင့်နေသည် - လိပ်များ ဆက်လက်လှုပ်ရှားနေသည်"
-    },
-    {
-      "id": "scene_frogs_appear",
-      "timeRange": "01:09-01:11",
-      "duration": 2,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "frogs_appear",
-      "animation": "hop",
-      "sound": "frog_croak",
-      "animals": [
-        {
-          "type": "frog",
-          "emoji": "🐸",
-          "count": 3,
-          "soundEffect": "frog"
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "ဖားသုံးကောင် Bono ၏ခြေဖဝါးအနီးတွင် ခုန်နေသည်"
-    },
-    {
-      "id": "scene_frogs_question",
-      "timeRange": "01:11-01:17",
-      "duration": 6,
-      "character": "bono",
-      "dialogue": "ဖားတွေရဲ့အသံ နားထောင်ပါ! ဖား ဘယ်နှစ်ကောင် မြင်သလဲ?",
-      "tone": "friendly_challenge",
-      "visual": "bono_challenge",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "frog",
-          "emoji": "🐸",
-          "count": 3,
-          "soundEffect": null
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": true,
-      "description": "Bono ဖော်ရွေသော စိန်ခေါ်မှု ပေးသည်"
-    },
-    {
-      "id": "scene_frogs_answer",
-      "timeRange": "01:17-01:22",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "wait_for_answer",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "frog",
-          "emoji": "🐸",
-          "count": 3,
-          "soundEffect": null
-        }
-      ],
-      "isPause": true,
-      "correctAnswer": 3,
-      "isQuestion": false,
-      "description": "အဖြေစောင့်နေသည် - ဖားများ ဖန်သားပြင်ပေါ်တွင်"
-    },
-    {
-      "id": "scene_all_animals",
-      "timeRange": "01:22-01:27",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "all_animals_gather",
-      "animation": "gather",
-      "sound": "uplifting_music",
+      "dialogue": "ကြည့်စမ်း၊ အလွန်လှပတဲ့ လိပ်ပြာတွေ ကျွန်တော်တို့ဆီ ပျံလာတယ်။",
       "animals": [
         {
           "type": "butterfly",
           "emoji": "🦋",
-          "count": 1,
-          "soundEffect": null
-        },
+          "count": 1
+        }
+      ],
+      "duration": 3,
+      "tone": "excited",
+      "animation": "flying_butterflies"
+    },
+    {
+      "character": "bono",
+      "dialogue": "လိပ်ပြာ ဘယ်နှစ်ကောင် ရှိသလဲ?",
+      "animals": [
+        {
+          "type": "butterfly",
+          "emoji": "🦋",
+          "count": 1
+        }
+      ],
+      "isQuestion": true,
+      "correctAnswer": 1,
+      "waitForAnswer": true,
+      "animation": "flying_butterflies"
+    },
+    {
+      "character": "bono",
+      "dialogue": "ကစားတတ်တဲ့ မျောက်များ သစ်ပင်များမှ ဆင်းလာခဲ့တယ်။",
+      "animals": [
         {
           "type": "monkey",
-          "emoji": "🐵",
-          "count": 4,
-          "soundEffect": null
-        },
+          "emoji": "🐒",
+          "count": 4
+        }
+      ],
+      "duration": 3,
+      "tone": "playful",
+      "animation": "playful_monkeys"
+    },
+    {
+      "character": "bono",
+      "dialogue": "မျောက် ဘယ်နှစ်ကောင် ရှိသလဲ?",
+      "animals": [
+        {
+          "type": "monkey",
+          "emoji": "🐒",
+          "count": 4
+        }
+      ],
+      "isQuestion": true,
+      "correctAnswer": 4,
+      "waitForAnswer": true,
+      "animation": "playful_monkeys"
+    },
+    {
+      "character": "bono",
+      "dialogue": "ကိုင်းတွေပေါ်မှာ ပျော်ရွှင်စွာ သီချင်းဆိုနေကြတဲ့ ငှက်များကို နားထောင်ပါ။",
+      "animals": [
         {
           "type": "bird",
           "emoji": "🐦",
-          "count": 2,
-          "soundEffect": null
-        },
+          "count": 2
+        }
+      ],
+      "duration": 3,
+      "tone": "gentle",
+      "animation": "singing_birds"
+    },
+    {
+      "character": "bono",
+      "dialogue": "ငှက် ဘယ်နှစ်ကောင် ရှိသလဲ?",
+      "animals": [
+        {
+          "type": "bird",
+          "emoji": "🐦",
+          "count": 2
+        }
+      ],
+      "isQuestion": true,
+      "correctAnswer": 2,
+      "waitForAnswer": true,
+      "animation": "singing_birds"
+    },
+    {
+      "character": "bono",
+      "dialogue": "ကြည့်စမ်း၊ နှေးကွေးတဲ့ လိပ်များ နေရောင်ခြည်ကို ခံနေကြတယ်။",
+      "animals": [
         {
           "type": "turtle",
           "emoji": "🐢",
-          "count": 5,
-          "soundEffect": null
-        },
-        {
-          "type": "frog",
-          "emoji": "🐸",
-          "count": 3,
-          "soundEffect": null
+          "count": 5
         }
       ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "တိရစ္ဆာန်အားလုံး Bono နှင့် Hippo ပတ်လည်တွင် စုဝေးနေကြသည်"
+      "duration": 3,
+      "tone": "calm",
+      "animation": "slow_turtles"
     },
     {
-      "id": "scene_celebration",
-      "timeRange": "01:27-01:31",
-      "duration": 4,
+      "character": "bono",
+      "dialogue": "လိပ် ဘယ်နှစ်ကောင် ရှိသလဲ?",
+      "animals": [
+        {
+          "type": "turtle",
+          "emoji": "🐢",
+          "count": 5
+        }
+      ],
+      "isQuestion": true,
+      "correctAnswer": 5,
+      "waitForAnswer": true,
+      "animation": "slow_turtles"
+    },
+    {
       "character": "hippo",
       "dialogue": "တိရစ္ဆာန် အများကြီးပဲ! အားလုံးကို ရေတွက်နိုင်ခဲ့သလား?",
-      "tone": "proud",
-      "visual": "hippo_proud",
-      "animation": "celebrate",
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Hippo ဂုဏ်ယူစွာ ဆင်နွှဲသည်"
+      "duration": 4,
+      "tone": "proud"
     },
     {
-      "id": "scene_goodbye",
-      "timeRange": "01:31-01:35",
-      "duration": 4,
       "character": "bono",
-      "dialogue": "အလွန်ကောင်းပါသည်! နံပါတ်များနှင့် ပိုမိုပျော်ရွှင်ရန် နောက်တစ်ကြိမ် တွေ့ကြမယ်!",
-      "tone": "warm",
-      "visual": "bono_goodbye",
-      "animation": "wave",
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Bono ၏ နွေးထွေးသော နှုတ်ဆက်"
+      "dialogue": "အလွန်ကောင်းပါသည်! နောက်တစ်ကြိမ် တွေ့ကြမယ်!",
+      "duration": 4,
+      "tone": "warm"
     }
   ]
 }

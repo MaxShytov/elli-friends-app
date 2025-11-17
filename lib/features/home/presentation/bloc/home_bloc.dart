@@ -7,6 +7,7 @@ import '../../../../core/services/audio_manager.dart';
 /// BLoC for managing Home screen state and logic
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final AudioManager audioManager;
+  List<String> _randomGreetings = [];
 
   HomeBloc({required this.audioManager}) : super(const HomeInitial()) {
     on<HomeInitialized>(_onHomeInitialized);
@@ -30,8 +31,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       // Load activities
       final activities = _loadActivities();
 
+      // Store random greetings for Elli tap interactions
+      _randomGreetings = event.randomGreetings;
+
       emit(HomeReady(
-        greeting: 'Hi! I\'m Elli the Elephant!',
+        greeting: event.greeting,
         characterMessage: 'What do you want to do?',
         elliIsAnimating: false,
         activities: activities,
@@ -106,16 +110,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       // Play a fun sound
       await audioManager.playSfx(SoundEffect.click);
 
-      // Speak a greeting
-      final greetings = [
-        'Hi! I\'m Elli the Elephant!',
-        'Let\'s learn together!',
-        'Choose an activity!',
-        'I\'m so happy to see you!',
-      ];
-      final randomGreeting = (greetings..shuffle()).first;
-
-      await audioManager.speakDialogue(randomGreeting, character: 'elli');
+      // Speak a random greeting (use localized greetings from UI)
+      if (_randomGreetings.isNotEmpty) {
+        final randomGreeting = (_randomGreetings.toList()..shuffle()).first;
+        await audioManager.speakDialogue(randomGreeting, character: 'elli');
+      }
 
       // Reset animation after a delay
       await Future.delayed(const Duration(milliseconds: 500));
@@ -132,8 +131,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       // Update language in audio manager
       await audioManager.changeLanguage(event.languageCode);
 
-      // Refresh the home screen with new language
-      add(const HomeInitialized());
+      // Note: The UI layer should reinitialize with new localized strings
+      // by calling HomeInitialized with updated greeting parameters
     }
   }
 }

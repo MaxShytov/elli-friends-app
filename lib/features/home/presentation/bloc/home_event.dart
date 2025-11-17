@@ -10,7 +10,16 @@ abstract class HomeEvent extends Equatable {
 
 /// Event triggered when the home screen is initialized
 class HomeInitialized extends HomeEvent {
-  const HomeInitialized();
+  final String greeting;
+  final List<String> randomGreetings;
+
+  const HomeInitialized({
+    required this.greeting,
+    required this.randomGreetings,
+  });
+
+  @override
+  List<Object?> get props => [greeting, randomGreetings];
 }
 
 /// Event triggered when an activity button is tapped

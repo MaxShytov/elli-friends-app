@@ -1,6 +1,7 @@
 // lib/core/services/audio_manager.dart
 
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import '../constants/supported_languages.dart';
 
@@ -104,7 +105,13 @@ class AudioManager {
         await _tts.setSpeechRate(0.45);
     }
 
-    await _tts.speak(text);
+    try {
+      await _tts.speak(text);
+    } catch (e) {
+      // Если flutter_tts не работает, пытаемся использовать нативный API
+      // (только для Web платформы)
+      debugPrint('TTS error: $e. Text: $text, Language: $_currentLanguage');
+    }
   }
 
   /// Stop speaking
@@ -146,6 +153,8 @@ class AudioManager {
         return 'audio/sfx/success.mp3';
       case SoundEffect.hint:
         return 'audio/sfx/hint.mp3';
+      case SoundEffect.wow:
+        return 'audio/sfx/wow.mp3';
     }
   }
 
@@ -291,6 +300,7 @@ enum SoundEffect {
   star,     // Получение звезды
   success,  // Завершение урока
   hint,     // Подсказка
+  wow,      // Восклицание "Wow!" при правильном ответе
 }
 
 /// Звуки животных

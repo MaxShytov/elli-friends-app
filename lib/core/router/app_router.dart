@@ -3,6 +3,7 @@ import '../../features/home/presentation/pages/home_page.dart';
 import '../../features/lessons/presentation/pages/lesson_page.dart';
 import '../../features/games/presentation/pages/game_page.dart';
 import '../../features/settings/presentation/pages/settings_page.dart';
+import '../../features/settings/presentation/pages/tts_test_page.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -32,6 +33,11 @@ final appRouter = GoRouter(
       path: '/settings',
       name: 'settings',
       builder: (context, state) => const SettingsPage(),
+    ),
+    GoRoute(
+      path: '/tts-test',
+      name: 'tts-test',
+      builder: (context, state) => const TtsTestPage(),
     ),
   ],
 );

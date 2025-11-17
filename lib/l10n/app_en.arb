@@ -62,6 +62,10 @@
   "@tryAgain": {
     "description": "Try again button label"
   },
+  "skip": "Skip",
+  "@skip": {
+    "description": "Skip button label"
+  },
   "noData": "No data",
   "@noData": {
     "description": "No data available message"
@@ -103,5 +107,93 @@
   "level": "Level",
   "@level": {
     "description": "Level/difficulty label"
+  },
+  "lesson": "Lesson",
+  "@lesson": {
+    "description": "Lesson label"
+  },
+  "next": "Next",
+  "@next": {
+    "description": "Next button label"
+  },
+  "back": "Back",
+  "@back": {
+    "description": "Back button label"
+  },
+  "correct": "Correct!",
+  "@correct": {
+    "description": "Correct answer feedback"
+  },
+  "excellent": "Excellent!",
+  "@excellent": {
+    "description": "Completion dialog title"
+  },
+  "youEarnedStars": "You earned {stars} stars!",
+  "@youEarnedStars": {
+    "description": "Stars earned message",
+    "placeholders": {
+      "stars": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "outOf": "out of",
+  "@outOf": {
+    "description": "Out of separator for scores"
+  },
+  "done": "Done",
+  "@done": {
+    "description": "Done button label"
+  },
+  "again": "Try Again",
+  "@again": {
+    "description": "Play again button label"
+  },
+  "elliGreeting": "Hi! I'm Elli the Elephant!",
+  "@elliGreeting": {
+    "description": "Elli's greeting on home screen"
+  },
+  "letsTogether": "Let's learn together!",
+  "@letsTogether": {
+    "description": "Elli's encouraging message"
+  },
+  "chooseActivity": "Choose an activity!",
+  "@chooseActivity": {
+    "description": "Prompt to choose an activity"
+  },
+  "happyToSee": "I'm so happy to see you!",
+  "@happyToSee": {
+    "description": "Elli's happy greeting"
+  },
+  "testVoice": "Test Voice",
+  "@testVoice": {
+    "description": "Button to test TTS voice"
+  },
+  "start": "Start",
+  "@start": {
+    "description": "Start button label for lessons"
+  },
+  "difficultyEasy": "Easy",
+  "@difficultyEasy": {
+    "description": "Easy difficulty level"
+  },
+  "difficultyMedium": "Medium",
+  "@difficultyMedium": {
+    "description": "Medium difficulty level"
+  },
+  "difficultyHard": "Hard",
+  "@difficultyHard": {
+    "description": "Hard difficulty level"
+  },
+  "difficultyLevel": "Level {level}",
+  "@difficultyLevel": {
+    "description": "Generic difficulty level",
+    "placeholders": {
+      "level": {
+        "type": "int",
+        "example": "1"
+      }
+    }
   }
 }

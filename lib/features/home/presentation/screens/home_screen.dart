@@ -12,15 +12,53 @@ import '../widgets/character_widget.dart';
 import '../widgets/activity_card.dart';
 
 /// Home screen of Elli & Friends app
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeBloc(
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late HomeBloc _bloc;
+  Locale? _lastLocale;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    final currentLocale = Localizations.localeOf(context);
+
+    // Check if locale changed
+    if (_lastLocale == null || _lastLocale != currentLocale) {
+      _lastLocale = currentLocale;
+
+      // Recreate bloc with new localized strings
+      final l10n = AppLocalizations.of(context)!;
+      _bloc = HomeBloc(
         audioManager: AudioManager(),
-      )..add(const HomeInitialized()),
+      )..add(HomeInitialized(
+        greeting: l10n.elliGreeting,
+        randomGreetings: [
+          l10n.elliGreeting,
+          l10n.letsTogether,
+          l10n.chooseActivity,
+          l10n.happyToSee,
+        ],
+      ));
+    }
+  }
+
+  @override
+  void dispose() {
+    _bloc.close();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider.value(
+      value: _bloc,
       child: const _HomeScreenContent(),
     );
   }
@@ -67,25 +105,27 @@ class _HomeScreenContent extends StatelessWidget {
 
   Widget _buildHomeContent(BuildContext context, HomeReady state) {
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(AppDimensions.paddingLarge),
-        child: Column(
-          children: [
-            // Elli character with greeting
-            CharacterWidget(
-              emoji: '🐘',
-              greeting: state.greeting,
-              isAnimating: state.elliIsAnimating,
-              onTap: () {
-                context.read<HomeBloc>().add(const ElliTapped());
-              },
-            ),
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(AppDimensions.paddingLarge),
+          child: Column(
+            children: [
+              // Elli character with greeting
+              CharacterWidget(
+                emoji: '🐘',
+                greeting: state.greeting,
+                isAnimating: state.elliIsAnimating,
+                onTap: () {
+                  context.read<HomeBloc>().add(const ElliTapped());
+                },
+              ),
 
-            const SizedBox(height: AppDimensions.paddingXLarge),
+              const SizedBox(height: AppDimensions.paddingLarge),
 
-            // Activity grid
-            Expanded(
-              child: GridView.builder(
+              // Activity grid
+              GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: AppDimensions.paddingMedium,
@@ -103,40 +143,43 @@ class _HomeScreenContent extends StatelessWidget {
                   );
                 },
               ),
-            ),
 
-            // TEST: Demo lesson button
-            const SizedBox(height: AppDimensions.paddingMedium),
-            ElevatedButton.icon(
-              onPressed: () => context.push('/lesson/counting'),
-              icon: const Icon(Icons.play_arrow),
-              label: Text(AppLocalizations.of(context)!.lessonCountingDemo),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.correct,
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: AppDimensions.paddingLarge,
-                  vertical: AppDimensions.paddingMedium,
+              // TEST: Demo lesson button
+              const SizedBox(height: AppDimensions.paddingLarge),
+              ElevatedButton.icon(
+                onPressed: () => context.push('/lesson/counting'),
+                icon: const Icon(Icons.play_arrow),
+                label: Text(AppLocalizations.of(context)!.lessonCountingDemo),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.correct,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppDimensions.paddingLarge,
+                    vertical: AppDimensions.paddingMedium,
+                  ),
                 ),
               ),
-            ),
 
-            // Settings button
-            const SizedBox(height: AppDimensions.paddingSmall),
-            OutlinedButton.icon(
-              onPressed: () => context.push('/settings'),
-              icon: const Icon(Icons.settings),
-              label: Text(AppLocalizations.of(context)!.settings),
-              style: OutlinedButton.styleFrom(
-                foregroundColor: AppColors.primary,
-                side: const BorderSide(color: AppColors.primary, width: 2),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: AppDimensions.paddingLarge,
-                  vertical: AppDimensions.paddingMedium,
+              // Settings button
+              const SizedBox(height: AppDimensions.paddingSmall),
+              OutlinedButton.icon(
+                onPressed: () => context.push('/settings'),
+                icon: const Icon(Icons.settings),
+                label: Text(AppLocalizations.of(context)!.settings),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: AppColors.primary,
+                  side: const BorderSide(color: AppColors.primary, width: 2),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppDimensions.paddingLarge,
+                    vertical: AppDimensions.paddingMedium,
+                  ),
                 ),
               ),
-            ),
-          ],
+
+              // Bottom padding for scrolling
+              const SizedBox(height: AppDimensions.paddingLarge),
+            ],
+          ),
         ),
       ),
     );

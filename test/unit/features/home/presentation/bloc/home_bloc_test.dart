@@ -45,7 +45,10 @@ void main() {
       blocTest<HomeBloc, HomeState>(
         'emits [HomeLoading, HomeReady] when HomeInitialized is added',
         build: () => homeBloc,
-        act: (bloc) => bloc.add(const HomeInitialized()),
+        act: (bloc) => bloc.add(const HomeInitialized(
+          greeting: 'Hello!',
+          randomGreetings: ['Hi!', 'Hello!', 'Hey!'],
+        )),
         wait: const Duration(milliseconds: 600),
         expect: () => [
           const HomeLoading(),
@@ -60,7 +63,10 @@ void main() {
       blocTest<HomeBloc, HomeState>(
         'HomeReady state contains correct activities',
         build: () => homeBloc,
-        act: (bloc) => bloc.add(const HomeInitialized()),
+        act: (bloc) => bloc.add(const HomeInitialized(
+          greeting: 'Hello!',
+          randomGreetings: ['Hi!', 'Hello!', 'Hey!'],
+        )),
         wait: const Duration(milliseconds: 600),
         verify: (bloc) {
           final state = bloc.state as HomeReady;
@@ -119,14 +125,19 @@ void main() {
       blocTest<HomeBloc, HomeState>(
         'animates Elli and plays sound when ElliTapped is added in HomeReady state',
         build: () => homeBloc,
-        seed: () => const HomeReady(
-          greeting: 'Hi! I\'m Elli the Elephant!',
-          characterMessage: 'What do you want to do?',
-          elliIsAnimating: false,
-          activities: [],
-        ),
-        act: (bloc) => bloc.add(const ElliTapped()),
-        wait: const Duration(milliseconds: 600),
+        act: (bloc) {
+          // First initialize the bloc with randomGreetings
+          bloc.add(const HomeInitialized(
+            greeting: 'Hi! I\'m Elli!',
+            randomGreetings: ['Hello!', 'Hi!', 'Hey!'],
+          ));
+          // Wait for initialization to complete before tapping
+          return Future.delayed(const Duration(milliseconds: 700), () {
+            bloc.add(const ElliTapped());
+          });
+        },
+        skip: 2, // Skip HomeLoading and HomeReady from initialization
+        wait: const Duration(milliseconds: 1400),
         expect: () => [
           isA<HomeReady>().having((state) => state.elliIsAnimating, 'elliIsAnimating', true),
           isA<HomeReady>().having((state) => state.elliIsAnimating, 'elliIsAnimating', false),
@@ -147,7 +158,7 @@ void main() {
 
     group('LanguageChanged', () {
       blocTest<HomeBloc, HomeState>(
-        'changes language and reinitializes when LanguageChanged is added in HomeReady state',
+        'changes language in audio manager when LanguageChanged is added in HomeReady state',
         build: () => homeBloc,
         seed: () => const HomeReady(
           greeting: 'Hi! I\'m Elli the Elephant!',
@@ -156,11 +167,7 @@ void main() {
           activities: [],
         ),
         act: (bloc) => bloc.add(const LanguageChanged('ru')),
-        wait: const Duration(milliseconds: 600),
-        expect: () => [
-          const HomeLoading(),
-          isA<HomeReady>(),
-        ],
+        expect: () => [],
         verify: (_) {
           verify(() => mockAudioManager.changeLanguage('ru')).called(1);
         },

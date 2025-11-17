@@ -33,6 +33,8 @@ class Scene extends Equatable {
   final bool isPause;
   final int? correctAnswer;
   final bool waitForAnswer;
+  final bool showPreviousAnimals;
+  final String? animation;
 
   const Scene({
     this.character,
@@ -44,6 +46,8 @@ class Scene extends Equatable {
     this.isPause = false,
     this.correctAnswer,
     this.waitForAnswer = false,
+    this.showPreviousAnimals = false,
+    this.animation,
   });
 
   @override
@@ -57,6 +61,8 @@ class Scene extends Equatable {
     isPause,
     correctAnswer,
     waitForAnswer,
+    showPreviousAnimals,
+    animation,
   ];
 }
 

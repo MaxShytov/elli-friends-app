@@ -117,6 +117,7 @@ void main() {
               'isPause': false,
               'correctAnswer': null,
               'waitForAnswer': false,
+              'showPreviousAnimals': false,
             }
           ],
           'tags': ['test', 'sample'],
@@ -211,6 +212,7 @@ void main() {
           'isPause': false,
           'correctAnswer': null,
           'waitForAnswer': false,
+          'showPreviousAnimals': false,
         };
 
         expect(result, equals(expectedMap));

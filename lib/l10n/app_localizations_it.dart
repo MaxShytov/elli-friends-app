@@ -41,43 +41,108 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get lessonCountingDemo => '🦋 Lesson: Counting (Demo)';
+  String get lessonCountingDemo => '🦋 Lezione: Contare (Demo)';
 
   @override
-  String get loadingLesson => 'Loading lesson...';
+  String get loadingLesson => 'Caricamento lezione...';
 
   @override
-  String get lessonLoadError => 'Error loading lesson';
+  String get lessonLoadError => 'Errore nel caricamento della lezione';
 
   @override
-  String get tryAgain => 'Try Again';
+  String get tryAgain => 'Riprova';
 
   @override
-  String get noData => 'No data';
+  String get skip => 'Salta';
+
+  @override
+  String get noData => 'Nessun dato';
 
   @override
   String lessonScenes(int count) {
-    return 'Lesson Scenes ($count)';
+    return 'Scene della lezione ($count)';
   }
 
   @override
-  String get character => 'Character';
+  String get character => 'Personaggio';
 
   @override
-  String get pause => '⏸️ Pause';
+  String get pause => '⏸️ Pausa';
 
   @override
-  String get scene => 'Scene';
+  String get scene => 'Scena';
 
   @override
-  String get startLesson => 'Start Lesson';
+  String get startLesson => 'Inizia lezione';
 
   @override
-  String get comingSoon => 'Coming soon: Interactive lesson playback! 🎉';
+  String get comingSoon =>
+      'Prossimamente: Riproduzione interattiva della lezione! 🎉';
 
   @override
-  String get topic => 'Topic';
+  String get topic => 'Argomento';
 
   @override
-  String get level => 'Level';
+  String get level => 'Livello';
+
+  @override
+  String get lesson => 'Lezione';
+
+  @override
+  String get next => 'Avanti';
+
+  @override
+  String get back => 'Indietro';
+
+  @override
+  String get correct => 'Corretto!';
+
+  @override
+  String get excellent => 'Eccellente!';
+
+  @override
+  String youEarnedStars(int stars) {
+    return 'Hai guadagnato $stars stelle!';
+  }
+
+  @override
+  String get outOf => 'su';
+
+  @override
+  String get done => 'Fatto';
+
+  @override
+  String get again => 'Riprova';
+
+  @override
+  String get elliGreeting => 'Ciao! Sono Elli l\'Elefante!';
+
+  @override
+  String get letsTogether => 'Impariamo insieme!';
+
+  @override
+  String get chooseActivity => 'Scegli un\'attività!';
+
+  @override
+  String get happyToSee => 'Sono così felice di vederti!';
+
+  @override
+  String get testVoice => 'Testa la voce';
+
+  @override
+  String get start => 'Inizia';
+
+  @override
+  String get difficultyEasy => 'Facile';
+
+  @override
+  String get difficultyMedium => 'Medio';
+
+  @override
+  String get difficultyHard => 'Difficile';
+
+  @override
+  String difficultyLevel(int level) {
+    return 'Livello $level';
+  }
 }

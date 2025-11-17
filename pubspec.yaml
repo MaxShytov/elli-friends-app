@@ -84,11 +84,13 @@ flutter:
 
   # Assets
   assets:
+    - assets/sounds/
     - assets/audio/sfx/
     - assets/audio/animals/
     - assets/audio/music/
     - assets/data/lessons/
     - assets/data/lessons/en/
+    - assets/data/lessons/ru/
     - assets/data/lessons/fr/
     - assets/data/lessons/de/
     - assets/data/lessons/it/

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class SupportedLanguages {
   static const List<Locale> supportedLocales = [
     Locale('en', ''), // English
+    Locale('ru', ''), // Russian
     Locale('fr', ''), // French
     Locale('de', ''), // German
     Locale('it', ''), // Italian
@@ -15,6 +16,7 @@ class SupportedLanguages {
   /// Language names in their native form
   static const Map<String, String> languageNames = {
     'en': 'English',
+    'ru': 'Русский',
     'fr': 'Français',
     'de': 'Deutsch',
     'it': 'Italiano',
@@ -24,6 +26,7 @@ class SupportedLanguages {
   /// TTS language codes for flutter_tts
   static const Map<String, String> ttsLanguageCodes = {
     'en': 'en-US',
+    'ru': 'ru-RU',
     'fr': 'fr-FR',
     'de': 'de-DE',
     'it': 'it-IT',

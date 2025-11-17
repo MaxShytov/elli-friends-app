@@ -4,512 +4,159 @@
   "topic": "counting",
   "description": "Apprends à compter de 1 à 5 avec Bono et Hippo",
   "difficulty": 1,
-  "targetAge": "3-7",
-  "estimatedDuration": 95,
+  "tags": ["counting", "numbers", "basic"],
   "scenes": [
     {
-      "id": "scene_intro",
-      "timeRange": "00:00-00:05",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "jungle_morning",
-      "animation": "bono_enters",
-      "sound": "jungle_ambience",
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Scène matinale de jungle. Bono entre et fait signe."
-    },
-    {
-      "id": "scene_greeting",
-      "timeRange": "00:05-00:07",
-      "duration": 2,
       "character": "bono",
       "dialogue": "Bonjour, mes amis! Je suis Bono l'Éléphant.",
-      "tone": "friendly",
-      "visual": "bono_wave",
-      "animation": "wave",
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Bono salue chaleureusement"
+      "duration": 2,
+      "tone": "friendly"
     },
     {
-      "id": "scene_game_intro",
-      "timeRange": "00:07-00:10",
-      "duration": 3,
       "character": "bono",
       "dialogue": "Jouons au Jeu des Amis!",
-      "tone": "excited",
-      "visual": "bono_excited",
-      "animation": "jump",
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Bono propose joyeusement le jeu"
+      "duration": 3,
+      "tone": "excited"
     },
     {
-      "id": "scene_hippo_curious",
-      "timeRange": "00:10-00:13",
-      "duration": 3,
       "character": "hippo",
       "dialogue": "Un jeu? J'adore les jeux! Qu'est-ce qu'on fait, Bono?",
-      "tone": "curious",
-      "visual": "hippo_curious",
-      "animation": "bounce",
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Hippo est curieux et excité"
+      "duration": 3,
+      "tone": "curious"
     },
     {
-      "id": "scene_game_explanation",
-      "timeRange": "00:13-00:16",
-      "duration": 3,
       "character": "bono",
       "dialogue": "On regarde autour et on compte nos amis les animaux.",
-      "tone": "calm",
-      "visual": "bono_explain",
-      "animation": null,
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Bono explique calmement les règles"
-    },
-    {
-      "id": "scene_butterfly_appears",
-      "timeRange": "00:16-00:18",
-      "duration": 2,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "butterfly_appears",
-      "animation": "flutter",
-      "sound": "butterfly_flutter",
-      "animals": [
-        {
-          "type": "butterfly",
-          "emoji": "🦋",
-          "count": 1,
-          "soundEffect": "butterfly"
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Un papillon voltige près de Bono et Hippo"
-    },
-    {
-      "id": "scene_butterfly_question",
-      "timeRange": "00:18-00:23",
-      "duration": 5,
-      "character": "bono",
-      "dialogue": "Tu vois le papillon? Combien de papillons y a-t-il?",
-      "tone": "question",
-      "visual": "bono_question",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "butterfly",
-          "emoji": "🦋",
-          "count": 1,
-          "soundEffect": null
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": true,
-      "description": "Bono pose une question sur le papillon"
-    },
-    {
-      "id": "scene_butterfly_answer",
-      "timeRange": "00:23-00:28",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "wait_for_answer",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "butterfly",
-          "emoji": "🦋",
-          "count": 1,
-          "soundEffect": null
-        }
-      ],
-      "isPause": true,
-      "correctAnswer": 1,
-      "isQuestion": false,
-      "description": "Attente de la réponse - papillon à l'écran"
-    },
-    {
-      "id": "scene_monkeys_appear",
-      "timeRange": "00:28-00:31",
       "duration": 3,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "monkeys_appear",
-      "animation": "swing",
-      "sound": "monkey_chatter",
-      "animals": [
-        {
-          "type": "monkey",
-          "emoji": "🐵",
-          "count": 4,
-          "soundEffect": "monkey"
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Quatre singes descendent des arbres"
+      "tone": "calm"
     },
     {
-      "id": "scene_monkeys_question",
-      "timeRange": "00:31-00:37",
-      "duration": 6,
-      "character": "hippo",
-      "dialogue": "Regarde! Les singes sont là. Combien de singes tu vois?",
-      "tone": "enthusiastic",
-      "visual": "hippo_excited",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "monkey",
-          "emoji": "🐵",
-          "count": 4,
-          "soundEffect": null
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": true,
-      "description": "Hippo demande avec enthousiasme"
-    },
-    {
-      "id": "scene_monkeys_answer",
-      "timeRange": "00:37-00:42",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "wait_for_answer",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "monkey",
-          "emoji": "🐵",
-          "count": 4,
-          "soundEffect": null
-        }
-      ],
-      "isPause": true,
-      "correctAnswer": 4,
-      "isQuestion": false,
-      "description": "Attente de réponse - singes visibles"
-    },
-    {
-      "id": "scene_birds_appear",
-      "timeRange": "00:42-00:44",
-      "duration": 2,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "birds_appear",
-      "animation": "fly_in",
-      "sound": "bird_chirp",
-      "animals": [
-        {
-          "type": "bird",
-          "emoji": "🐦",
-          "count": 2,
-          "soundEffect": "bird"
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Deux oiseaux colorés se posent près d'un buisson"
-    },
-    {
-      "id": "scene_birds_question",
-      "timeRange": "00:44-00:50",
-      "duration": 6,
       "character": "bono",
-      "dialogue": "Tu vois les oiseaux? Combien d'oiseaux y a-t-il?",
-      "tone": "gentle",
-      "visual": "bono_question",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "bird",
-          "emoji": "🐦",
-          "count": 2,
-          "soundEffect": null
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": true,
-      "description": "Bono pose doucement la question"
-    },
-    {
-      "id": "scene_birds_answer",
-      "timeRange": "00:50-00:55",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "wait_for_answer",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "bird",
-          "emoji": "🐦",
-          "count": 2,
-          "soundEffect": null
-        }
-      ],
-      "isPause": true,
-      "correctAnswer": 2,
-      "isQuestion": false,
-      "description": "Attente de réponse - oiseaux à l'écran"
-    },
-    {
-      "id": "scene_turtles_appear",
-      "timeRange": "00:55-00:57",
-      "duration": 2,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "turtles_appear",
-      "animation": "walk_slow",
-      "sound": "turtle_steps",
-      "animals": [
-        {
-          "type": "turtle",
-          "emoji": "🐢",
-          "count": 5,
-          "soundEffect": "turtle"
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Cinq tortues marchent lentement"
-    },
-    {
-      "id": "scene_turtles_question",
-      "timeRange": "00:57-01:04",
-      "duration": 7,
-      "character": "hippo",
-      "dialogue": "Oh, des tortues! Compte-les bien. Combien en vois-tu?",
-      "tone": "encouraging",
-      "visual": "hippo_calm",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "turtle",
-          "emoji": "🐢",
-          "count": 5,
-          "soundEffect": null
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": true,
-      "description": "Hippo encourage calmement"
-    },
-    {
-      "id": "scene_turtles_answer",
-      "timeRange": "01:04-01:09",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "wait_for_answer",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "turtle",
-          "emoji": "🐢",
-          "count": 5,
-          "soundEffect": null
-        }
-      ],
-      "isPause": true,
-      "correctAnswer": 5,
-      "isQuestion": false,
-      "description": "Attente de réponse - tortues continuent"
-    },
-    {
-      "id": "scene_frogs_appear",
-      "timeRange": "01:09-01:11",
-      "duration": 2,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "frogs_appear",
-      "animation": "hop",
-      "sound": "frog_croak",
-      "animals": [
-        {
-          "type": "frog",
-          "emoji": "🐸",
-          "count": 3,
-          "soundEffect": "frog"
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Trois grenouilles sautent près de Bono"
-    },
-    {
-      "id": "scene_frogs_question",
-      "timeRange": "01:11-01:17",
-      "duration": 6,
-      "character": "bono",
-      "dialogue": "Écoute les grenouilles! Combien de grenouilles tu vois?",
-      "tone": "friendly_challenge",
-      "visual": "bono_challenge",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "frog",
-          "emoji": "🐸",
-          "count": 3,
-          "soundEffect": null
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": true,
-      "description": "Bono propose un défi amical"
-    },
-    {
-      "id": "scene_frogs_answer",
-      "timeRange": "01:17-01:22",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "wait_for_answer",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "frog",
-          "emoji": "🐸",
-          "count": 3,
-          "soundEffect": null
-        }
-      ],
-      "isPause": true,
-      "correctAnswer": 3,
-      "isQuestion": false,
-      "description": "Attente de réponse - grenouilles à l'écran"
-    },
-    {
-      "id": "scene_all_animals",
-      "timeRange": "01:22-01:27",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "all_animals_gather",
-      "animation": "gather",
-      "sound": "uplifting_music",
+      "dialogue": "Regarde, de très beaux papillons sont venus nous voir.",
       "animals": [
         {
           "type": "butterfly",
           "emoji": "🦋",
-          "count": 1,
-          "soundEffect": null
-        },
+          "count": 1
+        }
+      ],
+      "duration": 3,
+      "tone": "excited",
+      "animation": "flying_butterflies"
+    },
+    {
+      "character": "bono",
+      "dialogue": "Combien de papillons?",
+      "animals": [
+        {
+          "type": "butterfly",
+          "emoji": "🦋",
+          "count": 1
+        }
+      ],
+      "isQuestion": true,
+      "correctAnswer": 1,
+      "waitForAnswer": true,
+      "animation": "flying_butterflies"
+    },
+    {
+      "character": "bono",
+      "dialogue": "Des singes espiègles sont descendus des arbres.",
+      "animals": [
         {
           "type": "monkey",
-          "emoji": "🐵",
-          "count": 4,
-          "soundEffect": null
-        },
+          "emoji": "🐒",
+          "count": 4
+        }
+      ],
+      "duration": 3,
+      "tone": "playful",
+      "animation": "playful_monkeys"
+    },
+    {
+      "character": "bono",
+      "dialogue": "Combien de singes?",
+      "animals": [
+        {
+          "type": "monkey",
+          "emoji": "🐒",
+          "count": 4
+        }
+      ],
+      "isQuestion": true,
+      "correctAnswer": 4,
+      "waitForAnswer": true,
+      "animation": "playful_monkeys"
+    },
+    {
+      "character": "bono",
+      "dialogue": "Écoute les oiseaux qui chantent joyeusement sur les branches.",
+      "animals": [
         {
           "type": "bird",
           "emoji": "🐦",
-          "count": 2,
-          "soundEffect": null
-        },
+          "count": 2
+        }
+      ],
+      "duration": 3,
+      "tone": "gentle",
+      "animation": "singing_birds"
+    },
+    {
+      "character": "bono",
+      "dialogue": "Combien d'oiseaux?",
+      "animals": [
+        {
+          "type": "bird",
+          "emoji": "🐦",
+          "count": 2
+        }
+      ],
+      "isQuestion": true,
+      "correctAnswer": 2,
+      "waitForAnswer": true,
+      "animation": "singing_birds"
+    },
+    {
+      "character": "bono",
+      "dialogue": "Regarde, des tortues lentes se prélassent au soleil.",
+      "animals": [
         {
           "type": "turtle",
           "emoji": "🐢",
-          "count": 5,
-          "soundEffect": null
-        },
-        {
-          "type": "frog",
-          "emoji": "🐸",
-          "count": 3,
-          "soundEffect": null
+          "count": 5
         }
       ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Tous les animaux se rassemblent"
+      "duration": 3,
+      "tone": "calm",
+      "animation": "slow_turtles"
     },
     {
-      "id": "scene_celebration",
-      "timeRange": "01:27-01:31",
-      "duration": 4,
+      "character": "bono",
+      "dialogue": "Combien de tortues?",
+      "animals": [
+        {
+          "type": "turtle",
+          "emoji": "🐢",
+          "count": 5
+        }
+      ],
+      "isQuestion": true,
+      "correctAnswer": 5,
+      "waitForAnswer": true,
+      "animation": "slow_turtles"
+    },
+    {
       "character": "hippo",
       "dialogue": "Tant d'animaux! Tu les as tous comptés?",
-      "tone": "proud",
-      "visual": "hippo_proud",
-      "animation": "celebrate",
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Hippo célèbre fièrement"
+      "duration": 4,
+      "tone": "proud"
     },
     {
-      "id": "scene_goodbye",
-      "timeRange": "01:31-01:35",
-      "duration": 4,
       "character": "bono",
-      "dialogue": "Excellent travail! À bientôt pour plus d'aventures avec les nombres!",
-      "tone": "warm",
-      "visual": "bono_goodbye",
-      "animation": "wave",
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Au revoir chaleureux de Bono"
+      "dialogue": "Excellent! À bientôt!",
+      "duration": 4,
+      "tone": "warm"
     }
   ]
 }

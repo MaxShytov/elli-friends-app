@@ -49,6 +49,8 @@ class SceneModel extends Scene {
     super.isPause,
     super.correctAnswer,
     super.waitForAnswer,
+    super.showPreviousAnimals,
+    super.animation,
   });
 
   factory SceneModel.fromJson(Map<String, dynamic> json) {
@@ -64,6 +66,8 @@ class SceneModel extends Scene {
       isPause: json['isPause'] as bool? ?? false,
       correctAnswer: json['correctAnswer'] as int?,
       waitForAnswer: json['waitForAnswer'] as bool? ?? false,
+      showPreviousAnimals: json['showPreviousAnimals'] as bool? ?? false,
+      animation: json['animation'] as String?,
     );
   }
 
@@ -78,6 +82,8 @@ class SceneModel extends Scene {
       'isPause': isPause,
       'correctAnswer': correctAnswer,
       'waitForAnswer': waitForAnswer,
+      'showPreviousAnimals': showPreviousAnimals,
+      'animation': animation,
     };
   }
 }

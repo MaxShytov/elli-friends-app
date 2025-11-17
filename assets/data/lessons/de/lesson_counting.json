@@ -4,512 +4,159 @@
   "topic": "counting",
   "description": "Lerne mit Bono und Hippo von 1 bis 5 zu zählen",
   "difficulty": 1,
-  "targetAge": "3-7",
-  "estimatedDuration": 95,
+  "tags": ["counting", "numbers", "basic"],
   "scenes": [
     {
-      "id": "scene_intro",
-      "timeRange": "00:00-00:05",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "jungle_morning",
-      "animation": "bono_enters",
-      "sound": "jungle_ambience",
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Morgendliche Dschungelszene. Bono kommt herein und winkt."
-    },
-    {
-      "id": "scene_greeting",
-      "timeRange": "00:05-00:07",
-      "duration": 2,
       "character": "bono",
       "dialogue": "Hallo, meine Freunde! Ich bin Bono der Elefant.",
-      "tone": "friendly",
-      "visual": "bono_wave",
-      "animation": "wave",
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Bono grüßt herzlich"
+      "duration": 2,
+      "tone": "friendly"
     },
     {
-      "id": "scene_game_intro",
-      "timeRange": "00:07-00:10",
-      "duration": 3,
       "character": "bono",
       "dialogue": "Lasst uns das Freundschaftsspiel spielen!",
-      "tone": "excited",
-      "visual": "bono_excited",
-      "animation": "jump",
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Bono schlägt fröhlich das Spiel vor"
+      "duration": 3,
+      "tone": "excited"
     },
     {
-      "id": "scene_hippo_curious",
-      "timeRange": "00:10-00:13",
-      "duration": 3,
       "character": "hippo",
       "dialogue": "Ein Spiel? Ich liebe Spiele! Was machen wir, Bono?",
-      "tone": "curious",
-      "visual": "hippo_curious",
-      "animation": "bounce",
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Hippo ist neugierig und aufgeregt"
+      "duration": 3,
+      "tone": "curious"
     },
     {
-      "id": "scene_game_explanation",
-      "timeRange": "00:13-00:16",
-      "duration": 3,
       "character": "bono",
       "dialogue": "Wir schauen uns um und zählen unsere Tierfreunde.",
-      "tone": "calm",
-      "visual": "bono_explain",
-      "animation": null,
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Bono erklärt ruhig die Regeln"
-    },
-    {
-      "id": "scene_butterfly_appears",
-      "timeRange": "00:16-00:18",
-      "duration": 2,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "butterfly_appears",
-      "animation": "flutter",
-      "sound": "butterfly_flutter",
-      "animals": [
-        {
-          "type": "butterfly",
-          "emoji": "🦋",
-          "count": 1,
-          "soundEffect": "butterfly"
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Ein Schmetterling flattert in der Nähe von Bono und Hippo"
-    },
-    {
-      "id": "scene_butterfly_question",
-      "timeRange": "00:18-00:23",
-      "duration": 5,
-      "character": "bono",
-      "dialogue": "Siehst du den Schmetterling? Wie viele Schmetterlinge gibt es?",
-      "tone": "question",
-      "visual": "bono_question",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "butterfly",
-          "emoji": "🦋",
-          "count": 1,
-          "soundEffect": null
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": true,
-      "description": "Bono fragt nach dem Schmetterling"
-    },
-    {
-      "id": "scene_butterfly_answer",
-      "timeRange": "00:23-00:28",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "wait_for_answer",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "butterfly",
-          "emoji": "🦋",
-          "count": 1,
-          "soundEffect": null
-        }
-      ],
-      "isPause": true,
-      "correctAnswer": 1,
-      "isQuestion": false,
-      "description": "Warten auf Antwort - Schmetterling auf dem Bildschirm"
-    },
-    {
-      "id": "scene_monkeys_appear",
-      "timeRange": "00:28-00:31",
       "duration": 3,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "monkeys_appear",
-      "animation": "swing",
-      "sound": "monkey_chatter",
-      "animals": [
-        {
-          "type": "monkey",
-          "emoji": "🐵",
-          "count": 4,
-          "soundEffect": "monkey"
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Vier Affen schwingen von den Bäumen herunter"
+      "tone": "calm"
     },
     {
-      "id": "scene_monkeys_question",
-      "timeRange": "00:31-00:37",
-      "duration": 6,
-      "character": "hippo",
-      "dialogue": "Schau! Die Affen sind da. Wie viele Affen siehst du?",
-      "tone": "enthusiastic",
-      "visual": "hippo_excited",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "monkey",
-          "emoji": "🐵",
-          "count": 4,
-          "soundEffect": null
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": true,
-      "description": "Hippo fragt begeistert"
-    },
-    {
-      "id": "scene_monkeys_answer",
-      "timeRange": "00:37-00:42",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "wait_for_answer",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "monkey",
-          "emoji": "🐵",
-          "count": 4,
-          "soundEffect": null
-        }
-      ],
-      "isPause": true,
-      "correctAnswer": 4,
-      "isQuestion": false,
-      "description": "Warten auf Antwort - Affen sichtbar"
-    },
-    {
-      "id": "scene_birds_appear",
-      "timeRange": "00:42-00:44",
-      "duration": 2,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "birds_appear",
-      "animation": "fly_in",
-      "sound": "bird_chirp",
-      "animals": [
-        {
-          "type": "bird",
-          "emoji": "🐦",
-          "count": 2,
-          "soundEffect": "bird"
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Zwei bunte Vögel landen in der Nähe eines Blumenstrauchs"
-    },
-    {
-      "id": "scene_birds_question",
-      "timeRange": "00:44-00:50",
-      "duration": 6,
       "character": "bono",
-      "dialogue": "Siehst du die Vögel? Wie viele Vögel gibt es?",
-      "tone": "gentle",
-      "visual": "bono_question",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "bird",
-          "emoji": "🐦",
-          "count": 2,
-          "soundEffect": null
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": true,
-      "description": "Bono fragt sanft"
-    },
-    {
-      "id": "scene_birds_answer",
-      "timeRange": "00:50-00:55",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "wait_for_answer",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "bird",
-          "emoji": "🐦",
-          "count": 2,
-          "soundEffect": null
-        }
-      ],
-      "isPause": true,
-      "correctAnswer": 2,
-      "isQuestion": false,
-      "description": "Warten auf Antwort - Vögel auf dem Bildschirm"
-    },
-    {
-      "id": "scene_turtles_appear",
-      "timeRange": "00:55-00:57",
-      "duration": 2,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "turtles_appear",
-      "animation": "walk_slow",
-      "sound": "turtle_steps",
-      "animals": [
-        {
-          "type": "turtle",
-          "emoji": "🐢",
-          "count": 5,
-          "soundEffect": "turtle"
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Fünf Schildkröten laufen langsam über den Boden"
-    },
-    {
-      "id": "scene_turtles_question",
-      "timeRange": "00:57-01:04",
-      "duration": 7,
-      "character": "hippo",
-      "dialogue": "Oh, Schildkröten! Zähle sie sorgfältig. Wie viele siehst du?",
-      "tone": "encouraging",
-      "visual": "hippo_calm",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "turtle",
-          "emoji": "🐢",
-          "count": 5,
-          "soundEffect": null
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": true,
-      "description": "Hippo ermutigt ruhig"
-    },
-    {
-      "id": "scene_turtles_answer",
-      "timeRange": "01:04-01:09",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "wait_for_answer",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "turtle",
-          "emoji": "🐢",
-          "count": 5,
-          "soundEffect": null
-        }
-      ],
-      "isPause": true,
-      "correctAnswer": 5,
-      "isQuestion": false,
-      "description": "Warten auf Antwort - Schildkröten bewegen sich weiter"
-    },
-    {
-      "id": "scene_frogs_appear",
-      "timeRange": "01:09-01:11",
-      "duration": 2,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "frogs_appear",
-      "animation": "hop",
-      "sound": "frog_croak",
-      "animals": [
-        {
-          "type": "frog",
-          "emoji": "🐸",
-          "count": 3,
-          "soundEffect": "frog"
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Drei Frösche hüpfen in der Nähe von Bonos Füßen"
-    },
-    {
-      "id": "scene_frogs_question",
-      "timeRange": "01:11-01:17",
-      "duration": 6,
-      "character": "bono",
-      "dialogue": "Hörst du die Frösche? Wie viele Frösche siehst du?",
-      "tone": "friendly_challenge",
-      "visual": "bono_challenge",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "frog",
-          "emoji": "🐸",
-          "count": 3,
-          "soundEffect": null
-        }
-      ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": true,
-      "description": "Bono bietet eine freundliche Herausforderung"
-    },
-    {
-      "id": "scene_frogs_answer",
-      "timeRange": "01:17-01:22",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "wait_for_answer",
-      "animation": null,
-      "sound": null,
-      "animals": [
-        {
-          "type": "frog",
-          "emoji": "🐸",
-          "count": 3,
-          "soundEffect": null
-        }
-      ],
-      "isPause": true,
-      "correctAnswer": 3,
-      "isQuestion": false,
-      "description": "Warten auf Antwort - Frösche auf dem Bildschirm"
-    },
-    {
-      "id": "scene_all_animals",
-      "timeRange": "01:22-01:27",
-      "duration": 5,
-      "character": null,
-      "dialogue": null,
-      "tone": null,
-      "visual": "all_animals_gather",
-      "animation": "gather",
-      "sound": "uplifting_music",
+      "dialogue": "Schau, sehr schöne Schmetterlinge sind zu uns geflogen.",
       "animals": [
         {
           "type": "butterfly",
           "emoji": "🦋",
-          "count": 1,
-          "soundEffect": null
-        },
+          "count": 1
+        }
+      ],
+      "duration": 3,
+      "tone": "excited",
+      "animation": "flying_butterflies"
+    },
+    {
+      "character": "bono",
+      "dialogue": "Wie viele Schmetterlinge?",
+      "animals": [
+        {
+          "type": "butterfly",
+          "emoji": "🦋",
+          "count": 1
+        }
+      ],
+      "isQuestion": true,
+      "correctAnswer": 1,
+      "waitForAnswer": true,
+      "animation": "flying_butterflies"
+    },
+    {
+      "character": "bono",
+      "dialogue": "Verspielte Affen sind von den Bäumen heruntergestiegen.",
+      "animals": [
         {
           "type": "monkey",
-          "emoji": "🐵",
-          "count": 4,
-          "soundEffect": null
-        },
+          "emoji": "🐒",
+          "count": 4
+        }
+      ],
+      "duration": 3,
+      "tone": "playful",
+      "animation": "playful_monkeys"
+    },
+    {
+      "character": "bono",
+      "dialogue": "Wie viele Affen?",
+      "animals": [
+        {
+          "type": "monkey",
+          "emoji": "🐒",
+          "count": 4
+        }
+      ],
+      "isQuestion": true,
+      "correctAnswer": 4,
+      "waitForAnswer": true,
+      "animation": "playful_monkeys"
+    },
+    {
+      "character": "bono",
+      "dialogue": "Hör zu, wie die Vögel fröhlich auf den Ästen singen.",
+      "animals": [
         {
           "type": "bird",
           "emoji": "🐦",
-          "count": 2,
-          "soundEffect": null
-        },
+          "count": 2
+        }
+      ],
+      "duration": 3,
+      "tone": "gentle",
+      "animation": "singing_birds"
+    },
+    {
+      "character": "bono",
+      "dialogue": "Wie viele Vögel?",
+      "animals": [
+        {
+          "type": "bird",
+          "emoji": "🐦",
+          "count": 2
+        }
+      ],
+      "isQuestion": true,
+      "correctAnswer": 2,
+      "waitForAnswer": true,
+      "animation": "singing_birds"
+    },
+    {
+      "character": "bono",
+      "dialogue": "Schau, langsame Schildkröten sonnen sich.",
+      "animals": [
         {
           "type": "turtle",
           "emoji": "🐢",
-          "count": 5,
-          "soundEffect": null
-        },
-        {
-          "type": "frog",
-          "emoji": "🐸",
-          "count": 3,
-          "soundEffect": null
+          "count": 5
         }
       ],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Alle Tiere versammeln sich um Bono und Hippo"
+      "duration": 3,
+      "tone": "calm",
+      "animation": "slow_turtles"
     },
     {
-      "id": "scene_celebration",
-      "timeRange": "01:27-01:31",
-      "duration": 4,
+      "character": "bono",
+      "dialogue": "Wie viele Schildkröten?",
+      "animals": [
+        {
+          "type": "turtle",
+          "emoji": "🐢",
+          "count": 5
+        }
+      ],
+      "isQuestion": true,
+      "correctAnswer": 5,
+      "waitForAnswer": true,
+      "animation": "slow_turtles"
+    },
+    {
       "character": "hippo",
       "dialogue": "So viele Tiere! Hast du sie alle gezählt?",
-      "tone": "proud",
-      "visual": "hippo_proud",
-      "animation": "celebrate",
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Hippo feiert stolz"
+      "duration": 4,
+      "tone": "proud"
     },
     {
-      "id": "scene_goodbye",
-      "timeRange": "01:31-01:35",
-      "duration": 4,
       "character": "bono",
-      "dialogue": "Großartig gemacht! Bis zum nächsten Mal für mehr Spaß mit Zahlen!",
-      "tone": "warm",
-      "visual": "bono_goodbye",
-      "animation": "wave",
-      "sound": null,
-      "animals": [],
-      "isPause": false,
-      "correctAnswer": null,
-      "isQuestion": false,
-      "description": "Bonos herzlicher Abschied"
+      "dialogue": "Großartig! Bis zum nächsten Mal!",
+      "duration": 4,
+      "tone": "warm"
     }
   ]
 }

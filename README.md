@@ -98,10 +98,21 @@ mkdir assets/data/lessons/es
 
 4. Update [pubspec.yaml](/Users/User/Development/elli_friends_app/pubspec.yaml) assets section
 
-## 🐛 Known Issues
+## 📚 Documentation
 
-- Localization generation requires running the app first (files are generated automatically)
-- Some TTS features are iOS-only (gracefully handled on web)
+- [Architecture](ARCHITECTURE.md) - App architecture and design patterns
+- [System Prompt](SYSTEM_PROMPT.md) - Development guidelines
+- [Troubleshooting](docs/TROUBLESHOOTING.md) - Common issues and solutions
+- [Sprint Summaries](docs/sprints/) - Development sprint archives
+- [Completed Tasks](docs/completed/) - Task completion reports
+
+## 🐛 Troubleshooting
+
+See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for:
+- TTS (Text-to-Speech) issues
+- Multi-language support
+- Web platform specifics
+- Xcode setup for macOS
 
 ## 📄 License
 
