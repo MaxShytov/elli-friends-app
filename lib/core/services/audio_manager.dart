@@ -90,6 +90,16 @@ class AudioManager {
         await _tts.setPitch(0.9); // Ниже - мудрый слон
         await _tts.setSpeechRate(0.45);
         break;
+      case 'orson':
+      case 'орсон':
+        await _tts.setPitch(0.95); // Чуть выше чем Bono - дружелюбный кот
+        await _tts.setSpeechRate(0.35); // Медленнее для детей
+        break;
+      case 'merv':
+      case 'мерв':
+        await _tts.setPitch(1.05); // Средне-высокий - мудрый волшебник
+        await _tts.setSpeechRate(0.33); // Медленнее для детей
+        break;
       case 'hippo':
       case 'гиппо':
         await _tts.setPitch(1.2); // Выше - весёлый бегемот

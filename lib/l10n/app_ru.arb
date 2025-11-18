@@ -2,6 +2,7 @@
   "@@locale": "ru",
   "settings": "Настройки",
   "learnNumbers": "Учим цифры",
+  "learnSubtraction": "Вычитание",
   "learnLetters": "Учим буквы",
   "learnShapes": "Учим фигуры",
   "learnColors": "Учим цвета",
@@ -42,5 +43,7 @@
   "difficultyEasy": "Легко",
   "difficultyMedium": "Средне",
   "difficultyHard": "Сложно",
-  "difficultyLevel": "Уровень {level}"
+  "difficultyLevel": "Уровень {level}",
+  "orsonGreeting": "Привет, я фиолетовый кот Orson",
+  "mervGreeting": "Привет, я жёлтый пёсик Merv"
 }

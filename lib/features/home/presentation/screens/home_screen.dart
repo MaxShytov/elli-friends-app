@@ -8,7 +8,7 @@ import '../../../../l10n/app_localizations.dart';
 import '../bloc/home_bloc.dart';
 import '../bloc/home_event.dart';
 import '../bloc/home_state.dart';
-import '../widgets/character_widget.dart';
+import '../widgets/animated_character_widget.dart';
 import '../widgets/activity_card.dart';
 
 /// Home screen of Elli & Friends app
@@ -71,6 +71,72 @@ class _HomeScreenContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
+      appBar: AppBar(
+        backgroundColor: AppColors.background,
+        elevation: 0,
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(Icons.menu, color: AppColors.primary),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+            tooltip: 'Menu',
+          ),
+        ),
+        title: const Text(
+          'Elli & Friends',
+          style: TextStyle(
+            color: AppColors.primary,
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: const BoxDecoration(
+                color: AppColors.primary,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Icon(
+                    Icons.pets,
+                    size: 64,
+                    color: Colors.white,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Elli & Friends',
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: Text(AppLocalizations.of(context)!.settings),
+              onTap: () {
+                Navigator.pop(context); // Close drawer
+                context.push('/settings');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.pets),
+              title: const Text('Mascots Demo'),
+              onTap: () {
+                Navigator.pop(context); // Close drawer
+                context.push('/mascots-demo');
+              },
+            ),
+          ],
+        ),
+      ),
       body: BlocConsumer<HomeBloc, HomeState>(
         listener: (context, state) {
           if (state is HomeNavigating) {
@@ -104,21 +170,13 @@ class _HomeScreenContent extends StatelessWidget {
   }
 
   Widget _buildHomeContent(BuildContext context, HomeReady state) {
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(AppDimensions.paddingLarge),
-          child: Column(
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(AppDimensions.paddingLarge),
+        child: Column(
             children: [
-              // Elli character with greeting
-              CharacterWidget(
-                emoji: '🐘',
-                greeting: state.greeting,
-                isAnimating: state.elliIsAnimating,
-                onTap: () {
-                  context.read<HomeBloc>().add(const ElliTapped());
-                },
-              ),
+              // Animated character with greeting
+              const AnimatedCharacterWidget(),
 
               const SizedBox(height: AppDimensions.paddingLarge),
 
@@ -138,16 +196,17 @@ class _HomeScreenContent extends StatelessWidget {
                   return ActivityCard(
                     activity: activity,
                     onTap: () {
+                      // Navigate to lesson page
                       context.push('/lesson/${activity.id}');
                     },
                   );
                 },
               ),
 
-              // TEST: Demo lesson button
+              // TEST: Demo lesson buttons
               const SizedBox(height: AppDimensions.paddingLarge),
               ElevatedButton.icon(
-                onPressed: () => context.push('/lesson/counting'),
+                onPressed: () => context.push('/lesson/lesson_counting'),
                 icon: const Icon(Icons.play_arrow),
                 label: Text(AppLocalizations.of(context)!.lessonCountingDemo),
                 style: ElevatedButton.styleFrom(
@@ -160,15 +219,29 @@ class _HomeScreenContent extends StatelessWidget {
                 ),
               ),
 
-              // Settings button
               const SizedBox(height: AppDimensions.paddingSmall),
-              OutlinedButton.icon(
-                onPressed: () => context.push('/settings'),
-                icon: const Icon(Icons.settings),
-                label: Text(AppLocalizations.of(context)!.settings),
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: AppColors.primary,
-                  side: const BorderSide(color: AppColors.primary, width: 2),
+              ElevatedButton.icon(
+                onPressed: () => context.push('/lesson/subtraction'),
+                icon: const Icon(Icons.remove),
+                label: const Text('Subtraction with Orson'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppDimensions.paddingLarge,
+                    vertical: AppDimensions.paddingMedium,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: AppDimensions.paddingSmall),
+              ElevatedButton.icon(
+                onPressed: () => context.push('/lesson/counting'),
+                icon: const Icon(Icons.favorite),
+                label: const Text('Counting with Orson & Merv'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orange,
+                  foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(
                     horizontal: AppDimensions.paddingLarge,
                     vertical: AppDimensions.paddingMedium,
@@ -179,7 +252,6 @@ class _HomeScreenContent extends StatelessWidget {
               // Bottom padding for scrolling
               const SizedBox(height: AppDimensions.paddingLarge),
             ],
-          ),
         ),
       ),
     );

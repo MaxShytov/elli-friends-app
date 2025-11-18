@@ -58,6 +58,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         emoji: '🔢',
       ),
       Activity(
+        id: 'subtraction',
+        title: 'subtraction', // Used as key for localization
+        emoji: '➖',
+      ),
+      Activity(
         id: 'letters',
         title: 'letters', // Used as key for localization
         emoji: '🔤',

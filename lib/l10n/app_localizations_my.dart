@@ -15,6 +15,9 @@ class AppLocalizationsMy extends AppLocalizations {
   String get learnNumbers => 'ဂဏန်းများကို လေ့လာပါ';
 
   @override
+  String get learnSubtraction => 'နုတ်ခြင်း';
+
+  @override
   String get learnLetters => 'အက္ခရာများကို လေ့လာပါ';
 
   @override
@@ -144,4 +147,10 @@ class AppLocalizationsMy extends AppLocalizations {
   String difficultyLevel(int level) {
     return 'အဆင့် $level';
   }
+
+  @override
+  String get orsonGreeting => 'မင်္ဂလာပါ၊ ကျွန်တော် ခရမ်းရောင် ကြောင် Orson ပါ';
+
+  @override
+  String get mervGreeting => 'မင်္ဂလာပါ၊ ကျွန်တော် အဝါရောင် ခွေး Merv ပါ';
 }

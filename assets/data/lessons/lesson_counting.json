@@ -1,0 +1,455 @@
+{
+  "id": "counting_friends",
+  "title": {
+    "en": "Counting as a Game of Friends",
+    "ru": "Счет как игра с друзьями",
+    "fr": "Compter comme un jeu d'amis",
+    "it": "Contare come un gioco tra amici",
+    "de": "Zählen als Freundschaftsspiel",
+    "my": "သူငယ်ချင်းများနှင့် ရေတွက်ခြင်း"
+  },
+  "topic": "counting",
+  "description": {
+    "en": "Learn counting 1 to 5 with Orson and Merv using fun animal friends",
+    "ru": "Учимся считать от 1 до 5 с Орсоном и Мервом, используя забавных животных",
+    "fr": "Apprendre à compter de 1 à 5 avec Orson et Merv en utilisant des animaux amusants",
+    "it": "Impara a contare da 1 a 5 con Orson e Merv usando simpatici animali",
+    "de": "Lerne mit Orson und Merv von 1 bis 5 zu zählen, mit lustigen Tierfreunden",
+    "my": "Orson နှင့် Merv နှင့်အတူ ရယ်စရာကောင်းသော တိရိစ္ဆာန်များဖြင့် ၁ မှ ၅ အထိ ရေတွက်ရန် လေ့လာပါ"
+  },
+  "difficulty": 1,
+  "tags": ["counting", "numbers", "basic", "math"],
+  "scenes": [
+    {
+      "character": "orson",
+      "duration": 2,
+      "animation": "anim_walk_front",
+      "emotion": "Happy",
+      "transitionType": "auto_timer"
+    },
+    {
+      "character": "orson",
+      "duration": 1,
+      "animation": "anim_idle",
+      "emotion": "Happy",
+      "transitionType": "auto_timer"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Hello, I'm Orson!",
+        "ru": "Привет, я Орсон!",
+        "fr": "Bonjour, je suis Orson!",
+        "it": "Ciao, sono Orson!",
+        "de": "Hallo, ich bin Orson!",
+        "my": "မင်္ဂလာပါ၊ ကျွန်တော် Orson ပါ!"
+      },
+      "duration": 2,
+      "tone": "friendly",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Today, we will learn how to count to five together.",
+        "ru": "Сегодня мы вместе научимся считать до пяти.",
+        "fr": "Aujourd'hui, nous allons apprendre à compter jusqu'à cinq ensemble.",
+        "it": "Oggi impareremo a contare fino a cinque insieme.",
+        "de": "Heute lernen wir zusammen bis fünf zu zählen.",
+        "my": "ယနေ့ ကျွန်တော်တို့ အတူတကွ ငါးအထိ ရေတွက်ရန် လေ့လာကြမည်။"
+      },
+      "tone": "cheerful",
+      "animation": "anim_happy",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Hi Orson! I love counting!",
+        "ru": "Привет, Орсон! Я обожаю считать!",
+        "fr": "Salut Orson! J'adore compter!",
+        "it": "Ciao Orson! Adoro contare!",
+        "de": "Hallo Orson! Ich liebe es zu zählen!",
+        "my": "ဟိုင်း Orson! ကျွန်တော် ရေတွက်ရတာ ကြိုက်တယ်!"
+      },
+      "tone": "excited",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Let's start with one. Look, there's one butterfly!",
+        "ru": "Начнем с одного. Смотри, тут одна бабочка!",
+        "fr": "Commençons avec un. Regarde, il y a un papillon!",
+        "it": "Iniziamo con uno. Guarda, c'è una farfalla!",
+        "de": "Fangen wir mit eins an. Schau, da ist ein Schmetterling!",
+        "my": "တစ်ကောင်နှင့် စကြစို့။ ကြည့်စမ်း၊ လိပ်ပြာတစ်ကောင် ရှိတယ်!"
+      },
+      "animals": [
+        {
+          "type": "butterfly",
+          "emoji": "🦋",
+          "count": 1
+        }
+      ],
+      "tone": "clear",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "One butterfly! So beautiful!",
+        "ru": "Одна бабочка! Какая красивая!",
+        "fr": "Un papillon! Si beau!",
+        "it": "Una farfalla! Così bella!",
+        "de": "Ein Schmetterling! So schön!",
+        "my": "လိပ်ပြာတစ်ကောင်! အရမ်းလှတယ်!"
+      },
+      "animals": [
+        {
+          "type": "butterfly",
+          "emoji": "🦋",
+          "count": 1
+        }
+      ],
+      "tone": "amazed",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Now let's count monkeys. How many monkeys do you see?",
+        "ru": "Теперь давай посчитаем обезьянок. Сколько обезьянок ты видишь?",
+        "fr": "Maintenant, comptons les singes. Combien de singes vois-tu?",
+        "it": "Ora contiamo le scimmie. Quante scimmie vedi?",
+        "de": "Jetzt zählen wir Affen. Wie viele Affen siehst du?",
+        "my": "အခု မျောက်တွေ ရေတွက်ကြစို့။ မျောက် ဘယ်နှစ်ကောင် မြင်လဲ?"
+      },
+      "animals": [
+        {
+          "type": "monkey",
+          "emoji": "🐵",
+          "count": 4
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswer": 4,
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "That's right! Four monkeys!",
+        "ru": "Правильно! Четыре обезьянки!",
+        "fr": "C'est exact! Quatre singes!",
+        "it": "Esatto! Quattro scimmie!",
+        "de": "Richtig! Vier Affen!",
+        "my": "မှန်ပါတယ်! မျောက် လေးကောင်!"
+      },
+      "animals": [
+        {
+          "type": "monkey",
+          "emoji": "🐵",
+          "count": 4
+        }
+      ],
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "One, two, three, four!",
+        "ru": "Один, два, три, четыре!",
+        "fr": "Un, deux, trois, quatre!",
+        "it": "Uno, due, tre, quattro!",
+        "de": "Eins, zwei, drei, vier!",
+        "my": "တစ်၊ နှစ်၊ သုံး၊ လေး!"
+      },
+      "animals": [
+        {
+          "type": "monkey",
+          "emoji": "🐵",
+          "count": 4
+        }
+      ],
+      "tone": "counting",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Now look at the birds. How many birds are there?",
+        "ru": "Теперь посмотри на птичек. Сколько тут птичек?",
+        "fr": "Maintenant regarde les oiseaux. Combien d'oiseaux y a-t-il?",
+        "it": "Ora guarda gli uccelli. Quanti uccelli ci sono?",
+        "de": "Jetzt schau dir die Vögel an. Wie viele Vögel gibt es?",
+        "my": "အခု ငှက်တွေကို ကြည့်ပါ။ ငှက် ဘယ်နှစ်ကောင် ရှိလဲ?"
+      },
+      "animals": [
+        {
+          "type": "bird",
+          "emoji": "🐦",
+          "count": 2
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_sad",
+      "secondEmotion": "Intense Sad",
+      "isQuestion": true,
+      "correctAnswer": 2,
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Excellent! Two birds!",
+        "ru": "Отлично! Две птички!",
+        "fr": "Excellent! Deux oiseaux!",
+        "it": "Eccellente! Due uccelli!",
+        "de": "Ausgezeichnet! Zwei Vögel!",
+        "my": "အရမ်းကောင်းတယ်! ငှက်နှစ်ကောင်!"
+      },
+      "animals": [
+        {
+          "type": "bird",
+          "emoji": "🐦",
+          "count": 2
+        }
+      ],
+      "tone": "proud",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "One, two birds flying!",
+        "ru": "Один, два - птички летят!",
+        "fr": "Un, deux oiseaux qui volent!",
+        "it": "Uno, due uccelli che volano!",
+        "de": "Eins, zwei Vögel fliegen!",
+        "my": "တစ်၊ နှစ် ငှက်တွေ ပျံနေတယ်!"
+      },
+      "animals": [
+        {
+          "type": "bird",
+          "emoji": "🐦",
+          "count": 2
+        }
+      ],
+      "tone": "happy",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Now, let's count the turtles. How many turtles do you see?",
+        "ru": "А теперь давай посчитаем черепашек. Сколько ты видишь черепашек?",
+        "fr": "Maintenant, comptons les tortues. Combien de tortues vois-tu?",
+        "it": "Ora contiamo le tartarughe. Quante tartarughe vedi?",
+        "de": "Jetzt zählen wir die Schildkröten. Wie viele Schildkröten siehst du?",
+        "my": "အခု လိပ်တွေ ရေတွက်ကြစို့။ လိပ် ဘယ်နှစ်ကောင် မြင်လဲ?"
+      },
+      "animals": [
+        {
+          "type": "turtle",
+          "emoji": "🐢",
+          "count": 5
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswer": 5,
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Perfect! Five turtles!",
+        "ru": "Отлично! Пять черепашек!",
+        "fr": "Parfait! Cinq tortues!",
+        "it": "Perfetto! Cinque tartarughe!",
+        "de": "Perfekt! Fünf Schildkröten!",
+        "my": "ပြီးပြည့်စုံတယ်! လိပ်ငါးကောင်!"
+      },
+      "animals": [
+        {
+          "type": "turtle",
+          "emoji": "🐢",
+          "count": 5
+        }
+      ],
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "One, two, three, four, five turtles!",
+        "ru": "Один, два, три, четыре, пять черепашек!",
+        "fr": "Un, deux, trois, quatre, cinq tortues!",
+        "it": "Uno, due, tre, quattro, cinque tartarughe!",
+        "de": "Eins, zwei, drei, vier, fünf Schildkröten!",
+        "my": "တစ်၊ နှစ်၊ သုံး၊ လေး၊ ငါး လိပ်တွေ!"
+      },
+      "animals": [
+        {
+          "type": "turtle",
+          "emoji": "🐢",
+          "count": 5
+        }
+      ],
+      "tone": "excited",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Last one! How many frogs are here?",
+        "ru": "Последнее задание! Сколько тут лягушек?",
+        "fr": "Dernier! Combien de grenouilles y a-t-il ici?",
+        "it": "Ultimo! Quante rane ci sono qui?",
+        "de": "Letzte! Wie viele Frösche sind hier?",
+        "my": "နောက်ဆုံး! ဘား ဘယ်နှစ်ကောင် ရှိလဲ?"
+      },
+      "animals": [
+        {
+          "type": "frog",
+          "emoji": "🐸",
+          "count": 3
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_sad",
+      "secondEmotion": "Angry",
+      "isQuestion": true,
+      "correctAnswer": 3,
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Amazing! Three frogs!",
+        "ru": "Потрясающе! Три лягушки!",
+        "fr": "Incroyable! Trois grenouilles!",
+        "it": "Fantastico! Tre rane!",
+        "de": "Erstaunlich! Drei Frösche!",
+        "my": "အံ့သြစရာ! ဘားသုံးကောင်!"
+      },
+      "animals": [
+        {
+          "type": "frog",
+          "emoji": "🐸",
+          "count": 3
+        }
+      ],
+      "tone": "proud",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "One, two, three frogs!",
+        "ru": "Один, два, три лягушки!",
+        "fr": "Un, deux, trois grenouilles!",
+        "it": "Uno, due, tre rane!",
+        "de": "Eins, zwei, drei Frösche!",
+        "my": "တစ်၊ နှစ်၊ သုံး ဘားတွေ!"
+      },
+      "animals": [
+        {
+          "type": "frog",
+          "emoji": "🐸",
+          "count": 3
+        }
+      ],
+      "tone": "happy",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "You did a great job counting today!",
+        "ru": "Ты сегодня отлично посчитал!",
+        "fr": "Tu as fait un excellent travail de comptage aujourd'hui!",
+        "it": "Hai fatto un ottimo lavoro di conteggio oggi!",
+        "de": "Du hast heute großartig gezählt!",
+        "my": "ဒီနေ့ မင်း ရေတွက်တာ အရမ်းကောင်းတယ်!"
+      },
+      "tone": "proud",
+      "animation": "anim_happy",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Now I can count to five! Thank you, Orson!",
+        "ru": "Теперь я умею считать до пяти! Спасибо, Орсон!",
+        "fr": "Maintenant je peux compter jusqu'à cinq! Merci, Orson!",
+        "it": "Ora so contare fino a cinque! Grazie, Orson!",
+        "de": "Jetzt kann ich bis fünf zählen! Danke, Orson!",
+        "my": "အခု ကျွန်တော် ငါးအထိ ရေတွက်နိုင်ပြီ! ကျေးဇူးတင်ပါတယ် Orson!"
+      },
+      "tone": "grateful",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "See you next time, friend!",
+        "ru": "До встречи, друг!",
+        "fr": "À la prochaine, ami!",
+        "it": "Ci vediamo la prossima volta, amico!",
+        "de": "Bis zum nächsten Mal, Freund!",
+        "my": "နောက်တစ်ခေါက် တွေ့မယ်၊ သူငယ်ချင်း!"
+      },
+      "tone": "friendly",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "button",
+      "buttonTitle": {
+        "en": "Finish",
+        "ru": "Готово",
+        "fr": "Terminer",
+        "it": "Fine",
+        "de": "Fertig",
+        "my": "ပြီးပြီ"
+      }
+    }
+  ]
+}

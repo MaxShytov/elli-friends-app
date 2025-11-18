@@ -1,11 +1,9 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart' as rive;
 import '../../domain/entities/lesson.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_dimensions.dart';
-import 'flying_butterflies.dart';
-import 'playful_monkeys.dart';
-import 'singing_birds.dart';
-import 'slow_turtles.dart';
 
 /// Widget for displaying a lesson scene
 class SceneWidget extends StatefulWidget {
@@ -24,6 +22,14 @@ class _SceneWidgetState extends State<SceneWidget>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _bounceAnimation;
+
+  // Rive variables
+  rive.File? _riveFile;
+  rive.RiveWidgetController? _riveController;
+  rive.ViewModelInstance? _viewModel;
+  rive.ViewModelInstanceEnum? _characterSelectEnum;
+  rive.ViewModelInstanceEnum? _faceEmotionEnum;
+  bool _riveLoaded = false;
 
   @override
   void initState() {
@@ -46,11 +52,139 @@ class _SceneWidgetState extends State<SceneWidget>
     if (hasAnimals && isNotQuestion) {
       _controller.repeat(reverse: true);
     }
+
+    // Load Rive file if character is specified
+    if (widget.scene.character != null) {
+      _loadRiveFile();
+    }
+  }
+
+  Future<void> _loadRiveFile() async {
+    try {
+      // Dispose old resources before loading new character
+      _viewModel?.dispose();
+      _riveController?.dispose();
+
+      setState(() {
+        _riveLoaded = false;
+      });
+
+      _riveFile = await rive.File.asset(
+        'assets/animations/responsive_mascots.riv',
+        riveFactory: kIsWeb ? rive.Factory.flutter : rive.Factory.rive,
+      );
+
+      _riveController = rive.RiveWidgetController(
+        _riveFile!,
+        stateMachineSelector: rive.StateMachineSelector.byIndex(0),
+      );
+
+      // Initialize view model
+      _viewModel = _riveController!.dataBind(rive.DataBind.auto());
+      if (_viewModel != null) {
+        _characterSelectEnum = _viewModel!.enumerator('CharacterSelect');
+        _faceEmotionEnum = _viewModel!.enumerator('FaceEmotion');
+
+        // Set character
+        final characterName = _getCharacterName(widget.scene.character!);
+        if (_characterSelectEnum != null) {
+          _characterSelectEnum!.value = characterName;
+          debugPrint('✅ Set character to: $characterName');
+        }
+
+        // Set emotion
+        if (widget.scene.emotion != null && _faceEmotionEnum != null) {
+          _faceEmotionEnum!.value = widget.scene.emotion!;
+          debugPrint('✅ Set emotion to: ${widget.scene.emotion}');
+        }
+
+        // Trigger animation
+        if (widget.scene.animation != null) {
+          _triggerAnimation(widget.scene.animation!);
+        }
+      }
+
+      if (mounted) {
+        setState(() {
+          _riveLoaded = true;
+        });
+      }
+    } catch (e) {
+      debugPrint('❌ Failed to load Rive file: $e');
+    }
+  }
+
+  void _triggerAnimation(String animationName) {
+    if (_viewModel != null) {
+      try {
+        final triggerProperty = _viewModel!.trigger(animationName);
+        if (triggerProperty != null) {
+          triggerProperty.trigger();
+        }
+      } catch (e) {
+        debugPrint('❌ Error triggering animation: $e');
+      }
+    }
+  }
+
+  String _getCharacterName(String character) {
+    switch (character.toLowerCase()) {
+      case 'orson':
+      case 'орсон':
+        return 'Orson';
+      case 'merv':
+      case 'мерв':
+        return 'Merv';
+      default:
+        return 'Orson';
+    }
+  }
+
+  @override
+  void didUpdateWidget(SceneWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    // If scene changed, update Rive state
+    if (oldWidget.scene != widget.scene) {
+      // If character changed, reload Rive file
+      if (widget.scene.character != oldWidget.scene.character &&
+          widget.scene.character != null) {
+        debugPrint('🔄 Character changed from ${oldWidget.scene.character} to ${widget.scene.character}, reloading Rive');
+        _loadRiveFile();
+      } else {
+        // Update emotion if changed
+        if (widget.scene.emotion != oldWidget.scene.emotion &&
+            widget.scene.emotion != null &&
+            _faceEmotionEnum != null) {
+          _faceEmotionEnum!.value = widget.scene.emotion!;
+          debugPrint('✅ Updated emotion to: ${widget.scene.emotion}');
+        }
+
+        // Trigger new animation if specified
+        if (widget.scene.animation != null &&
+            widget.scene.animation != oldWidget.scene.animation) {
+          _triggerAnimation(widget.scene.animation!);
+          debugPrint('✅ Triggered animation: ${widget.scene.animation}');
+        }
+      }
+
+      // Update bounce animation for animals
+      final hasAnimals = widget.scene.animals != null && widget.scene.animals!.isNotEmpty;
+      final isNotQuestion = !widget.scene.isQuestion && !widget.scene.waitForAnswer;
+      if (hasAnimals && isNotQuestion) {
+        _controller.repeat(reverse: true);
+      } else {
+        _controller.stop();
+      }
+    }
   }
 
   @override
   void dispose() {
     _controller.dispose();
+    _riveController?.dispose();
+    _viewModel?.dispose();
+    _riveFile?.dispose();
     super.dispose();
   }
 
@@ -78,21 +212,12 @@ class _SceneWidgetState extends State<SceneWidget>
     }
 
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
       children: [
         // Персонаж
         if (widget.scene.character != null) ...[
           _buildCharacter(widget.scene.character!),
-          const SizedBox(height: AppDimensions.paddingLarge),
-        ],
-
-        // Анимированные животные (если указана анимация и это НЕ вопрос)
-        if (widget.scene.animation != null && !widget.scene.isQuestion) ...[
-          SizedBox(
-            height: 200,
-            child: _buildAnimationWidget(widget.scene.animation!),
-          ),
-          const SizedBox(height: AppDimensions.paddingLarge),
+          const SizedBox(height: AppDimensions.paddingMedium),
         ],
 
         // Животные (с анимацией или статичные)
@@ -103,12 +228,13 @@ class _SceneWidgetState extends State<SceneWidget>
               animalsToShow,
               animated: !widget.scene.isQuestion && !widget.scene.waitForAnswer,
             ),
-            const SizedBox(height: AppDimensions.paddingLarge),
+            const SizedBox(height: AppDimensions.paddingMedium),
           ],
         ],
 
         // Диалог
         if (widget.scene.dialogue != null) ...[
+          const SizedBox(height: AppDimensions.paddingMedium),
           _buildDialogue(context, widget.scene.dialogue!),
         ],
       ],
@@ -116,9 +242,20 @@ class _SceneWidgetState extends State<SceneWidget>
   }
 
   Widget _buildCharacter(String character) {
-    // Простой emoji персонаж
-    final emoji = _getCharacterEmoji(character);
+    // Show Rive character if loaded
+    if (_riveLoaded && _riveController != null) {
+      return SizedBox(
+        width: 300,
+        height: 300,
+        child: rive.RiveWidget(
+          controller: _riveController!,
+          fit: rive.Fit.contain,
+        ),
+      );
+    }
 
+    // Fallback to emoji while loading
+    final emoji = _getCharacterEmoji(character);
     return Container(
       width: AppDimensions.characterSize,
       height: AppDimensions.characterSize,
@@ -183,12 +320,9 @@ class _SceneWidgetState extends State<SceneWidget>
 
   Widget _buildDialogue(BuildContext context, String dialogue) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppDimensions.paddingLarge,
-        vertical: AppDimensions.paddingLarge + 2,
-      ),
+      padding: const EdgeInsets.all(AppDimensions.paddingMedium),
       margin: const EdgeInsets.symmetric(
-        horizontal: AppDimensions.paddingLarge,
+        horizontal: AppDimensions.paddingMedium,
       ),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -203,8 +337,9 @@ class _SceneWidgetState extends State<SceneWidget>
       ),
       child: Text(
         dialogue,
-        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+        style: Theme.of(context).textTheme.titleMedium?.copyWith(
           color: AppColors.textPrimary,
+          fontSize: 16,
         ),
         textAlign: TextAlign.center,
       ),
@@ -222,6 +357,12 @@ class _SceneWidgetState extends State<SceneWidget>
       case 'hippo':
       case 'гиппо':
         return '🦛';
+      case 'orson':
+      case 'орсон':
+        return '🐱';
+      case 'merv':
+      case 'мерв':
+        return '🧙';
       default:
         return '😊';
     }
@@ -243,18 +384,4 @@ class _SceneWidgetState extends State<SceneWidget>
     }
   }
 
-  Widget _buildAnimationWidget(String animation) {
-    switch (animation) {
-      case 'flying_butterflies':
-        return const FlyingButterflies(butterflyCount: 8);
-      case 'playful_monkeys':
-        return const PlayfulMonkeys(monkeyCount: 4);
-      case 'singing_birds':
-        return const SingingBirds(birdCount: 2);
-      case 'slow_turtles':
-        return const SlowTurtles(turtleCount: 5);
-      default:
-        return const SizedBox.shrink();
-    }
-  }
 }

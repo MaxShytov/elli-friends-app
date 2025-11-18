@@ -2,6 +2,7 @@
   "@@locale": "it",
   "settings": "Impostazioni",
   "learnNumbers": "Impara i numeri",
+  "learnSubtraction": "Sottrazione",
   "learnLetters": "Impara le lettere",
   "learnShapes": "Impara le forme",
   "learnColors": "Impara i colori",
@@ -42,5 +43,7 @@
   "difficultyEasy": "Facile",
   "difficultyMedium": "Medio",
   "difficultyHard": "Difficile",
-  "difficultyLevel": "Livello {level}"
+  "difficultyLevel": "Livello {level}",
+  "orsonGreeting": "Ciao, sono Orson il gatto viola",
+  "mervGreeting": "Ciao, sono Merv il cucciolo giallo"
 }

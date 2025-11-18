@@ -118,6 +118,12 @@ abstract class AppLocalizations {
   /// **'Learn Numbers'**
   String get learnNumbers;
 
+  /// Activity title for learning subtraction
+  ///
+  /// In en, this message translates to:
+  /// **'Subtraction'**
+  String get learnSubtraction;
+
   /// Activity title for learning letters
   ///
   /// In en, this message translates to:
@@ -363,6 +369,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Level {level}'**
   String difficultyLevel(int level);
+
+  /// Orson's character greeting
+  ///
+  /// In en, this message translates to:
+  /// **'Hi, I\'m Orson the purple cat'**
+  String get orsonGreeting;
+
+  /// Merv's character greeting
+  ///
+  /// In en, this message translates to:
+  /// **'Hi, I\'m Merv the yellow puppy'**
+  String get mervGreeting;
 }
 
 class _AppLocalizationsDelegate

@@ -1,0 +1,358 @@
+{
+  "id": "subtraction",
+  "title": {
+    "en": "Subtraction as Hide and Seek",
+    "ru": "Вычитание как прятки",
+    "fr": "Soustraction comme cache-cache",
+    "it": "Sottrazione come nascondino",
+    "de": "Subtraktion als Versteckspiel",
+    "my": "ပုန်းကွယ်ခြင်းကစားနည်းအတိုင်း နုတ်ခြင်း"
+  },
+  "topic": "subtraction",
+  "description": {
+    "en": "Learn subtraction with Orson and Merv using the hide and seek game",
+    "ru": "Изучаем вычитание с Орсоном и Мервом через игру в прятки",
+    "fr": "Apprendre la soustraction avec Orson et Merv en utilisant le jeu de cache-cache",
+    "it": "Impara la sottrazione con Orson e Merv usando il gioco del nascondino",
+    "de": "Lerne Subtraktion mit Orson und Merv durch das Versteckspiel",
+    "my": "Orson နှင့် Merv နှင့်အတူ ပုန်းကွယ်ခြင်းဂိမ်းဖြင့် နုတ်ခြင်းကို လေ့လာပါ"
+  },
+  "difficulty": 1,
+  "tags": ["subtraction", "numbers", "basic", "math"],
+  "scenes": [
+    {
+      "character": "orson",
+      "duration": 2,
+      "animation": "anim_walk_front",
+      "emotion": "Happy",
+      "transitionType": "auto_timer"
+    },
+    {
+      "character": "orson",
+      "duration": 1,
+      "animation": "anim_idle",
+      "emotion": "Happy",
+      "transitionType": "auto_timer"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Hello!!!",
+        "ru": "Привет!!!",
+        "fr": "Bonjour!!!",
+        "it": "Ciao!!!",
+        "de": "Hallo!!!",
+        "my": "မင်္ဂလာပါ!!!"
+      },
+      "duration": 2,
+      "tone": "friendly",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "My name is Orson.",
+        "ru": "Меня зовут Орсон.",
+        "fr": "Je m'appelle Orson.",
+        "it": "Mi chiamo Orson.",
+        "de": "Mein Name ist Orson.",
+        "my": "ကျွန်တော့်နာမည် Orson ပါ။"
+      },
+      "tone": "friendly",
+      "animation": "anim_happy",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "I will show you that learning",
+        "ru": "Я покажу тебе, что учиться",
+        "fr": "Je vais te montrer qu'apprendre",
+        "it": "Ti mostrerò che imparare",
+        "de": "Ich zeige dir, dass Lernen",
+        "my": "ကျွန်တော် မင်းကို ပြပေးမယ် သင်ယူခြင်းက"
+      },
+      "tone": "friendly",
+      "animation": "anim_idle",
+      "emotion": "Intense Sad",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "is not boring,",
+        "ru": "это совсем не скучно,",
+        "fr": "n'est pas ennuyeux,",
+        "it": "non è noioso,",
+        "de": "nicht langweilig ist,",
+        "my": "ပျင်းစရာမဟုတ်ဘူး၊"
+      },
+      "tone": "friendly",
+      "animation": "anim_breathLOOP",
+      "emotion": "Eating",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "but exciting with me.",
+        "ru": "а очень интересно со мной.",
+        "fr": "mais passionnant avec moi.",
+        "it": "ma emozionante con me.",
+        "de": "sondern aufregend mit mir.",
+        "my": "ဒါပေမယ့် ကျွန်တော်နဲ့အတူ စိတ်လှုပ်ရှားစရာကောင်းတယ်။"
+      },
+      "tone": "friendly",
+      "animation": "anim_breathLOOP",
+      "emotion": "Eating",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Do you want to start?",
+        "ru": "Хочешь начать?",
+        "fr": "Veux-tu commencer?",
+        "it": "Vuoi iniziare?",
+        "de": "Willst du anfangen?",
+        "my": "စချင်လား?"
+      },
+      "tone": "inviting",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "button",
+      "buttonTitle": {
+        "en": "Yes",
+        "ru": "Да",
+        "fr": "Oui",
+        "it": "Sì",
+        "de": "Ja",
+        "my": "ဟုတ်ကဲ့"
+      }
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Subtraction is like a hide and seek game. Do you want me to explain?",
+        "ru": "Вычитание - это как игра в прятки. Хочешь объясню?",
+        "fr": "La soustraction c'est comme le jeu de cache-cache. Veux-tu que je t'explique?",
+        "it": "La sottrazione è come il gioco del nascondino. Vuoi che ti spieghi?",
+        "de": "Subtraktion ist wie ein Versteckspiel. Soll ich es erklären?",
+        "my": "နုတ်ခြင်းက ပုန်းကွယ်ခြင်းဂိမ်းလို ဖြစ်တယ်။ ရှင်းပြရမလား?"
+      },
+      "tone": "mysterious",
+      "emotion": "Happy",
+      "animation": "anim_idle",
+      "transitionType": "button",
+      "buttonTitle": {
+        "en": "Yes",
+        "ru": "Да",
+        "fr": "Oui",
+        "it": "Sì",
+        "de": "Ja",
+        "my": "ဟုတ်ကဲ့"
+      }
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Look, we have six apples.",
+        "ru": "Смотри, у нас есть шесть яблок.",
+        "fr": "Regarde, nous avons six pommes.",
+        "it": "Guarda, abbiamo sei mele.",
+        "de": "Schau, wir haben sechs Äpfel.",
+        "my": "ကြည့်စမ်း၊ ကျွန်တော်တို့မှာ ပန်းသီး ခြောက်လုံး ရှိတယ်။"
+      },
+      "animals": [
+        {
+          "type": "apple",
+          "emoji": "🍎",
+          "count": 6
+        }
+      ],
+      "tone": "clear",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Oh no, some apples are playing hide and seek.",
+        "ru": "О нет, некоторые яблоки играют в прятки.",
+        "fr": "Oh non, des pommes jouent à cache-cache.",
+        "it": "Oh no, alcune mele stanno giocando a nascondino.",
+        "de": "Oh nein, einige Äpfel spielen Verstecken.",
+        "my": "အိုး မဟုတ်ဘူး၊ ပန်းသီးအချို့က ပုန်းကွယ်ခြင်းကစားနေတယ်။"
+      },
+      "animals": [
+        {
+          "type": "apple",
+          "emoji": "🍎",
+          "count": 4
+        }
+      ],
+      "tone": "surprised",
+      "emotion": "Intense Sad",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "I see only four. So, two little apples must be hiding somewhere.",
+        "ru": "Я вижу только четыре. Значит, два яблока где-то спрятались.",
+        "fr": "Je ne vois que quatre. Donc, deux petites pommes doivent se cacher quelque part.",
+        "it": "Vedo solo quattro. Quindi, due piccole mele devono nascondersi da qualche parte.",
+        "de": "Ich sehe nur vier. Also müssen sich zwei kleine Äpfel irgendwo verstecken.",
+        "my": "လေးလုံးပဲ မြင်တယ်။ ဒီတော့ ပန်းသီးနှစ်လုံး ဘယ်မှာမှ ပုန်းနေမယ်။"
+      },
+      "animals": [
+        {
+          "type": "apple",
+          "emoji": "🍎",
+          "count": 4
+        }
+      ],
+      "tone": "thoughtful",
+      "emotion": "Eating",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Look, we've got four bananas.",
+        "ru": "Смотри, у нас есть четыре банана.",
+        "fr": "Regarde, nous avons quatre bananes.",
+        "it": "Guarda, abbiamo quattro banane.",
+        "de": "Schau, wir haben vier Bananen.",
+        "my": "ကြည့်စမ်း၊ ကျွန်တော်တို့မှာ ငှက်ပျောသီး လေးလုံး ရှိတယ်။"
+      },
+      "animals": [
+        {
+          "type": "banana",
+          "emoji": "🍌",
+          "count": 4
+        }
+      ],
+      "tone": "calm",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Now there are only two left. So, if we take away two, that means 4 minus 2 equals 2.",
+        "ru": "Теперь осталось только два. Значит, если убрать два, получится 4 минус 2 равно 2.",
+        "fr": "Maintenant il n'en reste que deux. Donc, si on enlève deux, ça fait 4 moins 2 égale 2.",
+        "it": "Ora ne restano solo due. Quindi, se togliamo due, significa 4 meno 2 uguale 2.",
+        "de": "Jetzt sind nur noch zwei übrig. Wenn wir also zwei wegnehmen, bedeutet das 4 minus 2 gleich 2.",
+        "my": "အခု နှစ်လုံးပဲ ကျန်တော့တယ်။ ဒီတော့ နှစ်လုံး ဖယ်ရှားလိုက်ရင် ၄ နုတ် ၂ သည် ၂ နှင့် ညီတယ်။"
+      },
+      "animals": [
+        {
+          "type": "banana",
+          "emoji": "🍌",
+          "count": 2
+        }
+      ],
+      "tone": "explaining",
+      "emotion": "Eating",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Let's try together.",
+        "ru": "Давай попробуем вместе.",
+        "fr": "Essayons ensemble.",
+        "it": "Proviamo insieme.",
+        "de": "Lass uns zusammen versuchen.",
+        "my": "အတူတကွ စမ်းကြည့်ကြစို့။"
+      },
+      "tone": "inviting",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Hi Orson, let's use oranges as an example to show that subtraction is easy.",
+        "ru": "Привет, Орсон, давай используем апельсины, чтобы показать, что вычитание это легко.",
+        "fr": "Salut Orson, utilisons des oranges comme exemple pour montrer que la soustraction est facile.",
+        "it": "Ciao Orson, usiamo le arance come esempio per mostrare che la sottrazione è facile.",
+        "de": "Hallo Orson, lass uns Orangen als Beispiel verwenden, um zu zeigen, dass Subtraktion einfach ist.",
+        "my": "ဟိုင်း Orson၊ နုတ်ခြင်းက လွယ်တယ်ဆိုတာ ပြဖို့ လိမ္မော်သီးတွေကို ဥပမာအဖြစ် သုံးကြစို့။"
+      },
+      "tone": "cheerful",
+      "animation": "anim_wave",
+      "emotion": "Eating",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "If we hide one of the four oranges, how many oranges will we have left?",
+        "ru": "Если мы спрячем один из четырех апельсинов, сколько апельсинов останется?",
+        "fr": "Si nous cachons une des quatre oranges, combien d'oranges nous restera-t-il?",
+        "it": "Se nascondiamo una delle quattro arance, quante arance ci rimarranno?",
+        "de": "Wenn wir eine der vier Orangen verstecken, wie viele Orangen bleiben übrig?",
+        "my": "လိမ္မော်သီး လေးလုံးထဲက တစ်လုံးကို ပုန်းထားရင် လိမ္မော်သီး ဘယ်နှစ်လုံး ကျန်မလဲ?"
+      },
+      "animals": [
+        {
+          "type": "orange",
+          "emoji": "🍊",
+          "count": 4
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_sad",
+      "secondEmotion": "Angry",
+      "isQuestion": true,
+      "correctAnswer": 3,
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "That's right, three! Great job.",
+        "ru": "Правильно, три! Молодец!",
+        "fr": "C'est exact, trois! Bon travail.",
+        "it": "Esatto, tre! Ottimo lavoro.",
+        "de": "Richtig, drei! Gut gemacht.",
+        "my": "မှန်ပါတယ်၊ သုံးလုံး! ကောင်းလိုက်တာ။"
+      },
+      "animals": [
+        {
+          "type": "orange",
+          "emoji": "🍊",
+          "count": 3
+        }
+      ],
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Ready for the next challenge? Hmm... let's go!",
+        "ru": "Готов к следующему заданию? Хмм... поехали!",
+        "fr": "Prêt pour le prochain défi? Hmm... allons-y!",
+        "it": "Pronto per la prossima sfida? Hmm... andiamo!",
+        "de": "Bereit für die nächste Herausforderung? Hmm... los geht's!",
+        "my": "နောက်တစ်ခု အဆင်သင့်လား? အင်း... သွားကြစို့!"
+      },
+      "tone": "playful",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "button"
+    }
+  ]
+}

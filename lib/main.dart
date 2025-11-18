@@ -3,7 +3,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:rive/rive.dart' as rive;
 import 'core/router/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'core/services/audio_manager.dart';
@@ -13,6 +15,11 @@ import 'l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Rive Native for Runtime Version 7 support (not on web)
+  if (!kIsWeb) {
+    await rive.RiveNative.init();
+  }
 
   // Lock orientation to portrait only
   await SystemChrome.setPreferredOrientations([

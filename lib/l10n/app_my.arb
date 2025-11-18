@@ -2,6 +2,7 @@
   "@@locale": "my",
   "settings": "ဆက်တင်များ",
   "learnNumbers": "ဂဏန်းများကို လေ့လာပါ",
+  "learnSubtraction": "နုတ်ခြင်း",
   "learnLetters": "အက္ခရာများကို လေ့လာပါ",
   "learnShapes": "ပုံသဏ္ဍာန်များကို လေ့လာပါ",
   "learnColors": "အရောင်များကို လေ့လာပါ",
@@ -42,5 +43,7 @@
   "difficultyEasy": "လွယ်ကူ",
   "difficultyMedium": "အလယ်အလတ်",
   "difficultyHard": "ခက်ခဲ",
-  "difficultyLevel": "အဆင့် {level}"
+  "difficultyLevel": "အဆင့် {level}",
+  "orsonGreeting": "မင်္ဂလာပါ၊ ကျွန်တော် ခရမ်းရောင် ကြောင် Orson ပါ",
+  "mervGreeting": "မင်္ဂလာပါ၊ ကျွန်တော် အဝါရောင် ခွေး Merv ပါ"
 }

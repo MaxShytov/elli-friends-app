@@ -2,6 +2,7 @@
   "@@locale": "de",
   "settings": "Einstellungen",
   "learnNumbers": "Zahlen lernen",
+  "learnSubtraction": "Subtraktion",
   "learnLetters": "Buchstaben lernen",
   "learnShapes": "Formen lernen",
   "learnColors": "Farben lernen",
@@ -42,5 +43,7 @@
   "difficultyEasy": "Einfach",
   "difficultyMedium": "Mittel",
   "difficultyHard": "Schwer",
-  "difficultyLevel": "Stufe {level}"
+  "difficultyLevel": "Stufe {level}",
+  "orsonGreeting": "Hallo, ich bin Orson die lila Katze",
+  "mervGreeting": "Hallo, ich bin Merv der gelbe Welpe"
 }

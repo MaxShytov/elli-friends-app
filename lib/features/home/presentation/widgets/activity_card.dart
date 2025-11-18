@@ -22,6 +22,8 @@ class ActivityCard extends StatelessWidget {
     switch (titleKey) {
       case 'counting':
         return l10n.learnNumbers;
+      case 'subtraction':
+        return l10n.learnSubtraction;
       case 'letters':
         return l10n.learnLetters;
       case 'shapes':

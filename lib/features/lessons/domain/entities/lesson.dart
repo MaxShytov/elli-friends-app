@@ -34,7 +34,13 @@ class Scene extends Equatable {
   final int? correctAnswer;
   final bool waitForAnswer;
   final bool showPreviousAnimals;
-  final String? animation;
+  final String? animation; // Rive animation trigger (e.g., 'anim_wave', 'anim_happy')
+  final String? emotion; // Character emotion (e.g., 'Happy', 'Sad', 'Neutral')
+  final String? transitionType; // auto_tts, auto_timer, button, task
+  final String? buttonTitle; // Custom button text (e.g., 'Yes', 'Let's go', 'Continue')
+  final String? secondCharacter; // Second character name
+  final String? secondAnimation; // Second character animation
+  final String? secondEmotion; // Second character emotion
 
   const Scene({
     this.character,
@@ -48,6 +54,12 @@ class Scene extends Equatable {
     this.waitForAnswer = false,
     this.showPreviousAnimals = false,
     this.animation,
+    this.emotion,
+    this.transitionType,
+    this.buttonTitle,
+    this.secondCharacter,
+    this.secondAnimation,
+    this.secondEmotion,
   });
 
   @override
@@ -63,6 +75,12 @@ class Scene extends Equatable {
     waitForAnswer,
     showPreviousAnimals,
     animation,
+    emotion,
+    transitionType,
+    buttonTitle,
+    secondCharacter,
+    secondAnimation,
+    secondEmotion,
   ];
 }
 

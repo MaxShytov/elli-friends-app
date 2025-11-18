@@ -8,6 +8,10 @@
   "@learnNumbers": {
     "description": "Activity title for learning numbers"
   },
+  "learnSubtraction": "Subtraction",
+  "@learnSubtraction": {
+    "description": "Activity title for learning subtraction"
+  },
   "learnLetters": "Learn Letters",
   "@learnLetters": {
     "description": "Activity title for learning letters"
@@ -195,5 +199,13 @@
         "example": "1"
       }
     }
+  },
+  "orsonGreeting": "Hi, I'm Orson the purple cat",
+  "@orsonGreeting": {
+    "description": "Orson's character greeting"
+  },
+  "mervGreeting": "Hi, I'm Merv the yellow puppy",
+  "@mervGreeting": {
+    "description": "Merv's character greeting"
   }
 }

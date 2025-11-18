@@ -89,6 +89,44 @@ class _LessonViewState extends State<LessonView> {
               _showWrongAnimation = false;
               _showTryAgain = false;
             });
+
+            // Обработка типа перехода
+            final scene = state.currentScene;
+            final transitionType = scene.transitionType ?? 'button';
+
+            if (transitionType == 'auto_timer' && scene.duration != null) {
+              // Автоматический переход через N секунд
+              final bloc = context.read<LessonBloc>();
+              Future.delayed(Duration(seconds: scene.duration!)).then((_) {
+                if (mounted && bloc.state == state) {
+                  bloc.add(NextScene());
+                }
+              });
+            } else if (transitionType == 'auto_tts') {
+              if (scene.dialogue != null) {
+                // Автоматический переход после проговаривания текста
+                // Рассчитываем время на основе длины текста и скорости речи
+                final wordsCount = scene.dialogue!.split(' ').length;
+                final estimatedDuration = (wordsCount * 0.6).ceil(); // ~0.6 сек на слово для детей
+                final bloc = context.read<LessonBloc>();
+                Future.delayed(Duration(seconds: estimatedDuration)).then((_) {
+                  if (mounted && bloc.state == state) {
+                    bloc.add(NextScene());
+                  }
+                });
+              } else {
+                // Если нет диалога, но transitionType = auto_tts, переходим сразу
+                debugPrint('⚠️ Scene with auto_tts but no dialogue, skipping immediately');
+                final bloc = context.read<LessonBloc>();
+                Future.delayed(const Duration(milliseconds: 500)).then((_) {
+                  if (mounted && bloc.state == state) {
+                    bloc.add(NextScene());
+                  }
+                });
+              }
+            }
+            // Для 'button' - ничего не делаем, ждем нажатия кнопки
+            // Для 'task' - ничего не делаем, ждем выполнения задания (waitForAnswer)
           } else if (state is LessonAnswered) {
             _playFeedback(state.isCorrect);
 
@@ -221,9 +259,14 @@ class _LessonViewState extends State<LessonView> {
 
                         // Сцена
                         Expanded(
-                          child: Center(
-                            child: SceneWidget(
-                              scene: scene,
+                          child: SingleChildScrollView(
+                            child: ConstrainedBox(
+                              constraints: BoxConstraints(
+                                minHeight: MediaQuery.of(context).size.height * 0.5,
+                              ),
+                              child: SceneWidget(
+                                scene: scene,
+                              ),
                             ),
                           ),
                         ),
@@ -294,7 +337,7 @@ class _LessonViewState extends State<LessonView> {
                                   ),
                                 ),
                                 child: Text(
-                                  AppLocalizations.of(context)!.next,
+                                  scene.buttonTitle ?? AppLocalizations.of(context)!.next,
                                   style: const TextStyle(fontSize: 18),
                                 ),
                               ),
@@ -348,7 +391,7 @@ class _LessonViewState extends State<LessonView> {
                                   ),
                                 ),
                                 child: Text(
-                                  AppLocalizations.of(context)!.next,
+                                  scene.buttonTitle ?? AppLocalizations.of(context)!.next,
                                   style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                                 ),
                               ),

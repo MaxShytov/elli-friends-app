@@ -13,10 +13,10 @@ class LessonLocalDataSourceImpl implements LessonLocalDataSource {
     try {
       final locale = languageCode ?? 'en';
       final jsonString = await rootBundle.loadString(
-        'assets/data/lessons/$locale/lesson_$id.json',
+        'assets/data/lessons/lesson_$id.json',
       );
       final jsonMap = json.decode(jsonString) as Map<String, dynamic>;
-      return LessonModel.fromJson(jsonMap);
+      return LessonModel.fromJson(jsonMap, locale: locale);
     } catch (e) {
       throw Exception('Failed to load lesson: $e');
     }
@@ -24,13 +24,18 @@ class LessonLocalDataSourceImpl implements LessonLocalDataSource {
 
   @override
   Future<List<LessonModel>> getAllLessons({String? languageCode}) async {
-    // Пока хардкодим список уроков
-    final lessonIds = ['counting'];
+    // Список доступных уроков
+    final lessonIds = ['counting', 'subtraction'];
 
     final lessons = <LessonModel>[];
     for (final id in lessonIds) {
-      final lesson = await getLessonById(id, languageCode: languageCode);
-      lessons.add(lesson);
+      try {
+        final lesson = await getLessonById(id, languageCode: languageCode);
+        lessons.add(lesson);
+      } catch (e) {
+        // Пропускаем урок, если не удалось загрузить
+        print('Failed to load lesson $id: $e');
+      }
     }
 
     return lessons;

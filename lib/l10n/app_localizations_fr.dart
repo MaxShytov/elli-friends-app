@@ -15,6 +15,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get learnNumbers => 'Apprendre les chiffres';
 
   @override
+  String get learnSubtraction => 'Soustraction';
+
+  @override
   String get learnLetters => 'Apprendre les lettres';
 
   @override
@@ -144,4 +147,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String difficultyLevel(int level) {
     return 'Niveau $level';
   }
+
+  @override
+  String get orsonGreeting => 'Salut, je suis Orson le chat violet';
+
+  @override
+  String get mervGreeting => 'Salut, je suis Merv le chiot jaune';
 }

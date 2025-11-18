@@ -127,18 +127,6 @@ class SettingsPage extends StatelessWidget {
                   ),
                 ),
                 const Divider(height: 1),
-                const ListTile(
-                  title: Text('Music'),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
-                ),
-                const ListTile(
-                  title: Text('Sound Effects'),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
-                ),
-                const ListTile(
-                  title: Text('Voice'),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
-                ),
                 ListTile(
                   leading: Icon(
                     Icons.mic,
