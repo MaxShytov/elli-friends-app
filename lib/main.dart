@@ -11,6 +11,8 @@ import 'core/theme/app_theme.dart';
 import 'core/services/audio_manager.dart';
 import 'core/services/locale_service.dart';
 import 'core/constants/supported_languages.dart';
+import 'core/database/app_database.dart';
+import 'core/database/seed_service.dart';
 import 'l10n/app_localizations.dart';
 
 void main() async {
@@ -26,6 +28,11 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+
+  // Initialize database and seed data
+  final db = AppDatabase.instance;
+  final seedService = SeedService(db);
+  await seedService.seedFromAssets();
 
   // Initialize locale service
   final localeService = LocaleService();

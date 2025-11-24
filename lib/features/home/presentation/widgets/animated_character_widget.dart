@@ -192,9 +192,12 @@ class _AnimatedCharacterWidgetState extends State<AnimatedCharacterWidget> {
     }
 
     if (controller != null) {
-      return rive.RiveWidget(
-        controller: controller!,
-        fit: rive.Fit.contain,
+      // IgnorePointer prevents Rive from capturing all touch events on iOS
+      return IgnorePointer(
+        child: rive.RiveWidget(
+          controller: controller!,
+          fit: rive.Fit.contain,
+        ),
       );
     }
 

@@ -21,6 +21,10 @@ class SettingsPage extends StatelessWidget {
         title: Text(l10n.settings),
         backgroundColor: AppColors.primary,
         foregroundColor: Colors.white,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
       ),
       body: ListView(
         padding: const EdgeInsets.all(AppDimensions.paddingMedium),

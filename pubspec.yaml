@@ -52,6 +52,12 @@ dependencies:
   # Storage
   shared_preferences: ^2.2.2
 
+  # Database (Drift - type-safe SQLite)
+  drift: ^2.22.1
+  sqlite3_flutter_libs: ^0.5.28
+  path_provider: ^2.1.2
+  path: ^1.9.0
+
   # UI
   flutter_svg: ^2.0.9
   rive: 0.14.0-dev.14
@@ -70,6 +76,10 @@ dev_dependencies:
   # Testing
   bloc_test: ^9.1.5
   mocktail: ^1.0.1
+
+  # Code Generation
+  drift_dev: ^2.22.1
+  build_runner: ^2.4.8
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
