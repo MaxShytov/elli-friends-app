@@ -7,6 +7,7 @@ import '../../../../core/constants/app_dimensions.dart';
 import '../../../../core/database/app_database.dart';
 import '../../../../core/database/seed_service.dart';
 import '../../../../core/services/api_key_service.dart';
+import '../../../../core/services/azure_tts_service.dart';
 import '../../../../core/services/locale_service.dart';
 import '../../../../l10n/app_localizations.dart';
 
@@ -201,6 +202,17 @@ class SettingsPage extends StatelessWidget {
                   trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                   onTap: () => _showApiKeyDialog(context),
                 ),
+                const Divider(height: 1),
+                ListTile(
+                  leading: const Icon(
+                    Icons.record_voice_over,
+                    color: Colors.blue,
+                  ),
+                  title: const Text('Azure TTS Key'),
+                  subtitle: const Text('For high-quality voice generation'),
+                  trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                  onTap: () => _showAzureKeyDialog(context),
+                ),
               ],
             ),
           ),
@@ -371,6 +383,13 @@ class SettingsPage extends StatelessWidget {
       builder: (dialogContext) => const _ApiKeyDialog(),
     );
   }
+
+  void _showAzureKeyDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (dialogContext) => const _AzureKeyDialog(),
+    );
+  }
 }
 
 /// Dialog for entering Claude API key
@@ -507,6 +526,243 @@ class _ApiKeyDialogState extends State<_ApiKeyDialog> {
           onPressed: _saveKey,
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.purple,
+            foregroundColor: Colors.white,
+          ),
+          child: const Text('Save'),
+        ),
+      ],
+    );
+  }
+}
+
+/// Dialog for entering Azure TTS API key
+class _AzureKeyDialog extends StatefulWidget {
+  const _AzureKeyDialog();
+
+  @override
+  State<_AzureKeyDialog> createState() => _AzureKeyDialogState();
+}
+
+class _AzureKeyDialogState extends State<_AzureKeyDialog> {
+  final _keyController = TextEditingController();
+  bool _isLoading = true;
+  bool _obscureText = true;
+  bool _hasExistingKey = false;
+  String _selectedRegion = 'eastus';
+
+  static const _regions = [
+    'eastus',
+    'westus',
+    'westus2',
+    'westeurope',
+    'northeurope',
+    'southeastasia',
+    'eastasia',
+    'australiaeast',
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadExistingKey();
+  }
+
+  Future<void> _loadExistingKey() async {
+    final service = await ApiKeyService.getInstance();
+    final existingKey = service.getAzureApiKey();
+    final region = service.getAzureRegion();
+
+    if (existingKey != null && existingKey.isNotEmpty) {
+      _keyController.text = existingKey;
+      _hasExistingKey = true;
+    }
+    _selectedRegion = region;
+    setState(() => _isLoading = false);
+  }
+
+  @override
+  void dispose() {
+    _keyController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _saveKey() async {
+    final service = await ApiKeyService.getInstance();
+    await service.setAzureApiKey(_keyController.text.trim());
+    await service.setAzureRegion(_selectedRegion);
+
+    if (mounted) {
+      Navigator.of(context).pop();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            _keyController.text.trim().isEmpty
+                ? 'Azure TTS key cleared'
+                : 'Azure TTS key saved',
+          ),
+          backgroundColor: AppColors.success,
+        ),
+      );
+    }
+  }
+
+  Future<void> _testConnection() async {
+    if (_keyController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter an API key first'),
+          backgroundColor: Colors.orange,
+        ),
+      );
+      return;
+    }
+
+    setState(() => _isLoading = true);
+
+    try {
+      // Test Azure TTS service connection
+      final service = _createTestService();
+      final success = await service.testConnection();
+      service.dispose();
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              success ? 'Connection successful!' : 'Connection failed',
+            ),
+            backgroundColor: success ? AppColors.success : AppColors.incorrect,
+          ),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error: $e'),
+            backgroundColor: AppColors.incorrect,
+          ),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
+    }
+  }
+
+  AzureTtsService _createTestService() {
+    return AzureTtsService(
+      subscriptionKey: _keyController.text.trim(),
+      region: _selectedRegion,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Row(
+        children: [
+          Icon(Icons.record_voice_over, color: Colors.blue),
+          SizedBox(width: 8),
+          Text('Azure TTS Key'),
+        ],
+      ),
+      content: _isLoading
+          ? const SizedBox(
+              height: 150,
+              child: Center(child: CircularProgressIndicator()),
+            )
+          : SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Enter your Azure Speech Services key for high-quality TTS.',
+                    style: TextStyle(fontSize: 14),
+                  ),
+                  const SizedBox(height: 8),
+                  const Text(
+                    'Get your key at portal.azure.com',
+                    style: TextStyle(fontSize: 12, color: Colors.grey),
+                  ),
+                  const SizedBox(height: 16),
+                  TextField(
+                    controller: _keyController,
+                    obscureText: _obscureText,
+                    decoration: InputDecoration(
+                      labelText: 'Subscription Key',
+                      hintText: 'Enter your Azure key',
+                      border: const OutlineInputBorder(),
+                      prefixIcon: const Icon(Icons.vpn_key),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscureText ? Icons.visibility : Icons.visibility_off,
+                        ),
+                        onPressed: () {
+                          setState(() => _obscureText = !_obscureText);
+                        },
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  DropdownButtonFormField<String>(
+                    value: _selectedRegion,
+                    decoration: const InputDecoration(
+                      labelText: 'Region',
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.location_on),
+                    ),
+                    items: _regions.map((region) {
+                      return DropdownMenuItem(
+                        value: region,
+                        child: Text(region),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      if (value != null) {
+                        setState(() => _selectedRegion = value);
+                      }
+                    },
+                  ),
+                  if (_hasExistingKey) ...[
+                    const SizedBox(height: 8),
+                    Text(
+                      'Key is currently set',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.green[700],
+                      ),
+                    ),
+                  ],
+                ],
+              ),
+            ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('Cancel'),
+        ),
+        if (_hasExistingKey)
+          TextButton(
+            onPressed: () {
+              _keyController.clear();
+              _saveKey();
+            },
+            child: const Text(
+              'Clear',
+              style: TextStyle(color: Colors.red),
+            ),
+          ),
+        TextButton(
+          onPressed: _testConnection,
+          child: const Text('Test'),
+        ),
+        ElevatedButton(
+          onPressed: _saveKey,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blue,
             foregroundColor: Colors.white,
           ),
           child: const Text('Save'),

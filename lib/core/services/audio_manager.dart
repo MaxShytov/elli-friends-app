@@ -4,6 +4,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import '../constants/supported_languages.dart';
+import 'audio_cache_service.dart';
 
 /// Central service for managing all audio in the app
 class AudioManager {
@@ -15,7 +16,11 @@ class AudioManager {
   final AudioPlayer _sfxPlayer = AudioPlayer();
   final AudioPlayer _musicPlayer = AudioPlayer();
   final AudioPlayer _animalSoundPlayer = AudioPlayer();
+  final AudioPlayer _voicePlayer = AudioPlayer(); // For cached audio playback
   final FlutterTts _tts = FlutterTts();
+
+  // Audio cache service (optional - set via setAudioCacheService)
+  AudioCacheService? _audioCacheService;
 
   // Settings
   bool _isMusicEnabled = true;
@@ -27,6 +32,11 @@ class AudioManager {
 
   bool _isInitialized = false;
   String _currentLanguage = 'en';
+
+  /// Set audio cache service for cached TTS playback
+  void setAudioCacheService(AudioCacheService service) {
+    _audioCacheService = service;
+  }
 
   /// Initialize audio system with language
   Future<void> initialize({String languageCode = 'en'}) async {
@@ -78,12 +88,49 @@ class AudioManager {
   // ==================== ОЗВУЧКА ДИАЛОГОВ ====================
 
   /// Озвучить диалог персонажа
+  ///
+  /// Приоритет воспроизведения:
+  /// 1. Кэшированное аудио (Azure TTS) если есть sceneId
+  /// 2. Системный TTS (fallback)
   Future<void> speakDialogue(
     String text, {
     String character = 'bono',
+    int? sceneId,
   }) async {
     if (!_isVoiceEnabled) return;
 
+    // Try cached audio first if sceneId is provided
+    if (sceneId != null && _audioCacheService != null) {
+      final cachedPath = await _audioCacheService!.getCachedAudioPath(
+        sceneId: sceneId,
+        languageCode: _currentLanguage,
+        currentText: text,
+      );
+
+      if (cachedPath != null) {
+        debugPrint('AudioManager: Playing cached audio for scene $sceneId');
+        await _playCachedAudio(cachedPath);
+        return;
+      }
+    }
+
+    // Fallback to system TTS
+    await _speakWithSystemTts(text, character: character);
+  }
+
+  /// Play cached audio file
+  Future<void> _playCachedAudio(String filePath) async {
+    try {
+      await _voicePlayer.stop();
+      await _voicePlayer.setVolume(_voiceVolume);
+      await _voicePlayer.play(DeviceFileSource(filePath));
+    } catch (e) {
+      debugPrint('AudioManager: Error playing cached audio: $e');
+    }
+  }
+
+  /// Speak using system TTS
+  Future<void> _speakWithSystemTts(String text, {String character = 'bono'}) async {
     // Разные настройки голоса для персонажей
     switch (character.toLowerCase()) {
       case 'bono':
@@ -124,8 +171,9 @@ class AudioManager {
     }
   }
 
-  /// Stop speaking
+  /// Stop speaking (both cached audio and TTS)
   Future<void> stopSpeaking() async {
+    await _voicePlayer.stop();
     await _tts.stop();
   }
 
@@ -250,6 +298,7 @@ class AudioManager {
   void setVoiceEnabled(bool enabled) {
     _isVoiceEnabled = enabled;
     if (!enabled) {
+      _voicePlayer.stop();
       _tts.stop();
     }
   }
@@ -270,6 +319,7 @@ class AudioManager {
   /// Установить громкость голоса (0.0 - 1.0)
   Future<void> setVoiceVolume(double volume) async {
     _voiceVolume = volume.clamp(0.0, 1.0);
+    await _voicePlayer.setVolume(_voiceVolume);
     await _tts.setVolume(_voiceVolume);
   }
 
@@ -288,6 +338,7 @@ class AudioManager {
     await _sfxPlayer.dispose();
     await _musicPlayer.dispose();
     await _animalSoundPlayer.dispose();
+    await _voicePlayer.dispose();
     await _tts.stop();
   }
 
@@ -296,6 +347,7 @@ class AudioManager {
     await _sfxPlayer.stop();
     await _musicPlayer.stop();
     await _animalSoundPlayer.stop();
+    await _voicePlayer.stop();
     await _tts.stop();
   }
 }

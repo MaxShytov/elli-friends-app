@@ -731,14 +731,97 @@ Keep the tone child-friendly and simple.'''
 
 **Примечание:** Секретный жест временно отключён, редактор доступен напрямую в Settings для тестирования.
 
-### Phase 4: Azure TTS Integration (отдельная задача)
-- [ ] Создать Azure Speech account
-- [ ] Получить API key и настроить region
-- [ ] Создать AzureTtsService с конфигурацией голосов
-- [ ] Backend: endpoint для генерации аудио
-- [ ] Реализовать AudioCacheService (скачивание и кэширование MP3)
-- [ ] Обновить AudioManager для воспроизведения кэшированного аудио
-- [ ] Fallback на системный TTS если нет аудио
+### Phase 4: Azure TTS Integration ✅ COMPLETED
+- [x] Создать AzureTtsService с конфигурацией голосов
+- [x] Реализовать AudioCacheService (скачивание и кэширование MP3)
+- [x] Обновить AudioManager для воспроизведения кэшированного аудио
+- [x] Fallback на системный TTS если нет аудио
+- [x] Добавить UI для ввода Azure API key в Settings
+- [x] Расширить ApiKeyService для хранения Azure key и region
+
+**Созданные файлы:**
+- `lib/core/services/azure_tts_service.dart` — Azure TTS API интеграция с голосами персонажей
+- `lib/core/services/audio_cache_service.dart` — кэширование аудио файлов
+
+**Изменённые файлы:**
+- `lib/core/services/audio_manager.dart` — добавлена поддержка кэшированного аудио
+- `lib/core/services/api_key_service.dart` — добавлены методы для Azure key/region
+- `lib/features/settings/presentation/pages/settings_page.dart` — добавлен диалог Azure TTS Key
+- `lib/features/settings/presentation/pages/tts_test_page.dart` — страница тестирования Azure TTS
+- `pubspec.yaml` — добавлена зависимость crypto
+
+**Функционал тестовой страницы (TTS Test Page):**
+- Две вкладки: Azure TTS и System TTS
+- Выбор персонажа (orson, merv, elli, bono, hippo) с эмодзи
+- Выбор языка из 7 поддерживаемых (EN, RU, FR, DE, IT, MY, AM)
+- Предпросмотр тестовой фразы для выбранного языка
+- Отображение конфигурации голоса (voice name и locale)
+- Кнопка "Generate" — генерирует MP3 файл через Azure TTS API
+- Кнопка "Play/Stop" — воспроизводит сгенерированный файл (активна только при наличии файла)
+- Кэширование: файлы сохраняются по ключу `персонаж_язык`, позволяя переключаться между разными комбинациями без потери ранее сгенерированных файлов
+- Информационная карточка с размером файла и кнопкой очистки
+- Обработка ошибок с отображением в SnackBar
+
+---
+
+## Инструкция: Создание Azure Speech API Key
+
+### Шаг 1: Создание Azure Account
+
+1. Перейдите на [portal.azure.com](https://portal.azure.com)
+2. Если нет аккаунта — зарегистрируйтесь (бесплатный tier доступен)
+3. Войдите в Azure Portal
+
+### Шаг 2: Создание Speech Service Resource
+
+1. В поиске Azure Portal введите **"Speech"**
+2. Выберите **"Speech services"** (или "Службы речи")
+3. Нажмите **"+ Create"** (Создать)
+4. Заполните форму:
+   - **Subscription**: Выберите вашу подписку
+   - **Resource group**: Создайте новую или выберите существующую
+   - **Region**: Выберите ближайший регион (например, `eastus`, `westeurope`)
+   - **Name**: Уникальное имя (например, `elli-friends-tts`)
+   - **Pricing tier**:
+     - **Free (F0)** — 500,000 символов/месяц бесплатно (для разработки)
+     - **Standard (S0)** — $15 за 1M символов (для продакшена)
+5. Нажмите **"Review + create"**, затем **"Create"**
+6. Дождитесь создания ресурса (1-2 минуты)
+
+### Шаг 3: Получение API Key
+
+1. После создания нажмите **"Go to resource"**
+2. В левом меню выберите **"Keys and Endpoint"** (Ключи и конечная точка)
+3. Скопируйте **KEY 1** или **KEY 2** — это ваш `Subscription Key`
+4. Запомните **Location/Region** — это ваш `region` (например, `eastus`)
+
+### Шаг 4: Настройка в приложении
+
+1. Откройте приложение Elli & Friends
+2. Перейдите в **Settings** → **Lesson Editor** → **Azure TTS Key**
+3. Вставьте скопированный ключ в поле **"Subscription Key"**
+4. Выберите ваш **Region** из выпадающего списка
+5. Нажмите **"Test"** для проверки соединения
+6. Если тест успешен, нажмите **"Save"**
+
+### Важные примечания
+
+- **Free tier (F0)**: 500,000 символов/месяц — достаточно для разработки и тестирования
+- **Ключи можно перегенерировать** в Azure Portal если они скомпрометированы
+- **Не публикуйте ключи** в публичные репозитории
+- Голоса для Burmese (my-MM) и Amharic (am-ET) поддерживаются только Azure TTS
+
+### Поддерживаемые голоса в приложении
+
+| Персонаж | EN | RU | FR | DE | IT | MY | AM |
+|----------|----|----|----|----|----|----|-----|
+| Orson | GuyNeural | DmitryNeural | HenriNeural | ConradNeural | DiegoNeural | ThihaNeural | AmehaNeural |
+| Merv | ChristopherNeural | DmitryNeural | AlainNeural | KillianNeural | GiuseppeNeural | ThihaNeural | AmehaNeural |
+| Elli | JennyNeural | SvetlanaNeural | DeniseNeural | KatjaNeural | ElsaNeural | NilarNeural | MekdesNeural |
+| Bono | AnaNeural | DariyaNeural | EloiseNeural | GiselaNeural | PierinaNeural | NilarNeural | MekdesNeural |
+| Hippo | AriaNeural | SvetlanaNeural | DeniseNeural | KatjaNeural | IsabellaNeural | NilarNeural | MekdesNeural |
+
+---
 
 ### Phase 5: Backend Sync (будущее)
 - [ ] API для синхронизации уроков
