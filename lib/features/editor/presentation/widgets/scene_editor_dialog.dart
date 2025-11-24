@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../lessons/data/models/lesson_model.dart';
+import '../../../lessons/domain/entities/animation_effect.dart';
 import '../bloc/editor_bloc.dart';
 import '../bloc/editor_event.dart';
 import '../bloc/editor_state.dart';
+import 'animation_effect_picker.dart';
 import 'character_picker.dart';
 import 'dialogue_editor.dart';
+import 'scene_preview_widget.dart';
 
 /// Dialog for editing a single scene
 class SceneEditorDialog extends StatefulWidget {
@@ -30,7 +33,7 @@ class _SceneEditorDialogState extends State<SceneEditorDialog>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -93,6 +96,7 @@ class _SceneEditorDialogState extends State<SceneEditorDialog>
                   Tab(icon: Icon(Icons.person), text: 'Character'),
                   Tab(icon: Icon(Icons.settings), text: 'Settings'),
                   Tab(icon: Icon(Icons.pets), text: 'Animals'),
+                  Tab(icon: Icon(Icons.visibility), text: 'Preview'),
                 ],
               ),
             ),
@@ -135,6 +139,10 @@ class _SceneEditorDialogState extends State<SceneEditorDialog>
                       _AnimalsTab(
                         sceneIndex: widget.sceneIndex,
                         scene: currentScene,
+                      ),
+                      ScenePreviewWidget(
+                        scene: currentScene,
+                        autoPlay: false,
                       ),
                     ],
                   );
@@ -537,22 +545,112 @@ class _AnimalsTab extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final animal = animals[index];
                   return Card(
-                    child: ListTile(
-                      leading: Text(
-                        animal.emoji,
-                        style: const TextStyle(fontSize: 32),
-                      ),
-                      title: Text(animal.type),
-                      subtitle: Text('Count: ${animal.count}'),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.delete, color: Colors.red),
-                        onPressed: () {
-                          final newAnimals = List.of(animals)..removeAt(index);
-                          context.read<EditorBloc>().add(UpdateSceneAnimals(
-                            sceneIndex: sceneIndex,
-                            animals: newAnimals,
-                          ));
-                        },
+                    margin: const EdgeInsets.only(bottom: 16),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Header with emoji, type, count, and delete button
+                          Row(
+                            children: [
+                              Text(
+                                animal.emoji,
+                                style: const TextStyle(fontSize: 32),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      animal.type,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Count: ${animal.count}',
+                                      style: TextStyle(color: Colors.grey[600]),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              IconButton(
+                                icon: const Icon(Icons.edit, color: Colors.blue),
+                                onPressed: () => _showEditAnimalDialog(
+                                  context,
+                                  animal,
+                                  index,
+                                ),
+                              ),
+                              IconButton(
+                                icon: const Icon(Icons.delete, color: Colors.red),
+                                onPressed: () {
+                                  final newAnimals = List.of(animals)..removeAt(index);
+                                  context.read<EditorBloc>().add(UpdateSceneAnimals(
+                                    sceneIndex: sceneIndex,
+                                    animals: newAnimals,
+                                  ));
+                                },
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 16),
+                          const Divider(),
+                          const SizedBox(height: 16),
+
+                          // Entrance Effect
+                          AnimationEffectPicker(
+                            label: 'Entrance Effect',
+                            selectedEffect: animal.entranceEffect,
+                            recommendedEffect: animal.type.getRecommendedEntranceEffect(),
+                            availableEffects: _getEntranceEffects(animal.type),
+                            onChanged: (effect) {
+                              _updateAnimalEffect(
+                                context,
+                                index,
+                                animal,
+                                entranceEffect: effect,
+                              );
+                            },
+                          ),
+                          const SizedBox(height: 16),
+
+                          // Active Effect
+                          AnimationEffectPicker(
+                            label: 'Active Effect (optional)',
+                            selectedEffect: animal.activeEffect,
+                            recommendedEffect: animal.type.getRecommendedActiveEffect(),
+                            availableEffects: _getActiveEffects(animal.type),
+                            onChanged: (effect) {
+                              _updateAnimalEffect(
+                                context,
+                                index,
+                                animal,
+                                activeEffect: effect,
+                              );
+                            },
+                          ),
+                          const SizedBox(height: 16),
+
+                          // Exit Effect
+                          AnimationEffectPicker(
+                            label: 'Exit Effect',
+                            selectedEffect: animal.exitEffect,
+                            recommendedEffect: animal.type.getRecommendedExitEffect(),
+                            availableEffects: _getExitEffects(animal.type),
+                            onChanged: (effect) {
+                              _updateAnimalEffect(
+                                context,
+                                index,
+                                animal,
+                                exitEffect: effect,
+                              );
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   );
@@ -670,5 +768,173 @@ class _AnimalsTab extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _showEditAnimalDialog(BuildContext parentContext, AnimalModel animal, int index) {
+    int count = animal.count;
+
+    showDialog(
+      context: parentContext,
+      builder: (context) => StatefulBuilder(
+        builder: (context, setState) => AlertDialog(
+          title: Text('Edit ${animal.type}'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                animal.emoji,
+                style: const TextStyle(fontSize: 48),
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('Count: '),
+                  IconButton(
+                    icon: const Icon(Icons.remove),
+                    onPressed: count > 1
+                        ? () => setState(() => count--)
+                        : null,
+                  ),
+                  Text(
+                    '$count',
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.add),
+                    onPressed: count < 10
+                        ? () => setState(() => count++)
+                        : null,
+                  ),
+                ],
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Cancel'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                final updatedAnimal = animal.copyWith(count: count);
+                final state = parentContext.read<EditorBloc>().state;
+                final List<AnimalModel> currentAnimals;
+                if (state is EditorLessonLoaded) {
+                  currentAnimals = List<AnimalModel>.from(
+                    state.editableScenes[sceneIndex].animals ?? [],
+                  );
+                } else {
+                  currentAnimals = [];
+                }
+                currentAnimals[index] = updatedAnimal;
+                parentContext.read<EditorBloc>().add(UpdateSceneAnimals(
+                  sceneIndex: sceneIndex,
+                  animals: currentAnimals,
+                ));
+                Navigator.of(context).pop();
+              },
+              child: const Text('Save'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _updateAnimalEffect(
+    BuildContext context,
+    int animalIndex,
+    AnimalModel animal, {
+    AnimationEffect? entranceEffect,
+    AnimationEffect? activeEffect,
+    AnimationEffect? exitEffect,
+  }) {
+    final updatedAnimal = animal.copyWith(
+      entranceEffect: entranceEffect,
+      activeEffect: activeEffect,
+      exitEffect: exitEffect,
+    );
+
+    final state = context.read<EditorBloc>().state;
+    final List<AnimalModel> currentAnimals;
+    if (state is EditorLessonLoaded) {
+      currentAnimals = List<AnimalModel>.from(
+        state.editableScenes[sceneIndex].animals ?? [],
+      );
+    } else {
+      currentAnimals = [];
+    }
+
+    currentAnimals[animalIndex] = updatedAnimal;
+    context.read<EditorBloc>().add(UpdateSceneAnimals(
+      sceneIndex: sceneIndex,
+      animals: currentAnimals,
+    ));
+  }
+
+  List<AnimationEffect> _getEntranceEffects(String animalType) {
+    final baseEffects = [
+      AnimationEffect.appear,
+      AnimationEffect.fade,
+      AnimationEffect.flyInLeft,
+      AnimationEffect.flyInRight,
+      AnimationEffect.flyInTop,
+      AnimationEffect.flyInBottom,
+      AnimationEffect.floatIn,
+      AnimationEffect.zoom,
+      AnimationEffect.bounce,
+    ];
+
+    // Add specific effects based on animal type
+    switch (animalType) {
+      case 'monkey':
+        return [...baseEffects, AnimationEffect.swingDown];
+      case 'banana':
+        return [...baseEffects, AnimationEffect.rollIn];
+      case 'apple':
+        return [...baseEffects, AnimationEffect.fallFromTree];
+      default:
+        return baseEffects;
+    }
+  }
+
+  List<AnimationEffect> _getActiveEffects(String animalType) {
+    final baseEffects = [
+      AnimationEffect.idleBobbing,
+      AnimationEffect.float,
+      AnimationEffect.wiggle,
+      AnimationEffect.pulse,
+    ];
+
+    // Add specific effects based on animal type
+    switch (animalType) {
+      case 'butterfly':
+        return [...baseEffects, AnimationEffect.flutter];
+      case 'turtle':
+        return [...baseEffects, AnimationEffect.walkSlow];
+      case 'frog':
+        return [...baseEffects, AnimationEffect.hop];
+      case 'leaf':
+        return [...baseEffects, AnimationEffect.waveInBreeze];
+      default:
+        return baseEffects;
+    }
+  }
+
+  List<AnimationEffect> _getExitEffects(String animalType) {
+    return [
+      AnimationEffect.disappear,
+      AnimationEffect.fadeOut,
+      AnimationEffect.flyOutLeft,
+      AnimationEffect.flyOutRight,
+      AnimationEffect.flyOutTop,
+      AnimationEffect.flyOutBottom,
+      AnimationEffect.scaleOut,
+      AnimationEffect.dropOut,
+    ];
   }
 }

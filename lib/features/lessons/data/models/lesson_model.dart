@@ -1,4 +1,5 @@
 import '../../domain/entities/lesson.dart';
+import '../../domain/entities/animation_effect.dart';
 
 class LessonModel extends Lesson {
   const LessonModel({
@@ -67,6 +68,13 @@ class SceneModel extends Scene {
     super.secondCharacter,
     super.secondAnimation,
     super.secondEmotion,
+    super.characterEntranceEffect,
+    super.characterExitEffect,
+    super.secondCharacterEntranceEffect,
+    super.secondCharacterExitEffect,
+    super.background,
+    super.ambientSound,
+    super.ambientVolume,
   });
 
   factory SceneModel.fromJson(Map<String, dynamic> json, {String locale = 'en'}) {
@@ -101,6 +109,33 @@ class SceneModel extends Scene {
       secondCharacter: json['secondCharacter'] as String?,
       secondAnimation: json['secondAnimation'] as String?,
       secondEmotion: json['secondEmotion'] as String?,
+      characterEntranceEffect: json['characterEntranceEffect'] != null
+          ? AnimationEffect.values.firstWhere(
+              (e) => e.name == json['characterEntranceEffect'],
+              orElse: () => AnimationEffect.appear,
+            )
+          : null,
+      characterExitEffect: json['characterExitEffect'] != null
+          ? AnimationEffect.values.firstWhere(
+              (e) => e.name == json['characterExitEffect'],
+              orElse: () => AnimationEffect.fadeOut,
+            )
+          : null,
+      secondCharacterEntranceEffect: json['secondCharacterEntranceEffect'] != null
+          ? AnimationEffect.values.firstWhere(
+              (e) => e.name == json['secondCharacterEntranceEffect'],
+              orElse: () => AnimationEffect.appear,
+            )
+          : null,
+      secondCharacterExitEffect: json['secondCharacterExitEffect'] != null
+          ? AnimationEffect.values.firstWhere(
+              (e) => e.name == json['secondCharacterExitEffect'],
+              orElse: () => AnimationEffect.fadeOut,
+            )
+          : null,
+      background: json['background'] as String?,
+      ambientSound: json['ambientSound'] as String?,
+      ambientVolume: json['ambientVolume'] as double?,
     );
   }
 
@@ -123,6 +158,13 @@ class SceneModel extends Scene {
       'secondCharacter': secondCharacter,
       'secondAnimation': secondAnimation,
       'secondEmotion': secondEmotion,
+      if (characterEntranceEffect != null) 'characterEntranceEffect': characterEntranceEffect!.name,
+      if (characterExitEffect != null) 'characterExitEffect': characterExitEffect!.name,
+      if (secondCharacterEntranceEffect != null) 'secondCharacterEntranceEffect': secondCharacterEntranceEffect!.name,
+      if (secondCharacterExitEffect != null) 'secondCharacterExitEffect': secondCharacterExitEffect!.name,
+      if (background != null) 'background': background,
+      if (ambientSound != null) 'ambientSound': ambientSound,
+      if (ambientVolume != null) 'ambientVolume': ambientVolume,
     };
   }
 }
@@ -132,6 +174,11 @@ class AnimalModel extends Animal {
     required super.type,
     required super.emoji,
     required super.count,
+    super.entranceEffect,
+    super.activeEffect,
+    super.exitEffect,
+    super.positionX,
+    super.positionY,
   });
 
   factory AnimalModel.fromJson(Map<String, dynamic> json) {
@@ -139,6 +186,26 @@ class AnimalModel extends Animal {
       type: json['type'] as String,
       emoji: json['emoji'] as String,
       count: json['count'] as int,
+      entranceEffect: json['entranceEffect'] != null
+          ? AnimationEffect.values.firstWhere(
+              (e) => e.name == json['entranceEffect'],
+              orElse: () => AnimationEffect.appear,
+            )
+          : null,
+      activeEffect: json['activeEffect'] != null
+          ? AnimationEffect.values.firstWhere(
+              (e) => e.name == json['activeEffect'],
+              orElse: () => AnimationEffect.idleBobbing,
+            )
+          : null,
+      exitEffect: json['exitEffect'] != null
+          ? AnimationEffect.values.firstWhere(
+              (e) => e.name == json['exitEffect'],
+              orElse: () => AnimationEffect.fadeOut,
+            )
+          : null,
+      positionX: json['positionX'] as double?,
+      positionY: json['positionY'] as double?,
     );
   }
 
@@ -147,6 +214,33 @@ class AnimalModel extends Animal {
       'type': type,
       'emoji': emoji,
       'count': count,
+      if (entranceEffect != null) 'entranceEffect': entranceEffect!.name,
+      if (activeEffect != null) 'activeEffect': activeEffect!.name,
+      if (exitEffect != null) 'exitEffect': exitEffect!.name,
+      if (positionX != null) 'positionX': positionX,
+      if (positionY != null) 'positionY': positionY,
     };
+  }
+
+  AnimalModel copyWith({
+    String? type,
+    String? emoji,
+    int? count,
+    AnimationEffect? entranceEffect,
+    AnimationEffect? activeEffect,
+    AnimationEffect? exitEffect,
+    double? positionX,
+    double? positionY,
+  }) {
+    return AnimalModel(
+      type: type ?? this.type,
+      emoji: emoji ?? this.emoji,
+      count: count ?? this.count,
+      entranceEffect: entranceEffect ?? this.entranceEffect,
+      activeEffect: activeEffect ?? this.activeEffect,
+      exitEffect: exitEffect ?? this.exitEffect,
+      positionX: positionX ?? this.positionX,
+      positionY: positionY ?? this.positionY,
+    );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'animation_effect.dart';
 
 class Lesson extends Equatable {
   final String id;
@@ -42,6 +43,17 @@ class Scene extends Equatable {
   final String? secondAnimation; // Second character animation
   final String? secondEmotion; // Second character emotion
 
+  // Новые поля для анимационных эффектов персонажей
+  final AnimationEffect? characterEntranceEffect;
+  final AnimationEffect? characterExitEffect;
+  final AnimationEffect? secondCharacterEntranceEffect;
+  final AnimationEffect? secondCharacterExitEffect;
+
+  // Новые поля для фона и звука
+  final String? background;  // "jungle_morning", "jungle_evening"
+  final String? ambientSound; // "jungle_ambience"
+  final double? ambientVolume; // 0.0 - 1.0
+
   const Scene({
     this.character,
     this.dialogue,
@@ -60,6 +72,13 @@ class Scene extends Equatable {
     this.secondCharacter,
     this.secondAnimation,
     this.secondEmotion,
+    this.characterEntranceEffect,
+    this.characterExitEffect,
+    this.secondCharacterEntranceEffect,
+    this.secondCharacterExitEffect,
+    this.background,
+    this.ambientSound,
+    this.ambientVolume,
   });
 
   @override
@@ -81,6 +100,13 @@ class Scene extends Equatable {
     secondCharacter,
     secondAnimation,
     secondEmotion,
+    characterEntranceEffect,
+    characterExitEffect,
+    secondCharacterEntranceEffect,
+    secondCharacterExitEffect,
+    background,
+    ambientSound,
+    ambientVolume,
   ];
 }
 
@@ -88,13 +114,23 @@ class Animal extends Equatable {
   final String type;
   final String emoji;
   final int count;
+  final AnimationEffect? entranceEffect;
+  final AnimationEffect? activeEffect;
+  final AnimationEffect? exitEffect;
+  final double? positionX;  // Позиция X (0.0-1.0, относительно ширины экрана)
+  final double? positionY;  // Позиция Y (0.0-1.0, относительно высоты экрана)
 
   const Animal({
     required this.type,
     required this.emoji,
     required this.count,
+    this.entranceEffect,
+    this.activeEffect,
+    this.exitEffect,
+    this.positionX,
+    this.positionY,
   });
 
   @override
-  List<Object?> get props => [type, emoji, count];
+  List<Object?> get props => [type, emoji, count, entranceEffect, activeEffect, exitEffect, positionX, positionY];
 }

@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 import '../../../lessons/data/models/lesson_model.dart';
+import '../../../lessons/domain/entities/animation_effect.dart';
 
 /// Base class for all editor states
 abstract class EditorState extends Equatable {
@@ -124,6 +125,17 @@ class EditableScene extends Equatable {
   final List<AnimalModel>? animals;
   final bool isModified;
 
+  // Новые поля для анимационных эффектов персонажей
+  final AnimationEffect? characterEntranceEffect;
+  final AnimationEffect? characterExitEffect;
+  final AnimationEffect? secondCharacterEntranceEffect;
+  final AnimationEffect? secondCharacterExitEffect;
+
+  // Новые поля для фона и звука
+  final String? background;
+  final String? ambientSound;
+  final double? ambientVolume;
+
   const EditableScene({
     this.databaseId,
     this.character,
@@ -144,6 +156,13 @@ class EditableScene extends Equatable {
     this.showPreviousAnimals = false,
     this.animals,
     this.isModified = false,
+    this.characterEntranceEffect,
+    this.characterExitEffect,
+    this.secondCharacterEntranceEffect,
+    this.secondCharacterExitEffect,
+    this.background,
+    this.ambientSound,
+    this.ambientVolume,
   });
 
   /// Create EditableScene from SceneModel
@@ -167,6 +186,13 @@ class EditableScene extends Equatable {
       waitForAnswer: scene.waitForAnswer,
       showPreviousAnimals: scene.showPreviousAnimals,
       animals: scene.animals?.map((a) => a as AnimalModel).toList(),
+      characterEntranceEffect: scene.characterEntranceEffect,
+      characterExitEffect: scene.characterExitEffect,
+      secondCharacterEntranceEffect: scene.secondCharacterEntranceEffect,
+      secondCharacterExitEffect: scene.secondCharacterExitEffect,
+      background: scene.background,
+      ambientSound: scene.ambientSound,
+      ambientVolume: scene.ambientVolume,
     );
   }
 
@@ -202,6 +228,13 @@ class EditableScene extends Equatable {
       waitForAnswer: waitForAnswer,
       showPreviousAnimals: showPreviousAnimals,
       animals: animals,
+      characterEntranceEffect: characterEntranceEffect,
+      characterExitEffect: characterExitEffect,
+      secondCharacterEntranceEffect: secondCharacterEntranceEffect,
+      secondCharacterExitEffect: secondCharacterExitEffect,
+      background: background,
+      ambientSound: ambientSound,
+      ambientVolume: ambientVolume,
     );
   }
 
@@ -233,6 +266,13 @@ class EditableScene extends Equatable {
     bool? isModified,
     bool? clearSecondCharacter,
     bool? clearCorrectAnswer,
+    AnimationEffect? characterEntranceEffect,
+    AnimationEffect? characterExitEffect,
+    AnimationEffect? secondCharacterEntranceEffect,
+    AnimationEffect? secondCharacterExitEffect,
+    String? background,
+    String? ambientSound,
+    double? ambientVolume,
   }) {
     return EditableScene(
       databaseId: databaseId ?? this.databaseId,
@@ -262,6 +302,13 @@ class EditableScene extends Equatable {
       showPreviousAnimals: showPreviousAnimals ?? this.showPreviousAnimals,
       animals: animals ?? this.animals,
       isModified: isModified ?? true,
+      characterEntranceEffect: characterEntranceEffect ?? this.characterEntranceEffect,
+      characterExitEffect: characterExitEffect ?? this.characterExitEffect,
+      secondCharacterEntranceEffect: secondCharacterEntranceEffect ?? this.secondCharacterEntranceEffect,
+      secondCharacterExitEffect: secondCharacterExitEffect ?? this.secondCharacterExitEffect,
+      background: background ?? this.background,
+      ambientSound: ambientSound ?? this.ambientSound,
+      ambientVolume: ambientVolume ?? this.ambientVolume,
     );
   }
 
@@ -291,5 +338,12 @@ class EditableScene extends Equatable {
         showPreviousAnimals,
         animals,
         isModified,
+        characterEntranceEffect,
+        characterExitEffect,
+        secondCharacterEntranceEffect,
+        secondCharacterExitEffect,
+        background,
+        ambientSound,
+        ambientVolume,
       ];
 }

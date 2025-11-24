@@ -11,6 +11,7 @@ import '../bloc/editor_event.dart';
 import '../bloc/editor_state.dart';
 import '../widgets/scene_list_widget.dart';
 import '../widgets/scene_editor_dialog.dart';
+import '../widgets/lesson_timeline_view.dart';
 
 /// Page for editing a specific lesson
 class LessonEditorPage extends StatefulWidget {
@@ -171,6 +172,48 @@ class _LessonEditorScaffold extends StatelessWidget {
         backgroundColor: Colors.purple,
         foregroundColor: Colors.white,
         actions: [
+          // Preview button (disabled if unsaved changes)
+          if (state.hasUnsavedChanges)
+            // Unsaved badge overlaying Preview
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                decoration: BoxDecoration(
+                  color: Colors.orange,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.warning_amber, size: 16, color: Colors.white),
+                    SizedBox(width: 4),
+                    Text(
+                      'Unsaved',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          else
+            TextButton.icon(
+              onPressed: () {
+                // TODO: Implement preview functionality
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Preview coming soon!'),
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.play_circle_outline, color: Colors.white),
+              label: const Text('Preview', style: TextStyle(color: Colors.white)),
+            ),
           if (state.hasUnsavedChanges) ...[
             IconButton(
               icon: const Icon(Icons.undo),
@@ -198,53 +241,29 @@ class _LessonEditorScaffold extends StatelessWidget {
                     },
             ),
           ],
-          IconButton(
-            icon: const Icon(Icons.add),
-            tooltip: 'Add Scene',
-            onPressed: () {
-              context.read<EditorBloc>().add(const AddScene());
-            },
-          ),
         ],
       ),
       body: Stack(
         children: [
           Column(
             children: [
-              // Info bar
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                color: Colors.purple.withValues(alpha: 0.1),
-                child: Row(
-                  children: [
-                    Icon(Icons.info_outline, size: 16, color: Colors.purple[700]),
-                    const SizedBox(width: 8),
-                    Text(
-                      '${state.editableScenes.length} scenes',
-                      style: TextStyle(color: Colors.purple[700]),
-                    ),
-                    const Spacer(),
-                    if (state.hasUnsavedChanges)
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 2,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.orange,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: const Text(
-                          'Unsaved',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ),
-                  ],
-                ),
+              // Timeline View
+              LessonTimelineView(
+                scenes: state.editableScenes,
+                selectedSceneIndex: state.selectedSceneIndex,
+                onSceneSelected: (index) => _showSceneEditor(context, index),
+                onSceneReordered: (oldIndex, newIndex) {
+                  context.read<EditorBloc>().add(ReorderScenes(
+                    oldIndex: oldIndex,
+                    newIndex: newIndex,
+                  ));
+                },
+                onAddSceneAt: (position) {
+                  context.read<EditorBloc>().add(AddScene(position: position));
+                },
+                hasUnsavedChanges: state.hasUnsavedChanges,
               ),
+              const Divider(height: 1),
               // Scene list
               Expanded(
                 child: SceneListWidget(
