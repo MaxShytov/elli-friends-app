@@ -7,10 +7,10 @@ class FlyingButterflies extends StatefulWidget {
   final Duration duration;
 
   const FlyingButterflies({
-    Key? key,
+    super.key,
     this.butterflyCount = 12,
     this.duration = const Duration(seconds: 8),
-  }) : super(key: key);
+  });
 
   @override
   State<FlyingButterflies> createState() => _FlyingButterfliesState();
@@ -121,11 +121,11 @@ class AnimatedButterfly extends StatelessWidget {
   final double containerHeight;
 
   const AnimatedButterfly({
-    Key? key,
+    super.key,
     required this.butterfly,
     required this.containerWidth,
     required this.containerHeight,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -324,7 +324,7 @@ class ButterflyPainter extends CustomPainter {
 
     // Добавляем узоры на крыльях
     final patternPaint = Paint()
-      ..color = Colors.black.withOpacity(0.3)
+      ..color = Colors.black.withValues(alpha: 0.3)
       ..style = PaintingStyle.fill;
 
     if (isTop) {
@@ -360,7 +360,7 @@ class ButterflyPainter extends CustomPainter {
 
 /// Пример использования на экране урока
 class ButterflyLessonScreen extends StatelessWidget {
-  const ButterflyLessonScreen({Key? key}) : super(key: key);
+  const ButterflyLessonScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -429,7 +429,7 @@ class ButterflyLessonScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: 10,
                         offset: const Offset(0, 4),
                       ),

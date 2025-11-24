@@ -7,10 +7,10 @@ class ConfettiCelebration extends StatefulWidget {
   final VoidCallback? onComplete;
 
   const ConfettiCelebration({
-    Key? key,
+    super.key,
     this.duration = const Duration(seconds: 3),
     this.onComplete,
-  }) : super(key: key);
+  });
 
   @override
   State<ConfettiCelebration> createState() => _ConfettiCelebrationState();
@@ -241,7 +241,7 @@ class ConfettiPainter extends CustomPainter {
 
 /// Пример использования в экране урока
 class CelebrationExample extends StatefulWidget {
-  const CelebrationExample({Key? key}) : super(key: key);
+  const CelebrationExample({super.key});
 
   @override
   State<CelebrationExample> createState() => _CelebrationExampleState();

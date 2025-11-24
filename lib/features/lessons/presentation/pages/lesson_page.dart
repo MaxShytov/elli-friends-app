@@ -49,7 +49,6 @@ class _LessonViewState extends State<LessonView> {
   bool _audioInitialized = false;
   bool _showConfetti = false;
   bool _showNextButton = false;
-  bool _showWrongAnimation = false;
   bool _showTryAgain = false;
 
   @override
@@ -86,7 +85,6 @@ class _LessonViewState extends State<LessonView> {
             setState(() {
               _showNextButton = false;
               _showConfetti = false;
-              _showWrongAnimation = false;
               _showTryAgain = false;
             });
 
@@ -145,16 +143,10 @@ class _LessonViewState extends State<LessonView> {
                 }
               });
             } else {
-              // Показываем анимацию неправильного ответа
-              setState(() {
-                _showWrongAnimation = true;
-              });
-
               // Через 0.6 секунды показываем сообщение "Попробуй ещё раз"
               Future.delayed(const Duration(milliseconds: 600)).then((_) {
                 if (mounted) {
                   setState(() {
-                    _showWrongAnimation = false;
                     _showTryAgain = true;
                   });
                 }

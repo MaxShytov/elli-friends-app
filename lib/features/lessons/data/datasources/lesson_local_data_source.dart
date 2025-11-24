@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import '../models/lesson_model.dart';
 
@@ -34,7 +35,7 @@ class LessonLocalDataSourceImpl implements LessonLocalDataSource {
         lessons.add(lesson);
       } catch (e) {
         // Пропускаем урок, если не удалось загрузить
-        print('Failed to load lesson $id: $e');
+        debugPrint('Failed to load lesson $id: $e');
       }
     }
 

@@ -200,7 +200,7 @@ class SunPainter extends CustomPainter {
     canvas.drawCircle(center, radius, paint);
 
     // Добавляем свечение
-    paint.color = const Color(0xFFFFD700).withOpacity(0.3);
+    paint.color = const Color(0xFFFFD700).withValues(alpha: 0.3);
     canvas.drawCircle(center, radius + 4, paint);
   }
 

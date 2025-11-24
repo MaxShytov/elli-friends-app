@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -13,13 +12,13 @@ class WrongAnswerAnimation extends StatefulWidget {
   final WrongAnswerStyle style;
 
   const WrongAnswerAnimation({
-    Key? key,
+    super.key,
     required this.child,
     this.onComplete,
     this.playSound = true,
     this.showRetryMessage = true,
     this.style = WrongAnswerStyle.shake,
-  }) : super(key: key);
+  });
 
   @override
   State<WrongAnswerAnimation> createState() => _WrongAnswerAnimationState();
@@ -123,7 +122,7 @@ class _WrongAnswerAnimationState extends State<WrongAnswerAnimation>
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.red.withOpacity(_fadeAnimation.value * 0.5),
+            color: Colors.red.withValues(alpha: _fadeAnimation.value * 0.5),
             width: 3,
           ),
           borderRadius: BorderRadius.circular(16),
@@ -139,7 +138,7 @@ class _WrongAnswerAnimationState extends State<WrongAnswerAnimation>
       scale: _scaleAnimation.value,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.red.withOpacity(_fadeAnimation.value * 0.1),
+          color: Colors.red.withValues(alpha: _fadeAnimation.value * 0.1),
           borderRadius: BorderRadius.circular(16),
         ),
         child: widget.child,
@@ -163,7 +162,7 @@ class _WrongAnswerAnimationState extends State<WrongAnswerAnimation>
                 width: 80,
                 height: 80,
                 decoration: BoxDecoration(
-                  color: Colors.red.withOpacity(0.9),
+                  color: Colors.red.withValues(alpha: 0.9),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
@@ -201,10 +200,10 @@ class TryAgainMessage extends StatefulWidget {
   final VoidCallback? onSkip;
 
   const TryAgainMessage({
-    Key? key,
+    super.key,
     this.onTryAgain,
     this.onSkip,
-  }) : super(key: key);
+  });
 
   @override
   State<TryAgainMessage> createState() => _TryAgainMessageState();
@@ -265,7 +264,7 @@ class _TryAgainMessageState extends State<TryAgainMessage>
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.orange.withOpacity(0.3),
+                        color: Colors.orange.withValues(alpha: 0.3),
                         blurRadius: 8,
                         spreadRadius: 1,
                       ),
@@ -342,11 +341,11 @@ class SadCharacterAnimation extends StatefulWidget {
   final VoidCallback? onComplete;
 
   const SadCharacterAnimation({
-    Key? key,
+    super.key,
     this.characterAsset,
     this.duration = const Duration(seconds: 2),
     this.onComplete,
-  }) : super(key: key);
+  });
 
   @override
   State<SadCharacterAnimation> createState() => _SadCharacterAnimationState();
@@ -434,7 +433,7 @@ class _SadCharacterAnimationState extends State<SadCharacterAnimation>
 
 /// Пример использования в экране урока
 class WrongAnswerExample extends StatefulWidget {
-  const WrongAnswerExample({Key? key}) : super(key: key);
+  const WrongAnswerExample({super.key});
 
   @override
   State<WrongAnswerExample> createState() => _WrongAnswerExampleState();
