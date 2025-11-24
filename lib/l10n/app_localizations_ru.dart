@@ -153,4 +153,23 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get mervGreeting => 'Привет, я жёлтый пёсик Merv';
+
+  @override
+  String get developerSettings => 'Настройки разработчика';
+
+  @override
+  String get resetLessonData => 'Сбросить данные уроков';
+
+  @override
+  String get resetLessonDataConfirm =>
+      'Сбросить все данные уроков к начальным?';
+
+  @override
+  String get resetSuccess => 'Данные успешно сброшены';
+
+  @override
+  String get cancel => 'Отмена';
+
+  @override
+  String get reset => 'Сбросить';
 }

@@ -7,11 +7,13 @@ import '../widgets/answer_buttons.dart';
 import '../widgets/confetti_celebration.dart';
 import '../widgets/wrong_answer_animation.dart';
 import '../widgets/lesson_intro_widget.dart';
+import '../../data/datasources/lesson_drift_data_source.dart';
 import '../../data/datasources/lesson_local_data_source.dart';
 import '../../data/repositories/lesson_repository_impl.dart';
 import '../../domain/usecases/get_lesson.dart';
 import '../../../../core/constants/app_dimensions.dart';
 import '../../../../core/constants/app_colors.dart';
+import '../../../../core/database/app_database.dart';
 import '../../../../core/services/audio_manager.dart';
 import '../../../../l10n/app_localizations.dart';
 
@@ -26,8 +28,17 @@ class LessonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentLocale = Localizations.localeOf(context).languageCode;
-    final dataSource = LessonLocalDataSourceImpl();
-    final repository = LessonRepositoryImpl(dataSource, languageCode: currentLocale);
+
+    // Primary: Drift database
+    final driftDataSource = LessonDriftDataSourceImpl(AppDatabase.instance);
+    // Fallback: JSON assets
+    final localDataSource = LessonLocalDataSourceImpl();
+
+    final repository = LessonRepositoryImpl(
+      driftDataSource: driftDataSource,
+      localDataSource: localDataSource,
+      languageCode: currentLocale,
+    );
     final getLesson = GetLesson(repository);
 
     return BlocProvider(

@@ -154,4 +154,22 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get mervGreeting => 'Ciao, sono Merv il cucciolo giallo';
+
+  @override
+  String get developerSettings => 'Developer Settings';
+
+  @override
+  String get resetLessonData => 'Reset Lesson Data';
+
+  @override
+  String get resetLessonDataConfirm => 'Reset all lesson data to defaults?';
+
+  @override
+  String get resetSuccess => 'Data reset successfully';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get reset => 'Reset';
 }

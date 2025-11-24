@@ -206,7 +206,7 @@ class _HomeScreenContent extends StatelessWidget {
               // TEST: Demo lesson buttons
               const SizedBox(height: AppDimensions.paddingLarge),
               ElevatedButton.icon(
-                onPressed: () => context.push('/lesson/lesson_counting'),
+                onPressed: () => context.push('/lesson/counting'),
                 icon: const Icon(Icons.play_arrow),
                 label: Text(AppLocalizations.of(context)!.lessonCountingDemo),
                 style: ElevatedButton.styleFrom(
@@ -226,21 +226,6 @@ class _HomeScreenContent extends StatelessWidget {
                 label: const Text('Subtraction with Orson'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.purple,
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: AppDimensions.paddingLarge,
-                    vertical: AppDimensions.paddingMedium,
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: AppDimensions.paddingSmall),
-              ElevatedButton.icon(
-                onPressed: () => context.push('/lesson/counting'),
-                icon: const Icon(Icons.favorite),
-                label: const Text('Counting with Orson & Merv'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange,
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(
                     horizontal: AppDimensions.paddingLarge,

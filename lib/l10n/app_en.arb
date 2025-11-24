@@ -207,5 +207,29 @@
   "mervGreeting": "Hi, I'm Merv the yellow puppy",
   "@mervGreeting": {
     "description": "Merv's character greeting"
+  },
+  "developerSettings": "Developer Settings",
+  "@developerSettings": {
+    "description": "Developer settings section title"
+  },
+  "resetLessonData": "Reset Lesson Data",
+  "@resetLessonData": {
+    "description": "Reset lesson data button label"
+  },
+  "resetLessonDataConfirm": "Reset all lesson data to defaults?",
+  "@resetLessonDataConfirm": {
+    "description": "Reset data confirmation message"
+  },
+  "resetSuccess": "Data reset successfully",
+  "@resetSuccess": {
+    "description": "Data reset success message"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button label"
+  },
+  "reset": "Reset",
+  "@reset": {
+    "description": "Reset button label"
   }
 }

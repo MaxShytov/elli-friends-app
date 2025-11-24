@@ -5,6 +5,7 @@ import '../../features/games/presentation/pages/game_page.dart';
 import '../../features/settings/presentation/pages/settings_page.dart';
 import '../../features/settings/presentation/pages/tts_test_page.dart';
 import '../../features/demo/mascots_demo.dart';
+import '../../features/editor/presentation/pages/editor_page.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -44,6 +45,11 @@ final appRouter = GoRouter(
       path: '/mascots-demo',
       name: 'mascots-demo',
       builder: (context, state) => const MascotsDemo(),
+    ),
+    GoRoute(
+      path: '/editor',
+      name: 'editor',
+      builder: (context, state) => const EditorPage(),
     ),
   ],
 );

@@ -596,7 +596,7 @@ void main() async {
 | **TTS API** | Microsoft Azure TTS |
 | **Перевод текста** | Claude API (автоматический перевод на все языки) |
 | **Генерация аудио** | При синхронизации с бэкендом (не в реальном времени) |
-| **UI редактора** | Встроенный в приложение (debug mode) |
+| **UI редактора** | Встроенный в приложение (секретный жест triple tap) |
 | **Azure ключ** | Отдельная задача: получение и интеграция |
 
 #### Workflow перевода через Claude API:
@@ -695,20 +695,41 @@ Keep the tone child-friendly and simple.'''
 
 **Примечание:** Изначально планировался Isar, но он заброшен. Drift — активно развиваемая type-safe SQLite библиотека.
 
-### Phase 2: Data Layer Migration
-- [ ] Создать LessonIsarDataSource (замена LessonLocalDataSource)
-- [ ] Обновить LessonRepositoryImpl для работы с Isar
-- [ ] Добавить кнопку "Reset Data" в Settings
-- [ ] Тестирование: уроки работают из БД
+### Phase 2: Data Layer Migration ✅ COMPLETED
+- [x] Создать LessonDriftDataSource (замена LessonLocalDataSource)
+- [x] Обновить LessonRepositoryImpl для работы с Drift
+- [x] Добавить кнопку "Reset Data" в Settings
+- [x] Тестирование: уроки работают из БД
 
-### Phase 3: Editor UI (Debug Mode)
-- [ ] Создать EditorBloc с CRUD операциями для чанков
-- [ ] UI: список чанков урока с drag-and-drop
-- [ ] UI: редактирование чанка (персонаж, эмоция, анимация)
-- [ ] UI: редактирование текста (основной язык)
-- [ ] Split chunk функциональность
-- [ ] Интеграция Claude API для автоперевода
-- [ ] Показывать editor только в debug mode
+### Phase 3: Editor UI (Secret Gesture Activation) ✅ COMPLETED
+- [x] Создать EditorBloc с CRUD операциями для чанков
+- [x] UI: список чанков урока с drag-and-drop
+- [x] UI: редактирование чанка (персонаж, эмоция, анимация)
+- [x] UI: редактирование текста (основной язык)
+- [x] Split chunk функциональность
+- [x] Интеграция Claude API для автоперевода
+- [x] Активация редактора по triple tap (секретный жест на Settings)
+- [x] Добавлен ApiKeyService для хранения Claude API ключа
+- [x] UI для ввода/редактирования Claude API ключа в Settings
+- [x] Исправлен баг: текст диалога очищался при ошибке перевода (EditorError state handling)
+- [x] Исправлен баг: сохранённые переводы не загружались при воспроизведении урока (Localization persistence)
+- [x] Исправлен баг: несоответствие ID урока (counting vs counting_friends)
+
+**Созданные файлы:**
+- `lib/core/services/api_key_service.dart` — сервис хранения API ключей
+- `lib/core/services/translation_service.dart` — Claude API интеграция для перевода
+- `lib/core/widgets/secret_tap_detector.dart` — виджет секретного жеста
+- `lib/features/editor/presentation/bloc/editor_bloc.dart` — BLoC редактора
+- `lib/features/editor/presentation/bloc/editor_event.dart` — события
+- `lib/features/editor/presentation/bloc/editor_state.dart` — состояния и EditableScene
+- `lib/features/editor/presentation/pages/editor_page.dart` — список уроков
+- `lib/features/editor/presentation/pages/lesson_editor_page.dart` — редактор урока
+- `lib/features/editor/presentation/widgets/scene_list_widget.dart` — drag-drop список
+- `lib/features/editor/presentation/widgets/scene_editor_dialog.dart` — диалог редактирования
+- `lib/features/editor/presentation/widgets/character_picker.dart` — выбор персонажа
+- `lib/features/editor/presentation/widgets/dialogue_editor.dart` — редактор диалогов
+
+**Примечание:** Секретный жест временно отключён, редактор доступен напрямую в Settings для тестирования.
 
 ### Phase 4: Azure TTS Integration (отдельная задача)
 - [ ] Создать Azure Speech account
@@ -732,14 +753,14 @@ Keep the tone child-friendly and simple.'''
 ### Обзор плана
 
 План разделён на 4 фазы:
-1. **Phase 1:** Database Setup (Isar) — фундамент
-2. **Phase 2:** Data Layer Migration — переход на Isar
+1. **Phase 1:** Database Setup (Drift) — фундамент ✅ COMPLETED
+2. **Phase 2:** Data Layer Migration — переход на Drift
 3. **Phase 3:** Editor UI — интерфейс редактора
 4. **Phase 4:** TTS Integration — генерация аудио
 
 ---
 
-### Phase 1: Database Setup (Isar)
+### Phase 1: Database Setup (Drift) ✅ COMPLETED
 
 #### 1.1 Добавить зависимости Isar
 
@@ -1047,7 +1068,121 @@ class LessonRepositoryImpl implements LessonRepository {
 
 ---
 
-### Phase 3: Editor UI (Debug Mode)
+### Phase 3: Editor UI (Secret Gesture Activation)
+
+#### 3.0 Реализовать секретный жест для активации редактора
+
+**Механизм активации:**
+- Triple tap на заголовке "Settings" или версии приложения
+- После активации показывается секция "Developer Tools" с кнопкой "Lesson Editor"
+- Состояние сохраняется в SharedPreferences (опционально — сбрасывается при перезапуске)
+
+**Новый файл:** `lib/core/widgets/secret_tap_detector.dart`
+
+```dart
+import 'package:flutter/material.dart';
+
+class SecretTapDetector extends StatefulWidget {
+  final Widget child;
+  final VoidCallback onSecretTap;
+  final int requiredTaps; // default: 3
+
+  const SecretTapDetector({
+    super.key,
+    required this.child,
+    required this.onSecretTap,
+    this.requiredTaps = 3,
+  });
+
+  @override
+  State<SecretTapDetector> createState() => _SecretTapDetectorState();
+}
+
+class _SecretTapDetectorState extends State<SecretTapDetector> {
+  int _tapCount = 0;
+  DateTime? _lastTap;
+
+  void _handleTap() {
+    final now = DateTime.now();
+
+    // Reset if more than 500ms between taps
+    if (_lastTap != null && now.difference(_lastTap!).inMilliseconds > 500) {
+      _tapCount = 0;
+    }
+
+    _tapCount++;
+    _lastTap = now;
+
+    if (_tapCount >= widget.requiredTaps) {
+      _tapCount = 0;
+      widget.onSecretTap();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: _handleTap,
+      behavior: HitTestBehavior.opaque,
+      child: widget.child,
+    );
+  }
+}
+```
+
+**Интеграция в Settings:**
+
+```dart
+// settings_page.dart
+class _SettingsPageState extends State<SettingsPage> {
+  bool _editorUnlocked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: SecretTapDetector(
+          onSecretTap: () {
+            setState(() => _editorUnlocked = true);
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('🔓 Editor mode unlocked!')),
+            );
+          },
+          child: const Text('Settings'),
+        ),
+      ),
+      body: ListView(
+        children: [
+          // ... normal settings ...
+
+          if (_editorUnlocked) ...[
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.edit_note),
+              title: const Text('Lesson Editor'),
+              subtitle: const Text('Edit lesson scenarios'),
+              onTap: () => context.push('/editor'),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+```
+
+**Проверка:**
+1. Triple tap на "Settings" показывает "Editor mode unlocked!"
+2. Появляется секция с кнопкой "Lesson Editor"
+3. Работает в release build (TestFlight)
+
+**Тесты:**
+- `test/unit/core/widgets/secret_tap_detector_test.dart`
+  - 3 быстрых тапа активируют callback
+  - Медленные тапы (>500ms) сбрасывают счётчик
+  - 2 тапа не активируют callback
+
+---
 
 #### 3.1 Создать EditorBloc
 
@@ -1403,11 +1538,12 @@ Phase 4: TTS Integration
 - [ ] Все тесты Phase 2 проходят
 
 #### Phase 3 завершена когда:
+- [ ] Triple tap на "Settings" разблокирует редактор
 - [ ] Редактор открывается по маршруту `/editor/:lessonId`
 - [ ] Список сцен отображается с drag-and-drop
 - [ ] Редактирование сцены сохраняется в БД
 - [ ] Автоперевод через Claude API работает
-- [ ] Редактор доступен только в debug mode
+- [ ] Работает в release build (TestFlight)
 - [ ] Все тесты Phase 3 проходят
 
 #### Phase 4 завершена когда:

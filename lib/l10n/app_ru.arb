@@ -45,5 +45,11 @@
   "difficultyHard": "Сложно",
   "difficultyLevel": "Уровень {level}",
   "orsonGreeting": "Привет, я фиолетовый кот Orson",
-  "mervGreeting": "Привет, я жёлтый пёсик Merv"
+  "mervGreeting": "Привет, я жёлтый пёсик Merv",
+  "developerSettings": "Настройки разработчика",
+  "resetLessonData": "Сбросить данные уроков",
+  "resetLessonDataConfirm": "Сбросить все данные уроков к начальным?",
+  "resetSuccess": "Данные успешно сброшены",
+  "cancel": "Отмена",
+  "reset": "Сбросить"
 }

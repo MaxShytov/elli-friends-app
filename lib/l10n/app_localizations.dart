@@ -381,6 +381,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hi, I\'m Merv the yellow puppy'**
   String get mervGreeting;
+
+  /// Developer settings section title
+  ///
+  /// In en, this message translates to:
+  /// **'Developer Settings'**
+  String get developerSettings;
+
+  /// Reset lesson data button label
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Lesson Data'**
+  String get resetLessonData;
+
+  /// Reset data confirmation message
+  ///
+  /// In en, this message translates to:
+  /// **'Reset all lesson data to defaults?'**
+  String get resetLessonDataConfirm;
+
+  /// Data reset success message
+  ///
+  /// In en, this message translates to:
+  /// **'Data reset successfully'**
+  String get resetSuccess;
+
+  /// Cancel button label
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// Reset button label
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get reset;
 }
 
 class _AppLocalizationsDelegate
