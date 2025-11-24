@@ -25,19 +25,24 @@ class AnimationEffectPicker extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(
-              label,
-              style: Theme.of(context).textTheme.titleSmall,
+            Flexible(
+              child: Text(
+                label,
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
             ),
             if (recommendedEffect != null) ...[
               const SizedBox(width: 8),
-              Chip(
-                label: Text(
-                  'Recommended: ${_effectToString(recommendedEffect!)}',
-                  style: const TextStyle(fontSize: 11),
+              Flexible(
+                child: Chip(
+                  label: Text(
+                    'Recommended: ${_effectToString(recommendedEffect!)}',
+                    style: const TextStyle(fontSize: 11),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  backgroundColor: Colors.green[100],
+                  avatar: const Icon(Icons.lightbulb_outline, size: 16),
                 ),
-                backgroundColor: Colors.green[100],
-                avatar: const Icon(Icons.lightbulb_outline, size: 16),
               ),
             ],
           ],
@@ -59,7 +64,12 @@ class AnimationEffectPicker extends StatelessWidget {
                 value: effect,
                 child: Row(
                   children: [
-                    Text(_effectToString(effect)),
+                    Expanded(
+                      child: Text(
+                        _effectToString(effect),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
                     if (effect == recommendedEffect) ...[
                       const SizedBox(width: 4),
                       const Icon(Icons.check_circle, size: 16, color: Colors.green),
