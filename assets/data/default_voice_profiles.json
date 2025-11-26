@@ -1,0 +1,47 @@
+{
+  "orson": {
+    "en": { "voiceName": "en-US-GuyNeural", "role": null, "basePitch": 0, "baseRate": 0.90, "defaultStyle": "friendly", "defaultStyleDegree": 1.1 },
+    "ru": { "voiceName": "ru-RU-DmitryNeural", "role": null, "basePitch": 0, "baseRate": 0.90, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "de": { "voiceName": "de-DE-ConradNeural", "role": null, "basePitch": 0, "baseRate": 0.90, "defaultStyle": "cheerful", "defaultStyleDegree": 1.1 },
+    "fr": { "voiceName": "fr-FR-HenriNeural", "role": null, "basePitch": 0, "baseRate": 0.90, "defaultStyle": "cheerful", "defaultStyleDegree": 1.1 },
+    "it": { "voiceName": "it-IT-DiegoNeural", "role": null, "basePitch": 0, "baseRate": 0.90, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "am": { "voiceName": "am-ET-AmehaNeural", "role": null, "basePitch": 0, "baseRate": 0.90, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "my": { "voiceName": "my-MM-ThihaNeural", "role": null, "basePitch": 0, "baseRate": 0.90, "defaultStyle": null, "defaultStyleDegree": 1.0 }
+  },
+  "merv": {
+    "en": { "voiceName": "en-US-AnaNeural", "role": null, "basePitch": 5, "baseRate": 0.92, "defaultStyle": "friendly", "defaultStyleDegree": 1.2 },
+    "ru": { "voiceName": "ru-RU-DariyaNeural", "role": null, "basePitch": 10, "baseRate": 0.92, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "de": { "voiceName": "de-DE-GiselaNeural", "role": null, "basePitch": 5, "baseRate": 0.92, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "fr": { "voiceName": "fr-FR-EloiseNeural", "role": null, "basePitch": 5, "baseRate": 0.92, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "it": { "voiceName": "it-IT-PierinaNeural", "role": null, "basePitch": 5, "baseRate": 0.92, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "am": { "voiceName": "am-ET-MekdesNeural", "role": null, "basePitch": 12, "baseRate": 0.92, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "my": { "voiceName": "my-MM-NilarNeural", "role": null, "basePitch": 12, "baseRate": 0.92, "defaultStyle": null, "defaultStyleDegree": 1.0 }
+  },
+  "elli": {
+    "en": { "voiceName": "en-US-JennyNeural", "role": "Girl", "basePitch": 8, "baseRate": 1.0, "defaultStyle": "cheerful", "defaultStyleDegree": 1.1 },
+    "ru": { "voiceName": "ru-RU-SvetlanaNeural", "role": null, "basePitch": 5, "baseRate": 1.0, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "de": { "voiceName": "de-DE-KatjaNeural", "role": null, "basePitch": 5, "baseRate": 1.0, "defaultStyle": "cheerful", "defaultStyleDegree": 1.1 },
+    "fr": { "voiceName": "fr-FR-DeniseNeural", "role": null, "basePitch": 5, "baseRate": 1.0, "defaultStyle": "cheerful", "defaultStyleDegree": 1.1 },
+    "it": { "voiceName": "it-IT-ElsaNeural", "role": null, "basePitch": 5, "baseRate": 1.0, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "am": { "voiceName": "am-ET-MekdesNeural", "role": null, "basePitch": 5, "baseRate": 1.0, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "my": { "voiceName": "my-MM-NilarNeural", "role": null, "basePitch": 5, "baseRate": 1.0, "defaultStyle": null, "defaultStyleDegree": 1.0 }
+  },
+  "bono": {
+    "en": { "voiceName": "en-US-AnaNeural", "role": null, "basePitch": 15, "baseRate": 1.05, "defaultStyle": "cheerful", "defaultStyleDegree": 1.2 },
+    "ru": { "voiceName": "ru-RU-DariyaNeural", "role": null, "basePitch": 12, "baseRate": 1.05, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "de": { "voiceName": "de-DE-GiselaNeural", "role": null, "basePitch": 12, "baseRate": 1.05, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "fr": { "voiceName": "fr-FR-EloiseNeural", "role": null, "basePitch": 12, "baseRate": 1.05, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "it": { "voiceName": "it-IT-PierinaNeural", "role": null, "basePitch": 12, "baseRate": 1.05, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "am": { "voiceName": "am-ET-MekdesNeural", "role": null, "basePitch": 15, "baseRate": 1.05, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "my": { "voiceName": "my-MM-NilarNeural", "role": null, "basePitch": 15, "baseRate": 1.05, "defaultStyle": null, "defaultStyleDegree": 1.0 }
+  },
+  "hippo": {
+    "en": { "voiceName": "en-US-AriaNeural", "role": null, "basePitch": 3, "baseRate": 1.0, "defaultStyle": "cheerful", "defaultStyleDegree": 1.2 },
+    "ru": { "voiceName": "ru-RU-SvetlanaNeural", "role": null, "basePitch": 3, "baseRate": 1.0, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "de": { "voiceName": "de-DE-KatjaNeural", "role": null, "basePitch": 3, "baseRate": 1.0, "defaultStyle": "cheerful", "defaultStyleDegree": 1.2 },
+    "fr": { "voiceName": "fr-FR-DeniseNeural", "role": null, "basePitch": 3, "baseRate": 1.0, "defaultStyle": "cheerful", "defaultStyleDegree": 1.2 },
+    "it": { "voiceName": "it-IT-IsabellaNeural", "role": null, "basePitch": 3, "baseRate": 1.0, "defaultStyle": "cheerful", "defaultStyleDegree": 1.2 },
+    "am": { "voiceName": "am-ET-MekdesNeural", "role": null, "basePitch": 3, "baseRate": 1.0, "defaultStyle": null, "defaultStyleDegree": 1.0 },
+    "my": { "voiceName": "my-MM-NilarNeural", "role": null, "basePitch": 3, "baseRate": 1.0, "defaultStyle": null, "defaultStyleDegree": 1.0 }
+  }
+}

@@ -177,11 +177,8 @@ class _SceneTimelineCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: 80,
-        constraints: const BoxConstraints(
-          minHeight: 30,
-          maxHeight: 50,
-        ),
-        padding: const EdgeInsets.all(4),
+        height: 60,
+        padding: const EdgeInsets.all(6),
         decoration: BoxDecoration(
           color: isSelected ? const Color(0xFFE7E0EC) : Colors.white,
           border: Border.all(
@@ -199,14 +196,13 @@ class _SceneTimelineCard extends StatelessWidget {
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
           children: [
             // Header row: номер слева, таймер справа
             Row(
               children: [
                 Container(
-                  width: 16,
-                  height: 16,
+                  width: 20,
+                  height: 20,
                   decoration: const BoxDecoration(
                     color: Color(0xFF9370DB),
                     shape: BoxShape.circle,
@@ -216,26 +212,26 @@ class _SceneTimelineCard extends StatelessWidget {
                       '${index + 1}',
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 8,
+                        fontSize: 10,
                         color: Colors.white,
                       ),
                     ),
                   ),
                 ),
                 const Spacer(),
-                const Icon(Icons.timer, size: 8, color: Color(0xFF79747E)),
-                const SizedBox(width: 1),
+                const Icon(Icons.timer, size: 10, color: Color(0xFF79747E)),
+                const SizedBox(width: 2),
                 Text(
                   '${scene.duration ?? 0}s',
                   style: const TextStyle(
-                    fontSize: 8,
+                    fontSize: 10,
                     color: Color(0xFF79747E),
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 2),
+            const SizedBox(height: 4),
             // Dialogue text
             if (scene.dialogues['en']?.isNotEmpty == true)
               Text(
@@ -243,10 +239,10 @@ class _SceneTimelineCard extends StatelessWidget {
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
-                  fontSize: 7,
+                  fontSize: 8,
                   color: Color(0xFF49454F),
                   fontWeight: FontWeight.w500,
-                  height: 1.1,
+                  height: 1.2,
                 ),
               ),
           ],

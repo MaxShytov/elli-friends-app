@@ -2,8 +2,11 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart' as rive;
 import '../../core/constants/app_colors.dart';
+import '../../core/database/app_database.dart';
+import '../../core/database/character_repository.dart';
+import 'widgets/voice_settings_panel.dart';
 
-/// Demo page for Rive mascots with interactive animations
+/// Demo page for Rive mascots with interactive animations and voice settings
 class MascotsDemo extends StatefulWidget {
   const MascotsDemo({super.key});
 
@@ -11,15 +14,18 @@ class MascotsDemo extends StatefulWidget {
   State<MascotsDemo> createState() => _MascotsDemoState();
 }
 
-class _MascotsDemoState extends State<MascotsDemo> {
+class _MascotsDemoState extends State<MascotsDemo> with SingleTickerProviderStateMixin {
   rive.File? riveFile;
   rive.RiveWidgetController? controller;
   bool isLoading = true;
   String? error;
 
+  late TabController _tabController;
+
   @override
   void initState() {
     super.initState();
+    _tabController = TabController(length: 2, vsync: this);
     _loadRiveFile();
   }
 
@@ -53,6 +59,7 @@ class _MascotsDemoState extends State<MascotsDemo> {
 
   @override
   void dispose() {
+    _tabController.dispose();
     controller?.dispose();
     riveFile?.dispose();
     super.dispose();
@@ -62,15 +69,31 @@ class _MascotsDemoState extends State<MascotsDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Responsive Mascots'),
+        title: const Text('Character Studio'),
         backgroundColor: AppColors.primary,
         foregroundColor: Colors.white,
+        bottom: TabBar(
+          controller: _tabController,
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.white70,
+          indicatorColor: Colors.white,
+          tabs: const [
+            Tab(icon: Icon(Icons.animation), text: 'Animations'),
+            Tab(icon: Icon(Icons.record_voice_over), text: 'Voice Settings'),
+          ],
+        ),
       ),
-      body: _buildBody(),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          _buildAnimationsTab(),
+          _buildVoiceSettingsTab(),
+        ],
+      ),
     );
   }
 
-  Widget _buildBody() {
+  Widget _buildAnimationsTab() {
     if (isLoading) {
       return const Center(
         child: Column(
@@ -114,6 +137,210 @@ class _MascotsDemoState extends State<MascotsDemo> {
     }
 
     return const SizedBox();
+  }
+
+  Widget _buildVoiceSettingsTab() {
+    return const _VoiceSettingsTab();
+  }
+}
+
+/// Tab for managing character voice settings
+class _VoiceSettingsTab extends StatefulWidget {
+  const _VoiceSettingsTab();
+
+  @override
+  State<_VoiceSettingsTab> createState() => _VoiceSettingsTabState();
+}
+
+class _VoiceSettingsTabState extends State<_VoiceSettingsTab> {
+  late CharacterRepository _characterRepo;
+  List<Character> _characters = [];
+  bool _isLoading = true;
+  String? _error;
+  String _selectedCharacterId = 'orson';
+
+  @override
+  void initState() {
+    super.initState();
+    _characterRepo = CharacterRepository(AppDatabase.instance);
+    _loadCharacters();
+  }
+
+  Future<void> _loadCharacters() async {
+    try {
+      final characters = await _characterRepo.getAllCharacters();
+      setState(() {
+        _characters = characters;
+        _isLoading = false;
+        if (characters.isNotEmpty &&
+            !characters.any((c) => c.characterId == _selectedCharacterId)) {
+          _selectedCharacterId = characters.first.characterId;
+        }
+      });
+    } catch (e) {
+      setState(() {
+        _error = e.toString();
+        _isLoading = false;
+      });
+    }
+  }
+
+  Character? get _selectedCharacter {
+    try {
+      return _characters.firstWhere((c) => c.characterId == _selectedCharacterId);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
+    if (_error != null) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.error_outline, size: 48, color: Colors.red),
+              const SizedBox(height: 16),
+              Text('Error: $_error'),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: _loadCharacters,
+                child: const Text('Retry'),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    if (_characters.isEmpty) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.people_outline, size: 48, color: Colors.grey),
+              const SizedBox(height: 16),
+              const Text(
+                'No characters found.\n\nPlease reset the database to load character data.',
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton.icon(
+                onPressed: _loadCharacters,
+                icon: const Icon(Icons.refresh),
+                label: const Text('Refresh'),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Character selector
+          Text(
+            'Select Character',
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 12),
+          _buildCharacterSelector(),
+          const SizedBox(height: 24),
+
+          // Voice settings panel for selected character
+          if (_selectedCharacter != null)
+            VoiceSettingsPanel(
+              key: ValueKey(_selectedCharacterId),
+              characterId: _selectedCharacterId,
+              characterEmoji: _selectedCharacter!.emoji,
+              characterName: _selectedCharacterId.substring(0, 1).toUpperCase() +
+                            _selectedCharacterId.substring(1),
+              onProfileSaved: () {
+                // Optionally trigger refresh or show feedback
+              },
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCharacterSelector() {
+    return Wrap(
+      spacing: 8,
+      runSpacing: 8,
+      children: _characters.map((character) {
+        final isSelected = character.characterId == _selectedCharacterId;
+        final color = _parseColor(character.color);
+
+        return Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () => setState(() => _selectedCharacterId = character.characterId),
+            borderRadius: BorderRadius.circular(12),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              decoration: BoxDecoration(
+                color: isSelected ? color.withValues(alpha: 0.15) : Colors.grey.shade100,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: isSelected ? color : Colors.grey.shade300,
+                  width: isSelected ? 2 : 1,
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(character.emoji, style: const TextStyle(fontSize: 24)),
+                  const SizedBox(width: 8),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        character.characterId.substring(0, 1).toUpperCase() +
+                            character.characterId.substring(1),
+                        style: TextStyle(
+                          fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                          color: isSelected ? color : Colors.black87,
+                        ),
+                      ),
+                      Text(
+                        character.isChild ? 'Child' : (character.isMale ? 'Male' : 'Female'),
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: Colors.grey.shade600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      }).toList(),
+    );
+  }
+
+  Color _parseColor(String hexColor) {
+    try {
+      return Color(int.parse(hexColor.replaceFirst('#', '0xFF')));
+    } catch (_) {
+      return Colors.purple;
+    }
   }
 }
 
@@ -382,9 +609,9 @@ class _MascotsControlsState extends State<_MascotsControls> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      _buildCharacterButton('Orson', '🐱', Colors.purple),
+                      _buildCharacterButton('Orson', '🦁', Colors.orange),
                       const SizedBox(width: 8),
-                      _buildCharacterButton('Merv', '🧙', Colors.blue),
+                      _buildCharacterButton('Merv', '🧙', Colors.purple),
                     ],
                   ),
                 ),

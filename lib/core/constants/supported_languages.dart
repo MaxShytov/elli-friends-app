@@ -10,6 +10,7 @@ class SupportedLanguages {
     Locale('fr', ''), // French
     Locale('de', ''), // German
     Locale('it', ''), // Italian
+    Locale('am', ''), // Amharic (Ethiopian)
     Locale('my', ''), // Burmese (Myanmar)
   ];
 
@@ -20,6 +21,7 @@ class SupportedLanguages {
     'fr': 'Français',
     'de': 'Deutsch',
     'it': 'Italiano',
+    'am': 'አማርኛ', // Amharic
     'my': 'မြန်မာ', // Burmese
   };
 
@@ -30,6 +32,7 @@ class SupportedLanguages {
     'fr': 'fr-FR',
     'de': 'de-DE',
     'it': 'it-IT',
+    'am': 'am-ET', // Amharic
     'my': 'my-MM', // Burmese
   };
 

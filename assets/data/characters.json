@@ -1,0 +1,419 @@
+{
+  "characters": [
+    {
+      "characterId": "orson",
+      "emoji": "🦁",
+      "isChild": false,
+      "isMale": true,
+      "color": "#FF9800",
+      "name": {
+        "en": "Orson the Lion",
+        "ru": "Орсон Лев",
+        "de": "Orson der Löwe",
+        "fr": "Orson le Lion",
+        "it": "Orson il Leone",
+        "am": "ኦርሰን አንበሳ",
+        "my": "Orson ခြင်္သေ့"
+      },
+      "description": {
+        "en": "A wise and friendly lion who loves teaching",
+        "ru": "Мудрый и дружелюбный лев, который любит учить",
+        "de": "Ein weiser und freundlicher Löwe, der gerne unterrichtet",
+        "fr": "Un lion sage et amical qui aime enseigner",
+        "it": "Un leone saggio e amichevole che ama insegnare",
+        "am": "ማስተማር የሚወድ ጥበበኛ እና ተግባቢ አንበሳ",
+        "my": "သင်ကြားပေးရတာ နှစ်သက်တဲ့ ပညာရှိပြီး ဖော်ရွေတဲ့ ခြင်္သေ့"
+      },
+      "voiceProfiles": {
+        "en": {
+          "voiceName": "en-US-GuyNeural",
+          "role": null,
+          "basePitch": 0,
+          "baseRate": 0.90,
+          "defaultStyle": "friendly",
+          "defaultStyleDegree": 1.1
+        },
+        "ru": {
+          "voiceName": "ru-RU-DmitryNeural",
+          "role": null,
+          "basePitch": 0,
+          "baseRate": 0.90,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "de": {
+          "voiceName": "de-DE-ConradNeural",
+          "role": null,
+          "basePitch": 0,
+          "baseRate": 0.90,
+          "defaultStyle": "cheerful",
+          "defaultStyleDegree": 1.1
+        },
+        "fr": {
+          "voiceName": "fr-FR-HenriNeural",
+          "role": null,
+          "basePitch": 0,
+          "baseRate": 0.90,
+          "defaultStyle": "cheerful",
+          "defaultStyleDegree": 1.1
+        },
+        "it": {
+          "voiceName": "it-IT-DiegoNeural",
+          "role": null,
+          "basePitch": 0,
+          "baseRate": 0.90,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "am": {
+          "voiceName": "am-ET-AmehaNeural",
+          "role": null,
+          "basePitch": 0,
+          "baseRate": 0.90,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "my": {
+          "voiceName": "my-MM-ThihaNeural",
+          "role": null,
+          "basePitch": 0,
+          "baseRate": 0.90,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        }
+      }
+    },
+    {
+      "characterId": "merv",
+      "emoji": "🧙",
+      "isChild": true,
+      "isMale": false,
+      "color": "#9C27B0",
+      "name": {
+        "en": "Merv the Little Wizard",
+        "ru": "Мерв Маленькая Волшебница",
+        "de": "Merv die kleine Zauberin",
+        "fr": "Merv la petite Magicienne",
+        "it": "Merv la piccola Maga",
+        "am": "ሜርቭ ትንሹ ጠንቋይ",
+        "my": "Merv ဝိဇ္ဇာလေး"
+      },
+      "description": {
+        "en": "A young magical wizard learning with friends",
+        "ru": "Юная волшебница, учащаяся вместе с друзьями",
+        "de": "Eine junge Zauberin, die mit Freunden lernt",
+        "fr": "Une jeune magicienne qui apprend avec ses amis",
+        "it": "Una giovane maga che impara con gli amici",
+        "am": "ከጓደኞች ጋር የምትማር ወጣት ጠንቋይ",
+        "my": "သူငယ်ချင်းများနှင့် အတူ သင်ယူနေသော ဝိဇ္ဇာလေး"
+      },
+      "voiceProfiles": {
+        "en": {
+          "voiceName": "en-US-AnaNeural",
+          "role": null,
+          "basePitch": 5,
+          "baseRate": 0.92,
+          "defaultStyle": "friendly",
+          "defaultStyleDegree": 1.2
+        },
+        "ru": {
+          "voiceName": "ru-RU-DariyaNeural",
+          "role": null,
+          "basePitch": 10,
+          "baseRate": 0.92,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "de": {
+          "voiceName": "de-DE-GiselaNeural",
+          "role": null,
+          "basePitch": 5,
+          "baseRate": 0.92,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "fr": {
+          "voiceName": "fr-FR-EloiseNeural",
+          "role": null,
+          "basePitch": 5,
+          "baseRate": 0.92,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "it": {
+          "voiceName": "it-IT-PierinaNeural",
+          "role": null,
+          "basePitch": 5,
+          "baseRate": 0.92,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "am": {
+          "voiceName": "am-ET-MekdesNeural",
+          "role": null,
+          "basePitch": 12,
+          "baseRate": 0.92,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "my": {
+          "voiceName": "my-MM-NilarNeural",
+          "role": null,
+          "basePitch": 12,
+          "baseRate": 0.92,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        }
+      }
+    },
+    {
+      "characterId": "elli",
+      "emoji": "🐘",
+      "isChild": false,
+      "isMale": false,
+      "color": "#E91E63",
+      "name": {
+        "en": "Elli the Elephant",
+        "ru": "Элли Слоник",
+        "de": "Elli der Elefant",
+        "fr": "Elli l'Éléphant",
+        "it": "Elli l'Elefante",
+        "am": "ኤሊ ዝሆን",
+        "my": "Elli ဆင်"
+      },
+      "description": {
+        "en": "A kind and gentle elephant who loves helping friends",
+        "ru": "Добрый и нежный слоник, который любит помогать друзьям",
+        "de": "Ein freundlicher und sanfter Elefant, der gerne Freunden hilft",
+        "fr": "Un éléphant gentil et doux qui aime aider ses amis",
+        "it": "Un elefante gentile che ama aiutare gli amici",
+        "am": "ጓደኞችን መርዳት የሚወድ ደግ እና ገር ዝሆን",
+        "my": "သူငယ်ချင်းတွေကို ကူညီရတာ နှစ်သက်တဲ့ ကြင်နာသိမ်မွေ့တဲ့ ဆင်"
+      },
+      "voiceProfiles": {
+        "en": {
+          "voiceName": "en-US-JennyNeural",
+          "role": "Girl",
+          "basePitch": 8,
+          "baseRate": 1.0,
+          "defaultStyle": "cheerful",
+          "defaultStyleDegree": 1.1
+        },
+        "ru": {
+          "voiceName": "ru-RU-SvetlanaNeural",
+          "role": null,
+          "basePitch": 5,
+          "baseRate": 1.0,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "de": {
+          "voiceName": "de-DE-KatjaNeural",
+          "role": null,
+          "basePitch": 5,
+          "baseRate": 1.0,
+          "defaultStyle": "cheerful",
+          "defaultStyleDegree": 1.1
+        },
+        "fr": {
+          "voiceName": "fr-FR-DeniseNeural",
+          "role": null,
+          "basePitch": 5,
+          "baseRate": 1.0,
+          "defaultStyle": "cheerful",
+          "defaultStyleDegree": 1.1
+        },
+        "it": {
+          "voiceName": "it-IT-ElsaNeural",
+          "role": null,
+          "basePitch": 5,
+          "baseRate": 1.0,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "am": {
+          "voiceName": "am-ET-MekdesNeural",
+          "role": null,
+          "basePitch": 5,
+          "baseRate": 1.0,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "my": {
+          "voiceName": "my-MM-NilarNeural",
+          "role": null,
+          "basePitch": 5,
+          "baseRate": 1.0,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        }
+      }
+    },
+    {
+      "characterId": "bono",
+      "emoji": "🐘",
+      "isChild": true,
+      "isMale": true,
+      "color": "#4CAF50",
+      "name": {
+        "en": "Bono the Baby Elephant",
+        "ru": "Боно Слонёнок",
+        "de": "Bono das Elefantenbaby",
+        "fr": "Bono le Bébé Éléphant",
+        "it": "Bono l'Elefantino",
+        "am": "ቦኖ ሕፃን ዝሆን",
+        "my": "Bono ဆင်ပေါက်"
+      },
+      "description": {
+        "en": "A curious little elephant who loves to learn",
+        "ru": "Любопытный слонёнок, который любит учиться",
+        "de": "Ein neugieriger kleiner Elefant, der gerne lernt",
+        "fr": "Un petit éléphant curieux qui aime apprendre",
+        "it": "Un piccolo elefante curioso che ama imparare",
+        "am": "መማር የሚወድ ጉጉ ትንሽ ዝሆን",
+        "my": "သင်ယူရတာ နှစ်သက်တဲ့ စူးစမ်းလိုက်စားတဲ့ ဆင်ပေါက်လေး"
+      },
+      "voiceProfiles": {
+        "en": {
+          "voiceName": "en-US-AnaNeural",
+          "role": null,
+          "basePitch": 15,
+          "baseRate": 1.05,
+          "defaultStyle": "cheerful",
+          "defaultStyleDegree": 1.2
+        },
+        "ru": {
+          "voiceName": "ru-RU-DariyaNeural",
+          "role": null,
+          "basePitch": 12,
+          "baseRate": 1.05,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "de": {
+          "voiceName": "de-DE-GiselaNeural",
+          "role": null,
+          "basePitch": 12,
+          "baseRate": 1.05,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "fr": {
+          "voiceName": "fr-FR-EloiseNeural",
+          "role": null,
+          "basePitch": 12,
+          "baseRate": 1.05,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "it": {
+          "voiceName": "it-IT-PierinaNeural",
+          "role": null,
+          "basePitch": 12,
+          "baseRate": 1.05,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "am": {
+          "voiceName": "am-ET-MekdesNeural",
+          "role": null,
+          "basePitch": 15,
+          "baseRate": 1.05,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "my": {
+          "voiceName": "my-MM-NilarNeural",
+          "role": null,
+          "basePitch": 15,
+          "baseRate": 1.05,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        }
+      }
+    },
+    {
+      "characterId": "hippo",
+      "emoji": "🦛",
+      "isChild": false,
+      "isMale": false,
+      "color": "#00BCD4",
+      "name": {
+        "en": "Hippo",
+        "ru": "Бегемотик",
+        "de": "Hippo das Nilpferd",
+        "fr": "Hippo l'Hippopotame",
+        "it": "Ippo l'Ippopotamo",
+        "am": "ሂፖ ጉማሬ",
+        "my": "Hippo ရေမြင်း"
+      },
+      "description": {
+        "en": "A cheerful hippo who loves singing and playing",
+        "ru": "Весёлый бегемотик, который любит петь и играть",
+        "de": "Ein fröhliches Nilpferd, das gerne singt und spielt",
+        "fr": "Un hippopotame joyeux qui aime chanter et jouer",
+        "it": "Un ippopotamo allegro che ama cantare e giocare",
+        "am": "መዘመር እና መጫወት የሚወድ ደስተኛ ጉማሬ",
+        "my": "သီချင်းဆိုရတာနဲ့ ကစားရတာ နှစ်သက်တဲ့ ရွှင်လန်းတဲ့ ရေမြင်း"
+      },
+      "voiceProfiles": {
+        "en": {
+          "voiceName": "en-US-AriaNeural",
+          "role": null,
+          "basePitch": 3,
+          "baseRate": 1.0,
+          "defaultStyle": "cheerful",
+          "defaultStyleDegree": 1.2
+        },
+        "ru": {
+          "voiceName": "ru-RU-SvetlanaNeural",
+          "role": null,
+          "basePitch": 3,
+          "baseRate": 1.0,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "de": {
+          "voiceName": "de-DE-KatjaNeural",
+          "role": null,
+          "basePitch": 3,
+          "baseRate": 1.0,
+          "defaultStyle": "cheerful",
+          "defaultStyleDegree": 1.2
+        },
+        "fr": {
+          "voiceName": "fr-FR-DeniseNeural",
+          "role": null,
+          "basePitch": 3,
+          "baseRate": 1.0,
+          "defaultStyle": "cheerful",
+          "defaultStyleDegree": 1.2
+        },
+        "it": {
+          "voiceName": "it-IT-IsabellaNeural",
+          "role": null,
+          "basePitch": 3,
+          "baseRate": 1.0,
+          "defaultStyle": "cheerful",
+          "defaultStyleDegree": 1.2
+        },
+        "am": {
+          "voiceName": "am-ET-MekdesNeural",
+          "role": null,
+          "basePitch": 3,
+          "baseRate": 1.0,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        },
+        "my": {
+          "voiceName": "my-MM-NilarNeural",
+          "role": null,
+          "basePitch": 3,
+          "baseRate": 1.0,
+          "defaultStyle": null,
+          "defaultStyleDegree": 1.0
+        }
+      }
+    }
+  ]
+}

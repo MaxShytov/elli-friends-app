@@ -202,6 +202,9 @@ class EditorBloc extends Bloc<EditorEvent, EditorState> {
       waitForAnswer: event.waitForAnswer,
       showPreviousAnimals: event.showPreviousAnimals,
       buttonTitles: newButtonTitles,
+      background: event.background,
+      ambientSound: event.ambientSound,
+      ambientVolume: event.ambientVolume,
       isModified: true,
     );
 

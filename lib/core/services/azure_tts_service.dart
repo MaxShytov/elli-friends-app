@@ -3,6 +3,10 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
+import '../../features/lessons/domain/entities/character_voice_profile.dart';
+import '../../features/lessons/domain/entities/dialogue_voice_context.dart';
+import 'azure_tts_reference.dart';
+
 /// Configuration for Azure TTS voice mapping per character and language
 class AzureTtsConfig {
   /// Azure TTS voices mapped by character and language code
@@ -123,6 +127,9 @@ class AzureTtsService {
 
   /// Generate audio for text with specified character voice
   ///
+  /// This is the LEGACY method for backward compatibility.
+  /// For new code, use [generateAudioWithProfile] instead.
+  ///
   /// Returns MP3 audio data as Uint8List
   /// Throws [AzureTtsException] on failure
   Future<Uint8List> generateAudio({
@@ -152,6 +159,71 @@ class AzureTtsService {
 
     debugPrint('Azure TTS: Generating audio for "$text" with voice $voiceName');
 
+    return _sendTtsRequest(ssml);
+  }
+
+  /// Generate audio with two-level voice settings (Profile + Context)
+  ///
+  /// This is the NEW recommended method that uses:
+  /// - [CharacterVoiceProfile] for base character settings (actor level)
+  /// - [DialogueVoiceContext] for per-phrase emotional adjustments (optional)
+  ///
+  /// The profile provides base voice settings (voice, pitch, rate, default style).
+  /// The context provides scene-specific overrides (emotion, intensity, breaks).
+  ///
+  /// Returns MP3 audio data as Uint8List
+  /// Throws [AzureTtsException] on failure
+  Future<Uint8List> generateAudioWithProfile({
+    required String text,
+    required CharacterVoiceProfile profile,
+    DialogueVoiceContext? context,
+  }) async {
+    if (text.trim().isEmpty) {
+      throw AzureTtsException('Text cannot be empty');
+    }
+
+    // Get locale from voice name (e.g., "en-US-JennyNeural" -> "en-US")
+    final locale = profile.locale;
+
+    // Combine profile base settings with context modifiers
+    final effectiveStyle = profile.getEffectiveStyle(context?.style);
+    final effectiveStyleDegree = profile.getEffectiveStyleDegree(context?.styleDegree);
+    final effectivePitch = profile.combinePitch(context?.pitchModifier);
+    final effectiveRate = profile.combineRate(context?.rateModifier);
+
+    // Only use style/role if voice supports them
+    final useStyle = profile.supportsStyles && effectiveStyle != null;
+    final useRole = profile.supportsRole && profile.role != null;
+
+    // Validate style for this voice (effectiveStyle is non-null when useStyle is true)
+    final validatedStyle = useStyle &&
+        AzureTtsReference.isStyleValidForVoice(profile.voiceName, effectiveStyle)
+        ? effectiveStyle
+        : null;
+
+    final ssml = _buildAdvancedSsml(
+      text: text,
+      voiceName: profile.voiceName,
+      locale: locale,
+      role: useRole ? profile.role : null,
+      style: validatedStyle,
+      styleDegree: validatedStyle != null ? effectiveStyleDegree : null,
+      pitch: effectivePitch,
+      rate: effectiveRate,
+      volume: context?.volume,
+      breakBefore: context?.breakBefore,
+      breakAfter: context?.breakAfter,
+    );
+
+    debugPrint('Azure TTS: voice=${profile.voiceName}, '
+        'style=${validatedStyle ?? "N/A"}, '
+        'pitch=$effectivePitch, rate=${effectiveRate.toStringAsFixed(2)}');
+
+    return _sendTtsRequest(ssml);
+  }
+
+  /// Internal method to send TTS request to Azure
+  Future<Uint8List> _sendTtsRequest(String ssml) async {
     try {
       final response = await _httpClient.post(
         Uri.parse(_endpoint),
@@ -183,6 +255,7 @@ class AzureTtsService {
   }
 
   /// Build SSML (Speech Synthesis Markup Language) for Azure TTS
+  /// Legacy method for backward compatibility
   String _buildSsml({
     required String text,
     required String voiceName,
@@ -216,6 +289,104 @@ class AzureTtsService {
 
     return '''<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='$locale'>
   <voice name='$voiceName'>$contentWithEmotion
+  </voice>
+</speak>''';
+  }
+
+  /// Build advanced SSML with full support for:
+  /// - Role-play (role attribute for voices that support it)
+  /// - Style with intensity (styleDegree)
+  /// - Prosody (pitch, rate, volume)
+  /// - Breaks (before and after)
+  ///
+  /// Example output for English voice with styles:
+  /// ```xml
+  /// <speak version="1.0" xmlns="..." xml:lang="en-US">
+  ///   <voice name="en-US-JennyNeural">
+  ///     <mstts:express-as style="cheerful" styledegree="1.3" role="Girl">
+  ///       <prosody rate="+5%" pitch="+13%" volume="medium">
+  ///         Look! One, two, three apples!
+  ///       </prosody>
+  ///     </mstts:express-as>
+  ///   </voice>
+  /// </speak>
+  /// ```
+  ///
+  /// Example output for Russian voice (no styles):
+  /// ```xml
+  /// <speak version="1.0" xmlns="..." xml:lang="ru-RU">
+  ///   <voice name="ru-RU-SvetlanaNeural">
+  ///     <prosody rate="-5%" pitch="+5%">
+  ///       Смотри! Один, два, три яблока!
+  ///     </prosody>
+  ///   </voice>
+  /// </speak>
+  /// ```
+  String _buildAdvancedSsml({
+    required String text,
+    required String voiceName,
+    required String locale,
+    String? role,
+    String? style,
+    double? styleDegree,
+    required String pitch,
+    required double rate,
+    String? volume,
+    int? breakBefore,
+    int? breakAfter,
+  }) {
+    final escapedText = _escapeXml(text);
+
+    // Format rate as percentage
+    final rateStr = AzureTtsReference.formatRate(rate);
+
+    // Build prosody attributes
+    final prosodyAttrs = StringBuffer();
+    prosodyAttrs.write('rate="$rateStr" pitch="$pitch"');
+    if (volume != null && volume != 'default') {
+      prosodyAttrs.write(' volume="$volume"');
+    }
+
+    // Build the content with optional breaks
+    final contentBuffer = StringBuffer();
+
+    // Add break before if specified
+    if (breakBefore != null && breakBefore > 0) {
+      contentBuffer.write('<break time="${breakBefore}ms"/>');
+    }
+
+    // Add the text with prosody
+    contentBuffer.write('<prosody $prosodyAttrs>$escapedText</prosody>');
+
+    // Add break after if specified
+    if (breakAfter != null && breakAfter > 0) {
+      contentBuffer.write('<break time="${breakAfter}ms"/>');
+    }
+
+    final content = contentBuffer.toString();
+
+    // Wrap with express-as if style is specified
+    String voiceContent;
+    if (style != null) {
+      final expressAttrs = StringBuffer('style="$style"');
+      if (styleDegree != null && styleDegree != 1.0) {
+        expressAttrs.write(' styledegree="${styleDegree.toStringAsFixed(2)}"');
+      }
+      if (role != null) {
+        expressAttrs.write(' role="$role"');
+      }
+      voiceContent = '''
+    <mstts:express-as $expressAttrs>
+      $content
+    </mstts:express-as>''';
+    } else {
+      // No style - just prosody with content
+      voiceContent = '''
+    $content''';
+    }
+
+    return '''<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="$locale">
+  <voice name="$voiceName">$voiceContent
   </voice>
 </speak>''';
   }

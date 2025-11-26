@@ -3,6 +3,679 @@
 part of 'app_database.dart';
 
 // ignore_for_file: type=lint
+class $CharactersTable extends Characters
+    with TableInfo<$CharactersTable, Character> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $CharactersTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _characterIdMeta = const VerificationMeta(
+    'characterId',
+  );
+  @override
+  late final GeneratedColumn<String> characterId = GeneratedColumn<String>(
+    'character_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'),
+  );
+  static const VerificationMeta _nameJsonMeta = const VerificationMeta(
+    'nameJson',
+  );
+  @override
+  late final GeneratedColumn<String> nameJson = GeneratedColumn<String>(
+    'name_json',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _emojiMeta = const VerificationMeta('emoji');
+  @override
+  late final GeneratedColumn<String> emoji = GeneratedColumn<String>(
+    'emoji',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _descriptionJsonMeta = const VerificationMeta(
+    'descriptionJson',
+  );
+  @override
+  late final GeneratedColumn<String> descriptionJson = GeneratedColumn<String>(
+    'description_json',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _voiceProfilesJsonMeta = const VerificationMeta(
+    'voiceProfilesJson',
+  );
+  @override
+  late final GeneratedColumn<String> voiceProfilesJson =
+      GeneratedColumn<String>(
+        'voice_profiles_json',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _colorMeta = const VerificationMeta('color');
+  @override
+  late final GeneratedColumn<String> color = GeneratedColumn<String>(
+    'color',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('#FF9800'),
+  );
+  static const VerificationMeta _isChildMeta = const VerificationMeta(
+    'isChild',
+  );
+  @override
+  late final GeneratedColumn<bool> isChild = GeneratedColumn<bool>(
+    'is_child',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_child" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _isMaleMeta = const VerificationMeta('isMale');
+  @override
+  late final GeneratedColumn<bool> isMale = GeneratedColumn<bool>(
+    'is_male',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_male" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    characterId,
+    nameJson,
+    emoji,
+    descriptionJson,
+    voiceProfilesJson,
+    color,
+    isChild,
+    isMale,
+    createdAt,
+    updatedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'characters';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<Character> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('character_id')) {
+      context.handle(
+        _characterIdMeta,
+        characterId.isAcceptableOrUnknown(
+          data['character_id']!,
+          _characterIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_characterIdMeta);
+    }
+    if (data.containsKey('name_json')) {
+      context.handle(
+        _nameJsonMeta,
+        nameJson.isAcceptableOrUnknown(data['name_json']!, _nameJsonMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameJsonMeta);
+    }
+    if (data.containsKey('emoji')) {
+      context.handle(
+        _emojiMeta,
+        emoji.isAcceptableOrUnknown(data['emoji']!, _emojiMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_emojiMeta);
+    }
+    if (data.containsKey('description_json')) {
+      context.handle(
+        _descriptionJsonMeta,
+        descriptionJson.isAcceptableOrUnknown(
+          data['description_json']!,
+          _descriptionJsonMeta,
+        ),
+      );
+    }
+    if (data.containsKey('voice_profiles_json')) {
+      context.handle(
+        _voiceProfilesJsonMeta,
+        voiceProfilesJson.isAcceptableOrUnknown(
+          data['voice_profiles_json']!,
+          _voiceProfilesJsonMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_voiceProfilesJsonMeta);
+    }
+    if (data.containsKey('color')) {
+      context.handle(
+        _colorMeta,
+        color.isAcceptableOrUnknown(data['color']!, _colorMeta),
+      );
+    }
+    if (data.containsKey('is_child')) {
+      context.handle(
+        _isChildMeta,
+        isChild.isAcceptableOrUnknown(data['is_child']!, _isChildMeta),
+      );
+    }
+    if (data.containsKey('is_male')) {
+      context.handle(
+        _isMaleMeta,
+        isMale.isAcceptableOrUnknown(data['is_male']!, _isMaleMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  Character map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return Character(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      characterId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}character_id'],
+      )!,
+      nameJson: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name_json'],
+      )!,
+      emoji: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}emoji'],
+      )!,
+      descriptionJson: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}description_json'],
+      ),
+      voiceProfilesJson: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}voice_profiles_json'],
+      )!,
+      color: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}color'],
+      )!,
+      isChild: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_child'],
+      )!,
+      isMale: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_male'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+    );
+  }
+
+  @override
+  $CharactersTable createAlias(String alias) {
+    return $CharactersTable(attachedDatabase, alias);
+  }
+}
+
+class Character extends DataClass implements Insertable<Character> {
+  final int id;
+
+  /// Unique character identifier (e.g., "orson", "elli", "bono")
+  final String characterId;
+
+  /// Localized name as JSON: {"en": "Orson the Lion", "ru": "Орсон Лев"}
+  final String nameJson;
+
+  /// Character emoji for display
+  final String emoji;
+
+  /// Localized description as JSON (optional)
+  final String? descriptionJson;
+
+  /// Voice profiles per language as JSON
+  /// Format: {"en": {"voiceName": "en-US-GuyNeural", "role": "...", ...}, "ru": {...}}
+  final String voiceProfilesJson;
+
+  /// Character color for UI (hex format)
+  final String color;
+
+  /// Character type hint - is this a child character?
+  final bool isChild;
+
+  /// Character type hint - is this a male character?
+  final bool isMale;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  const Character({
+    required this.id,
+    required this.characterId,
+    required this.nameJson,
+    required this.emoji,
+    this.descriptionJson,
+    required this.voiceProfilesJson,
+    required this.color,
+    required this.isChild,
+    required this.isMale,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['character_id'] = Variable<String>(characterId);
+    map['name_json'] = Variable<String>(nameJson);
+    map['emoji'] = Variable<String>(emoji);
+    if (!nullToAbsent || descriptionJson != null) {
+      map['description_json'] = Variable<String>(descriptionJson);
+    }
+    map['voice_profiles_json'] = Variable<String>(voiceProfilesJson);
+    map['color'] = Variable<String>(color);
+    map['is_child'] = Variable<bool>(isChild);
+    map['is_male'] = Variable<bool>(isMale);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    return map;
+  }
+
+  CharactersCompanion toCompanion(bool nullToAbsent) {
+    return CharactersCompanion(
+      id: Value(id),
+      characterId: Value(characterId),
+      nameJson: Value(nameJson),
+      emoji: Value(emoji),
+      descriptionJson: descriptionJson == null && nullToAbsent
+          ? const Value.absent()
+          : Value(descriptionJson),
+      voiceProfilesJson: Value(voiceProfilesJson),
+      color: Value(color),
+      isChild: Value(isChild),
+      isMale: Value(isMale),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+    );
+  }
+
+  factory Character.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return Character(
+      id: serializer.fromJson<int>(json['id']),
+      characterId: serializer.fromJson<String>(json['characterId']),
+      nameJson: serializer.fromJson<String>(json['nameJson']),
+      emoji: serializer.fromJson<String>(json['emoji']),
+      descriptionJson: serializer.fromJson<String?>(json['descriptionJson']),
+      voiceProfilesJson: serializer.fromJson<String>(json['voiceProfilesJson']),
+      color: serializer.fromJson<String>(json['color']),
+      isChild: serializer.fromJson<bool>(json['isChild']),
+      isMale: serializer.fromJson<bool>(json['isMale']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'characterId': serializer.toJson<String>(characterId),
+      'nameJson': serializer.toJson<String>(nameJson),
+      'emoji': serializer.toJson<String>(emoji),
+      'descriptionJson': serializer.toJson<String?>(descriptionJson),
+      'voiceProfilesJson': serializer.toJson<String>(voiceProfilesJson),
+      'color': serializer.toJson<String>(color),
+      'isChild': serializer.toJson<bool>(isChild),
+      'isMale': serializer.toJson<bool>(isMale),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+    };
+  }
+
+  Character copyWith({
+    int? id,
+    String? characterId,
+    String? nameJson,
+    String? emoji,
+    Value<String?> descriptionJson = const Value.absent(),
+    String? voiceProfilesJson,
+    String? color,
+    bool? isChild,
+    bool? isMale,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) => Character(
+    id: id ?? this.id,
+    characterId: characterId ?? this.characterId,
+    nameJson: nameJson ?? this.nameJson,
+    emoji: emoji ?? this.emoji,
+    descriptionJson: descriptionJson.present
+        ? descriptionJson.value
+        : this.descriptionJson,
+    voiceProfilesJson: voiceProfilesJson ?? this.voiceProfilesJson,
+    color: color ?? this.color,
+    isChild: isChild ?? this.isChild,
+    isMale: isMale ?? this.isMale,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
+  Character copyWithCompanion(CharactersCompanion data) {
+    return Character(
+      id: data.id.present ? data.id.value : this.id,
+      characterId: data.characterId.present
+          ? data.characterId.value
+          : this.characterId,
+      nameJson: data.nameJson.present ? data.nameJson.value : this.nameJson,
+      emoji: data.emoji.present ? data.emoji.value : this.emoji,
+      descriptionJson: data.descriptionJson.present
+          ? data.descriptionJson.value
+          : this.descriptionJson,
+      voiceProfilesJson: data.voiceProfilesJson.present
+          ? data.voiceProfilesJson.value
+          : this.voiceProfilesJson,
+      color: data.color.present ? data.color.value : this.color,
+      isChild: data.isChild.present ? data.isChild.value : this.isChild,
+      isMale: data.isMale.present ? data.isMale.value : this.isMale,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('Character(')
+          ..write('id: $id, ')
+          ..write('characterId: $characterId, ')
+          ..write('nameJson: $nameJson, ')
+          ..write('emoji: $emoji, ')
+          ..write('descriptionJson: $descriptionJson, ')
+          ..write('voiceProfilesJson: $voiceProfilesJson, ')
+          ..write('color: $color, ')
+          ..write('isChild: $isChild, ')
+          ..write('isMale: $isMale, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    characterId,
+    nameJson,
+    emoji,
+    descriptionJson,
+    voiceProfilesJson,
+    color,
+    isChild,
+    isMale,
+    createdAt,
+    updatedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is Character &&
+          other.id == this.id &&
+          other.characterId == this.characterId &&
+          other.nameJson == this.nameJson &&
+          other.emoji == this.emoji &&
+          other.descriptionJson == this.descriptionJson &&
+          other.voiceProfilesJson == this.voiceProfilesJson &&
+          other.color == this.color &&
+          other.isChild == this.isChild &&
+          other.isMale == this.isMale &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt);
+}
+
+class CharactersCompanion extends UpdateCompanion<Character> {
+  final Value<int> id;
+  final Value<String> characterId;
+  final Value<String> nameJson;
+  final Value<String> emoji;
+  final Value<String?> descriptionJson;
+  final Value<String> voiceProfilesJson;
+  final Value<String> color;
+  final Value<bool> isChild;
+  final Value<bool> isMale;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  const CharactersCompanion({
+    this.id = const Value.absent(),
+    this.characterId = const Value.absent(),
+    this.nameJson = const Value.absent(),
+    this.emoji = const Value.absent(),
+    this.descriptionJson = const Value.absent(),
+    this.voiceProfilesJson = const Value.absent(),
+    this.color = const Value.absent(),
+    this.isChild = const Value.absent(),
+    this.isMale = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+  });
+  CharactersCompanion.insert({
+    this.id = const Value.absent(),
+    required String characterId,
+    required String nameJson,
+    required String emoji,
+    this.descriptionJson = const Value.absent(),
+    required String voiceProfilesJson,
+    this.color = const Value.absent(),
+    this.isChild = const Value.absent(),
+    this.isMale = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+  }) : characterId = Value(characterId),
+       nameJson = Value(nameJson),
+       emoji = Value(emoji),
+       voiceProfilesJson = Value(voiceProfilesJson);
+  static Insertable<Character> custom({
+    Expression<int>? id,
+    Expression<String>? characterId,
+    Expression<String>? nameJson,
+    Expression<String>? emoji,
+    Expression<String>? descriptionJson,
+    Expression<String>? voiceProfilesJson,
+    Expression<String>? color,
+    Expression<bool>? isChild,
+    Expression<bool>? isMale,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (characterId != null) 'character_id': characterId,
+      if (nameJson != null) 'name_json': nameJson,
+      if (emoji != null) 'emoji': emoji,
+      if (descriptionJson != null) 'description_json': descriptionJson,
+      if (voiceProfilesJson != null) 'voice_profiles_json': voiceProfilesJson,
+      if (color != null) 'color': color,
+      if (isChild != null) 'is_child': isChild,
+      if (isMale != null) 'is_male': isMale,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+    });
+  }
+
+  CharactersCompanion copyWith({
+    Value<int>? id,
+    Value<String>? characterId,
+    Value<String>? nameJson,
+    Value<String>? emoji,
+    Value<String?>? descriptionJson,
+    Value<String>? voiceProfilesJson,
+    Value<String>? color,
+    Value<bool>? isChild,
+    Value<bool>? isMale,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+  }) {
+    return CharactersCompanion(
+      id: id ?? this.id,
+      characterId: characterId ?? this.characterId,
+      nameJson: nameJson ?? this.nameJson,
+      emoji: emoji ?? this.emoji,
+      descriptionJson: descriptionJson ?? this.descriptionJson,
+      voiceProfilesJson: voiceProfilesJson ?? this.voiceProfilesJson,
+      color: color ?? this.color,
+      isChild: isChild ?? this.isChild,
+      isMale: isMale ?? this.isMale,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (characterId.present) {
+      map['character_id'] = Variable<String>(characterId.value);
+    }
+    if (nameJson.present) {
+      map['name_json'] = Variable<String>(nameJson.value);
+    }
+    if (emoji.present) {
+      map['emoji'] = Variable<String>(emoji.value);
+    }
+    if (descriptionJson.present) {
+      map['description_json'] = Variable<String>(descriptionJson.value);
+    }
+    if (voiceProfilesJson.present) {
+      map['voice_profiles_json'] = Variable<String>(voiceProfilesJson.value);
+    }
+    if (color.present) {
+      map['color'] = Variable<String>(color.value);
+    }
+    if (isChild.present) {
+      map['is_child'] = Variable<bool>(isChild.value);
+    }
+    if (isMale.present) {
+      map['is_male'] = Variable<bool>(isMale.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CharactersCompanion(')
+          ..write('id: $id, ')
+          ..write('characterId: $characterId, ')
+          ..write('nameJson: $nameJson, ')
+          ..write('emoji: $emoji, ')
+          ..write('descriptionJson: $descriptionJson, ')
+          ..write('voiceProfilesJson: $voiceProfilesJson, ')
+          ..write('color: $color, ')
+          ..write('isChild: $isChild, ')
+          ..write('isMale: $isMale, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class $LessonsTable extends Lessons with TableInfo<$LessonsTable, Lesson> {
   @override
   final GeneratedDatabase attachedDatabase;
@@ -815,6 +1488,28 @@ class $ScenesTable extends Scenes with TableInfo<$ScenesTable, Scene> {
     type: DriftSqlType.string,
     requiredDuringInsert: false,
   );
+  static const VerificationMeta _voiceContextJsonMeta = const VerificationMeta(
+    'voiceContextJson',
+  );
+  @override
+  late final GeneratedColumn<String> voiceContextJson = GeneratedColumn<String>(
+    'voice_context_json',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _backgroundKeyMeta = const VerificationMeta(
+    'backgroundKey',
+  );
+  @override
+  late final GeneratedColumn<String> backgroundKey = GeneratedColumn<String>(
+    'background_key',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
   static const VerificationMeta _updatedAtMeta = const VerificationMeta(
     'updatedAt',
   );
@@ -851,6 +1546,8 @@ class $ScenesTable extends Scenes with TableInfo<$ScenesTable, Scene> {
     animalsJson,
     audioFilesJson,
     audioStaleJson,
+    voiceContextJson,
+    backgroundKey,
     updatedAt,
   ];
   @override
@@ -1034,6 +1731,24 @@ class $ScenesTable extends Scenes with TableInfo<$ScenesTable, Scene> {
         ),
       );
     }
+    if (data.containsKey('voice_context_json')) {
+      context.handle(
+        _voiceContextJsonMeta,
+        voiceContextJson.isAcceptableOrUnknown(
+          data['voice_context_json']!,
+          _voiceContextJsonMeta,
+        ),
+      );
+    }
+    if (data.containsKey('background_key')) {
+      context.handle(
+        _backgroundKeyMeta,
+        backgroundKey.isAcceptableOrUnknown(
+          data['background_key']!,
+          _backgroundKeyMeta,
+        ),
+      );
+    }
     if (data.containsKey('updated_at')) {
       context.handle(
         _updatedAtMeta,
@@ -1137,6 +1852,14 @@ class $ScenesTable extends Scenes with TableInfo<$ScenesTable, Scene> {
         DriftSqlType.string,
         data['${effectivePrefix}audio_stale_json'],
       ),
+      voiceContextJson: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}voice_context_json'],
+      ),
+      backgroundKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}background_key'],
+      ),
       updatedAt: attachedDatabase.typeMapping.read(
         DriftSqlType.dateTime,
         data['${effectivePrefix}updated_at'],
@@ -1173,6 +1896,8 @@ class Scene extends DataClass implements Insertable<Scene> {
   final String? animalsJson;
   final String? audioFilesJson;
   final String? audioStaleJson;
+  final String? voiceContextJson;
+  final String? backgroundKey;
   final DateTime updatedAt;
   const Scene({
     required this.id,
@@ -1197,6 +1922,8 @@ class Scene extends DataClass implements Insertable<Scene> {
     this.animalsJson,
     this.audioFilesJson,
     this.audioStaleJson,
+    this.voiceContextJson,
+    this.backgroundKey,
     required this.updatedAt,
   });
   @override
@@ -1254,6 +1981,12 @@ class Scene extends DataClass implements Insertable<Scene> {
     if (!nullToAbsent || audioStaleJson != null) {
       map['audio_stale_json'] = Variable<String>(audioStaleJson);
     }
+    if (!nullToAbsent || voiceContextJson != null) {
+      map['voice_context_json'] = Variable<String>(voiceContextJson);
+    }
+    if (!nullToAbsent || backgroundKey != null) {
+      map['background_key'] = Variable<String>(backgroundKey);
+    }
     map['updated_at'] = Variable<DateTime>(updatedAt);
     return map;
   }
@@ -1310,6 +2043,12 @@ class Scene extends DataClass implements Insertable<Scene> {
       audioStaleJson: audioStaleJson == null && nullToAbsent
           ? const Value.absent()
           : Value(audioStaleJson),
+      voiceContextJson: voiceContextJson == null && nullToAbsent
+          ? const Value.absent()
+          : Value(voiceContextJson),
+      backgroundKey: backgroundKey == null && nullToAbsent
+          ? const Value.absent()
+          : Value(backgroundKey),
       updatedAt: Value(updatedAt),
     );
   }
@@ -1344,6 +2083,8 @@ class Scene extends DataClass implements Insertable<Scene> {
       animalsJson: serializer.fromJson<String?>(json['animalsJson']),
       audioFilesJson: serializer.fromJson<String?>(json['audioFilesJson']),
       audioStaleJson: serializer.fromJson<String?>(json['audioStaleJson']),
+      voiceContextJson: serializer.fromJson<String?>(json['voiceContextJson']),
+      backgroundKey: serializer.fromJson<String?>(json['backgroundKey']),
       updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
     );
   }
@@ -1373,6 +2114,8 @@ class Scene extends DataClass implements Insertable<Scene> {
       'animalsJson': serializer.toJson<String?>(animalsJson),
       'audioFilesJson': serializer.toJson<String?>(audioFilesJson),
       'audioStaleJson': serializer.toJson<String?>(audioStaleJson),
+      'voiceContextJson': serializer.toJson<String?>(voiceContextJson),
+      'backgroundKey': serializer.toJson<String?>(backgroundKey),
       'updatedAt': serializer.toJson<DateTime>(updatedAt),
     };
   }
@@ -1400,6 +2143,8 @@ class Scene extends DataClass implements Insertable<Scene> {
     Value<String?> animalsJson = const Value.absent(),
     Value<String?> audioFilesJson = const Value.absent(),
     Value<String?> audioStaleJson = const Value.absent(),
+    Value<String?> voiceContextJson = const Value.absent(),
+    Value<String?> backgroundKey = const Value.absent(),
     DateTime? updatedAt,
   }) => Scene(
     id: id ?? this.id,
@@ -1440,6 +2185,12 @@ class Scene extends DataClass implements Insertable<Scene> {
     audioStaleJson: audioStaleJson.present
         ? audioStaleJson.value
         : this.audioStaleJson,
+    voiceContextJson: voiceContextJson.present
+        ? voiceContextJson.value
+        : this.voiceContextJson,
+    backgroundKey: backgroundKey.present
+        ? backgroundKey.value
+        : this.backgroundKey,
     updatedAt: updatedAt ?? this.updatedAt,
   );
   Scene copyWithCompanion(ScenesCompanion data) {
@@ -1494,6 +2245,12 @@ class Scene extends DataClass implements Insertable<Scene> {
       audioStaleJson: data.audioStaleJson.present
           ? data.audioStaleJson.value
           : this.audioStaleJson,
+      voiceContextJson: data.voiceContextJson.present
+          ? data.voiceContextJson.value
+          : this.voiceContextJson,
+      backgroundKey: data.backgroundKey.present
+          ? data.backgroundKey.value
+          : this.backgroundKey,
       updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
     );
   }
@@ -1523,6 +2280,8 @@ class Scene extends DataClass implements Insertable<Scene> {
           ..write('animalsJson: $animalsJson, ')
           ..write('audioFilesJson: $audioFilesJson, ')
           ..write('audioStaleJson: $audioStaleJson, ')
+          ..write('voiceContextJson: $voiceContextJson, ')
+          ..write('backgroundKey: $backgroundKey, ')
           ..write('updatedAt: $updatedAt')
           ..write(')'))
         .toString();
@@ -1552,6 +2311,8 @@ class Scene extends DataClass implements Insertable<Scene> {
     animalsJson,
     audioFilesJson,
     audioStaleJson,
+    voiceContextJson,
+    backgroundKey,
     updatedAt,
   ]);
   @override
@@ -1580,6 +2341,8 @@ class Scene extends DataClass implements Insertable<Scene> {
           other.animalsJson == this.animalsJson &&
           other.audioFilesJson == this.audioFilesJson &&
           other.audioStaleJson == this.audioStaleJson &&
+          other.voiceContextJson == this.voiceContextJson &&
+          other.backgroundKey == this.backgroundKey &&
           other.updatedAt == this.updatedAt);
 }
 
@@ -1606,6 +2369,8 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
   final Value<String?> animalsJson;
   final Value<String?> audioFilesJson;
   final Value<String?> audioStaleJson;
+  final Value<String?> voiceContextJson;
+  final Value<String?> backgroundKey;
   final Value<DateTime> updatedAt;
   const ScenesCompanion({
     this.id = const Value.absent(),
@@ -1630,6 +2395,8 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
     this.animalsJson = const Value.absent(),
     this.audioFilesJson = const Value.absent(),
     this.audioStaleJson = const Value.absent(),
+    this.voiceContextJson = const Value.absent(),
+    this.backgroundKey = const Value.absent(),
     this.updatedAt = const Value.absent(),
   });
   ScenesCompanion.insert({
@@ -1655,6 +2422,8 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
     this.animalsJson = const Value.absent(),
     this.audioFilesJson = const Value.absent(),
     this.audioStaleJson = const Value.absent(),
+    this.voiceContextJson = const Value.absent(),
+    this.backgroundKey = const Value.absent(),
     this.updatedAt = const Value.absent(),
   }) : lessonId = Value(lessonId),
        orderIndex = Value(orderIndex);
@@ -1681,6 +2450,8 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
     Expression<String>? animalsJson,
     Expression<String>? audioFilesJson,
     Expression<String>? audioStaleJson,
+    Expression<String>? voiceContextJson,
+    Expression<String>? backgroundKey,
     Expression<DateTime>? updatedAt,
   }) {
     return RawValuesInsertable({
@@ -1707,6 +2478,8 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
       if (animalsJson != null) 'animals_json': animalsJson,
       if (audioFilesJson != null) 'audio_files_json': audioFilesJson,
       if (audioStaleJson != null) 'audio_stale_json': audioStaleJson,
+      if (voiceContextJson != null) 'voice_context_json': voiceContextJson,
+      if (backgroundKey != null) 'background_key': backgroundKey,
       if (updatedAt != null) 'updated_at': updatedAt,
     });
   }
@@ -1734,6 +2507,8 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
     Value<String?>? animalsJson,
     Value<String?>? audioFilesJson,
     Value<String?>? audioStaleJson,
+    Value<String?>? voiceContextJson,
+    Value<String?>? backgroundKey,
     Value<DateTime>? updatedAt,
   }) {
     return ScenesCompanion(
@@ -1759,6 +2534,8 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
       animalsJson: animalsJson ?? this.animalsJson,
       audioFilesJson: audioFilesJson ?? this.audioFilesJson,
       audioStaleJson: audioStaleJson ?? this.audioStaleJson,
+      voiceContextJson: voiceContextJson ?? this.voiceContextJson,
+      backgroundKey: backgroundKey ?? this.backgroundKey,
       updatedAt: updatedAt ?? this.updatedAt,
     );
   }
@@ -1832,6 +2609,12 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
     if (audioStaleJson.present) {
       map['audio_stale_json'] = Variable<String>(audioStaleJson.value);
     }
+    if (voiceContextJson.present) {
+      map['voice_context_json'] = Variable<String>(voiceContextJson.value);
+    }
+    if (backgroundKey.present) {
+      map['background_key'] = Variable<String>(backgroundKey.value);
+    }
     if (updatedAt.present) {
       map['updated_at'] = Variable<DateTime>(updatedAt.value);
     }
@@ -1863,6 +2646,8 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
           ..write('animalsJson: $animalsJson, ')
           ..write('audioFilesJson: $audioFilesJson, ')
           ..write('audioStaleJson: $audioStaleJson, ')
+          ..write('voiceContextJson: $voiceContextJson, ')
+          ..write('backgroundKey: $backgroundKey, ')
           ..write('updatedAt: $updatedAt')
           ..write(')'))
         .toString();
@@ -2392,6 +3177,7 @@ class AudioCachesCompanion extends UpdateCompanion<AudioCache> {
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
+  late final $CharactersTable characters = $CharactersTable(this);
   late final $LessonsTable lessons = $LessonsTable(this);
   late final $ScenesTable scenes = $ScenesTable(this);
   late final $AudioCachesTable audioCaches = $AudioCachesTable(this);
@@ -2400,12 +3186,324 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities => [
+    characters,
     lessons,
     scenes,
     audioCaches,
   ];
 }
 
+typedef $$CharactersTableCreateCompanionBuilder =
+    CharactersCompanion Function({
+      Value<int> id,
+      required String characterId,
+      required String nameJson,
+      required String emoji,
+      Value<String?> descriptionJson,
+      required String voiceProfilesJson,
+      Value<String> color,
+      Value<bool> isChild,
+      Value<bool> isMale,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
+typedef $$CharactersTableUpdateCompanionBuilder =
+    CharactersCompanion Function({
+      Value<int> id,
+      Value<String> characterId,
+      Value<String> nameJson,
+      Value<String> emoji,
+      Value<String?> descriptionJson,
+      Value<String> voiceProfilesJson,
+      Value<String> color,
+      Value<bool> isChild,
+      Value<bool> isMale,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
+
+class $$CharactersTableFilterComposer
+    extends Composer<_$AppDatabase, $CharactersTable> {
+  $$CharactersTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get characterId => $composableBuilder(
+    column: $table.characterId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get nameJson => $composableBuilder(
+    column: $table.nameJson,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get emoji => $composableBuilder(
+    column: $table.emoji,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get descriptionJson => $composableBuilder(
+    column: $table.descriptionJson,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get voiceProfilesJson => $composableBuilder(
+    column: $table.voiceProfilesJson,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get color => $composableBuilder(
+    column: $table.color,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isChild => $composableBuilder(
+    column: $table.isChild,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isMale => $composableBuilder(
+    column: $table.isMale,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$CharactersTableOrderingComposer
+    extends Composer<_$AppDatabase, $CharactersTable> {
+  $$CharactersTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get characterId => $composableBuilder(
+    column: $table.characterId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get nameJson => $composableBuilder(
+    column: $table.nameJson,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get emoji => $composableBuilder(
+    column: $table.emoji,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get descriptionJson => $composableBuilder(
+    column: $table.descriptionJson,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get voiceProfilesJson => $composableBuilder(
+    column: $table.voiceProfilesJson,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get color => $composableBuilder(
+    column: $table.color,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isChild => $composableBuilder(
+    column: $table.isChild,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isMale => $composableBuilder(
+    column: $table.isMale,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$CharactersTableAnnotationComposer
+    extends Composer<_$AppDatabase, $CharactersTable> {
+  $$CharactersTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get characterId => $composableBuilder(
+    column: $table.characterId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get nameJson =>
+      $composableBuilder(column: $table.nameJson, builder: (column) => column);
+
+  GeneratedColumn<String> get emoji =>
+      $composableBuilder(column: $table.emoji, builder: (column) => column);
+
+  GeneratedColumn<String> get descriptionJson => $composableBuilder(
+    column: $table.descriptionJson,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get voiceProfilesJson => $composableBuilder(
+    column: $table.voiceProfilesJson,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get color =>
+      $composableBuilder(column: $table.color, builder: (column) => column);
+
+  GeneratedColumn<bool> get isChild =>
+      $composableBuilder(column: $table.isChild, builder: (column) => column);
+
+  GeneratedColumn<bool> get isMale =>
+      $composableBuilder(column: $table.isMale, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+}
+
+class $$CharactersTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $CharactersTable,
+          Character,
+          $$CharactersTableFilterComposer,
+          $$CharactersTableOrderingComposer,
+          $$CharactersTableAnnotationComposer,
+          $$CharactersTableCreateCompanionBuilder,
+          $$CharactersTableUpdateCompanionBuilder,
+          (
+            Character,
+            BaseReferences<_$AppDatabase, $CharactersTable, Character>,
+          ),
+          Character,
+          PrefetchHooks Function()
+        > {
+  $$CharactersTableTableManager(_$AppDatabase db, $CharactersTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$CharactersTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$CharactersTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$CharactersTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> characterId = const Value.absent(),
+                Value<String> nameJson = const Value.absent(),
+                Value<String> emoji = const Value.absent(),
+                Value<String?> descriptionJson = const Value.absent(),
+                Value<String> voiceProfilesJson = const Value.absent(),
+                Value<String> color = const Value.absent(),
+                Value<bool> isChild = const Value.absent(),
+                Value<bool> isMale = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => CharactersCompanion(
+                id: id,
+                characterId: characterId,
+                nameJson: nameJson,
+                emoji: emoji,
+                descriptionJson: descriptionJson,
+                voiceProfilesJson: voiceProfilesJson,
+                color: color,
+                isChild: isChild,
+                isMale: isMale,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String characterId,
+                required String nameJson,
+                required String emoji,
+                Value<String?> descriptionJson = const Value.absent(),
+                required String voiceProfilesJson,
+                Value<String> color = const Value.absent(),
+                Value<bool> isChild = const Value.absent(),
+                Value<bool> isMale = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => CharactersCompanion.insert(
+                id: id,
+                characterId: characterId,
+                nameJson: nameJson,
+                emoji: emoji,
+                descriptionJson: descriptionJson,
+                voiceProfilesJson: voiceProfilesJson,
+                color: color,
+                isChild: isChild,
+                isMale: isMale,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$CharactersTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $CharactersTable,
+      Character,
+      $$CharactersTableFilterComposer,
+      $$CharactersTableOrderingComposer,
+      $$CharactersTableAnnotationComposer,
+      $$CharactersTableCreateCompanionBuilder,
+      $$CharactersTableUpdateCompanionBuilder,
+      (Character, BaseReferences<_$AppDatabase, $CharactersTable, Character>),
+      Character,
+      PrefetchHooks Function()
+    >;
 typedef $$LessonsTableCreateCompanionBuilder =
     LessonsCompanion Function({
       Value<int> id,
@@ -2798,6 +3896,8 @@ typedef $$ScenesTableCreateCompanionBuilder =
       Value<String?> animalsJson,
       Value<String?> audioFilesJson,
       Value<String?> audioStaleJson,
+      Value<String?> voiceContextJson,
+      Value<String?> backgroundKey,
       Value<DateTime> updatedAt,
     });
 typedef $$ScenesTableUpdateCompanionBuilder =
@@ -2824,6 +3924,8 @@ typedef $$ScenesTableUpdateCompanionBuilder =
       Value<String?> animalsJson,
       Value<String?> audioFilesJson,
       Value<String?> audioStaleJson,
+      Value<String?> voiceContextJson,
+      Value<String?> backgroundKey,
       Value<DateTime> updatedAt,
     });
 
@@ -2978,6 +4080,16 @@ class $$ScenesTableFilterComposer
 
   ColumnFilters<String> get audioStaleJson => $composableBuilder(
     column: $table.audioStaleJson,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get voiceContextJson => $composableBuilder(
+    column: $table.voiceContextJson,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get backgroundKey => $composableBuilder(
+    column: $table.backgroundKey,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -3149,6 +4261,16 @@ class $$ScenesTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
+  ColumnOrderings<String> get voiceContextJson => $composableBuilder(
+    column: $table.voiceContextJson,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get backgroundKey => $composableBuilder(
+    column: $table.backgroundKey,
+    builder: (column) => ColumnOrderings(column),
+  );
+
   ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
     column: $table.updatedAt,
     builder: (column) => ColumnOrderings(column),
@@ -3278,6 +4400,16 @@ class $$ScenesTableAnnotationComposer
     builder: (column) => column,
   );
 
+  GeneratedColumn<String> get voiceContextJson => $composableBuilder(
+    column: $table.voiceContextJson,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get backgroundKey => $composableBuilder(
+    column: $table.backgroundKey,
+    builder: (column) => column,
+  );
+
   GeneratedColumn<DateTime> get updatedAt =>
       $composableBuilder(column: $table.updatedAt, builder: (column) => column);
 
@@ -3380,6 +4512,8 @@ class $$ScenesTableTableManager
                 Value<String?> animalsJson = const Value.absent(),
                 Value<String?> audioFilesJson = const Value.absent(),
                 Value<String?> audioStaleJson = const Value.absent(),
+                Value<String?> voiceContextJson = const Value.absent(),
+                Value<String?> backgroundKey = const Value.absent(),
                 Value<DateTime> updatedAt = const Value.absent(),
               }) => ScenesCompanion(
                 id: id,
@@ -3404,6 +4538,8 @@ class $$ScenesTableTableManager
                 animalsJson: animalsJson,
                 audioFilesJson: audioFilesJson,
                 audioStaleJson: audioStaleJson,
+                voiceContextJson: voiceContextJson,
+                backgroundKey: backgroundKey,
                 updatedAt: updatedAt,
               ),
           createCompanionCallback:
@@ -3430,6 +4566,8 @@ class $$ScenesTableTableManager
                 Value<String?> animalsJson = const Value.absent(),
                 Value<String?> audioFilesJson = const Value.absent(),
                 Value<String?> audioStaleJson = const Value.absent(),
+                Value<String?> voiceContextJson = const Value.absent(),
+                Value<String?> backgroundKey = const Value.absent(),
                 Value<DateTime> updatedAt = const Value.absent(),
               }) => ScenesCompanion.insert(
                 id: id,
@@ -3454,6 +4592,8 @@ class $$ScenesTableTableManager
                 animalsJson: animalsJson,
                 audioFilesJson: audioFilesJson,
                 audioStaleJson: audioStaleJson,
+                voiceContextJson: voiceContextJson,
+                backgroundKey: backgroundKey,
                 updatedAt: updatedAt,
               ),
           withReferenceMapper: (p0) => p0
@@ -3915,6 +5055,8 @@ typedef $$AudioCachesTableProcessedTableManager =
 class $AppDatabaseManager {
   final _$AppDatabase _db;
   $AppDatabaseManager(this._db);
+  $$CharactersTableTableManager get characters =>
+      $$CharactersTableTableManager(_db, _db.characters);
   $$LessonsTableTableManager get lessons =>
       $$LessonsTableTableManager(_db, _db.lessons);
   $$ScenesTableTableManager get scenes =>

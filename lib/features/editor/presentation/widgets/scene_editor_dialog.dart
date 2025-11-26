@@ -7,6 +7,7 @@ import '../bloc/editor_bloc.dart';
 import '../bloc/editor_event.dart';
 import '../bloc/editor_state.dart';
 import 'animation_effect_picker.dart';
+import 'background_picker.dart';
 import 'character_picker.dart';
 import 'dialogue_editor.dart';
 import 'scene_preview_widget.dart';
@@ -480,6 +481,69 @@ class _SettingsTab extends StatelessWidget {
               ));
             },
           ),
+
+          const Divider(),
+          const SizedBox(height: 16),
+
+          // Background & Sound settings
+          const Text(
+            'Background & Sound',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 12),
+
+          BackgroundPicker(
+            selectedBackground: scene.background,
+            onChanged: (background) {
+              context.read<EditorBloc>().add(UpdateSceneSettings(
+                sceneIndex: sceneIndex,
+                background: background,
+              ));
+            },
+          ),
+
+          const SizedBox(height: 16),
+
+          // Ambient Sound
+          Text('Ambient Sound', style: Theme.of(context).textTheme.titleSmall),
+          const SizedBox(height: 8),
+          DropdownButtonFormField<String?>(
+            initialValue: scene.ambientSound,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+            ),
+            items: const [
+              DropdownMenuItem(value: null, child: Text('None')),
+              DropdownMenuItem(value: 'jungle_ambience', child: Text('Jungle Ambience')),
+            ],
+            onChanged: (sound) {
+              context.read<EditorBloc>().add(UpdateSceneSettings(
+                sceneIndex: sceneIndex,
+                ambientSound: sound,
+              ));
+            },
+          ),
+
+          if (scene.ambientSound != null) ...[
+            const SizedBox(height: 8),
+            Text('Volume', style: Theme.of(context).textTheme.titleSmall),
+            Slider(
+              value: scene.ambientVolume ?? 0.3,
+              min: 0.0,
+              max: 1.0,
+              divisions: 10,
+              label: '${((scene.ambientVolume ?? 0.3) * 100).round()}%',
+              onChanged: (volume) {
+                context.read<EditorBloc>().add(UpdateSceneSettings(
+                  sceneIndex: sceneIndex,
+                  ambientVolume: volume,
+                ));
+              },
+            ),
+          ],
         ],
       ),
     );

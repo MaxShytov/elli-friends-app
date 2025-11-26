@@ -14,7 +14,11 @@ import '../../domain/usecases/get_lesson.dart';
 import '../../../../core/constants/app_dimensions.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/database/app_database.dart';
+import '../../../../core/database/character_repository.dart';
 import '../../../../core/services/audio_manager.dart';
+import '../../../../core/services/api_key_service.dart';
+import '../../../../core/services/azure_tts_service.dart';
+import '../../../../core/services/hybrid_audio_service.dart';
 import '../../../../l10n/app_localizations.dart';
 
 class LessonPage extends StatelessWidget {
@@ -74,6 +78,40 @@ class _LessonViewState extends State<LessonView> {
   Future<void> _initializeAudio() async {
     final locale = Localizations.localeOf(context).languageCode;
     await _audioManager.initialize(languageCode: locale);
+
+    // Setup CharacterRepository for voice profiles
+    final characterRepository = CharacterRepository(AppDatabase.instance);
+    _audioManager.setCharacterRepository(characterRepository);
+
+    // Setup Azure TTS if API key is available
+    AzureTtsService? azureTtsService;
+    try {
+      final apiKeyService = await ApiKeyService.getInstance();
+      if (apiKeyService.hasAzureApiKey()) {
+        azureTtsService = AzureTtsService(
+          subscriptionKey: apiKeyService.getAzureApiKey()!,
+          region: apiKeyService.getAzureRegion(),
+        );
+        _audioManager.setAzureTtsService(azureTtsService);
+        debugPrint('LessonPage: Azure TTS initialized');
+      } else {
+        debugPrint('LessonPage: Azure TTS key not set, will use bundled audio or system TTS');
+      }
+    } catch (e) {
+      debugPrint('LessonPage: Failed to initialize Azure TTS: $e');
+    }
+
+    // Setup HybridAudioService for bundled + cached + generated audio
+    final hybridAudioService = HybridAudioService(
+      db: AppDatabase.instance,
+      characterRepository: characterRepository,
+      azureTtsService: azureTtsService,
+    );
+    _audioManager.setHybridAudioService(hybridAudioService);
+    debugPrint('LessonPage: HybridAudioService initialized');
+
+    // Load voice profiles for current language
+    await _audioManager.loadVoiceProfiles();
   }
 
   @override
@@ -91,7 +129,9 @@ class _LessonViewState extends State<LessonView> {
       body: BlocConsumer<LessonBloc, LessonState>(
         listener: (context, state) {
           if (state is LessonLoaded) {
-            _playScene(state.currentScene);
+            // Set current lesson for HybridAudioService
+            _audioManager.setCurrentLesson(state.lesson.id);
+            _playScene(state.currentScene, state.currentSceneIndex);
             // Сбрасываем флаги при загрузке новой сцены
             setState(() {
               _showNextButton = false;
@@ -482,11 +522,13 @@ class _LessonViewState extends State<LessonView> {
     );
   }
 
-  Future<void> _playScene(scene) async {
+  Future<void> _playScene(scene, int sceneIndex) async {
     if (scene.dialogue != null && scene.character != null) {
       await _audioManager.speakDialogue(
         scene.dialogue!,
         character: scene.character!,
+        sceneId: sceneIndex,
+        tone: scene.tone,
       );
     }
   }

@@ -6,6 +6,7 @@
     "fr": "Compter comme un jeu d'amis",
     "it": "Contare come un gioco tra amici",
     "de": "Zählen als Freundschaftsspiel",
+    "am": "ከጓደኞች ጋር መቁጠር",
     "my": "သူငယ်ချင်းများနှင့် ရေတွက်ခြင်း"
   },
   "topic": "counting",
@@ -15,6 +16,7 @@
     "fr": "Apprendre à compter de 1 à 5 avec Orson et Merv en utilisant des animaux amusants",
     "it": "Impara a contare da 1 a 5 con Orson e Merv usando simpatici animali",
     "de": "Lerne mit Orson und Merv von 1 bis 5 zu zählen, mit lustigen Tierfreunden",
+    "am": "ከኦርሰን እና ከሜርቭ ጋር አስቂኝ የእንስሳት ጓደኞችን በመጠቀም ከ1 እስከ 5 መቁጠር ተማር",
     "my": "Orson နှင့် Merv နှင့်အတူ ရယ်စရာကောင်းသော တိရိစ္ဆာန်များဖြင့် ၁ မှ ၅ အထိ ရေတွက်ရန် လေ့လာပါ"
   },
   "difficulty": 1,
@@ -42,6 +44,7 @@
         "fr": "Bonjour, je suis Orson!",
         "it": "Ciao, sono Orson!",
         "de": "Hallo, ich bin Orson!",
+        "am": "ሰላም፣ እኔ ኦርሰን ነኝ!",
         "my": "မင်္ဂလာပါ၊ ကျွန်တော် Orson ပါ!"
       },
       "duration": 2,
@@ -58,6 +61,7 @@
         "fr": "Aujourd'hui, nous allons apprendre à compter jusqu'à cinq ensemble.",
         "it": "Oggi impareremo a contare fino a cinque insieme.",
         "de": "Heute lernen wir zusammen bis fünf zu zählen.",
+        "am": "ዛሬ አብረን እስከ አምስት መቁጠር እንማራለን።",
         "my": "ယနေ့ ကျွန်တော်တို့ အတူတကွ ငါးအထိ ရေတွက်ရန် လေ့လာကြမည်။"
       },
       "tone": "cheerful",
@@ -73,6 +77,7 @@
         "fr": "Salut Orson! J'adore compter!",
         "it": "Ciao Orson! Adoro contare!",
         "de": "Hallo Orson! Ich liebe es zu zählen!",
+        "am": "ሰላም ኦርሰን! መቁጠር ደስ ይለኛል!",
         "my": "ဟိုင်း Orson! ကျွန်တော် ရေတွက်ရတာ ကြိုက်တယ်!"
       },
       "tone": "excited",
@@ -88,6 +93,7 @@
         "fr": "Commençons avec un. Regarde, il y a un papillon!",
         "it": "Iniziamo con uno. Guarda, c'è una farfalla!",
         "de": "Fangen wir mit eins an. Schau, da ist ein Schmetterling!",
+        "am": "በአንድ እንጀምር። ተመልከት፣ አንድ ቢራቢሮ አለ!",
         "my": "တစ်ကောင်နှင့် စကြစို့။ ကြည့်စမ်း၊ လိပ်ပြာတစ်ကောင် ရှိတယ်!"
       },
       "animals": [
@@ -109,6 +115,7 @@
         "fr": "Un papillon! Si beau!",
         "it": "Una farfalla! Così bella!",
         "de": "Ein Schmetterling! So schön!",
+        "am": "አንድ ቢራቢሮ! በጣም ቆንጆ!",
         "my": "လိပ်ပြာတစ်ကောင်! အရမ်းလှတယ်!"
       },
       "animals": [
@@ -130,6 +137,7 @@
         "fr": "Maintenant, comptons les singes. Combien de singes vois-tu?",
         "it": "Ora contiamo le scimmie. Quante scimmie vedi?",
         "de": "Jetzt zählen wir Affen. Wie viele Affen siehst du?",
+        "am": "አሁን ጦጣዎችን እንቁጠር። ስንት ጦጣዎች ታያለህ?",
         "my": "အခု မျောက်တွေ ရေတွက်ကြစို့။ မျောက် ဘယ်နှစ်ကောင် မြင်လဲ?"
       },
       "animals": [
@@ -157,6 +165,7 @@
         "fr": "C'est exact! Quatre singes!",
         "it": "Esatto! Quattro scimmie!",
         "de": "Richtig! Vier Affen!",
+        "am": "ትክክል ነው! አራት ጦጣዎች!",
         "my": "မှန်ပါတယ်! မျောက် လေးကောင်!"
       },
       "animals": [
@@ -178,6 +187,7 @@
         "fr": "Un, deux, trois, quatre!",
         "it": "Uno, due, tre, quattro!",
         "de": "Eins, zwei, drei, vier!",
+        "am": "አንድ፣ ሁለት፣ ሶስት፣ አራት!",
         "my": "တစ်၊ နှစ်၊ သုံး၊ လေး!"
       },
       "animals": [
@@ -199,6 +209,7 @@
         "fr": "Maintenant regarde les oiseaux. Combien d'oiseaux y a-t-il?",
         "it": "Ora guarda gli uccelli. Quanti uccelli ci sono?",
         "de": "Jetzt schau dir die Vögel an. Wie viele Vögel gibt es?",
+        "am": "አሁን ወፎቹን ተመልከት። ስንት ወፎች አሉ?",
         "my": "အခု ငှက်တွေကို ကြည့်ပါ။ ငှက် ဘယ်နှစ်ကောင် ရှိလဲ?"
       },
       "animals": [
@@ -226,6 +237,7 @@
         "fr": "Excellent! Deux oiseaux!",
         "it": "Eccellente! Due uccelli!",
         "de": "Ausgezeichnet! Zwei Vögel!",
+        "am": "እጅግ በጣም ጥሩ! ሁለት ወፎች!",
         "my": "အရမ်းကောင်းတယ်! ငှက်နှစ်ကောင်!"
       },
       "animals": [
@@ -247,6 +259,7 @@
         "fr": "Un, deux oiseaux qui volent!",
         "it": "Uno, due uccelli che volano!",
         "de": "Eins, zwei Vögel fliegen!",
+        "am": "አንድ፣ ሁለት ወፎች ይበራሉ!",
         "my": "တစ်၊ နှစ် ငှက်တွေ ပျံနေတယ်!"
       },
       "animals": [
@@ -268,6 +281,7 @@
         "fr": "Maintenant, comptons les tortues. Combien de tortues vois-tu?",
         "it": "Ora contiamo le tartarughe. Quante tartarughe vedi?",
         "de": "Jetzt zählen wir die Schildkröten. Wie viele Schildkröten siehst du?",
+        "am": "አሁን ኤሊዎችን እንቁጠር። ስንት ኤሊዎች ታያለህ?",
         "my": "အခု လိပ်တွေ ရေတွက်ကြစို့။ လိပ် ဘယ်နှစ်ကောင် မြင်လဲ?"
       },
       "animals": [
@@ -295,6 +309,7 @@
         "fr": "Parfait! Cinq tortues!",
         "it": "Perfetto! Cinque tartarughe!",
         "de": "Perfekt! Fünf Schildkröten!",
+        "am": "ፍጹም! አምስት ኤሊዎች!",
         "my": "ပြီးပြည့်စုံတယ်! လိပ်ငါးကောင်!"
       },
       "animals": [
@@ -316,6 +331,7 @@
         "fr": "Un, deux, trois, quatre, cinq tortues!",
         "it": "Uno, due, tre, quattro, cinque tartarughe!",
         "de": "Eins, zwei, drei, vier, fünf Schildkröten!",
+        "am": "አንድ፣ ሁለት፣ ሶስት፣ አራት፣ አምስት ኤሊዎች!",
         "my": "တစ်၊ နှစ်၊ သုံး၊ လေး၊ ငါး လိပ်တွေ!"
       },
       "animals": [
@@ -337,6 +353,7 @@
         "fr": "Dernier! Combien de grenouilles y a-t-il ici?",
         "it": "Ultimo! Quante rane ci sono qui?",
         "de": "Letzte! Wie viele Frösche sind hier?",
+        "am": "የመጨረሻው! ስንት እንቁራሪቶች አሉ እዚህ?",
         "my": "နောက်ဆုံး! ဘား ဘယ်နှစ်ကောင် ရှိလဲ?"
       },
       "animals": [
@@ -364,6 +381,7 @@
         "fr": "Incroyable! Trois grenouilles!",
         "it": "Fantastico! Tre rane!",
         "de": "Erstaunlich! Drei Frösche!",
+        "am": "አስደናቂ! ሶስት እንቁራሪቶች!",
         "my": "အံ့သြစရာ! ဘားသုံးကောင်!"
       },
       "animals": [
@@ -385,6 +403,7 @@
         "fr": "Un, deux, trois grenouilles!",
         "it": "Uno, due, tre rane!",
         "de": "Eins, zwei, drei Frösche!",
+        "am": "አንድ፣ ሁለት፣ ሶስት እንቁራሪቶች!",
         "my": "တစ်၊ နှစ်၊ သုံး ဘားတွေ!"
       },
       "animals": [
@@ -406,6 +425,7 @@
         "fr": "Tu as fait un excellent travail de comptage aujourd'hui!",
         "it": "Hai fatto un ottimo lavoro di conteggio oggi!",
         "de": "Du hast heute großartig gezählt!",
+        "am": "ዛሬ በመቁጠር ጥሩ ስራ ሰራህ!",
         "my": "ဒီနေ့ မင်း ရေတွက်တာ အရမ်းကောင်းတယ်!"
       },
       "tone": "proud",
@@ -421,6 +441,7 @@
         "fr": "Maintenant je peux compter jusqu'à cinq! Merci, Orson!",
         "it": "Ora so contare fino a cinque! Grazie, Orson!",
         "de": "Jetzt kann ich bis fünf zählen! Danke, Orson!",
+        "am": "አሁን እስከ አምስት መቁጠር እችላለሁ! አመሰግናለሁ ኦርሰን!",
         "my": "အခု ကျွန်တော် ငါးအထိ ရေတွက်နိုင်ပြီ! ကျေးဇူးတင်ပါတယ် Orson!"
       },
       "tone": "grateful",
@@ -436,6 +457,7 @@
         "fr": "À la prochaine, ami!",
         "it": "Ci vediamo la prossima volta, amico!",
         "de": "Bis zum nächsten Mal, Freund!",
+        "am": "በሚቀጥለው ጊዜ እንገናኛለን ጓደኛ!",
         "my": "နောက်တစ်ခေါက် တွေ့မယ်၊ သူငယ်ချင်း!"
       },
       "tone": "friendly",
@@ -448,6 +470,7 @@
         "fr": "Terminer",
         "it": "Fine",
         "de": "Fertig",
+        "am": "ጨርስ",
         "my": "ပြီးပြီ"
       }
     }

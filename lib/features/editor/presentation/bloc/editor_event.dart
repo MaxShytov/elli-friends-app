@@ -89,6 +89,9 @@ class UpdateSceneSettings extends EditorEvent {
   final bool? waitForAnswer;
   final bool? showPreviousAnimals;
   final String? buttonTitle;
+  final String? background;
+  final String? ambientSound;
+  final double? ambientVolume;
 
   const UpdateSceneSettings({
     required this.sceneIndex,
@@ -101,6 +104,9 @@ class UpdateSceneSettings extends EditorEvent {
     this.waitForAnswer,
     this.showPreviousAnimals,
     this.buttonTitle,
+    this.background,
+    this.ambientSound,
+    this.ambientVolume,
   });
 
   @override
@@ -115,6 +121,9 @@ class UpdateSceneSettings extends EditorEvent {
         waitForAnswer,
         showPreviousAnimals,
         buttonTitle,
+        background,
+        ambientSound,
+        ambientVolume,
       ];
 }
 

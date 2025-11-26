@@ -18,30 +18,94 @@ class SeedService {
     'assets/data/lessons/lesson_subtraction.json',
   ];
 
-  /// Check if database needs seeding (empty database)
-  Future<bool> needsSeed() async {
+  /// Characters JSON file path
+  static const String _charactersFile = 'assets/data/characters.json';
+
+  /// Check if lessons need seeding (empty database)
+  Future<bool> needsLessonsSeed() async {
     final count = await db.managers.lessons.count();
+    return count == 0;
+  }
+
+  /// Check if characters need seeding
+  Future<bool> needsCharactersSeed() async {
+    final count = await db.managers.characters.count();
     return count == 0;
   }
 
   /// Seed database from JSON assets on first launch
   Future<void> seedFromAssets() async {
-    if (!await needsSeed()) {
-      debugPrint('SeedService: Database already seeded, skipping');
-      return;
+    // Seed characters first (they don't depend on lessons)
+    if (await needsCharactersSeed()) {
+      debugPrint('SeedService: Seeding characters...');
+      await _seedCharacters();
     }
 
-    debugPrint('SeedService: Starting database seed from JSON assets');
-
-    for (final file in _lessonFiles) {
-      await _seedLesson(file);
+    // Then seed lessons
+    if (await needsLessonsSeed()) {
+      debugPrint('SeedService: Seeding lessons from JSON assets...');
+      for (final file in _lessonFiles) {
+        await _seedLesson(file);
+      }
+    } else {
+      debugPrint('SeedService: Lessons already seeded, skipping');
     }
 
     final lessonCount = await db.managers.lessons.count();
     final sceneCount = await db.managers.scenes.count();
+    final characterCount = await db.managers.characters.count();
     debugPrint(
-      'SeedService: Seed complete. Lessons: $lessonCount, Scenes: $sceneCount',
+      'SeedService: Seed complete. Lessons: $lessonCount, Scenes: $sceneCount, Characters: $characterCount',
     );
+  }
+
+  /// Seed characters with voice profiles from JSON asset
+  Future<void> _seedCharacters() async {
+    try {
+      final jsonString = await rootBundle.loadString(_charactersFile);
+      final json = jsonDecode(jsonString) as Map<String, dynamic>;
+      final charactersList = json['characters'] as List;
+
+      for (final charJson in charactersList) {
+        final charMap = charJson as Map<String, dynamic>;
+
+        // Convert voiceProfiles to proper format with pitch as string
+        final voiceProfiles = charMap['voiceProfiles'] as Map<String, dynamic>;
+        final convertedProfiles = <String, dynamic>{};
+
+        for (final entry in voiceProfiles.entries) {
+          final profile = Map<String, dynamic>.from(entry.value as Map);
+          // Convert basePitch from int to string format if needed
+          if (profile['basePitch'] is int) {
+            final pitch = profile['basePitch'] as int;
+            profile['basePitch'] = pitch >= 0 ? '+$pitch%' : '$pitch%';
+          }
+          convertedProfiles[entry.key] = profile;
+        }
+
+        await db.into(db.characters).insertOnConflictUpdate(
+          CharactersCompanion.insert(
+            characterId: charMap['characterId'] as String,
+            nameJson: jsonEncode(charMap['name']),
+            emoji: charMap['emoji'] as String,
+            descriptionJson: Value(
+              charMap['description'] != null
+                  ? jsonEncode(charMap['description'])
+                  : null,
+            ),
+            voiceProfilesJson: jsonEncode(convertedProfiles),
+            color: Value(charMap['color'] as String? ?? '#FF9800'),
+            isChild: Value(charMap['isChild'] as bool? ?? false),
+            isMale: Value(charMap['isMale'] as bool? ?? false),
+          ),
+        );
+      }
+
+      debugPrint('SeedService: Seeded ${charactersList.length} characters from $_charactersFile');
+    } catch (e) {
+      debugPrint('SeedService: Error seeding characters from $_charactersFile: $e');
+      rethrow;
+    }
   }
 
   Future<void> _seedLesson(String assetPath) async {
@@ -110,17 +174,29 @@ class SeedService {
   Future<void> resetAndReseed() async {
     debugPrint('SeedService: Resetting database and reseeding');
 
-    // Delete all data
+    // Delete all data (order matters due to foreign keys)
     await db.delete(db.audioCaches).go();
     await db.delete(db.scenes).go();
     await db.delete(db.lessons).go();
+    await db.delete(db.characters).go();
 
-    // Reseed
+    // Reseed characters
+    await _seedCharacters();
+
+    // Reseed lessons
     for (final file in _lessonFiles) {
       await _seedLesson(file);
     }
 
     debugPrint('SeedService: Reset and reseed complete');
+  }
+
+  /// Reset only characters (keeps lessons)
+  Future<void> resetCharacters() async {
+    debugPrint('SeedService: Resetting characters');
+    await db.delete(db.characters).go();
+    await _seedCharacters();
+    debugPrint('SeedService: Characters reset complete');
   }
 
   /// Get count of lessons in database
@@ -131,5 +207,10 @@ class SeedService {
   /// Get count of scenes in database
   Future<int> getSceneCount() async {
     return await db.managers.scenes.count();
+  }
+
+  /// Get count of characters in database
+  Future<int> getCharacterCount() async {
+    return await db.managers.characters.count();
   }
 }

@@ -2,10 +2,44 @@ import 'dart:io';
 
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 
 part 'app_database.g.dart';
+
+/// Characters table - stores character metadata and voice profiles
+class Characters extends Table {
+  IntColumn get id => integer().autoIncrement()();
+
+  /// Unique character identifier (e.g., "orson", "elli", "bono")
+  TextColumn get characterId => text().unique()();
+
+  /// Localized name as JSON: {"en": "Orson the Lion", "ru": "Орсон Лев"}
+  TextColumn get nameJson => text()();
+
+  /// Character emoji for display
+  TextColumn get emoji => text()();
+
+  /// Localized description as JSON (optional)
+  TextColumn get descriptionJson => text().nullable()();
+
+  /// Voice profiles per language as JSON
+  /// Format: {"en": {"voiceName": "en-US-GuyNeural", "role": "...", ...}, "ru": {...}}
+  TextColumn get voiceProfilesJson => text()();
+
+  /// Character color for UI (hex format)
+  TextColumn get color => text().withDefault(const Constant('#FF9800'))();
+
+  /// Character type hint - is this a child character?
+  BoolColumn get isChild => boolean().withDefault(const Constant(false))();
+
+  /// Character type hint - is this a male character?
+  BoolColumn get isMale => boolean().withDefault(const Constant(false))();
+
+  DateTimeColumn get createdAt => dateTime().withDefault(currentDateAndTime)();
+  DateTimeColumn get updatedAt => dateTime().withDefault(currentDateAndTime)();
+}
 
 /// Lessons table - stores lesson metadata
 class Lessons extends Table {
@@ -59,6 +93,13 @@ class Scenes extends Table {
   TextColumn get audioFilesJson => text().nullable()(); // {"en": "/path/to/en.mp3"}
   TextColumn get audioStaleJson => text().nullable()(); // {"en": false, "ru": true}
 
+  // Voice context for this scene's dialogue (DialogueVoiceContext as JSON)
+  // Format: {"style": "excited", "styleDegree": 1.3, "pitchModifier": "+5%", ...}
+  TextColumn get voiceContextJson => text().nullable()();
+
+  // Background image or gradient key for scene
+  TextColumn get backgroundKey => text().nullable()();
+
   DateTimeColumn get updatedAt => dateTime().withDefault(currentDateAndTime)();
 }
 
@@ -74,9 +115,13 @@ class AudioCaches extends Table {
   TextColumn get textHash => text()(); // MD5 hash for invalidation
 }
 
-@DriftDatabase(tables: [Lessons, Scenes, AudioCaches])
+@DriftDatabase(tables: [Characters, Lessons, Scenes, AudioCaches])
 class AppDatabase extends _$AppDatabase {
   AppDatabase._() : super(_openConnection());
+
+  /// Constructor for testing with custom executor
+  @visibleForTesting
+  AppDatabase.forTesting(super.executor);
 
   static AppDatabase? _instance;
 
@@ -87,7 +132,7 @@ class AppDatabase extends _$AppDatabase {
   }
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
 
   @override
   MigrationStrategy get migration {
@@ -96,7 +141,15 @@ class AppDatabase extends _$AppDatabase {
         await m.createAll();
       },
       onUpgrade: (Migrator m, int from, int to) async {
-        // Future migrations will go here
+        // Migration from v1 to v2: Add Characters table and new Scenes columns
+        if (from < 2) {
+          // Create Characters table
+          await m.createTable(characters);
+
+          // Add new columns to Scenes table
+          await m.addColumn(scenes, scenes.voiceContextJson);
+          await m.addColumn(scenes, scenes.backgroundKey);
+        }
       },
     );
   }

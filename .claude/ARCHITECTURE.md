@@ -71,7 +71,9 @@ elli_friends_app/
 │   │   ├── services/
 │   │   │   ├── audio_manager.dart        # Управление звуком и TTS
 │   │   │   ├── locale_service.dart       # Управление локализацией
-│   │   │   └── language_service.dart     # Сервис языковых настроек
+│   │   │   ├── language_service.dart     # Сервис языковых настроек
+│   │   │   ├── azure_tts_service.dart    # Azure TTS API integration
+│   │   │   └── azure_tts_reference.dart  # Azure TTS reference data (voices, styles, limits)
 │   │   └── utils/
 │   │       └── tts_diagnostics.dart      # Диагностика TTS
 │   │
@@ -121,7 +123,9 @@ elli_friends_app/
 │   │   │   │   ├── entities/
 │   │   │   │   │   ├── lesson.dart
 │   │   │   │   │   ├── scene.dart
-│   │   │   │   │   └── animal.dart
+│   │   │   │   │   ├── animal.dart
+│   │   │   │   │   ├── character_voice_profile.dart  # Voice settings per character/language
+│   │   │   │   │   └── dialogue_voice_context.dart   # Emotional voice context per phrase
 │   │   │   │   ├── repositories/
 │   │   │   │   │   └── lesson_repository.dart
 │   │   │   │   └── usecases/
@@ -323,6 +327,65 @@ class Animal extends Equatable {
 }
 ```
 
+### CharacterVoiceProfile (Голосовой профиль персонажа)
+
+Базовые настройки голоса для персонажа в конкретном языке (уровень "Актёр").
+
+```dart
+class CharacterVoiceProfile {
+  final String characterId;        // "orson", "elli", "bono"
+  final String languageCode;       // "en", "ru", "de"
+  final String voiceName;          // Azure voice: "en-US-JennyNeural"
+  final String? role;              // Role-play: "Girl", "Boy", etc.
+  final String basePitch;          // "+8%", "-5%", "0%"
+  final double baseRate;           // 0.5 - 2.0
+  final String? defaultStyle;      // "cheerful", "friendly"
+  final double defaultStyleDegree; // 0.01 - 2.0
+}
+```
+
+### DialogueVoiceContext (Контекст голоса для фразы)
+
+Эмоциональные настройки для конкретной реплики (уровень "Фраза").
+
+```dart
+class DialogueVoiceContext {
+  final String? style;           // "excited", "sad", "angry"
+  final double? styleDegree;     // 0.01 - 2.0
+  final String? pitchModifier;   // "+10%", "-5%"
+  final double? rateModifier;    // 0.8, 1.2
+  final String? volume;          // "soft", "loud", "x-loud"
+  final int? breakBefore;        // Pause before (ms)
+  final int? breakAfter;         // Pause after (ms)
+}
+```
+
+**Доступные factory-конструкторы:**
+- `DialogueVoiceContext.fromTone(String tone)` — создаёт контекст из tone-строки JSON
+- `DialogueVoiceContext.friendly()`, `.cheerful()`, `.excited()`, `.sad()`, `.angry()`
+- `DialogueVoiceContext.questioning()`, `.clear()`, `.explaining()`, `.counting()`
+- `DialogueVoiceContext.enthusiastic()`, `.proud()`, `.grateful()`
+- `DialogueVoiceContext.mysterious()`, `.inviting()`, `.surprised()`, `.amazed()`
+- `DialogueVoiceContext.thoughtful()`, `.playful()`, `.calm()`, `.whisper()`, `.shout()`
+
+**Двухуровневая архитектура голоса:**
+```
+CharacterVoiceProfile (базовые настройки персонажа)
+       ↓
+DialogueVoiceContext (эмоциональные модификаторы фразы)
+       ↓
+Итоговые параметры для Azure TTS SSML
+```
+
+**Использование в JSON уроках:**
+```json
+{
+  "character": "orson",
+  "dialogue": {"en": "Hello!", "ru": "Привет!"},
+  "tone": "friendly"  // -> DialogueVoiceContext.fromTone("friendly")
+}
+```
+
 ### Game (Игра)
 
 ```dart
@@ -444,6 +507,80 @@ await audio.playBackgroundMusic('jungle_ambient');
 2. **Контент уроков** — встроенная локализация в JSON
 3. **LocaleService** — глобальный сервис для управления языком
 4. **Автоопределение** — использует язык устройства если поддерживается
+
+---
+
+## БАЗА ДАННЫХ (Drift)
+
+### Структура таблиц (Schema v2)
+
+#### Characters (Персонажи)
+Хранит персонажей с голосовыми профилями для каждого языка.
+
+```dart
+class Characters extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get characterId => text().unique()();     // "orson", "elli"
+  TextColumn get nameJson => text()();                  // {"en": "Orson", "ru": "Орсон"}
+  TextColumn get emoji => text()();                     // "🦁"
+  TextColumn get descriptionJson => text().nullable()();
+  TextColumn get voiceProfilesJson => text()();         // {"en": {...}, "ru": {...}}
+  TextColumn get color => text()();                     // "#FF9800"
+  BoolColumn get isChild => boolean()();
+  BoolColumn get isMale => boolean()();
+}
+```
+
+#### Lessons (Уроки)
+```dart
+class Lessons extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get lessonId => text().unique()();
+  TextColumn get topic => text()();
+  IntColumn get difficulty => integer()();
+  TextColumn get tags => text()();                      // JSON array
+  TextColumn get titleJson => text()();                 // {"en": "...", "ru": "..."}
+  TextColumn get descriptionJson => text()();
+}
+```
+
+#### Scenes (Сцены)
+```dart
+class Scenes extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get lessonId => integer().references(Lessons, #id)();
+  IntColumn get orderIndex => integer()();
+  TextColumn get character => text().nullable()();
+  TextColumn get animation => text().nullable()();
+  TextColumn get emotion => text().nullable()();
+  TextColumn get secondCharacter => text().nullable()();
+  TextColumn get dialogueJson => text().nullable()();
+  TextColumn get voiceContextJson => text().nullable()(); // DialogueVoiceContext
+  TextColumn get backgroundKey => text().nullable()();
+  // ... и другие поля для вопросов, животных, аудио
+}
+```
+
+### CharacterRepository
+
+```dart
+final repo = CharacterRepository(AppDatabase.instance);
+
+// Получить голосовой профиль
+final profile = await repo.getVoiceProfile('orson', 'en');
+
+// Обновить профиль
+await repo.updateVoiceProfile(newProfile);
+
+// Получить все профили персонажа
+final profiles = await repo.getAllVoiceProfiles('orson');
+```
+
+### SeedService
+
+При первом запуске загружает данные из JSON файлов:
+- `assets/data/characters.json` — персонажи с голосовыми профилями
+- `assets/data/lessons/*.json` — уроки со сценами
 
 ---
 

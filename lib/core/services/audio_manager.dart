@@ -1,10 +1,18 @@
 // lib/core/services/audio_manager.dart
 
+import 'dart:io';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:path_provider/path_provider.dart';
+import '../../features/lessons/domain/entities/character_voice_profile.dart';
+import '../../features/lessons/domain/entities/dialogue_voice_context.dart';
 import '../constants/supported_languages.dart';
+import '../database/character_repository.dart';
 import 'audio_cache_service.dart';
+import 'azure_tts_service.dart';
+import 'hybrid_audio_service.dart';
 
 /// Central service for managing all audio in the app
 class AudioManager {
@@ -22,6 +30,21 @@ class AudioManager {
   // Audio cache service (optional - set via setAudioCacheService)
   AudioCacheService? _audioCacheService;
 
+  // Character repository for voice profiles (optional - set via setCharacterRepository)
+  CharacterRepository? _characterRepository;
+
+  // Azure TTS service (optional - set via setAzureTtsService)
+  AzureTtsService? _azureTtsService;
+
+  // Hybrid audio service (optional - set via setHybridAudioService)
+  HybridAudioService? _hybridAudioService;
+
+  // Current lesson ID for hybrid audio
+  String? _currentLessonId;
+
+  // Cached voice profiles per character (for current language)
+  final Map<String, CharacterVoiceProfile> _voiceProfiles = {};
+
   // Settings
   bool _isMusicEnabled = true;
   bool _areSfxEnabled = true;
@@ -36,6 +59,50 @@ class AudioManager {
   /// Set audio cache service for cached TTS playback
   void setAudioCacheService(AudioCacheService service) {
     _audioCacheService = service;
+  }
+
+  /// Set character repository for loading voice profiles
+  void setCharacterRepository(CharacterRepository repository) {
+    _characterRepository = repository;
+  }
+
+  /// Set Azure TTS service for high-quality voice generation
+  void setAzureTtsService(AzureTtsService service) {
+    _azureTtsService = service;
+  }
+
+  /// Set hybrid audio service for bundled + cached + generated audio
+  void setHybridAudioService(HybridAudioService service) {
+    _hybridAudioService = service;
+  }
+
+  /// Set current lesson ID for hybrid audio lookups
+  void setCurrentLesson(String lessonId) {
+    _currentLessonId = lessonId;
+  }
+
+  /// Load voice profiles for all characters in current language
+  ///
+  /// Call this after setting character repository and changing language
+  Future<void> loadVoiceProfiles() async {
+    if (_characterRepository == null) {
+      debugPrint('AudioManager: CharacterRepository not set, skipping voice profile loading');
+      return;
+    }
+
+    try {
+      final profiles = await _characterRepository!.getVoiceProfilesForLanguage(_currentLanguage);
+      _voiceProfiles.clear();
+      _voiceProfiles.addAll(profiles);
+      debugPrint('AudioManager: Loaded ${profiles.length} voice profiles for $_currentLanguage');
+    } catch (e) {
+      debugPrint('AudioManager: Error loading voice profiles: $e');
+    }
+  }
+
+  /// Get voice profile for a character (from cache or default)
+  CharacterVoiceProfile? getVoiceProfile(String characterId) {
+    return _voiceProfiles[characterId.toLowerCase()];
   }
 
   /// Initialize audio system with language
@@ -90,11 +157,82 @@ class AudioManager {
   /// Озвучить диалог персонажа
   ///
   /// Приоритет воспроизведения:
-  /// 1. Кэшированное аудио (Azure TTS) если есть sceneId
-  /// 2. Системный TTS (fallback)
+  /// 1. HybridAudioService (bundled → cached → generated) если настроен
+  /// 2. Кэшированное аудио (AudioCacheService) если есть sceneId
+  /// 3. Azure TTS с voice profile (если настроен)
+  /// 4. Системный TTS (fallback)
   Future<void> speakDialogue(
     String text, {
     String character = 'bono',
+    int? sceneId,
+    String? tone,
+  }) async {
+    if (!_isVoiceEnabled) return;
+
+    // Try HybridAudioService first (bundled → cached → generated)
+    if (_hybridAudioService != null && _currentLessonId != null && sceneId != null) {
+      final result = await _hybridAudioService!.getAudioForDialogue(
+        lessonId: _currentLessonId!,
+        sceneIndex: sceneId,
+        character: character,
+        text: text,
+        languageCode: _currentLanguage,
+        tone: tone,
+      );
+
+      if (result.hasAudio) {
+        debugPrint('AudioManager: Playing ${result.sourceType.name} audio for scene $sceneId');
+        if (result.audioPath != null) {
+          await _playCachedAudio(result.audioPath!);
+          return;
+        } else if (result.audioData != null) {
+          await _playAudioData(result.audioData!);
+          return;
+        }
+      }
+    }
+
+    // Try legacy AudioCacheService if sceneId is provided
+    if (sceneId != null && _audioCacheService != null) {
+      final cachedPath = await _audioCacheService!.getCachedAudioPath(
+        sceneId: sceneId,
+        languageCode: _currentLanguage,
+        currentText: text,
+      );
+
+      if (cachedPath != null) {
+        debugPrint('AudioManager: Playing legacy cached audio for scene $sceneId');
+        await _playCachedAudio(cachedPath);
+        return;
+      }
+    }
+
+    // Try Azure TTS with voice profile
+    final profile = getVoiceProfile(character);
+    if (profile != null && _azureTtsService != null) {
+      // Create voice context from tone if provided
+      final context = tone != null ? DialogueVoiceContext.fromTone(tone) : null;
+
+      final success = await _speakWithAzureTts(text, profile: profile, context: context);
+      if (success) return;
+    }
+
+    // Fallback to system TTS
+    await _speakWithSystemTts(text, character: character);
+  }
+
+  /// Озвучить диалог с полной поддержкой voice profiles
+  ///
+  /// Это РЕКОМЕНДУЕМЫЙ метод для использования с новой системой голосов.
+  ///
+  /// Приоритет воспроизведения:
+  /// 1. Кэшированное аудио (если есть sceneId)
+  /// 2. Azure TTS с profile и context
+  /// 3. Системный TTS (fallback)
+  Future<void> speakDialogueWithProfile(
+    String text, {
+    required CharacterVoiceProfile profile,
+    DialogueVoiceContext? context,
     int? sceneId,
   }) async {
     if (!_isVoiceEnabled) return;
@@ -114,8 +252,46 @@ class AudioManager {
       }
     }
 
+    // Try Azure TTS with voice profile
+    if (_azureTtsService != null) {
+      final success = await _speakWithAzureTts(text, profile: profile, context: context);
+      if (success) return;
+    }
+
     // Fallback to system TTS
-    await _speakWithSystemTts(text, character: character);
+    await _speakWithSystemTts(text, character: profile.characterId);
+  }
+
+  /// Speak using Azure TTS with voice profile
+  ///
+  /// Returns true if successful, false if failed (to allow fallback)
+  Future<bool> _speakWithAzureTts(
+    String text, {
+    required CharacterVoiceProfile profile,
+    DialogueVoiceContext? context,
+  }) async {
+    if (_azureTtsService == null) return false;
+
+    try {
+      debugPrint('AudioManager: Generating Azure TTS for "${text.substring(0, text.length > 30 ? 30 : text.length)}..." '
+          'with voice ${profile.voiceName}');
+
+      final audioData = await _azureTtsService!.generateAudioWithProfile(
+        text: text,
+        profile: profile,
+        context: context,
+      );
+
+      // Play the generated audio
+      await _voicePlayer.stop();
+      await _voicePlayer.setVolume(_voiceVolume);
+      await _voicePlayer.play(BytesSource(audioData));
+
+      return true;
+    } catch (e) {
+      debugPrint('AudioManager: Azure TTS failed: $e, falling back to system TTS');
+      return false;
+    }
   }
 
   /// Play cached audio file
@@ -126,6 +302,33 @@ class AudioManager {
       await _voicePlayer.play(DeviceFileSource(filePath));
     } catch (e) {
       debugPrint('AudioManager: Error playing cached audio: $e');
+    }
+  }
+
+  /// Play audio from bytes (e.g., bundled assets or generated audio)
+  ///
+  /// On iOS, BytesSource is not supported, so we save to a temp file first
+  Future<void> _playAudioData(Uint8List audioData) async {
+    try {
+      await _voicePlayer.stop();
+      await _voicePlayer.setVolume(_voiceVolume);
+
+      // On iOS, BytesSource is not supported, so save to temp file
+      if (Platform.isIOS || Platform.isMacOS) {
+        final tempDir = await getTemporaryDirectory();
+        final tempFile = File('${tempDir.path}/temp_audio_${DateTime.now().millisecondsSinceEpoch}.mp3');
+        await tempFile.writeAsBytes(audioData);
+        await _voicePlayer.play(DeviceFileSource(tempFile.path));
+        // Clean up temp file after a delay (audio should be done by then)
+        Future.delayed(const Duration(seconds: 30), () {
+          tempFile.delete().ignore();
+        });
+      } else {
+        // On Android/Web, BytesSource should work
+        await _voicePlayer.play(BytesSource(audioData));
+      }
+    } catch (e) {
+      debugPrint('AudioManager: Error playing audio data: $e');
     }
   }
 
@@ -178,9 +381,13 @@ class AudioManager {
   }
 
   /// Change language for TTS
+  ///
+  /// This also reloads voice profiles for the new language
   Future<void> changeLanguage(String languageCode) async {
     _currentLanguage = languageCode;
     await _setupTts(languageCode);
+    // Reload voice profiles for new language
+    await loadVoiceProfiles();
   }
 
   /// Get current language

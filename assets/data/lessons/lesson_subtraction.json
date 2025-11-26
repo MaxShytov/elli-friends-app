@@ -6,6 +6,7 @@
     "fr": "Soustraction comme cache-cache",
     "it": "Sottrazione come nascondino",
     "de": "Subtraktion als Versteckspiel",
+    "am": "መቀነስ እንደ ደብቆ መፈለግ",
     "my": "ပုန်းကွယ်ခြင်းကစားနည်းအတိုင်း နုတ်ခြင်း"
   },
   "topic": "subtraction",
@@ -15,6 +16,7 @@
     "fr": "Apprendre la soustraction avec Orson et Merv en utilisant le jeu de cache-cache",
     "it": "Impara la sottrazione con Orson e Merv usando il gioco del nascondino",
     "de": "Lerne Subtraktion mit Orson und Merv durch das Versteckspiel",
+    "am": "ከኦርሰን እና ከሜርቭ ጋር ደብቆ መፈለግ ጨዋታን በመጠቀም መቀነስ ተማር",
     "my": "Orson နှင့် Merv နှင့်အတူ ပုန်းကွယ်ခြင်းဂိမ်းဖြင့် နုတ်ခြင်းကို လေ့လာပါ"
   },
   "difficulty": 1,
@@ -42,6 +44,7 @@
         "fr": "Bonjour!!!",
         "it": "Ciao!!!",
         "de": "Hallo!!!",
+        "am": "ሰላም!!!",
         "my": "မင်္ဂလာပါ!!!"
       },
       "duration": 2,
@@ -58,6 +61,7 @@
         "fr": "Je m'appelle Orson.",
         "it": "Mi chiamo Orson.",
         "de": "Mein Name ist Orson.",
+        "am": "ስሜ ኦርሰን ነው።",
         "my": "ကျွန်တော့်နာမည် Orson ပါ။"
       },
       "tone": "friendly",
@@ -73,6 +77,7 @@
         "fr": "Je vais te montrer qu'apprendre",
         "it": "Ti mostrerò che imparare",
         "de": "Ich zeige dir, dass Lernen",
+        "am": "መማር ማለት",
         "my": "ကျွန်တော် မင်းကို ပြပေးမယ် သင်ယူခြင်းက"
       },
       "tone": "friendly",
@@ -88,6 +93,7 @@
         "fr": "n'est pas ennuyeux,",
         "it": "non è noioso,",
         "de": "nicht langweilig ist,",
+        "am": "አሰልቺ አይደለም፣",
         "my": "ပျင်းစရာမဟုတ်ဘူး၊"
       },
       "tone": "friendly",
@@ -103,6 +109,7 @@
         "fr": "mais passionnant avec moi.",
         "it": "ma emozionante con me.",
         "de": "sondern aufregend mit mir.",
+        "am": "ነገር ግን ከእኔ ጋር አስደሳች ነው።",
         "my": "ဒါပေမယ့် ကျွန်တော်နဲ့အတူ စိတ်လှုပ်ရှားစရာကောင်းတယ်။"
       },
       "tone": "friendly",
@@ -118,6 +125,7 @@
         "fr": "Veux-tu commencer?",
         "it": "Vuoi iniziare?",
         "de": "Willst du anfangen?",
+        "am": "መጀመር ትፈልጋለህ?",
         "my": "စချင်လား?"
       },
       "tone": "inviting",
@@ -130,6 +138,7 @@
         "fr": "Oui",
         "it": "Sì",
         "de": "Ja",
+        "am": "አዎ",
         "my": "ဟုတ်ကဲ့"
       }
     },
@@ -141,6 +150,7 @@
         "fr": "La soustraction c'est comme le jeu de cache-cache. Veux-tu que je t'explique?",
         "it": "La sottrazione è come il gioco del nascondino. Vuoi che ti spieghi?",
         "de": "Subtraktion ist wie ein Versteckspiel. Soll ich es erklären?",
+        "am": "መቀነስ እንደ ደብቆ መፈለግ ጨዋታ ነው። እንድገልጽልህ ትፈልጋለህ?",
         "my": "နုတ်ခြင်းက ပုန်းကွယ်ခြင်းဂိမ်းလို ဖြစ်တယ်။ ရှင်းပြရမလား?"
       },
       "tone": "mysterious",
@@ -153,6 +163,7 @@
         "fr": "Oui",
         "it": "Sì",
         "de": "Ja",
+        "am": "አዎ",
         "my": "ဟုတ်ကဲ့"
       }
     },
@@ -164,6 +175,7 @@
         "fr": "Regarde, nous avons six pommes.",
         "it": "Guarda, abbiamo sei mele.",
         "de": "Schau, wir haben sechs Äpfel.",
+        "am": "ተመልከት፣ ስድስት ፖም አለን።",
         "my": "ကြည့်စမ်း၊ ကျွန်တော်တို့မှာ ပန်းသီး ခြောက်လုံး ရှိတယ်။"
       },
       "animals": [
@@ -185,6 +197,7 @@
         "fr": "Oh non, des pommes jouent à cache-cache.",
         "it": "Oh no, alcune mele stanno giocando a nascondino.",
         "de": "Oh nein, einige Äpfel spielen Verstecken.",
+        "am": "ኧረ እንዳ፣ አንዳንድ ፖሞች ደብቆ መፈለግ እየተጫወቱ ነው።",
         "my": "အိုး မဟုတ်ဘူး၊ ပန်းသီးအချို့က ပုန်းကွယ်ခြင်းကစားနေတယ်။"
       },
       "animals": [
@@ -206,6 +219,7 @@
         "fr": "Je ne vois que quatre. Donc, deux petites pommes doivent se cacher quelque part.",
         "it": "Vedo solo quattro. Quindi, due piccole mele devono nascondersi da qualche parte.",
         "de": "Ich sehe nur vier. Also müssen sich zwei kleine Äpfel irgendwo verstecken.",
+        "am": "አራት ብቻ ነው የማየው። ስለዚህ ሁለት ትናንሽ ፖሞች የሆነ ቦታ ተደብቀዋል።",
         "my": "လေးလုံးပဲ မြင်တယ်။ ဒီတော့ ပန်းသီးနှစ်လုံး ဘယ်မှာမှ ပုန်းနေမယ်။"
       },
       "animals": [
@@ -227,6 +241,7 @@
         "fr": "Regarde, nous avons quatre bananes.",
         "it": "Guarda, abbiamo quattro banane.",
         "de": "Schau, wir haben vier Bananen.",
+        "am": "ተመልከት፣ አራት ሙዝ አለን።",
         "my": "ကြည့်စမ်း၊ ကျွန်တော်တို့မှာ ငှက်ပျောသီး လေးလုံး ရှိတယ်။"
       },
       "animals": [
@@ -248,6 +263,7 @@
         "fr": "Maintenant il n'en reste que deux. Donc, si on enlève deux, ça fait 4 moins 2 égale 2.",
         "it": "Ora ne restano solo due. Quindi, se togliamo due, significa 4 meno 2 uguale 2.",
         "de": "Jetzt sind nur noch zwei übrig. Wenn wir also zwei wegnehmen, bedeutet das 4 minus 2 gleich 2.",
+        "am": "አሁን ሁለት ብቻ ቀርተዋል። ስለዚህ ሁለት ከወሰድን 4 ሲቀነስ 2 ይሆናል 2።",
         "my": "အခု နှစ်လုံးပဲ ကျန်တော့တယ်။ ဒီတော့ နှစ်လုံး ဖယ်ရှားလိုက်ရင် ၄ နုတ် ၂ သည် ၂ နှင့် ညီတယ်။"
       },
       "animals": [
@@ -269,6 +285,7 @@
         "fr": "Essayons ensemble.",
         "it": "Proviamo insieme.",
         "de": "Lass uns zusammen versuchen.",
+        "am": "በአንድ ላይ እንሞክር።",
         "my": "အတူတကွ စမ်းကြည့်ကြစို့။"
       },
       "tone": "inviting",
@@ -284,6 +301,7 @@
         "fr": "Salut Orson, utilisons des oranges comme exemple pour montrer que la soustraction est facile.",
         "it": "Ciao Orson, usiamo le arance come esempio per mostrare che la sottrazione è facile.",
         "de": "Hallo Orson, lass uns Orangen als Beispiel verwenden, um zu zeigen, dass Subtraktion einfach ist.",
+        "am": "ሰላም ኦርሰን፣ መቀነስ ቀላል መሆኑን ለማሳየት ብርቱካንን እንደ ምሳሌ እንጠቀም።",
         "my": "ဟိုင်း Orson၊ နုတ်ခြင်းက လွယ်တယ်ဆိုတာ ပြဖို့ လိမ္မော်သီးတွေကို ဥပမာအဖြစ် သုံးကြစို့။"
       },
       "tone": "cheerful",
@@ -299,6 +317,7 @@
         "fr": "Si nous cachons une des quatre oranges, combien d'oranges nous restera-t-il?",
         "it": "Se nascondiamo una delle quattro arance, quante arance ci rimarranno?",
         "de": "Wenn wir eine der vier Orangen verstecken, wie viele Orangen bleiben übrig?",
+        "am": "ከአራቱ ብርቱካን አንዱን ብንደብቅ ስንት ብርቱካን ይቀረናል?",
         "my": "လိမ္မော်သီး လေးလုံးထဲက တစ်လုံးကို ပုန်းထားရင် လိမ္မော်သီး ဘယ်နှစ်လုံး ကျန်မလဲ?"
       },
       "animals": [
@@ -326,6 +345,7 @@
         "fr": "C'est exact, trois! Bon travail.",
         "it": "Esatto, tre! Ottimo lavoro.",
         "de": "Richtig, drei! Gut gemacht.",
+        "am": "ትክክል፣ ሶስት! በጣም ጎበዝ።",
         "my": "မှန်ပါတယ်၊ သုံးလုံး! ကောင်းလိုက်တာ။"
       },
       "animals": [
@@ -347,6 +367,7 @@
         "fr": "Prêt pour le prochain défi? Hmm... allons-y!",
         "it": "Pronto per la prossima sfida? Hmm... andiamo!",
         "de": "Bereit für die nächste Herausforderung? Hmm... los geht's!",
+        "am": "ለሚቀጥለው ፈተና ዝግጁ ነህ? ህምም... እንሂድ!",
         "my": "နောက်တစ်ခု အဆင်သင့်လား? အင်း... သွားကြစို့!"
       },
       "tone": "playful",
