@@ -6,6 +6,10 @@ class ApiKeyService {
   static const _azureApiKeyKey = 'azure_tts_api_key';
   static const _azureRegionKey = 'azure_tts_region';
 
+  // Default Azure TTS credentials (for development/testing)
+  static const _defaultAzureApiKey = '17f0mtD0xTCryTzcLKq96AMNEKsMnFpTooKUCM3pUCJH5GfOwCrIJQQJ99BKACYeBjFXJ3w3AAAYACOGgVzG'; // TODO: Replace with actual key
+  static const _defaultAzureRegion = 'eastus';
+
   static ApiKeyService? _instance;
   final SharedPreferences _prefs;
 
@@ -48,9 +52,9 @@ class ApiKeyService {
 
   // ==================== AZURE TTS ====================
 
-  /// Get Azure TTS API key
+  /// Get Azure TTS API key (returns default if not set)
   String? getAzureApiKey() {
-    return _prefs.getString(_azureApiKeyKey);
+    return _prefs.getString(_azureApiKeyKey) ?? _defaultAzureApiKey;
   }
 
   /// Save Azure TTS API key
@@ -61,10 +65,9 @@ class ApiKeyService {
     return _prefs.setString(_azureApiKeyKey, apiKey);
   }
 
-  /// Check if Azure TTS API key is set
+  /// Check if Azure TTS API key is set (includes default key)
   bool hasAzureApiKey() {
-    final key = getAzureApiKey();
-    return key != null && key.isNotEmpty;
+    return true; // Always true since we have default key
   }
 
   /// Clear Azure TTS API key
@@ -72,9 +75,9 @@ class ApiKeyService {
     return _prefs.remove(_azureApiKeyKey);
   }
 
-  /// Get Azure TTS region (default: eastus)
+  /// Get Azure TTS region (default from constant)
   String getAzureRegion() {
-    return _prefs.getString(_azureRegionKey) ?? 'eastus';
+    return _prefs.getString(_azureRegionKey) ?? _defaultAzureRegion;
   }
 
   /// Save Azure TTS region
