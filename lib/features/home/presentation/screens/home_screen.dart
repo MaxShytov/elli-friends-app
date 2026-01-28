@@ -206,6 +206,26 @@ class _HomeScreenContent extends StatelessWidget {
                 },
               ),
 
+              // Chat button
+              const SizedBox(height: AppDimensions.paddingLarge),
+              ElevatedButton.icon(
+                onPressed: () => context.push('/chat'),
+                icon: const Text('🦁', style: TextStyle(fontSize: 24)),
+                label: const Text('Chat with AI'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.secondary,
+                  foregroundColor: Colors.white,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: responsive.paddingLarge,
+                    vertical: responsive.paddingMedium,
+                  ),
+                  textStyle: TextStyle(
+                    fontSize: responsive.buttonFontSize,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+
               // TEST: Demo lesson buttons
               const SizedBox(height: AppDimensions.paddingLarge),
               ElevatedButton.icon(
