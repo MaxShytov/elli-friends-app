@@ -83,6 +83,8 @@ class Scenes extends Table {
   BoolColumn get isQuestion => boolean().withDefault(const Constant(false))();
   BoolColumn get isPause => boolean().withDefault(const Constant(false))();
   IntColumn get correctAnswer => integer().nullable()();
+  TextColumn get correctAnswerTextJson => text().nullable()(); // {"en": "white", "ru": "белый"}
+  TextColumn get answerOptionsJson => text().nullable()(); // JSON array of answer options
   BoolColumn get waitForAnswer => boolean().withDefault(const Constant(false))();
   BoolColumn get showPreviousAnimals => boolean().withDefault(const Constant(false))();
 
@@ -132,7 +134,7 @@ class AppDatabase extends _$AppDatabase {
   }
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 3;
 
   @override
   MigrationStrategy get migration {
@@ -149,6 +151,11 @@ class AppDatabase extends _$AppDatabase {
           // Add new columns to Scenes table
           await m.addColumn(scenes, scenes.voiceContextJson);
           await m.addColumn(scenes, scenes.backgroundKey);
+        }
+        // Migration from v2 to v3: Add text answer fields
+        if (from < 3) {
+          await m.addColumn(scenes, scenes.correctAnswerTextJson);
+          await m.addColumn(scenes, scenes.answerOptionsJson);
         }
       },
     );

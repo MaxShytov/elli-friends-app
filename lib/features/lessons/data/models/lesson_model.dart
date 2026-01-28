@@ -59,6 +59,8 @@ class SceneModel extends Scene {
     super.isQuestion,
     super.isPause,
     super.correctAnswer,
+    super.correctAnswerText,
+    super.answerOptions,
     super.waitForAnswer,
     super.showPreviousAnimals,
     super.animation,
@@ -100,6 +102,10 @@ class SceneModel extends Scene {
       isQuestion: json['isQuestion'] as bool? ?? false,
       isPause: json['isPause'] as bool? ?? false,
       correctAnswer: json['correctAnswer'] as int?,
+      correctAnswerText: getLocalizedString(json['correctAnswerText'], locale),
+      answerOptions: (json['answerOptions'] as List?)
+          ?.map((opt) => AnswerOptionModel.fromJson(opt, locale: locale))
+          .toList(),
       waitForAnswer: json['waitForAnswer'] as bool? ?? false,
       showPreviousAnimals: json['showPreviousAnimals'] as bool? ?? false,
       animation: json['animation'] as String?,
@@ -149,6 +155,8 @@ class SceneModel extends Scene {
       'isQuestion': isQuestion,
       'isPause': isPause,
       'correctAnswer': correctAnswer,
+      if (correctAnswerText != null) 'correctAnswerText': correctAnswerText,
+      if (answerOptions != null) 'answerOptions': answerOptions!.map((o) => (o as AnswerOptionModel).toJson()).toList(),
       'waitForAnswer': waitForAnswer,
       'showPreviousAnimals': showPreviousAnimals,
       'animation': animation,
@@ -242,5 +250,32 @@ class AnimalModel extends Animal {
       positionX: positionX ?? this.positionX,
       positionY: positionY ?? this.positionY,
     );
+  }
+}
+
+class AnswerOptionModel extends AnswerOption {
+  const AnswerOptionModel({
+    required super.value,
+    required super.label,
+  });
+
+  factory AnswerOptionModel.fromJson(Map<String, dynamic> json, {String locale = 'en'}) {
+    String getLocalizedString(dynamic value, String locale) {
+      if (value is String) return value;
+      if (value is Map) return value[locale] as String? ?? value['en'] as String? ?? '';
+      return '';
+    }
+
+    return AnswerOptionModel(
+      value: json['value'],  // int или String
+      label: getLocalizedString(json['label'], locale),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'value': value,
+      'label': label,
+    };
   }
 }

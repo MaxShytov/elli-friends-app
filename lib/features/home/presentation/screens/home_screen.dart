@@ -257,6 +257,21 @@ class _HomeScreenContent extends StatelessWidget {
                 ),
               ),
 
+              const SizedBox(height: AppDimensions.paddingSmall),
+              ElevatedButton.icon(
+                onPressed: () => context.push('/lesson/colors_in_the_jungle_p2'),
+                icon: const Icon(Icons.palette),
+                label: const Text('Colors in the Jungle Part 2'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.teal,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppDimensions.paddingLarge,
+                    vertical: AppDimensions.paddingMedium,
+                  ),
+                ),
+              ),
+
               // Bottom padding for scrolling
               const SizedBox(height: AppDimensions.paddingLarge),
             ],

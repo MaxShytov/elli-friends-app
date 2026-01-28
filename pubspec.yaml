@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+4
+version: 1.0.0+7
 
 environment:
   sdk: ^3.9.2
@@ -108,9 +108,54 @@ flutter:
     - assets/audio/sfx/
     - assets/audio/animals/
     - assets/audio/music/
+    - assets/audio/lessons/adding_fruits/am/
+    - assets/audio/lessons/adding_fruits/de/
+    - assets/audio/lessons/adding_fruits/en/
+    - assets/audio/lessons/adding_fruits/fr/
+    - assets/audio/lessons/adding_fruits/it/
+    - assets/audio/lessons/adding_fruits/my/
+    - assets/audio/lessons/adding_fruits/ru/
+    - assets/audio/lessons/colors_in_the_jungle_p1/am/
+    - assets/audio/lessons/colors_in_the_jungle_p1/de/
+    - assets/audio/lessons/colors_in_the_jungle_p1/en/
+    - assets/audio/lessons/colors_in_the_jungle_p1/fr/
+    - assets/audio/lessons/colors_in_the_jungle_p1/it/
+    - assets/audio/lessons/colors_in_the_jungle_p1/my/
+    - assets/audio/lessons/colors_in_the_jungle_p1/ru/
+    - assets/audio/lessons/colors_in_the_jungle_p2/am/
+    - assets/audio/lessons/colors_in_the_jungle_p2/de/
+    - assets/audio/lessons/colors_in_the_jungle_p2/en/
+    - assets/audio/lessons/colors_in_the_jungle_p2/fr/
+    - assets/audio/lessons/colors_in_the_jungle_p2/it/
+    - assets/audio/lessons/colors_in_the_jungle_p2/my/
+    - assets/audio/lessons/colors_in_the_jungle_p2/ru/
+    - assets/audio/lessons/counting/am/
+    - assets/audio/lessons/counting/de/
     - assets/audio/lessons/counting/en/
+    - assets/audio/lessons/counting/fr/
+    - assets/audio/lessons/counting/it/
+    - assets/audio/lessons/counting/my/
     - assets/audio/lessons/counting/ru/
+    - assets/audio/lessons/english_greetings/am/
+    - assets/audio/lessons/english_greetings/de/
+    - assets/audio/lessons/english_greetings/en/
+    - assets/audio/lessons/english_greetings/fr/
+    - assets/audio/lessons/english_greetings/it/
+    - assets/audio/lessons/english_greetings/my/
+    - assets/audio/lessons/english_greetings/ru/
+    - assets/audio/lessons/shapes_in_the_jungle/am/
+    - assets/audio/lessons/shapes_in_the_jungle/de/
+    - assets/audio/lessons/shapes_in_the_jungle/en/
+    - assets/audio/lessons/shapes_in_the_jungle/fr/
+    - assets/audio/lessons/shapes_in_the_jungle/it/
+    - assets/audio/lessons/shapes_in_the_jungle/my/
+    - assets/audio/lessons/shapes_in_the_jungle/ru/
+    - assets/audio/lessons/subtraction/am/
+    - assets/audio/lessons/subtraction/de/
     - assets/audio/lessons/subtraction/en/
+    - assets/audio/lessons/subtraction/fr/
+    - assets/audio/lessons/subtraction/it/
+    - assets/audio/lessons/subtraction/my/
     - assets/audio/lessons/subtraction/ru/
     - assets/data/
     - assets/data/lessons/

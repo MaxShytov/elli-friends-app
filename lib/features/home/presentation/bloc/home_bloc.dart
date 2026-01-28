@@ -63,6 +63,31 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         emoji: '➖',
       ),
       Activity(
+        id: 'colors_in_the_jungle_p1',
+        title: 'colors_jungle_p1', // Used as key for localization
+        emoji: '🍃',
+      ),
+      Activity(
+        id: 'colors_in_the_jungle_p2',
+        title: 'colors_jungle_p2', // Used as key for localization
+        emoji: '🌺',
+      ),
+      Activity(
+        id: 'shapes_in_the_jungle',
+        title: 'shapes_jungle', // Used as key for localization
+        emoji: '🔷',
+      ),
+      Activity(
+        id: 'adding_fruits',
+        title: 'adding_fruits', // Used as key for localization
+        emoji: '🍎',
+      ),
+      Activity(
+        id: 'english_greetings',
+        title: 'english_greetings', // Used as key for localization
+        emoji: '👋',
+      ),
+      Activity(
         id: 'letters',
         title: 'letters', // Used as key for localization
         emoji: '🔤',
@@ -72,7 +97,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       Activity(
         id: 'shapes',
         title: 'shapes', // Used as key for localization
-        emoji: '🔷',
+        emoji: '⬜',
         isLocked: true,
         requiredStars: 20,
       ),

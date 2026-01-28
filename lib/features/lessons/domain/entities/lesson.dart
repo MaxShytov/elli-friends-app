@@ -24,6 +24,20 @@ class Lesson extends Equatable {
   List<Object?> get props => [id, title, topic, description, difficulty, scenes, tags];
 }
 
+/// Вариант ответа (для текстовых и числовых ответов)
+class AnswerOption extends Equatable {
+  final dynamic value;     // Значение (int или String)
+  final String label;      // Отображаемый текст
+
+  const AnswerOption({
+    required this.value,
+    required this.label,
+  });
+
+  @override
+  List<Object?> get props => [value, label];
+}
+
 class Scene extends Equatable {
   final String? character;
   final String? dialogue;
@@ -33,6 +47,8 @@ class Scene extends Equatable {
   final bool isQuestion;
   final bool isPause;
   final int? correctAnswer;
+  final String? correctAnswerText;           // Правильный текстовый ответ
+  final List<AnswerOption>? answerOptions;   // Варианты ответов
   final bool waitForAnswer;
   final bool showPreviousAnimals;
   final String? animation; // Rive animation trigger (e.g., 'anim_wave', 'anim_happy')
@@ -63,6 +79,8 @@ class Scene extends Equatable {
     this.isQuestion = false,
     this.isPause = false,
     this.correctAnswer,
+    this.correctAnswerText,
+    this.answerOptions,
     this.waitForAnswer = false,
     this.showPreviousAnimals = false,
     this.animation,
@@ -91,6 +109,8 @@ class Scene extends Equatable {
     isQuestion,
     isPause,
     correctAnswer,
+    correctAnswerText,
+    answerOptions,
     waitForAnswer,
     showPreviousAnimals,
     animation,

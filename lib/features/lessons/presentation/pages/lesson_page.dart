@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../bloc/lesson_bloc.dart';
 import '../widgets/scene_widget.dart';
 import '../widgets/answer_buttons.dart';
+import '../widgets/text_answer_buttons.dart';
 import '../widgets/confetti_celebration.dart';
 import '../widgets/wrong_answer_animation.dart';
 import '../widgets/lesson_intro_widget.dart';
@@ -324,20 +325,38 @@ class _LessonViewState extends State<LessonView> {
                         // Кнопки ответа (если это вопрос)
                         if (scene.waitForAnswer) ...[
                           const SizedBox(height: AppDimensions.paddingLarge),
-                          AnswerButtons(
-                            maxNumber: 5,
-                            onAnswer: (answer) {
-                              context.read<LessonBloc>().add(
-                                AnswerQuestion(answer),
-                              );
-                            },
-                            selectedAnswer: state is LessonAnswered
-                              ? state.selectedAnswer
-                              : null,
-                            correctAnswer: state is LessonAnswered
-                              ? scene.correctAnswer
-                              : null,
-                          ),
+                          // Текстовые варианты (если есть answerOptions)
+                          if (scene.answerOptions != null && scene.answerOptions!.isNotEmpty)
+                            TextAnswerButtons(
+                              options: scene.answerOptions!,
+                              onAnswer: (answer) {
+                                context.read<LessonBloc>().add(
+                                  AnswerQuestion(answer),
+                                );
+                              },
+                              selectedAnswer: state is LessonAnswered
+                                ? state.selectedAnswer
+                                : null,
+                              correctAnswer: state is LessonAnswered
+                                ? scene.correctAnswerText
+                                : null,
+                            )
+                          // Числовые кнопки (если нет answerOptions, но есть correctAnswer)
+                          else if (scene.correctAnswer != null)
+                            AnswerButtons(
+                              maxNumber: 5,
+                              onAnswer: (answer) {
+                                context.read<LessonBloc>().add(
+                                  AnswerQuestion(answer),
+                                );
+                              },
+                              selectedAnswer: state is LessonAnswered
+                                ? state.selectedAnswer
+                                : null,
+                              correctAnswer: state is LessonAnswered
+                                ? scene.correctAnswer
+                                : null,
+                            ),
                         ],
 
                         // Навигация

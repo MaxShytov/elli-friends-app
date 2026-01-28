@@ -171,4 +171,19 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get reset => 'Reset';
+
+  @override
+  String get colorsInJungleP1 => 'တောတွင်း အရောင်များ ၁';
+
+  @override
+  String get colorsInJungleP2 => 'တောတွင်း အရောင်များ ၂';
+
+  @override
+  String get shapesInJungle => 'တောတွင်း ပုံသဏ္ဍာန်များ';
+
+  @override
+  String get addingFruits => 'အသီးများ ပေါင်းခြင်း';
+
+  @override
+  String get englishGreetings => 'အင်္ဂလိပ် နှုတ်ဆက်စကားများ';
 }

@@ -419,6 +419,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Reset'**
   String get reset;
+
+  /// Activity title for colors in the jungle part 1 lesson
+  ///
+  /// In en, this message translates to:
+  /// **'Colors in the Jungle 1'**
+  String get colorsInJungleP1;
+
+  /// Activity title for colors in the jungle part 2 lesson
+  ///
+  /// In en, this message translates to:
+  /// **'Colors in the Jungle 2'**
+  String get colorsInJungleP2;
+
+  /// Activity title for shapes in the jungle lesson
+  ///
+  /// In en, this message translates to:
+  /// **'Shapes in the Jungle'**
+  String get shapesInJungle;
+
+  /// Activity title for adding fruits lesson
+  ///
+  /// In en, this message translates to:
+  /// **'Adding Fruits'**
+  String get addingFruits;
+
+  /// Activity title for English greetings lesson
+  ///
+  /// In en, this message translates to:
+  /// **'English Greetings'**
+  String get englishGreetings;
 }
 
 class _AppLocalizationsDelegate

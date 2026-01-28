@@ -1,0 +1,594 @@
+{
+  "id": "adding_fruits",
+  "title": {
+    "en": "The Game of Adding Fruits",
+    "ru": "Игра в сложение фруктов",
+    "fr": "Le jeu d'addition des fruits",
+    "it": "Il gioco dell'addizione di frutta",
+    "de": "Das Früchte-Additionsspiel",
+    "am": "ፍራፍሬዎችን መደመር ጨዋታ",
+    "my": "အသီးများ ပေါင်းခြင်း ဂိမ်း"
+  },
+  "topic": "addition",
+  "description": {
+    "en": "Learn addition with Orson and Merv using fun fruits that come to visit",
+    "ru": "Учимся сложению с Орсоном и Мервом, используя веселые фрукты, которые приходят в гости",
+    "fr": "Apprendre l'addition avec Orson et Merv en utilisant des fruits amusants qui viennent nous rendre visite",
+    "it": "Impara l'addizione con Orson e Merv usando frutti divertenti che vengono a trovarci",
+    "de": "Lerne Addition mit Orson und Merv mit lustigen Früchten, die zu Besuch kommen",
+    "am": "ከኦርሰን እና ከሜርቭ ጋር ለመጎብኘት የሚመጡ አስደሳች ፍራፍሬዎችን በመጠቀም መደመር ተማሩ",
+    "my": "Orson နှင့် Merv နှင့်အတူ လည်ပတ်လာသော ပျော်စရာ အသီးများဖြင့် ပေါင်းခြင်းကို လေ့လာပါ"
+  },
+  "difficulty": 1,
+  "tags": ["addition", "numbers", "basic", "math", "fruits"],
+  "scenes": [
+    {
+      "character": "orson",
+      "duration": 2,
+      "animation": "anim_walk_front",
+      "emotion": "Happy",
+      "transitionType": "auto_timer"
+    },
+    {
+      "character": "orson",
+      "duration": 1,
+      "animation": "anim_idle",
+      "emotion": "Happy",
+      "transitionType": "auto_timer"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Hello again, my friends!",
+        "ru": "Привет снова, мои друзья!",
+        "fr": "Rebonjour, mes amis!",
+        "it": "Ciao di nuovo, amici miei!",
+        "de": "Hallo nochmal, meine Freunde!",
+        "am": "እንደገና ሰላም ጓደኞቼ!",
+        "my": "ထပ်မံ မင်္ဂလာပါ၊ ကျွန်တော့်သူငယ်ချင်းများ!"
+      },
+      "tone": "warm",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Last time, we played the game of hide and seek with fruits.",
+        "ru": "В прошлый раз мы играли в прятки с фруктами.",
+        "fr": "La dernière fois, nous avons joué à cache-cache avec les fruits.",
+        "it": "L'ultima volta, abbiamo giocato a nascondino con i frutti.",
+        "de": "Letztes Mal haben wir Verstecken mit Früchten gespielt.",
+        "am": "ባለፈው ጊዜ ከፍራፍሬዎች ጋር ደብቆ መፈለግ ተጫውተናል።",
+        "my": "ပြီးခဲ့တဲ့ အကြိမ်က အသီးများနဲ့ ပုန်းကွယ်ခြင်း ကစားခဲ့တယ်။"
+      },
+      "tone": "cheerful",
+      "animation": "anim_idle",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Today, we play the opposite - the Game of Adding Fruits!",
+        "ru": "Сегодня мы играем наоборот - в игру сложения фруктов!",
+        "fr": "Aujourd'hui, nous jouons le contraire - le Jeu d'Addition des Fruits!",
+        "it": "Oggi giochiamo il contrario - il Gioco dell'Addizione di Frutta!",
+        "de": "Heute spielen wir das Gegenteil - das Früchte-Additionsspiel!",
+        "am": "ዛሬ ተቃራኒውን እንጫወታለን - ፍራፍሬዎችን መደመር ጨዋታ!",
+        "my": "ဒီနေ့ ကျွန်တော်တို့ ဆန့်ကျင်ဘက်ကို ကစားမယ် - အသီးများ ပေါင်းခြင်း ဂိမ်း!"
+      },
+      "tone": "excited",
+      "animation": "anim_happy",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Oooh! So today the fruits don't hide... They come to visit us!",
+        "ru": "Ооо! Значит сегодня фрукты не прячутся... Они приходят к нам в гости!",
+        "fr": "Oooh! Alors aujourd'hui les fruits ne se cachent pas... Ils viennent nous rendre visite!",
+        "it": "Oooh! Quindi oggi i frutti non si nascondono... Vengono a trovarci!",
+        "de": "Oooh! Also heute verstecken sich die Früchte nicht... Sie kommen uns besuchen!",
+        "am": "ኡኡ! ስለዚህ ዛሬ ፍራፍሬዎች አይደበቁም... ሊጎበኙን ይመጣሉ!",
+        "my": "အိုး! ဒီတော့ ဒီနေ့ အသီးတွေ မပုန်းဘူး... သူတို့ ကျွန်တော်တို့ကို လာလည်တယ်!"
+      },
+      "tone": "enthusiastic",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Let's begin!",
+        "ru": "Давай начнем!",
+        "fr": "Commençons!",
+        "it": "Iniziamo!",
+        "de": "Lass uns anfangen!",
+        "am": "እንጀምር!",
+        "my": "စကြစို့!"
+      },
+      "tone": "inviting",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "button",
+      "buttonTitle": {
+        "en": "Start",
+        "ru": "Начать",
+        "fr": "Commencer",
+        "it": "Inizia",
+        "de": "Start",
+        "am": "ጀምር",
+        "my": "စတင်ပါ"
+      }
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Look! A banana!",
+        "ru": "Смотри! Банан!",
+        "fr": "Regarde! Une banane!",
+        "it": "Guarda! Una banana!",
+        "de": "Schau! Eine Banane!",
+        "am": "ተመልከት! ሙዝ!",
+        "my": "ကြည့်စမ်း! ငှက်ပျောသီး!"
+      },
+      "animals": [
+        {
+          "type": "banana",
+          "emoji": "🍌",
+          "count": 1
+        }
+      ],
+      "tone": "surprised",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Another banana came!",
+        "ru": "Еще один банан пришел!",
+        "fr": "Une autre banane est arrivée!",
+        "it": "Un'altra banana è arrivata!",
+        "de": "Noch eine Banane ist gekommen!",
+        "am": "ሌላ ሙዝ መጣ!",
+        "my": "ငှက်ပျောသီး နောက်တစ်လုံး လာပြီ!"
+      },
+      "animals": [
+        {
+          "type": "banana",
+          "emoji": "🍌",
+          "count": 2
+        }
+      ],
+      "tone": "cheerful",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "One banana plus one banana. How many bananas are there now?",
+        "ru": "Один банан плюс один банан. Сколько теперь бананов?",
+        "fr": "Une banane plus une banane. Combien de bananes y a-t-il maintenant?",
+        "it": "Una banana più una banana. Quante banane ci sono adesso?",
+        "de": "Eine Banane plus eine Banane. Wie viele Bananen sind es jetzt?",
+        "am": "አንድ ሙዝ ሲደመር አንድ ሙዝ። አሁን ስንት ሙዝ አለ?",
+        "my": "ငှက်ပျောသီး တစ်လုံး ပေါင်း ငှက်ပျောသီး တစ်လုံး။ အခု ငှက်ပျောသီး ဘယ်နှစ်လုံး ရှိလဲ?"
+      },
+      "animals": [
+        {
+          "type": "banana",
+          "emoji": "🍌",
+          "count": 2
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswer": 2,
+      "answerOptions": [
+        {
+          "value": 1,
+          "label": {"en": "1", "ru": "1", "fr": "1", "it": "1", "de": "1", "am": "1", "my": "1"}
+        },
+        {
+          "value": 2,
+          "label": {"en": "2", "ru": "2", "fr": "2", "it": "2", "de": "2", "am": "2", "my": "2"}
+        },
+        {
+          "value": 3,
+          "label": {"en": "3", "ru": "3", "fr": "3", "it": "3", "de": "3", "am": "3", "my": "3"}
+        }
+      ],
+      "correctAnswerText": {
+        "en": "2",
+        "ru": "2",
+        "fr": "2",
+        "it": "2",
+        "de": "2",
+        "am": "2",
+        "my": "2"
+      },
+      "hint": {
+        "en": "Count them together: one banana, two bananas!",
+        "ru": "Посчитай вместе: один банан, два банана!",
+        "fr": "Compte-les ensemble: une banane, deux bananes!",
+        "it": "Contali insieme: una banana, due banane!",
+        "de": "Zähle sie zusammen: eine Banane, zwei Bananen!",
+        "am": "አብረን እንቁጠር: አንድ ሙዝ፣ ሁለት ሙዝ!",
+        "my": "အတူတကွ ရေတွက်ပါ: ငှက်ပျောသီး တစ်လုံး၊ ငှက်ပျောသီး နှစ်လုံး!"
+      },
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "That's right! Two bananas! One plus one equals two!",
+        "ru": "Правильно! Два банана! Один плюс один равно два!",
+        "fr": "C'est exact! Deux bananes! Un plus un égale deux!",
+        "it": "Esatto! Due banane! Uno più uno fa due!",
+        "de": "Richtig! Zwei Bananen! Eins plus eins gleich zwei!",
+        "am": "ትክክል! ሁለት ሙዝ! አንድ ሲደመር አንድ ሁለት ይሆናል!",
+        "my": "မှန်ပါတယ်! ငှက်ပျောသီး နှစ်လုံး! တစ် ပေါင်း တစ် သည် နှစ် နှင့်ညီတယ်!"
+      },
+      "animals": [
+        {
+          "type": "banana",
+          "emoji": "🍌",
+          "count": 2
+        }
+      ],
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "showOnCorrect": true,
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Look! Two apples!",
+        "ru": "Смотри! Два яблока!",
+        "fr": "Regarde! Deux pommes!",
+        "it": "Guarda! Due mele!",
+        "de": "Schau! Zwei Äpfel!",
+        "am": "ተመልከት! ሁለት ፖም!",
+        "my": "ကြည့်စမ်း! ပန်းသီး နှစ်လုံး!"
+      },
+      "animals": [
+        {
+          "type": "apple",
+          "emoji": "🍎",
+          "count": 2
+        }
+      ],
+      "tone": "lively",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "More apples are coming!",
+        "ru": "Еще яблоки идут!",
+        "fr": "D'autres pommes arrivent!",
+        "it": "Altre mele stanno arrivando!",
+        "de": "Mehr Äpfel kommen!",
+        "am": "ተጨማሪ ፖሞች እየመጡ ነው!",
+        "my": "ပန်းသီး နောက်ထပ် လာနေပြီ!"
+      },
+      "animals": [
+        {
+          "type": "apple",
+          "emoji": "🍎",
+          "count": 4
+        }
+      ],
+      "tone": "excited",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Wow! Two apples plus two apples. How many apples are there now?",
+        "ru": "Ого! Два яблока плюс два яблока. Сколько теперь яблок?",
+        "fr": "Waouh! Deux pommes plus deux pommes. Combien de pommes y a-t-il maintenant?",
+        "it": "Wow! Due mele più due mele. Quante mele ci sono adesso?",
+        "de": "Wow! Zwei Äpfel plus zwei Äpfel. Wie viele Äpfel sind es jetzt?",
+        "am": "ዋው! ሁለት ፖም ሲደመር ሁለት ፖም። አሁን ስንት ፖም አለ?",
+        "my": "ဝေါ! ပန်းသီး နှစ်လုံး ပေါင်း ပန်းသီး နှစ်လုံး။ အခု ပန်းသီး ဘယ်နှစ်လုံး ရှိလဲ?"
+      },
+      "animals": [
+        {
+          "type": "apple",
+          "emoji": "🍎",
+          "count": 4
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "orson",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswer": 4,
+      "answerOptions": [
+        {
+          "value": 2,
+          "label": {"en": "2", "ru": "2", "fr": "2", "it": "2", "de": "2", "am": "2", "my": "2"}
+        },
+        {
+          "value": 3,
+          "label": {"en": "3", "ru": "3", "fr": "3", "it": "3", "de": "3", "am": "3", "my": "3"}
+        },
+        {
+          "value": 4,
+          "label": {"en": "4", "ru": "4", "fr": "4", "it": "4", "de": "4", "am": "4", "my": "4"}
+        }
+      ],
+      "correctAnswerText": {
+        "en": "4",
+        "ru": "4",
+        "fr": "4",
+        "it": "4",
+        "de": "4",
+        "am": "4",
+        "my": "4"
+      },
+      "hint": {
+        "en": "Count them: one, two, three, four apples!",
+        "ru": "Посчитай: один, два, три, четыре яблока!",
+        "fr": "Compte-les: une, deux, trois, quatre pommes!",
+        "it": "Contali: una, due, tre, quattro mele!",
+        "de": "Zähle sie: eins, zwei, drei, vier Äpfel!",
+        "am": "ቁጠራቸው: አንድ፣ ሁለት፣ ሶስት፣ አራት ፖሞች!",
+        "my": "ရေတွက်ပါ: တစ်၊ နှစ်၊ သုံး၊ လေး ပန်းသီးတွေ!"
+      },
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Excellent! Four apples! Two plus two equals four!",
+        "ru": "Отлично! Четыре яблока! Два плюс два равно четыре!",
+        "fr": "Excellent! Quatre pommes! Deux plus deux égale quatre!",
+        "it": "Eccellente! Quattro mele! Due più due fa quattro!",
+        "de": "Ausgezeichnet! Vier Äpfel! Zwei plus zwei gleich vier!",
+        "am": "እጅግ በጣም ጥሩ! አራት ፖም! ሁለት ሲደመር ሁለት አራት ይሆናል!",
+        "my": "အရမ်းကောင်းတယ်! ပန်းသီး လေးလုံး! နှစ် ပေါင်း နှစ် သည် လေး နှင့်ညီတယ်!"
+      },
+      "animals": [
+        {
+          "type": "apple",
+          "emoji": "🍎",
+          "count": 4
+        }
+      ],
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "showOnCorrect": true,
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Oh! An orange!",
+        "ru": "О! Апельсин!",
+        "fr": "Oh! Une orange!",
+        "it": "Oh! Un'arancia!",
+        "de": "Oh! Eine Orange!",
+        "am": "ኦ! ብርቱካን!",
+        "my": "အို! လိမ္မော်သီး!"
+      },
+      "animals": [
+        {
+          "type": "orange",
+          "emoji": "🍊",
+          "count": 1
+        }
+      ],
+      "tone": "surprised",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "More oranges are here!",
+        "ru": "Еще апельсины здесь!",
+        "fr": "D'autres oranges sont là!",
+        "it": "Altre arance sono qui!",
+        "de": "Mehr Orangen sind da!",
+        "am": "ተጨማሪ ብርቱካኖች እዚህ አሉ!",
+        "my": "လိမ္မော်သီး နောက်ထပ် ရောက်လာပြီ!"
+      },
+      "animals": [
+        {
+          "type": "orange",
+          "emoji": "🍊",
+          "count": 4
+        }
+      ],
+      "tone": "cheerful",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "One orange plus three oranges. How many oranges do we have now?",
+        "ru": "Один апельсин плюс три апельсина. Сколько у нас теперь апельсинов?",
+        "fr": "Une orange plus trois oranges. Combien d'oranges avons-nous maintenant?",
+        "it": "Un'arancia più tre arance. Quante arance abbiamo adesso?",
+        "de": "Eine Orange plus drei Orangen. Wie viele Orangen haben wir jetzt?",
+        "am": "አንድ ብርቱካን ሲደመር ሶስት ብርቱካን። አሁን ስንት ብርቱካን አለን?",
+        "my": "လိမ္မော်သီး တစ်လုံး ပေါင်း လိမ္မော်သီး သုံးလုံး။ အခု လိမ္မော်သီး ဘယ်နှစ်လုံး ရှိလဲ?"
+      },
+      "animals": [
+        {
+          "type": "orange",
+          "emoji": "🍊",
+          "count": 4
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswer": 4,
+      "answerOptions": [
+        {
+          "value": 3,
+          "label": {"en": "3", "ru": "3", "fr": "3", "it": "3", "de": "3", "am": "3", "my": "3"}
+        },
+        {
+          "value": 4,
+          "label": {"en": "4", "ru": "4", "fr": "4", "it": "4", "de": "4", "am": "4", "my": "4"}
+        },
+        {
+          "value": 5,
+          "label": {"en": "5", "ru": "5", "fr": "5", "it": "5", "de": "5", "am": "5", "my": "5"}
+        }
+      ],
+      "correctAnswerText": {
+        "en": "4",
+        "ru": "4",
+        "fr": "4",
+        "it": "4",
+        "de": "4",
+        "am": "4",
+        "my": "4"
+      },
+      "hint": {
+        "en": "One orange and three more: one, two, three, four!",
+        "ru": "Один апельсин и еще три: один, два, три, четыре!",
+        "fr": "Une orange et trois de plus: un, deux, trois, quatre!",
+        "it": "Un'arancia e altre tre: uno, due, tre, quattro!",
+        "de": "Eine Orange und drei mehr: eins, zwei, drei, vier!",
+        "am": "አንድ ብርቱካን እና ሶስት ተጨማሪ: አንድ፣ ሁለት፣ ሶስት፣ አራት!",
+        "my": "လိမ္မော်သီး တစ်လုံးနဲ့ နောက်ထပ် သုံးလုံး: တစ်၊ နှစ်၊ သုံး၊ လေး!"
+      },
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Wow! Four oranges! One plus three equals four!",
+        "ru": "Вау! Четыре апельсина! Один плюс три равно четыре!",
+        "fr": "Waouh! Quatre oranges! Un plus trois égale quatre!",
+        "it": "Wow! Quattro arance! Uno più tre fa quattro!",
+        "de": "Wow! Vier Orangen! Eins plus drei gleich vier!",
+        "am": "ዋው! አራት ብርቱካን! አንድ ሲደመር ሶስት አራት ይሆናል!",
+        "my": "ဝေါ! လိမ္မော်သီး လေးလုံး! တစ် ပေါင်း သုံး သည် လေး နှင့်ညီတယ်!"
+      },
+      "animals": [
+        {
+          "type": "orange",
+          "emoji": "🍊",
+          "count": 4
+        }
+      ],
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "showOnCorrect": true,
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Look - that's the same number as the apples!",
+        "ru": "Смотри - это столько же, сколько и яблок!",
+        "fr": "Regarde - c'est le même nombre que les pommes!",
+        "it": "Guarda - è lo stesso numero delle mele!",
+        "de": "Schau - das ist die gleiche Anzahl wie bei den Äpfeln!",
+        "am": "ተመልከት - ይህ ከፖሞች ጋር ተመሳሳይ ቁጥር ነው!",
+        "my": "ကြည့်စမ်း - ပန်းသီးတွေနဲ့ အရေအတွက် တူတယ်!"
+      },
+      "animals": [
+        {
+          "type": "apple",
+          "emoji": "🍎",
+          "count": 4
+        },
+        {
+          "type": "orange",
+          "emoji": "🍊",
+          "count": 4
+        }
+      ],
+      "tone": "excited",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Four apples and four oranges! You did great adding today!",
+        "ru": "Четыре яблока и четыре апельсина! Ты отлично справился со сложением сегодня!",
+        "fr": "Quatre pommes et quatre oranges! Tu as fait de super additions aujourd'hui!",
+        "it": "Quattro mele e quattro arance! Hai fatto benissimo con le addizioni oggi!",
+        "de": "Vier Äpfel und vier Orangen! Du hast heute toll addiert!",
+        "am": "አራት ፖሞች እና አራት ብርቱካኖች! ዛሬ በመደመር ጥሩ ስራ ሰራህ!",
+        "my": "ပန်းသီး လေးလုံးနဲ့ လိမ္မော်သီး လေးလုံး! ဒီနေ့ မင်း ပေါင်းတာ အရမ်းကောင်းတယ်!"
+      },
+      "tone": "proud",
+      "animation": "anim_happy",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Now I can add fruits! Thank you, Orson!",
+        "ru": "Теперь я умею складывать фрукты! Спасибо, Орсон!",
+        "fr": "Maintenant je peux additionner les fruits! Merci, Orson!",
+        "it": "Ora so sommare i frutti! Grazie, Orson!",
+        "de": "Jetzt kann ich Früchte addieren! Danke, Orson!",
+        "am": "አሁን ፍራፍሬዎችን መደመር እችላለሁ! አመሰግናለሁ ኦርሰን!",
+        "my": "အခု ကျွန်တော် အသီးတွေ ပေါင်းနိုင်ပြီ! ကျေးဇူးတင်ပါတယ် Orson!"
+      },
+      "tone": "grateful",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "See you next time for more fruit fun!",
+        "ru": "До встречи в следующий раз! Будем играть с фруктами!",
+        "fr": "À la prochaine pour plus d'amusement avec les fruits!",
+        "it": "Ci vediamo la prossima volta per altro divertimento con la frutta!",
+        "de": "Bis zum nächsten Mal für mehr Früchte-Spaß!",
+        "am": "ተጨማሪ ፍራፍሬ ጨዋታ ለመጫወት በሚቀጥለው ጊዜ እንገናኝ!",
+        "my": "နောက်တစ်ခေါက် အသီးတွေနဲ့ ပျော်စရာ ကစားဖို့ တွေ့မယ်!"
+      },
+      "tone": "friendly",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "button",
+      "buttonTitle": {
+        "en": "Finish",
+        "ru": "Готово",
+        "fr": "Terminer",
+        "it": "Fine",
+        "de": "Fertig",
+        "am": "ጨርስ",
+        "my": "ပြီးပြီ"
+      }
+    }
+  ]
+}

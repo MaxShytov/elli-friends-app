@@ -16,6 +16,11 @@ class SeedService {
   static const List<String> _lessonFiles = [
     'assets/data/lessons/lesson_counting.json',
     'assets/data/lessons/lesson_subtraction.json',
+    'assets/data/lessons/lesson_adding_fruits.json',
+    'assets/data/lessons/lesson_colors_in_the_jungle_p1.json',
+    'assets/data/lessons/lesson_colors_in_the_jungle_p2.json',
+    'assets/data/lessons/lesson_shapes_in_the_jungle.json',
+    'assets/data/lessons/lesson_english_greetings.json',
   ];
 
   /// Characters JSON file path
@@ -158,6 +163,8 @@ class SeedService {
         isQuestion: Value(json['isQuestion'] as bool? ?? false),
         isPause: Value(json['isPause'] as bool? ?? false),
         correctAnswer: Value(json['correctAnswer'] as int?),
+        correctAnswerTextJson: Value(_encodeOrNull(json['correctAnswerText'])),
+        answerOptionsJson: Value(_encodeOrNull(json['answerOptions'])),
         waitForAnswer: Value(json['waitForAnswer'] as bool? ?? false),
         showPreviousAnimals: Value(json['showPreviousAnimals'] as bool? ?? false),
         animalsJson: Value(_encodeOrNull(json['animals'])),

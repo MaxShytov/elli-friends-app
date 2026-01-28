@@ -51,5 +51,10 @@
   "resetLessonDataConfirm": "Сбросить все данные уроков к начальным?",
   "resetSuccess": "Данные успешно сброшены",
   "cancel": "Отмена",
-  "reset": "Сбросить"
+  "reset": "Сбросить",
+  "colorsInJungleP1": "Цвета в джунглях 1",
+  "colorsInJungleP2": "Цвета в джунглях 2",
+  "shapesInJungle": "Фигуры в джунглях",
+  "addingFruits": "Сложение фруктов",
+  "englishGreetings": "Английские приветствия"
 }

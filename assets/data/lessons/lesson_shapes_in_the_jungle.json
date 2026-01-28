@@ -1,0 +1,612 @@
+{
+  "id": "shapes_in_the_jungle",
+  "title": {
+    "en": "Shapes in the Jungle",
+    "ru": "Фигуры в джунглях",
+    "fr": "Les formes dans la jungle",
+    "it": "Le forme nella giungla",
+    "de": "Formen im Dschungel",
+    "am": "በጫካ ውስጥ ቅርጾች",
+    "my": "တောတွင်းပုံသဏ္ဍာန်များ"
+  },
+  "topic": "shapes",
+  "description": {
+    "en": "Learn shapes with Orson and Hippo in the jungle",
+    "ru": "Изучаем фигуры с Орсоном и Бегемотом в джунглях",
+    "fr": "Apprendre les formes avec Orson et Hippo dans la jungle",
+    "it": "Impara le forme con Orson e Hippo nella giungla",
+    "de": "Lerne Formen mit Orson und Hippo im Dschungel",
+    "am": "በጫካ ውስጥ ከኦርሰን እና ከሂፖ ጋር ቅርጾችን ተማር",
+    "my": "တောထဲတွင် Orson နှင့် Hippo နှင့်အတူ ပုံသဏ္ဍာန်များ လေ့လာပါ"
+  },
+  "difficulty": 1,
+  "tags": ["shapes", "geometry", "jungle", "basic"],
+  "scenes": [
+    {
+      "character": "orson",
+      "duration": 2,
+      "animation": "anim_walk_front",
+      "emotion": "Happy",
+      "transitionType": "auto_timer"
+    },
+    {
+      "character": "orson",
+      "duration": 1,
+      "animation": "anim_idle",
+      "emotion": "Happy",
+      "transitionType": "auto_timer"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Hello, friends! Today, our jungle looks very strange.",
+        "ru": "Привет, друзья! Сегодня наши джунгли выглядят очень странно.",
+        "fr": "Bonjour, mes amis! Aujourd'hui, notre jungle a l'air très étrange.",
+        "it": "Ciao, amici! Oggi la nostra giungla sembra molto strana.",
+        "de": "Hallo, Freunde! Heute sieht unser Dschungel sehr seltsam aus.",
+        "am": "ሰላም ጓደኞች! ዛሬ ጫካችን በጣም እንግዳ ይመስላል።",
+        "my": "မင်္ဂလာပါ သူငယ်ချင်းများ! ဒီနေ့ ကျွန်တော်တို့ တောက ထူးဆန်းနေတယ်။"
+      },
+      "duration": 2,
+      "tone": "friendly",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "I can see shapes everywhere!",
+        "ru": "Я вижу фигуры повсюду!",
+        "fr": "Je vois des formes partout!",
+        "it": "Vedo forme ovunque!",
+        "de": "Ich sehe überall Formen!",
+        "am": "በሁሉም ቦታ ቅርጾችን አያለሁ!",
+        "my": "ပုံသဏ္ဍာန်တွေ နေရာတိုင်းမှာ မြင်နေရတယ်!"
+      },
+      "tone": "excited",
+      "animation": "anim_happy",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "hippo",
+      "dialogue": {
+        "en": "Really? Shapes? Let's look around!",
+        "ru": "Правда? Фигуры? Давай осмотримся!",
+        "fr": "Vraiment? Des formes? Regardons autour de nous!",
+        "it": "Davvero? Forme? Guardiamoci intorno!",
+        "de": "Wirklich? Formen? Lass uns uns umschauen!",
+        "am": "በእውነት? ቅርጾች? ዙሪያውን እንይ!",
+        "my": "တကယ်လား? ပုံသဏ္ဍာန်တွေလား? ပတ်ဝန်းကျင်ကို ကြည့်ကြစို့!"
+      },
+      "tone": "excited",
+      "animation": "anim_happy",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "hippo",
+      "dialogue": {
+        "en": "Oh! What is this?",
+        "ru": "Ой! Что это?",
+        "fr": "Oh! Qu'est-ce que c'est?",
+        "it": "Oh! Cos'è questo?",
+        "de": "Oh! Was ist das?",
+        "am": "ኦ! ይህ ምንድን ነው?",
+        "my": "အို့! ဒါက ဘာလဲ?"
+      },
+      "animals": [
+        {
+          "type": "shape",
+          "emoji": "🟥",
+          "count": 1
+        }
+      ],
+      "tone": "curious",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Can you tell me what shape you see?",
+        "ru": "Можешь сказать, какую фигуру ты видишь?",
+        "fr": "Peux-tu me dire quelle forme tu vois?",
+        "it": "Puoi dirmi che forma vedi?",
+        "de": "Kannst du mir sagen, welche Form du siehst?",
+        "am": "ምን ቅርጽ እንደምታየው ልትነግረኝ ትችላለህ?",
+        "my": "ဘာပုံသဏ္ဍာန် မြင်လဲဆိုတာ ပြောပြနိုင်မလား?"
+      },
+      "animals": [
+        {
+          "type": "shape",
+          "emoji": "🟥",
+          "count": 1
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Happy",
+      "isQuestion": true,
+      "correctAnswerText": {
+        "en": "square",
+        "ru": "квадрат",
+        "fr": "carré",
+        "it": "quadrato",
+        "de": "quadrat",
+        "am": "ካሬ",
+        "my": "စတုရန်း"
+      },
+      "answerOptions": [
+        {
+          "value": "square",
+          "label": {
+            "en": "Square",
+            "ru": "Квадрат",
+            "fr": "Carré",
+            "it": "Quadrato",
+            "de": "Quadrat",
+            "am": "ካሬ",
+            "my": "စတုရန်း"
+          }
+        },
+        {
+          "value": "circle",
+          "label": {
+            "en": "Circle",
+            "ru": "Круг",
+            "fr": "Cercle",
+            "it": "Cerchio",
+            "de": "Kreis",
+            "am": "ክብ",
+            "my": "စက်ဝိုင်း"
+          }
+        },
+        {
+          "value": "triangle",
+          "label": {
+            "en": "Triangle",
+            "ru": "Треугольник",
+            "fr": "Triangle",
+            "it": "Triangolo",
+            "de": "Dreieck",
+            "am": "ሶስት ማዕዘን",
+            "my": "တြိဂံ"
+          }
+        }
+      ],
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "That's right! It's a square!",
+        "ru": "Правильно! Это квадрат!",
+        "fr": "C'est exact! C'est un carré!",
+        "it": "Esatto! È un quadrato!",
+        "de": "Richtig! Das ist ein Quadrat!",
+        "am": "ትክክል! ካሬ ነው!",
+        "my": "မှန်ပါတယ်! စတုရန်းပါ!"
+      },
+      "animals": [
+        {
+          "type": "shape",
+          "emoji": "🟥",
+          "count": 1
+        }
+      ],
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "hippo",
+      "dialogue": {
+        "en": "Wow, it moves so fast!",
+        "ru": "Ого, оно так быстро двигается!",
+        "fr": "Waouh, ça bouge si vite!",
+        "it": "Wow, si muove così veloce!",
+        "de": "Wow, es bewegt sich so schnell!",
+        "am": "ዋው፣ በጣም በፍጥነት ይንቀሳቀሳል!",
+        "my": "ဝူး၊ အရမ်းမြန်တယ်!"
+      },
+      "animals": [
+        {
+          "type": "shape",
+          "emoji": "🔵",
+          "count": 1
+        }
+      ],
+      "tone": "playful",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Do you remember what shape this is?",
+        "ru": "Помнишь, какая это фигура?",
+        "fr": "Tu te souviens de quelle forme c'est?",
+        "it": "Ti ricordi che forma è questa?",
+        "de": "Erinnerst du dich, welche Form das ist?",
+        "am": "ይህ ምን ቅርጽ እንደሆነ ታስታውሳለህ?",
+        "my": "ဒါ ဘာပုံသဏ္ဍာန်လဲဆိုတာ မှတ်မိသေးလား?"
+      },
+      "animals": [
+        {
+          "type": "shape",
+          "emoji": "🔵",
+          "count": 1
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "hippo",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswerText": {
+        "en": "circle",
+        "ru": "круг",
+        "fr": "cercle",
+        "it": "cerchio",
+        "de": "kreis",
+        "am": "ክብ",
+        "my": "စက်ဝိုင်း"
+      },
+      "answerOptions": [
+        {
+          "value": "square",
+          "label": {
+            "en": "Square",
+            "ru": "Квадрат",
+            "fr": "Carré",
+            "it": "Quadrato",
+            "de": "Quadrat",
+            "am": "ካሬ",
+            "my": "စတုရန်း"
+          }
+        },
+        {
+          "value": "circle",
+          "label": {
+            "en": "Circle",
+            "ru": "Круг",
+            "fr": "Cercle",
+            "it": "Cerchio",
+            "de": "Kreis",
+            "am": "ክብ",
+            "my": "စက်ဝိုင်း"
+          }
+        },
+        {
+          "value": "triangle",
+          "label": {
+            "en": "Triangle",
+            "ru": "Треугольник",
+            "fr": "Triangle",
+            "it": "Triangolo",
+            "de": "Dreieck",
+            "am": "ሶስት ማዕዘን",
+            "my": "တြိဂံ"
+          }
+        }
+      ],
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Yes! It's a circle!",
+        "ru": "Да! Это круг!",
+        "fr": "Oui! C'est un cercle!",
+        "it": "Sì! È un cerchio!",
+        "de": "Ja! Das ist ein Kreis!",
+        "am": "አዎ! ክብ ነው!",
+        "my": "ဟုတ်တယ်! စက်ဝိုင်းပါ!"
+      },
+      "animals": [
+        {
+          "type": "shape",
+          "emoji": "🔵",
+          "count": 1
+        }
+      ],
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "hippo",
+      "dialogue": {
+        "en": "Look! Another shape is here!",
+        "ru": "Смотри! Ещё одна фигура!",
+        "fr": "Regarde! Une autre forme est là!",
+        "it": "Guarda! Un'altra forma è qui!",
+        "de": "Schau! Eine andere Form ist hier!",
+        "am": "ተመልከት! ሌላ ቅርጽ እዚህ አለ!",
+        "my": "ကြည့်စမ်း! နောက်ထပ် ပုံသဏ္ဍာန်တစ်ခု ရှိတယ်!"
+      },
+      "animals": [
+        {
+          "type": "shape",
+          "emoji": "🔺",
+          "count": 1
+        }
+      ],
+      "tone": "surprised",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "What shape can you spot here?",
+        "ru": "Какую фигуру ты здесь видишь?",
+        "fr": "Quelle forme peux-tu voir ici?",
+        "it": "Che forma riesci a vedere qui?",
+        "de": "Welche Form kannst du hier erkennen?",
+        "am": "እዚህ ምን ቅርጽ ማየት ትችላለህ?",
+        "my": "ဒီမှာ ဘာပုံသဏ္ဍာန် မြင်လဲ?"
+      },
+      "animals": [
+        {
+          "type": "shape",
+          "emoji": "🔺",
+          "count": 1
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Happy",
+      "isQuestion": true,
+      "correctAnswerText": {
+        "en": "triangle",
+        "ru": "треугольник",
+        "fr": "triangle",
+        "it": "triangolo",
+        "de": "dreieck",
+        "am": "ሶስት ማዕዘን",
+        "my": "တြိဂံ"
+      },
+      "answerOptions": [
+        {
+          "value": "square",
+          "label": {
+            "en": "Square",
+            "ru": "Квадрат",
+            "fr": "Carré",
+            "it": "Quadrato",
+            "de": "Quadrat",
+            "am": "ካሬ",
+            "my": "စတုရန်း"
+          }
+        },
+        {
+          "value": "circle",
+          "label": {
+            "en": "Circle",
+            "ru": "Круг",
+            "fr": "Cercle",
+            "it": "Cerchio",
+            "de": "Kreis",
+            "am": "ክብ",
+            "my": "စက်ဝိုင်း"
+          }
+        },
+        {
+          "value": "triangle",
+          "label": {
+            "en": "Triangle",
+            "ru": "Треугольник",
+            "fr": "Triangle",
+            "it": "Triangolo",
+            "de": "Dreieck",
+            "am": "ሶስት ማዕዘን",
+            "my": "တြိဂံ"
+          }
+        }
+      ],
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Wonderful! It's a triangle!",
+        "ru": "Замечательно! Это треугольник!",
+        "fr": "Merveilleux! C'est un triangle!",
+        "it": "Meraviglioso! È un triangolo!",
+        "de": "Wunderbar! Das ist ein Dreieck!",
+        "am": "አስደናቂ! ሶስት ማዕዘን ነው!",
+        "my": "အံ့သြစရာ! တြိဂံပါ!"
+      },
+      "animals": [
+        {
+          "type": "shape",
+          "emoji": "🔺",
+          "count": 1
+        }
+      ],
+      "tone": "proud",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "hippo",
+      "dialogue": {
+        "en": "Oh! I thought it was a square, but look! It changed!",
+        "ru": "Ой! Я думал это квадрат, но смотри! Он изменился!",
+        "fr": "Oh! Je pensais que c'était un carré, mais regarde! Il a changé!",
+        "it": "Oh! Pensavo fosse un quadrato, ma guarda! È cambiato!",
+        "de": "Oh! Ich dachte es wäre ein Quadrat, aber schau! Es hat sich verändert!",
+        "am": "ኦ! ካሬ መሰለኝ፣ ግን ተመልከት! ተቀየረ!",
+        "my": "အို့! စတုရန်းလို့ ထင်ခဲ့တယ်၊ ဒါပေမယ့် ကြည့်စမ်း! ပြောင်းသွားတယ်!"
+      },
+      "animals": [
+        {
+          "type": "shape",
+          "emoji": "🟩",
+          "count": 1
+        }
+      ],
+      "tone": "surprised",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "What shape is it now?",
+        "ru": "Какая это теперь фигура?",
+        "fr": "Quelle forme est-ce maintenant?",
+        "it": "Che forma è adesso?",
+        "de": "Welche Form ist es jetzt?",
+        "am": "አሁን ምን ቅርጽ ነው?",
+        "my": "အခု ဘာပုံသဏ္ဍာန်လဲ?"
+      },
+      "animals": [
+        {
+          "type": "shape",
+          "emoji": "🟩",
+          "count": 1
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "hippo",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswerText": {
+        "en": "rectangle",
+        "ru": "прямоугольник",
+        "fr": "rectangle",
+        "it": "rettangolo",
+        "de": "rechteck",
+        "am": "አራት ማዕዘን",
+        "my": "ထောင့်မှန်စတုဂံ"
+      },
+      "answerOptions": [
+        {
+          "value": "triangle",
+          "label": {
+            "en": "Triangle",
+            "ru": "Треугольник",
+            "fr": "Triangle",
+            "it": "Triangolo",
+            "de": "Dreieck",
+            "am": "ሶስት ማዕዘን",
+            "my": "တြိဂံ"
+          }
+        },
+        {
+          "value": "square",
+          "label": {
+            "en": "Square",
+            "ru": "Квадрат",
+            "fr": "Carré",
+            "it": "Quadrato",
+            "de": "Quadrat",
+            "am": "ካሬ",
+            "my": "စတုရန်း"
+          }
+        },
+        {
+          "value": "rectangle",
+          "label": {
+            "en": "Rectangle",
+            "ru": "Прямоугольник",
+            "fr": "Rectangle",
+            "it": "Rettangolo",
+            "de": "Rechteck",
+            "am": "አራት ማዕዘን",
+            "my": "ထောင့်မှန်စတုဂံ"
+          }
+        }
+      ],
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Perfect! It's a rectangle!",
+        "ru": "Отлично! Это прямоугольник!",
+        "fr": "Parfait! C'est un rectangle!",
+        "it": "Perfetto! È un rettangolo!",
+        "de": "Perfekt! Das ist ein Rechteck!",
+        "am": "ፍጹም! አራት ማዕዘን ነው!",
+        "my": "ပြီးပြည့်စုံတယ်! ထောင့်မှန်စတုဂံပါ!"
+      },
+      "animals": [
+        {
+          "type": "shape",
+          "emoji": "🟩",
+          "count": 1
+        }
+      ],
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Wow! We found so many shapes today!",
+        "ru": "Ого! Мы нашли сегодня так много фигур!",
+        "fr": "Waouh! Nous avons trouvé tellement de formes aujourd'hui!",
+        "it": "Wow! Abbiamo trovato tante forme oggi!",
+        "de": "Wow! Wir haben heute so viele Formen gefunden!",
+        "am": "ዋው! ዛሬ ብዙ ቅርጾችን አገኘን!",
+        "my": "ဝူး! ဒီနေ့ ပုံသဏ္ဍာန်တွေ အများကြီး တွေ့တယ်!"
+      },
+      "tone": "warm",
+      "animation": "anim_happy",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "hippo",
+      "dialogue": {
+        "en": "Great job, everyone! That was fun!",
+        "ru": "Отличная работа! Это было весело!",
+        "fr": "Bon travail, tout le monde! C'était amusant!",
+        "it": "Ottimo lavoro a tutti! È stato divertente!",
+        "de": "Gut gemacht, alle! Das hat Spaß gemacht!",
+        "am": "በጣም ጥሩ ስራ ሁሉም! አስደሳች ነበር!",
+        "my": "အားလုံး ကောင်းလိုက်တာ! ပျော်စရာကောင်းတယ်!"
+      },
+      "tone": "cheerful",
+      "animation": "anim_happy",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "See you next time, my friends!",
+        "ru": "До встречи, друзья!",
+        "fr": "À la prochaine, mes amis!",
+        "it": "Ci vediamo la prossima volta, amici miei!",
+        "de": "Bis zum nächsten Mal, meine Freunde!",
+        "am": "በሚቀጥለው ጊዜ እንገናኛለን ጓደኞቼ!",
+        "my": "နောက်တစ်ခေါက် တွေ့မယ် သူငယ်ချင်းများ!"
+      },
+      "tone": "friendly",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "button",
+      "buttonTitle": {
+        "en": "Finish",
+        "ru": "Готово",
+        "fr": "Terminer",
+        "it": "Fine",
+        "de": "Fertig",
+        "am": "ጨርስ",
+        "my": "ပြီးပြီ"
+      }
+    }
+  ]
+}
