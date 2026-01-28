@@ -45,5 +45,10 @@
   "difficultyHard": "ခက်ခဲ",
   "difficultyLevel": "အဆင့် {level}",
   "orsonGreeting": "မင်္ဂလာပါ၊ ကျွန်တော် ခရမ်းရောင် ကြောင် Orson ပါ",
-  "mervGreeting": "မင်္ဂလာပါ၊ ကျွန်တော် အဝါရောင် ခွေး Merv ပါ"
+  "mervGreeting": "မင်္ဂလာပါ၊ ကျွန်တော် အဝါရောင် ခွေး Merv ပါ",
+  "colorsInJungleP1": "တောတွင်း အရောင်များ ၁",
+  "colorsInJungleP2": "တောတွင်း အရောင်များ ၂",
+  "shapesInJungle": "တောတွင်း ပုံသဏ္ဍာန်များ",
+  "addingFruits": "အသီးများ ပေါင်းခြင်း",
+  "englishGreetings": "အင်္ဂလိပ် နှုတ်ဆက်စကားများ"
 }

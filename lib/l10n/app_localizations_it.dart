@@ -172,4 +172,19 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get reset => 'Reset';
+
+  @override
+  String get colorsInJungleP1 => 'I colori nella giungla 1';
+
+  @override
+  String get colorsInJungleP2 => 'I colori nella giungla 2';
+
+  @override
+  String get shapesInJungle => 'Le forme nella giungla';
+
+  @override
+  String get addingFruits => 'Addizione di frutta';
+
+  @override
+  String get englishGreetings => 'Saluti in inglese';
 }

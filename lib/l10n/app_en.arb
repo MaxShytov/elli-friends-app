@@ -231,5 +231,25 @@
   "reset": "Reset",
   "@reset": {
     "description": "Reset button label"
+  },
+  "colorsInJungleP1": "Colors in the Jungle 1",
+  "@colorsInJungleP1": {
+    "description": "Activity title for colors in the jungle part 1 lesson"
+  },
+  "colorsInJungleP2": "Colors in the Jungle 2",
+  "@colorsInJungleP2": {
+    "description": "Activity title for colors in the jungle part 2 lesson"
+  },
+  "shapesInJungle": "Shapes in the Jungle",
+  "@shapesInJungle": {
+    "description": "Activity title for shapes in the jungle lesson"
+  },
+  "addingFruits": "Adding Fruits",
+  "@addingFruits": {
+    "description": "Activity title for adding fruits lesson"
+  },
+  "englishGreetings": "English Greetings",
+  "@englishGreetings": {
+    "description": "Activity title for English greetings lesson"
   }
 }

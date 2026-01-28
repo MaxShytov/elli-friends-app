@@ -51,5 +51,10 @@
   "resetLessonDataConfirm": "ሁሉንም የትምህርት መረጃ ወደ ነባሪ ዳግም ያስጀምር?",
   "resetSuccess": "መረጃ በተሳካ ሁኔታ ዳግም ተጀምሯል",
   "cancel": "ሰርዝ",
-  "reset": "ዳግም አስጀምር"
+  "reset": "ዳግም አስጀምር",
+  "colorsInJungleP1": "በጫካ ውስጥ ቀለሞች 1",
+  "colorsInJungleP2": "በጫካ ውስጥ ቀለሞች 2",
+  "shapesInJungle": "በጫካ ውስጥ ቅርጾች",
+  "addingFruits": "ፍራፍሬዎችን መደመር",
+  "englishGreetings": "የእንግሊዝኛ ሰላምታዎች"
 }

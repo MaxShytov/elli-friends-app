@@ -1,0 +1,755 @@
+{
+  "id": "colors_in_the_jungle_p1",
+  "title": {
+    "en": "Colors in the Jungle - Part 1",
+    "ru": "Цвета в джунглях - Часть 1",
+    "fr": "Les couleurs dans la jungle - Partie 1",
+    "it": "I colori nella giungla - Parte 1",
+    "de": "Farben im Dschungel - Teil 1",
+    "am": "በጫካ ውስጥ ቀለሞች - ክፍል 1",
+    "my": "တောတွင်းအရောင်များ - အပိုင်း ၁"
+  },
+  "topic": "colors",
+  "description": {
+    "en": "Learn basic colors with Orson and Merv exploring the jungle",
+    "ru": "Изучаем базовые цвета с Орсоном и Мервом, исследуя джунгли",
+    "fr": "Apprendre les couleurs de base avec Orson et Merv en explorant la jungle",
+    "it": "Impara i colori base con Orson e Merv esplorando la giungla",
+    "de": "Lerne Grundfarben mit Orson und Merv beim Erkunden des Dschungels",
+    "am": "ከኦርሰን እና ከሜርቭ ጋር ጫካውን እየዳሰሱ መሰረታዊ ቀለሞችን ተማር",
+    "my": "Orson နှင့် Merv နှင့်အတူ တောကို လှည့်လည်ရင်း အခြေခံအရောင်များ လေ့လာပါ"
+  },
+  "difficulty": 1,
+  "tags": ["colors", "nature", "jungle", "basic"],
+  "scenes": [
+    {
+      "character": "orson",
+      "duration": 2,
+      "animation": "anim_walk_front",
+      "emotion": "Happy",
+      "transitionType": "auto_timer"
+    },
+    {
+      "character": "orson",
+      "duration": 1,
+      "animation": "anim_idle",
+      "emotion": "Happy",
+      "transitionType": "auto_timer"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Hello again, my friends!",
+        "ru": "Привет ещё раз, мои друзья!",
+        "fr": "Bonjour encore, mes amis!",
+        "it": "Ciao di nuovo, amici miei!",
+        "de": "Hallo nochmal, meine Freunde!",
+        "am": "እንደገና ሰላም ጓደኞቼ!",
+        "my": "နောက်တစ်ခေါက် မင်္ဂလာပါ သူငယ်ချင်းများ!"
+      },
+      "duration": 2,
+      "tone": "friendly",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Today, our jungle is full of colours!",
+        "ru": "Сегодня наши джунгли полны цветов!",
+        "fr": "Aujourd'hui, notre jungle est pleine de couleurs!",
+        "it": "Oggi la nostra giungla è piena di colori!",
+        "de": "Heute ist unser Dschungel voller Farben!",
+        "am": "ዛሬ ጫካችን በቀለማት ተሞልቷል!",
+        "my": "ဒီနေ့ ကျွန်တော်တို့ တောက အရောင်တွေ အပြည့်ပဲ!"
+      },
+      "tone": "excited",
+      "animation": "anim_happy",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Oh! I love colours! Let's look around!",
+        "ru": "О! Я обожаю цвета! Давай осмотримся!",
+        "fr": "Oh! J'adore les couleurs! Regardons autour de nous!",
+        "it": "Oh! Adoro i colori! Guardiamoci intorno!",
+        "de": "Oh! Ich liebe Farben! Lass uns uns umschauen!",
+        "am": "ኦ! ቀለማትን እወዳለሁ! ዙሪያውን እንይ!",
+        "my": "အို့! ကျွန်တော် အရောင်တွေ ကြိုက်တယ်! ပတ်ဝန်းကျင်ကို ကြည့်ကြစို့!"
+      },
+      "tone": "excited",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Look! A leaf is falling!",
+        "ru": "Смотри! Листик падает!",
+        "fr": "Regarde! Une feuille tombe!",
+        "it": "Guarda! Una foglia sta cadendo!",
+        "de": "Schau! Ein Blatt fällt!",
+        "am": "ተመልከት! ቅጠል እየወደቀ ነው!",
+        "my": "ကြည့်စမ်း! အရွက်တစ်ရွက် ကျနေတယ်!"
+      },
+      "animals": [
+        {
+          "type": "leaf",
+          "emoji": "🍃",
+          "count": 1
+        }
+      ],
+      "tone": "surprised",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "What colour is the leaf?",
+        "ru": "Какого цвета этот листик?",
+        "fr": "De quelle couleur est la feuille?",
+        "it": "Di che colore è la foglia?",
+        "de": "Welche Farbe hat das Blatt?",
+        "am": "ቅጠሉ ምን ቀለም ነው?",
+        "my": "အရွက်က ဘာအရောင်လဲ?"
+      },
+      "animals": [
+        {
+          "type": "leaf",
+          "emoji": "🍃",
+          "count": 1
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Happy",
+      "isQuestion": true,
+      "correctAnswerText": {
+        "en": "green",
+        "ru": "зелёный",
+        "fr": "vert",
+        "it": "verde",
+        "de": "grün",
+        "am": "አረንጓዴ",
+        "my": "အစိမ်းရောင်"
+      },
+      "answerOptions": [
+        {
+          "value": "green",
+          "label": {
+            "en": "Green",
+            "ru": "Зелёный",
+            "fr": "Vert",
+            "it": "Verde",
+            "de": "Grün",
+            "am": "አረንጓዴ",
+            "my": "အစိမ်းရောင်"
+          }
+        },
+        {
+          "value": "blue",
+          "label": {
+            "en": "Blue",
+            "ru": "Синий",
+            "fr": "Bleu",
+            "it": "Blu",
+            "de": "Blau",
+            "am": "ሰማያዊ",
+            "my": "အပြာရောင်"
+          }
+        },
+        {
+          "value": "red",
+          "label": {
+            "en": "Red",
+            "ru": "Красный",
+            "fr": "Rouge",
+            "it": "Rosso",
+            "de": "Rot",
+            "am": "ቀይ",
+            "my": "အနီရောင်"
+          }
+        }
+      ],
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "That's right! The leaf is green!",
+        "ru": "Правильно! Листик зелёный!",
+        "fr": "C'est exact! La feuille est verte!",
+        "it": "Esatto! La foglia è verde!",
+        "de": "Richtig! Das Blatt ist grün!",
+        "am": "ትክክል! ቅጠሉ አረንጓዴ ነው!",
+        "my": "မှန်ပါတယ်! အရွက်က အစိမ်းရောင်ပါ!"
+      },
+      "animals": [
+        {
+          "type": "leaf",
+          "emoji": "🍃",
+          "count": 1
+        }
+      ],
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Oh! A butterfly!",
+        "ru": "О! Бабочка!",
+        "fr": "Oh! Un papillon!",
+        "it": "Oh! Una farfalla!",
+        "de": "Oh! Ein Schmetterling!",
+        "am": "ኦ! ቢራቢሮ!",
+        "my": "အို့! လိပ်ပြာ!"
+      },
+      "animals": [
+        {
+          "type": "butterfly",
+          "emoji": "🦋",
+          "count": 1
+        }
+      ],
+      "tone": "excited",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "What colour is the butterfly?",
+        "ru": "Какого цвета бабочка?",
+        "fr": "De quelle couleur est le papillon?",
+        "it": "Di che colore è la farfalla?",
+        "de": "Welche Farbe hat der Schmetterling?",
+        "am": "ቢራቢሮው ምን ቀለም ነው?",
+        "my": "လိပ်ပြာက ဘာအရောင်လဲ?"
+      },
+      "animals": [
+        {
+          "type": "butterfly",
+          "emoji": "🦋",
+          "count": 1
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswerText": {
+        "en": "blue",
+        "ru": "синий",
+        "fr": "bleu",
+        "it": "blu",
+        "de": "blau",
+        "am": "ሰማያዊ",
+        "my": "အပြာရောင်"
+      },
+      "answerOptions": [
+        {
+          "value": "green",
+          "label": {
+            "en": "Green",
+            "ru": "Зелёный",
+            "fr": "Vert",
+            "it": "Verde",
+            "de": "Grün",
+            "am": "አረንጓዴ",
+            "my": "အစိမ်းရောင်"
+          }
+        },
+        {
+          "value": "blue",
+          "label": {
+            "en": "Blue",
+            "ru": "Синий",
+            "fr": "Bleu",
+            "it": "Blu",
+            "de": "Blau",
+            "am": "ሰማያዊ",
+            "my": "အပြာရောင်"
+          }
+        },
+        {
+          "value": "yellow",
+          "label": {
+            "en": "Yellow",
+            "ru": "Жёлтый",
+            "fr": "Jaune",
+            "it": "Giallo",
+            "de": "Gelb",
+            "am": "ቢጫ",
+            "my": "အဝါရောင်"
+          }
+        }
+      ],
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Yes! The butterfly is blue! So beautiful!",
+        "ru": "Да! Бабочка синяя! Какая красивая!",
+        "fr": "Oui! Le papillon est bleu! Si beau!",
+        "it": "Sì! La farfalla è blu! Così bella!",
+        "de": "Ja! Der Schmetterling ist blau! So schön!",
+        "am": "አዎ! ቢራቢሮው ሰማያዊ ነው! በጣም ቆንጆ!",
+        "my": "ဟုတ်တယ်! လိပ်ပြာက အပြာရောင်ပါ! အရမ်းလှတယ်!"
+      },
+      "animals": [
+        {
+          "type": "butterfly",
+          "emoji": "🦋",
+          "count": 1
+        }
+      ],
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Look! A banana fell down!",
+        "ru": "Смотри! Банан упал!",
+        "fr": "Regarde! Une banane est tombée!",
+        "it": "Guarda! Una banana è caduta!",
+        "de": "Schau! Eine Banane ist runtergefallen!",
+        "am": "ተመልከት! ሙዝ ወደቀ!",
+        "my": "ကြည့်စမ်း! ငှက်ပျောသီး ကျသွားတယ်!"
+      },
+      "animals": [
+        {
+          "type": "banana",
+          "emoji": "🍌",
+          "count": 1
+        }
+      ],
+      "tone": "excited",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "What colour is the banana?",
+        "ru": "Какого цвета банан?",
+        "fr": "De quelle couleur est la banane?",
+        "it": "Di che colore è la banana?",
+        "de": "Welche Farbe hat die Banane?",
+        "am": "ሙዙ ምን ቀለም ነው?",
+        "my": "ငှက်ပျောသီးက ဘာအရောင်လဲ?"
+      },
+      "animals": [
+        {
+          "type": "banana",
+          "emoji": "🍌",
+          "count": 1
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswerText": {
+        "en": "yellow",
+        "ru": "жёлтый",
+        "fr": "jaune",
+        "it": "giallo",
+        "de": "gelb",
+        "am": "ቢጫ",
+        "my": "အဝါရောင်"
+      },
+      "answerOptions": [
+        {
+          "value": "yellow",
+          "label": {
+            "en": "Yellow",
+            "ru": "Жёлтый",
+            "fr": "Jaune",
+            "it": "Giallo",
+            "de": "Gelb",
+            "am": "ቢጫ",
+            "my": "အဝါရောင်"
+          }
+        },
+        {
+          "value": "green",
+          "label": {
+            "en": "Green",
+            "ru": "Зелёный",
+            "fr": "Vert",
+            "it": "Verde",
+            "de": "Grün",
+            "am": "አረንጓዴ",
+            "my": "အစိမ်းရောင်"
+          }
+        },
+        {
+          "value": "red",
+          "label": {
+            "en": "Red",
+            "ru": "Красный",
+            "fr": "Rouge",
+            "it": "Rosso",
+            "de": "Rot",
+            "am": "ቀይ",
+            "my": "အနီရောင်"
+          }
+        }
+      ],
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Excellent! The banana is yellow!",
+        "ru": "Отлично! Банан жёлтый!",
+        "fr": "Excellent! La banane est jaune!",
+        "it": "Eccellente! La banana è gialla!",
+        "de": "Ausgezeichnet! Die Banane ist gelb!",
+        "am": "እጅግ በጣም ጥሩ! ሙዙ ቢጫ ነው!",
+        "my": "အရမ်းကောင်းတယ်! ငှက်ပျောသီးက အဝါရောင်ပါ!"
+      },
+      "animals": [
+        {
+          "type": "banana",
+          "emoji": "🍌",
+          "count": 1
+        }
+      ],
+      "tone": "proud",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "A flower!",
+        "ru": "Цветок!",
+        "fr": "Une fleur!",
+        "it": "Un fiore!",
+        "de": "Eine Blume!",
+        "am": "አበባ!",
+        "my": "ပန်းပွင့်!"
+      },
+      "animals": [
+        {
+          "type": "flower",
+          "emoji": "🌻",
+          "count": 1
+        }
+      ],
+      "tone": "delighted",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Look — it has the same colour as the banana!",
+        "ru": "Смотри — у него такой же цвет как у банана!",
+        "fr": "Regarde — elle a la même couleur que la banane!",
+        "it": "Guarda — ha lo stesso colore della banana!",
+        "de": "Schau — sie hat dieselbe Farbe wie die Banane!",
+        "am": "ተመልከት — ከሙዙ ጋር ተመሳሳይ ቀለም አለው!",
+        "my": "ကြည့်စမ်း — ငှက်ပျောသီးနဲ့ အရောင်တူတယ်!"
+      },
+      "animals": [
+        {
+          "type": "flower",
+          "emoji": "🌻",
+          "count": 1
+        }
+      ],
+      "tone": "excited",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "What colour is the flower?",
+        "ru": "Какого цвета цветок?",
+        "fr": "De quelle couleur est la fleur?",
+        "it": "Di che colore è il fiore?",
+        "de": "Welche Farbe hat die Blume?",
+        "am": "አበባው ምን ቀለም ነው?",
+        "my": "ပန်းပွင့်က ဘာအရောင်လဲ?"
+      },
+      "animals": [
+        {
+          "type": "flower",
+          "emoji": "🌻",
+          "count": 1
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswerText": {
+        "en": "yellow",
+        "ru": "жёлтый",
+        "fr": "jaune",
+        "it": "giallo",
+        "de": "gelb",
+        "am": "ቢጫ",
+        "my": "အဝါရောင်"
+      },
+      "answerOptions": [
+        {
+          "value": "blue",
+          "label": {
+            "en": "Blue",
+            "ru": "Синий",
+            "fr": "Bleu",
+            "it": "Blu",
+            "de": "Blau",
+            "am": "ሰማያዊ",
+            "my": "အပြာရောင်"
+          }
+        },
+        {
+          "value": "yellow",
+          "label": {
+            "en": "Yellow",
+            "ru": "Жёлтый",
+            "fr": "Jaune",
+            "it": "Giallo",
+            "de": "Gelb",
+            "am": "ቢጫ",
+            "my": "အဝါရောင်"
+          }
+        },
+        {
+          "value": "red",
+          "label": {
+            "en": "Red",
+            "ru": "Красный",
+            "fr": "Rouge",
+            "it": "Rosso",
+            "de": "Rot",
+            "am": "ቀይ",
+            "my": "အနီရောင်"
+          }
+        }
+      ],
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Perfect! The flower is yellow too!",
+        "ru": "Отлично! Цветок тоже жёлтый!",
+        "fr": "Parfait! La fleur est jaune aussi!",
+        "it": "Perfetto! Anche il fiore è giallo!",
+        "de": "Perfekt! Die Blume ist auch gelb!",
+        "am": "ፍጹም! አበባውም ቢጫ ነው!",
+        "my": "ပြီးပြည့်စုံတယ်! ပန်းပွင့်လည်း အဝါရောင်ပါပဲ!"
+      },
+      "animals": [
+        {
+          "type": "flower",
+          "emoji": "🌻",
+          "count": 1
+        }
+      ],
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Oh! An apple fell from the tree!",
+        "ru": "О! Яблоко упало с дерева!",
+        "fr": "Oh! Une pomme est tombée de l'arbre!",
+        "it": "Oh! Una mela è caduta dall'albero!",
+        "de": "Oh! Ein Apfel ist vom Baum gefallen!",
+        "am": "ኦ! ፖም ከዛፉ ላይ ወደቀ!",
+        "my": "အို့! ပန်းသီး သစ်ပင်ပေါ်က ကျသွားတယ်!"
+      },
+      "animals": [
+        {
+          "type": "apple",
+          "emoji": "🍎",
+          "count": 1
+        }
+      ],
+      "tone": "surprised",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "What colour is the apple?",
+        "ru": "Какого цвета яблоко?",
+        "fr": "De quelle couleur est la pomme?",
+        "it": "Di che colore è la mela?",
+        "de": "Welche Farbe hat der Apfel?",
+        "am": "ፖሙ ምን ቀለም ነው?",
+        "my": "ပန်းသီးက ဘာအရောင်လဲ?"
+      },
+      "animals": [
+        {
+          "type": "apple",
+          "emoji": "🍎",
+          "count": 1
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswerText": {
+        "en": "red",
+        "ru": "красный",
+        "fr": "rouge",
+        "it": "rosso",
+        "de": "rot",
+        "am": "ቀይ",
+        "my": "အနီရောင်"
+      },
+      "answerOptions": [
+        {
+          "value": "yellow",
+          "label": {
+            "en": "Yellow",
+            "ru": "Жёлтый",
+            "fr": "Jaune",
+            "it": "Giallo",
+            "de": "Gelb",
+            "am": "ቢጫ",
+            "my": "အဝါရောင်"
+          }
+        },
+        {
+          "value": "green",
+          "label": {
+            "en": "Green",
+            "ru": "Зелёный",
+            "fr": "Vert",
+            "it": "Verde",
+            "de": "Grün",
+            "am": "አረንጓዴ",
+            "my": "အစိမ်းရောင်"
+          }
+        },
+        {
+          "value": "red",
+          "label": {
+            "en": "Red",
+            "ru": "Красный",
+            "fr": "Rouge",
+            "it": "Rosso",
+            "de": "Rot",
+            "am": "ቀይ",
+            "my": "အနီရောင်"
+          }
+        }
+      ],
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Amazing! The apple is red!",
+        "ru": "Потрясающе! Яблоко красное!",
+        "fr": "Incroyable! La pomme est rouge!",
+        "it": "Fantastico! La mela è rossa!",
+        "de": "Erstaunlich! Der Apfel ist rot!",
+        "am": "አስደናቂ! ፖሙ ቀይ ነው!",
+        "my": "အံ့သြစရာ! ပန်းသီးက အနီရောင်ပါ!"
+      },
+      "animals": [
+        {
+          "type": "apple",
+          "emoji": "🍎",
+          "count": 1
+        }
+      ],
+      "tone": "proud",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "So many colours in our jungle today!",
+        "ru": "Сколько много цветов в наших джунглях сегодня!",
+        "fr": "Tant de couleurs dans notre jungle aujourd'hui!",
+        "it": "Tanti colori nella nostra giungla oggi!",
+        "de": "So viele Farben in unserem Dschungel heute!",
+        "am": "ዛሬ በጫካችን ውስጥ ብዙ ቀለማት አሉ!",
+        "my": "ဒီနေ့ ကျွန်တော်တို့ တောထဲမှာ အရောင်တွေ အများကြီးပဲ!"
+      },
+      "tone": "warm",
+      "animation": "anim_happy",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Thank you for exploring colours with us!",
+        "ru": "Спасибо за исследование цветов вместе с нами!",
+        "fr": "Merci d'avoir exploré les couleurs avec nous!",
+        "it": "Grazie per aver esplorato i colori con noi!",
+        "de": "Danke, dass du mit uns Farben erkundet hast!",
+        "am": "ከእኛ ጋር ቀለሞችን ስለዳሰሱ እናመሰግናለን!",
+        "my": "ကျွန်တော်တို့နဲ့အတူ အရောင်တွေ လေ့လာတဲ့အတွက် ကျေးဇူးတင်ပါတယ်!"
+      },
+      "tone": "cheerful",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "See you next time, my friends!",
+        "ru": "До встречи, друзья!",
+        "fr": "À la prochaine, mes amis!",
+        "it": "Ci vediamo la prossima volta, amici miei!",
+        "de": "Bis zum nächsten Mal, meine Freunde!",
+        "am": "በሚቀጥለው ጊዜ እንገናኛለን ጓደኞቼ!",
+        "my": "နောက်တစ်ခေါက် တွေ့မယ် သူငယ်ချင်းများ!"
+      },
+      "tone": "friendly",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "button",
+      "buttonTitle": {
+        "en": "Finish",
+        "ru": "Готово",
+        "fr": "Terminer",
+        "it": "Fine",
+        "de": "Fertig",
+        "am": "ጨርስ",
+        "my": "ပြီးပြီ"
+      }
+    }
+  ]
+}

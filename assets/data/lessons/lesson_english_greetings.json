@@ -1,0 +1,700 @@
+{
+  "id": "english_greetings",
+  "title": {
+    "en": "Hello! Let's Learn Greetings",
+    "ru": "Привет! Учим приветствия",
+    "fr": "Bonjour! Apprenons les salutations",
+    "it": "Ciao! Impariamo i saluti",
+    "de": "Hallo! Lass uns Begrüßungen lernen",
+    "am": "ሰላም! ሰላምታዎችን እንማር",
+    "my": "မင်္ဂလာပါ! နှုတ်ဆက်စကားများ လေ့လာကြစို့"
+  },
+  "topic": "english",
+  "description": {
+    "en": "Learn basic English greetings with Orson and Merv: Hello, Goodbye, My name is...",
+    "ru": "Учим базовые английские приветствия с Орсоном и Мервом: Hello, Goodbye, My name is...",
+    "fr": "Apprendre les salutations anglaises de base avec Orson et Merv: Hello, Goodbye, My name is...",
+    "it": "Impara i saluti inglesi di base con Orson e Merv: Hello, Goodbye, My name is...",
+    "de": "Lerne grundlegende englische Begrüßungen mit Orson und Merv: Hello, Goodbye, My name is...",
+    "am": "ከኦርሰን እና ከሜርቭ ጋር መሰረታዊ የእንግሊዝኛ ሰላምታዎችን ተማሩ: Hello, Goodbye, My name is...",
+    "my": "Orson နှင့် Merv နှင့်အတူ အခြေခံ အင်္ဂလိပ် နှုတ်ဆက်စကားများ လေ့လာပါ: Hello, Goodbye, My name is..."
+  },
+  "difficulty": 1,
+  "tags": ["english", "greetings", "basic", "language"],
+  "scenes": [
+    {
+      "character": "orson",
+      "duration": 2,
+      "animation": "anim_walk_front",
+      "emotion": "Happy",
+      "transitionType": "auto_timer"
+    },
+    {
+      "character": "orson",
+      "duration": 1,
+      "animation": "anim_idle",
+      "emotion": "Happy",
+      "transitionType": "auto_timer"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Hello, friends!",
+        "ru": "Привет, друзья!",
+        "fr": "Bonjour, les amis!",
+        "it": "Ciao, amici!",
+        "de": "Hallo, Freunde!",
+        "am": "ሰላም ጓደኞች!",
+        "my": "မင်္ဂလာပါ သူငယ်ချင်းများ!"
+      },
+      "tone": "friendly",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Today we will learn English greetings!",
+        "ru": "Сегодня мы будем учить английские приветствия!",
+        "fr": "Aujourd'hui, nous allons apprendre les salutations en anglais!",
+        "it": "Oggi impareremo i saluti in inglese!",
+        "de": "Heute lernen wir englische Begrüßungen!",
+        "am": "ዛሬ የእንግሊዝኛ ሰላምታዎችን እንማራለን!",
+        "my": "ဒီနေ့ အင်္ဂလိပ် နှုတ်ဆက်စကားများ လေ့လာကြမယ်!"
+      },
+      "tone": "cheerful",
+      "animation": "anim_happy",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Hi Orson! I want to learn English!",
+        "ru": "Привет, Орсон! Я хочу учить английский!",
+        "fr": "Salut Orson! Je veux apprendre l'anglais!",
+        "it": "Ciao Orson! Voglio imparare l'inglese!",
+        "de": "Hallo Orson! Ich möchte Englisch lernen!",
+        "am": "ሰላም ኦርሰን! እንግሊዝኛ መማር እፈልጋለሁ!",
+        "my": "ဟိုင်း Orson! ကျွန်တော် အင်္ဂလိပ်စာ လေ့လာချင်တယ်!"
+      },
+      "tone": "excited",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Great! Let's start with the word 'Hello'!",
+        "ru": "Отлично! Начнём со слова 'Hello' - Привет!",
+        "fr": "Super! Commençons avec le mot 'Hello' - Bonjour!",
+        "it": "Ottimo! Iniziamo con la parola 'Hello' - Ciao!",
+        "de": "Super! Fangen wir mit dem Wort 'Hello' - Hallo an!",
+        "am": "በጣም ጥሩ! በ'Hello' - ሰላም ቃል እንጀምር!",
+        "my": "ကောင်းလိုက်တာ! 'Hello' - မင်္ဂလာပါ ဆိုတဲ့ စကားလုံးနဲ့ စကြစို့!"
+      },
+      "tone": "inviting",
+      "animation": "anim_idle",
+      "emotion": "Happy",
+      "transitionType": "button",
+      "buttonTitle": {
+        "en": "Let's learn!",
+        "ru": "Давай учить!",
+        "fr": "Apprenons!",
+        "it": "Impariamo!",
+        "de": "Lass uns lernen!",
+        "am": "እንማር!",
+        "my": "လေ့လာကြစို့!"
+      }
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "When you meet someone, you say: Hello!",
+        "ru": "Когда встречаешь кого-то, говоришь: Hello!",
+        "fr": "Quand tu rencontres quelqu'un, tu dis: Hello!",
+        "it": "Quando incontri qualcuno, dici: Hello!",
+        "de": "Wenn du jemanden triffst, sagst du: Hello!",
+        "am": "አንድ ሰው ስትገናኝ ትላለህ: Hello!",
+        "my": "တစ်ယောက်ယောက်ကို တွေ့တဲ့အခါ သင် ပြောပါ: Hello!"
+      },
+      "animals": [
+        {
+          "type": "wave",
+          "emoji": "👋",
+          "count": 1
+        }
+      ],
+      "tone": "clear",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Hello! Hello! I like this word!",
+        "ru": "Hello! Hello! Мне нравится это слово!",
+        "fr": "Hello! Hello! J'aime ce mot!",
+        "it": "Hello! Hello! Mi piace questa parola!",
+        "de": "Hello! Hello! Ich mag dieses Wort!",
+        "am": "Hello! Hello! ይህን ቃል ወደድኩት!",
+        "my": "Hello! Hello! ဒီစကားလုံးကို ကြိုက်တယ်!"
+      },
+      "animals": [
+        {
+          "type": "wave",
+          "emoji": "👋",
+          "count": 1
+        }
+      ],
+      "tone": "excited",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Now let's learn 'Goodbye'! When you leave, you say: Goodbye!",
+        "ru": "Теперь выучим 'Goodbye' - До свидания! Когда уходишь, говоришь: Goodbye!",
+        "fr": "Maintenant apprenons 'Goodbye' - Au revoir! Quand tu pars, tu dis: Goodbye!",
+        "it": "Ora impariamo 'Goodbye' - Arrivederci! Quando vai via, dici: Goodbye!",
+        "de": "Jetzt lernen wir 'Goodbye' - Tschüss! Wenn du gehst, sagst du: Goodbye!",
+        "am": "አሁን 'Goodbye' - ደህና ሁን እንማር! ስትሄድ ትላለህ: Goodbye!",
+        "my": "အခု 'Goodbye' - သွားတော့မယ် လေ့လာကြစို့! သွားတဲ့အခါ သင် ပြောပါ: Goodbye!"
+      },
+      "animals": [
+        {
+          "type": "bye",
+          "emoji": "👋",
+          "count": 1
+        }
+      ],
+      "tone": "clear",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Goodbye! Goodbye! See you later!",
+        "ru": "Goodbye! Goodbye! Увидимся!",
+        "fr": "Goodbye! Goodbye! À plus tard!",
+        "it": "Goodbye! Goodbye! A dopo!",
+        "de": "Goodbye! Goodbye! Bis später!",
+        "am": "Goodbye! Goodbye! በኋላ እንገናኝ!",
+        "my": "Goodbye! Goodbye! နောက်မှ တွေ့မယ်!"
+      },
+      "tone": "happy",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Excellent! Now let's learn: My name is... I say: My name is Orson!",
+        "ru": "Отлично! Теперь выучим: My name is... - Меня зовут... Я говорю: My name is Orson!",
+        "fr": "Excellent! Maintenant apprenons: My name is... - Je m'appelle... Je dis: My name is Orson!",
+        "it": "Eccellente! Ora impariamo: My name is... - Mi chiamo... Dico: My name is Orson!",
+        "de": "Ausgezeichnet! Jetzt lernen wir: My name is... - Mein Name ist... Ich sage: My name is Orson!",
+        "am": "እጅግ በጣም ጥሩ! አሁን እንማር: My name is... - ስሜ... እላለሁ: My name is Orson!",
+        "my": "အရမ်းကောင်းတယ်! အခု လေ့လာကြစို့: My name is... - ကျွန်တော့်နာမည်က... ကျွန်တော် ပြောတယ်: My name is Orson!"
+      },
+      "animals": [
+        {
+          "type": "cat",
+          "emoji": "🐱",
+          "count": 1
+        }
+      ],
+      "tone": "clear",
+      "emotion": "Happy",
+      "transitionType": "button"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "My name is Merv! Nice to meet you!",
+        "ru": "My name is Merv! Приятно познакомиться!",
+        "fr": "My name is Merv! Enchanté!",
+        "it": "My name is Merv! Piacere di conoscerti!",
+        "de": "My name is Merv! Freut mich dich kennenzulernen!",
+        "am": "My name is Merv! ለመተዋወቅ ደስ ብሎኛል!",
+        "my": "My name is Merv! တွေ့ရတာ ဝမ်းသာပါတယ်!"
+      },
+      "animals": [
+        {
+          "type": "dog",
+          "emoji": "🐕",
+          "count": 1
+        }
+      ],
+      "tone": "excited",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Perfect! Now let's practice! Are you ready for questions?",
+        "ru": "Отлично! Теперь попрактикуемся! Готов к вопросам?",
+        "fr": "Parfait! Maintenant pratiquons! Es-tu prêt pour les questions?",
+        "it": "Perfetto! Ora facciamo pratica! Sei pronto per le domande?",
+        "de": "Perfekt! Jetzt üben wir! Bist du bereit für Fragen?",
+        "am": "ፍጹም! አሁን እንለማመድ! ለጥያቄዎች ዝግጁ ነህ?",
+        "my": "ပြီးပြည့်စုံတယ်! အခု လေ့ကျင့်ကြစို့! မေးခွန်းတွေအတွက် အဆင်သင့်ဖြစ်ပြီလား?"
+      },
+      "tone": "inviting",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "button",
+      "buttonTitle": {
+        "en": "Ready!",
+        "ru": "Готов!",
+        "fr": "Prêt!",
+        "it": "Pronto!",
+        "de": "Bereit!",
+        "am": "ዝግጁ!",
+        "my": "အဆင်သင့်!"
+      }
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Question 1: When you meet a friend, what do you say?",
+        "ru": "Вопрос 1: Когда встречаешь друга, что говоришь?",
+        "fr": "Question 1: Quand tu rencontres un ami, que dis-tu?",
+        "it": "Domanda 1: Quando incontri un amico, cosa dici?",
+        "de": "Frage 1: Wenn du einen Freund triffst, was sagst du?",
+        "am": "ጥያቄ 1: ጓደኛን ስትገናኝ ምን ትላለህ?",
+        "my": "မေးခွန်း ၁: သူငယ်ချင်းတစ်ယောက်ကို တွေ့တဲ့အခါ ဘာပြောမလဲ?"
+      },
+      "animals": [
+        {
+          "type": "friends",
+          "emoji": "👫",
+          "count": 1
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswer": 1,
+      "answerOptions": [
+        {
+          "value": 1,
+          "label": {"en": "Hello", "ru": "Hello", "fr": "Hello", "it": "Hello", "de": "Hello", "am": "Hello", "my": "Hello"}
+        },
+        {
+          "value": 2,
+          "label": {"en": "Goodbye", "ru": "Goodbye", "fr": "Goodbye", "it": "Goodbye", "de": "Goodbye", "am": "Goodbye", "my": "Goodbye"}
+        },
+        {
+          "value": 3,
+          "label": {"en": "Sleep", "ru": "Sleep", "fr": "Sleep", "it": "Sleep", "de": "Sleep", "am": "Sleep", "my": "Sleep"}
+        }
+      ],
+      "correctAnswerText": {
+        "en": "Hello",
+        "ru": "Hello",
+        "fr": "Hello",
+        "it": "Hello",
+        "de": "Hello",
+        "am": "Hello",
+        "my": "Hello"
+      },
+      "hint": {
+        "en": "When you see a friend, you wave and say a greeting word that starts with 'H'!",
+        "ru": "Когда видишь друга, машешь рукой и говоришь слово приветствия на 'H'!",
+        "fr": "Quand tu vois un ami, tu fais signe et dis un mot de salutation qui commence par 'H'!",
+        "it": "Quando vedi un amico, saluti e dici una parola che inizia con 'H'!",
+        "de": "Wenn du einen Freund siehst, winkst du und sagst ein Begrüßungswort mit 'H'!",
+        "am": "ጓደኛን ስታይ እጅ ታውለብልብና በ'H' የሚጀምር የሰላምታ ቃል ትላለህ!",
+        "my": "သူငယ်ချင်းကို မြင်တဲ့အခါ လက်ပြပြီး 'H' နဲ့ စတဲ့ နှုတ်ဆက်စကား ပြောပါ!"
+      },
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "That's right! Hello! Well done!",
+        "ru": "Правильно! Hello! Молодец!",
+        "fr": "C'est exact! Hello! Bien joué!",
+        "it": "Esatto! Hello! Ben fatto!",
+        "de": "Richtig! Hello! Gut gemacht!",
+        "am": "ትክክል! Hello! በጣም ጎበዝ!",
+        "my": "မှန်ပါတယ်! Hello! ကောင်းလိုက်တာ!"
+      },
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "showOnCorrect": true,
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Question 2: When you leave, what do you say?",
+        "ru": "Вопрос 2: Когда уходишь, что говоришь?",
+        "fr": "Question 2: Quand tu pars, que dis-tu?",
+        "it": "Domanda 2: Quando vai via, cosa dici?",
+        "de": "Frage 2: Wenn du gehst, was sagst du?",
+        "am": "ጥያቄ 2: ስትሄድ ምን ትላለህ?",
+        "my": "မေးခွန်း ၂: သွားတဲ့အခါ ဘာပြောမလဲ?"
+      },
+      "animals": [
+        {
+          "type": "bye",
+          "emoji": "👋",
+          "count": 1
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswer": 2,
+      "answerOptions": [
+        {
+          "value": 1,
+          "label": {"en": "Hello", "ru": "Hello", "fr": "Hello", "it": "Hello", "de": "Hello", "am": "Hello", "my": "Hello"}
+        },
+        {
+          "value": 2,
+          "label": {"en": "Goodbye", "ru": "Goodbye", "fr": "Goodbye", "it": "Goodbye", "de": "Goodbye", "am": "Goodbye", "my": "Goodbye"}
+        },
+        {
+          "value": 3,
+          "label": {"en": "Thank you", "ru": "Thank you", "fr": "Thank you", "it": "Thank you", "de": "Thank you", "am": "Thank you", "my": "Thank you"}
+        }
+      ],
+      "correctAnswerText": {
+        "en": "Goodbye",
+        "ru": "Goodbye",
+        "fr": "Goodbye",
+        "it": "Goodbye",
+        "de": "Goodbye",
+        "am": "Goodbye",
+        "my": "Goodbye"
+      },
+      "hint": {
+        "en": "When you are leaving, you wave and say a word that starts with 'G'!",
+        "ru": "Когда уходишь, машешь рукой и говоришь слово на 'G'!",
+        "fr": "Quand tu pars, tu fais signe et dis un mot qui commence par 'G'!",
+        "it": "Quando vai via, saluti e dici una parola che inizia con 'G'!",
+        "de": "Wenn du gehst, winkst du und sagst ein Wort mit 'G'!",
+        "am": "ስትሄድ እጅ ታውለብልብና በ'G' የሚጀምር ቃል ትላለህ!",
+        "my": "သွားတဲ့အခါ လက်ပြပြီး 'G' နဲ့ စတဲ့ စကားလုံး ပြောပါ!"
+      },
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Correct! Goodbye! You are so smart!",
+        "ru": "Правильно! Goodbye! Ты такой умный!",
+        "fr": "Correct! Goodbye! Tu es si intelligent!",
+        "it": "Corretto! Goodbye! Sei così intelligente!",
+        "de": "Korrekt! Goodbye! Du bist so schlau!",
+        "am": "ትክክል! Goodbye! በጣም ብልህ ነህ!",
+        "my": "မှန်ပါတယ်! Goodbye! သိပ်လိမ္မာတယ်!"
+      },
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "showOnCorrect": true,
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Question 3: How do you tell someone your name in English?",
+        "ru": "Вопрос 3: Как сказать кому-то своё имя по-английски?",
+        "fr": "Question 3: Comment dire ton nom à quelqu'un en anglais?",
+        "it": "Domanda 3: Come dici il tuo nome a qualcuno in inglese?",
+        "de": "Frage 3: Wie sagst du jemandem deinen Namen auf Englisch?",
+        "am": "ጥያቄ 3: በእንግሊዝኛ ስምህን ለአንድ ሰው እንዴት ትናገራለህ?",
+        "my": "မေးခွန်း ၃: အင်္ဂလိပ်လို သင့်နာမည်ကို တစ်ယောက်ယောက်ကို ဘယ်လို ပြောမလဲ?"
+      },
+      "animals": [
+        {
+          "type": "name",
+          "emoji": "📛",
+          "count": 1
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswer": 2,
+      "answerOptions": [
+        {
+          "value": 1,
+          "label": {"en": "I am hungry", "ru": "I am hungry", "fr": "I am hungry", "it": "I am hungry", "de": "I am hungry", "am": "I am hungry", "my": "I am hungry"}
+        },
+        {
+          "value": 2,
+          "label": {"en": "My name is...", "ru": "My name is...", "fr": "My name is...", "it": "My name is...", "de": "My name is...", "am": "My name is...", "my": "My name is..."}
+        },
+        {
+          "value": 3,
+          "label": {"en": "I like cats", "ru": "I like cats", "fr": "I like cats", "it": "I like cats", "de": "I like cats", "am": "I like cats", "my": "I like cats"}
+        }
+      ],
+      "correctAnswerText": {
+        "en": "My name is...",
+        "ru": "My name is...",
+        "fr": "My name is...",
+        "it": "My name is...",
+        "de": "My name is...",
+        "am": "My name is...",
+        "my": "My name is..."
+      },
+      "hint": {
+        "en": "To introduce yourself, you say 'My name is' followed by your name!",
+        "ru": "Чтобы представиться, ты говоришь 'My name is' и своё имя!",
+        "fr": "Pour te présenter, tu dis 'My name is' suivi de ton nom!",
+        "it": "Per presentarti, dici 'My name is' seguito dal tuo nome!",
+        "de": "Um dich vorzustellen, sagst du 'My name is' gefolgt von deinem Namen!",
+        "am": "ራስህን ለማስተዋወቅ 'My name is' ከዚያም ስምህን ትላለህ!",
+        "my": "မိတ်ဆက်ဖို့ 'My name is' ပြီးနောက် သင့်နာမည် ပြောပါ!"
+      },
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Perfect! My name is... is correct! Great job!",
+        "ru": "Отлично! My name is... правильно! Молодец!",
+        "fr": "Parfait! My name is... c'est correct! Bon travail!",
+        "it": "Perfetto! My name is... è corretto! Ottimo lavoro!",
+        "de": "Perfekt! My name is... ist richtig! Gut gemacht!",
+        "am": "ፍጹም! My name is... ትክክል ነው! በጣም ጥሩ ስራ!",
+        "my": "ပြီးပြည့်စုံတယ်! My name is... မှန်ပါတယ်! ကောင်းလိုက်တာ!"
+      },
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "showOnCorrect": true,
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Question 4: Listen carefully! What does 'Hello' mean?",
+        "ru": "Вопрос 4: Слушай внимательно! Что означает 'Hello'?",
+        "fr": "Question 4: Écoute bien! Que signifie 'Hello'?",
+        "it": "Domanda 4: Ascolta attentamente! Cosa significa 'Hello'?",
+        "de": "Frage 4: Hör genau zu! Was bedeutet 'Hello'?",
+        "am": "ጥያቄ 4: በጥንቃቄ አዳምጥ! 'Hello' ምን ማለት ነው?",
+        "my": "မေးခွန်း ၄: သေချာနားထောင်ပါ! 'Hello' ဆိုတာ ဘာကို ဆိုလိုသလဲ?"
+      },
+      "animals": [
+        {
+          "type": "ear",
+          "emoji": "👂",
+          "count": 1
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswer": 1,
+      "answerOptions": [
+        {
+          "value": 1,
+          "label": {"en": "Greeting", "ru": "Приветствие", "fr": "Salutation", "it": "Saluto", "de": "Begrüßung", "am": "ሰላምታ", "my": "နှုတ်ဆက်စကား"}
+        },
+        {
+          "value": 2,
+          "label": {"en": "Food", "ru": "Еда", "fr": "Nourriture", "it": "Cibo", "de": "Essen", "am": "ምግብ", "my": "အစားအစာ"}
+        },
+        {
+          "value": 3,
+          "label": {"en": "Animal", "ru": "Животное", "fr": "Animal", "it": "Animale", "de": "Tier", "am": "እንስሳ", "my": "တိရိစ္ဆာန်"}
+        }
+      ],
+      "correctAnswerText": {
+        "en": "Greeting",
+        "ru": "Приветствие",
+        "fr": "Salutation",
+        "it": "Saluto",
+        "de": "Begrüßung",
+        "am": "ሰላምታ",
+        "my": "နှုတ်ဆက်စကား"
+      },
+      "hint": {
+        "en": "'Hello' is what you say when you meet someone - it's a way to greet them!",
+        "ru": "'Hello' - это то, что говоришь при встрече - это способ поприветствовать!",
+        "fr": "'Hello' c'est ce que tu dis quand tu rencontres quelqu'un - c'est une façon de saluer!",
+        "it": "'Hello' è quello che dici quando incontri qualcuno - è un modo per salutare!",
+        "de": "'Hello' ist das, was du sagst, wenn du jemanden triffst - es ist eine Begrüßung!",
+        "am": "'Hello' አንድ ሰው ስትገናኝ የምትለው ነው - ሰላምታ መስጫ ነው!",
+        "my": "'Hello' ဆိုတာ တစ်ယောက်ယောက်ကို တွေ့တဲ့အခါ ပြောတဲ့ စကား - နှုတ်ဆက်နည်း ဖြစ်ပါတယ်!"
+      },
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Yes! Hello is a greeting! Excellent!",
+        "ru": "Да! Hello - это приветствие! Отлично!",
+        "fr": "Oui! Hello c'est une salutation! Excellent!",
+        "it": "Sì! Hello è un saluto! Eccellente!",
+        "de": "Ja! Hello ist eine Begrüßung! Ausgezeichnet!",
+        "am": "አዎ! Hello ሰላምታ ነው! እጅግ በጣም ጥሩ!",
+        "my": "ဟုတ်ကဲ့! Hello က နှုတ်ဆက်စကား ဖြစ်ပါတယ်! အရမ်းကောင်းတယ်!"
+      },
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "showOnCorrect": true,
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Last question! Complete the sentence: Nice to ... you!",
+        "ru": "Последний вопрос! Дополни предложение: Nice to ... you!",
+        "fr": "Dernière question! Complète la phrase: Nice to ... you!",
+        "it": "Ultima domanda! Completa la frase: Nice to ... you!",
+        "de": "Letzte Frage! Vervollständige den Satz: Nice to ... you!",
+        "am": "የመጨረሻ ጥያቄ! ዓረፍተ ነገሩን ሙላ: Nice to ... you!",
+        "my": "နောက်ဆုံး မေးခွန်း! ဝါကျကို ဖြည့်ပါ: Nice to ... you!"
+      },
+      "animals": [
+        {
+          "type": "handshake",
+          "emoji": "🤝",
+          "count": 1
+        }
+      ],
+      "tone": "questioning",
+      "emotion": "Eating",
+      "secondCharacter": "merv",
+      "secondAnimation": "anim_idle",
+      "secondEmotion": "Happy",
+      "isQuestion": true,
+      "correctAnswer": 2,
+      "answerOptions": [
+        {
+          "value": 1,
+          "label": {"en": "eat", "ru": "eat", "fr": "eat", "it": "eat", "de": "eat", "am": "eat", "my": "eat"}
+        },
+        {
+          "value": 2,
+          "label": {"en": "meet", "ru": "meet", "fr": "meet", "it": "meet", "de": "meet", "am": "meet", "my": "meet"}
+        },
+        {
+          "value": 3,
+          "label": {"en": "sleep", "ru": "sleep", "fr": "sleep", "it": "sleep", "de": "sleep", "am": "sleep", "my": "sleep"}
+        }
+      ],
+      "correctAnswerText": {
+        "en": "meet",
+        "ru": "meet",
+        "fr": "meet",
+        "it": "meet",
+        "de": "meet",
+        "am": "meet",
+        "my": "meet"
+      },
+      "hint": {
+        "en": "When you introduce yourself, you say 'Nice to MEET you' - because you are meeting someone new!",
+        "ru": "Когда знакомишься, говоришь 'Nice to MEET you' - потому что встречаешь кого-то нового!",
+        "fr": "Quand tu te présentes, tu dis 'Nice to MEET you' - parce que tu rencontres quelqu'un!",
+        "it": "Quando ti presenti, dici 'Nice to MEET you' - perché stai incontrando qualcuno!",
+        "de": "Wenn du dich vorstellst, sagst du 'Nice to MEET you' - weil du jemanden triffst!",
+        "am": "ራስህን ስታስተዋውቅ 'Nice to MEET you' ትላለህ - አዲስ ሰው እየገናኘህ ስለሆነ!",
+        "my": "မိတ်ဆက်တဲ့အခါ 'Nice to MEET you' ပြောတယ် - အသစ်တစ်ယောက်ယောက်ကို တွေ့နေလို့!"
+      },
+      "waitForAnswer": true,
+      "transitionType": "task"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Wonderful! Nice to MEET you! You learned all the greetings!",
+        "ru": "Чудесно! Nice to MEET you! Ты выучил все приветствия!",
+        "fr": "Merveilleux! Nice to MEET you! Tu as appris toutes les salutations!",
+        "it": "Meraviglioso! Nice to MEET you! Hai imparato tutti i saluti!",
+        "de": "Wunderbar! Nice to MEET you! Du hast alle Begrüßungen gelernt!",
+        "am": "አስደናቂ! Nice to MEET you! ሁሉንም ሰላምታዎች ተማርክ!",
+        "my": "အံ့သြစရာကောင်းတယ်! Nice to MEET you! နှုတ်ဆက်စကား အားလုံး လေ့လာပြီးပြီ!"
+      },
+      "tone": "enthusiastic",
+      "emotion": "Happy",
+      "showOnCorrect": true,
+      "transitionType": "button"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "You did an amazing job today! You learned Hello, Goodbye, and My name is!",
+        "ru": "Ты сегодня отлично справился! Ты выучил Hello, Goodbye и My name is!",
+        "fr": "Tu as fait un travail incroyable aujourd'hui! Tu as appris Hello, Goodbye et My name is!",
+        "it": "Hai fatto un lavoro fantastico oggi! Hai imparato Hello, Goodbye e My name is!",
+        "de": "Du hast heute toll gemacht! Du hast Hello, Goodbye und My name is gelernt!",
+        "am": "ዛሬ አስደናቂ ስራ ሰራህ! Hello፣ Goodbye እና My name is ተማርክ!",
+        "my": "ဒီနေ့ အရမ်းကောင်းတာ လုပ်ခဲ့တယ်! Hello, Goodbye နဲ့ My name is လေ့လာခဲ့ပြီ!"
+      },
+      "tone": "proud",
+      "animation": "anim_happy",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "merv",
+      "dialogue": {
+        "en": "Now I can speak English! Hello! My name is Merv! Goodbye!",
+        "ru": "Теперь я могу говорить по-английски! Hello! My name is Merv! Goodbye!",
+        "fr": "Maintenant je peux parler anglais! Hello! My name is Merv! Goodbye!",
+        "it": "Ora posso parlare inglese! Hello! My name is Merv! Goodbye!",
+        "de": "Jetzt kann ich Englisch sprechen! Hello! My name is Merv! Goodbye!",
+        "am": "አሁን እንግሊዝኛ መናገር እችላለሁ! Hello! My name is Merv! Goodbye!",
+        "my": "အခု အင်္ဂလိပ်လို ပြောနိုင်ပြီ! Hello! My name is Merv! Goodbye!"
+      },
+      "tone": "excited",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "auto_tts"
+    },
+    {
+      "character": "orson",
+      "dialogue": {
+        "en": "Goodbye, friend! See you next time!",
+        "ru": "До свидания, друг! До следующего раза!",
+        "fr": "Au revoir, ami! À la prochaine!",
+        "it": "Arrivederci, amico! Alla prossima!",
+        "de": "Auf Wiedersehen, Freund! Bis zum nächsten Mal!",
+        "am": "ደህና ሁን ጓደኛ! በሚቀጥለው ጊዜ እንገናኝ!",
+        "my": "သွားတော့မယ် သူငယ်ချင်း! နောက်တစ်ခေါက် တွေ့မယ်!"
+      },
+      "tone": "friendly",
+      "animation": "anim_wave",
+      "emotion": "Happy",
+      "transitionType": "button",
+      "buttonTitle": {
+        "en": "Finish",
+        "ru": "Готово",
+        "fr": "Terminer",
+        "it": "Fine",
+        "de": "Fertig",
+        "am": "ጨርስ",
+        "my": "ပြီးပြီ"
+      }
+    }
+  ]
+}

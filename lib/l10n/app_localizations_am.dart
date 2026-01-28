@@ -171,4 +171,19 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get reset => 'ዳግም አስጀምር';
+
+  @override
+  String get colorsInJungleP1 => 'በጫካ ውስጥ ቀለሞች 1';
+
+  @override
+  String get colorsInJungleP2 => 'በጫካ ውስጥ ቀለሞች 2';
+
+  @override
+  String get shapesInJungle => 'በጫካ ውስጥ ቅርጾች';
+
+  @override
+  String get addingFruits => 'ፍራፍሬዎችን መደመር';
+
+  @override
+  String get englishGreetings => 'የእንግሊዝኛ ሰላምታዎች';
 }

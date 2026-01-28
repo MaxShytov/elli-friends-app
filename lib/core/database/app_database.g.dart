@@ -1426,6 +1426,29 @@ class $ScenesTable extends Scenes with TableInfo<$ScenesTable, Scene> {
     type: DriftSqlType.int,
     requiredDuringInsert: false,
   );
+  static const VerificationMeta _correctAnswerTextJsonMeta =
+      const VerificationMeta('correctAnswerTextJson');
+  @override
+  late final GeneratedColumn<String> correctAnswerTextJson =
+      GeneratedColumn<String>(
+        'correct_answer_text_json',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _answerOptionsJsonMeta = const VerificationMeta(
+    'answerOptionsJson',
+  );
+  @override
+  late final GeneratedColumn<String> answerOptionsJson =
+      GeneratedColumn<String>(
+        'answer_options_json',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      );
   static const VerificationMeta _waitForAnswerMeta = const VerificationMeta(
     'waitForAnswer',
   );
@@ -1541,6 +1564,8 @@ class $ScenesTable extends Scenes with TableInfo<$ScenesTable, Scene> {
     isQuestion,
     isPause,
     correctAnswer,
+    correctAnswerTextJson,
+    answerOptionsJson,
     waitForAnswer,
     showPreviousAnimals,
     animalsJson,
@@ -1683,6 +1708,24 @@ class $ScenesTable extends Scenes with TableInfo<$ScenesTable, Scene> {
         correctAnswer.isAcceptableOrUnknown(
           data['correct_answer']!,
           _correctAnswerMeta,
+        ),
+      );
+    }
+    if (data.containsKey('correct_answer_text_json')) {
+      context.handle(
+        _correctAnswerTextJsonMeta,
+        correctAnswerTextJson.isAcceptableOrUnknown(
+          data['correct_answer_text_json']!,
+          _correctAnswerTextJsonMeta,
+        ),
+      );
+    }
+    if (data.containsKey('answer_options_json')) {
+      context.handle(
+        _answerOptionsJsonMeta,
+        answerOptionsJson.isAcceptableOrUnknown(
+          data['answer_options_json']!,
+          _answerOptionsJsonMeta,
         ),
       );
     }
@@ -1832,6 +1875,14 @@ class $ScenesTable extends Scenes with TableInfo<$ScenesTable, Scene> {
         DriftSqlType.int,
         data['${effectivePrefix}correct_answer'],
       ),
+      correctAnswerTextJson: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}correct_answer_text_json'],
+      ),
+      answerOptionsJson: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}answer_options_json'],
+      ),
       waitForAnswer: attachedDatabase.typeMapping.read(
         DriftSqlType.bool,
         data['${effectivePrefix}wait_for_answer'],
@@ -1891,6 +1942,8 @@ class Scene extends DataClass implements Insertable<Scene> {
   final bool isQuestion;
   final bool isPause;
   final int? correctAnswer;
+  final String? correctAnswerTextJson;
+  final String? answerOptionsJson;
   final bool waitForAnswer;
   final bool showPreviousAnimals;
   final String? animalsJson;
@@ -1917,6 +1970,8 @@ class Scene extends DataClass implements Insertable<Scene> {
     required this.isQuestion,
     required this.isPause,
     this.correctAnswer,
+    this.correctAnswerTextJson,
+    this.answerOptionsJson,
     required this.waitForAnswer,
     required this.showPreviousAnimals,
     this.animalsJson,
@@ -1969,6 +2024,12 @@ class Scene extends DataClass implements Insertable<Scene> {
     map['is_pause'] = Variable<bool>(isPause);
     if (!nullToAbsent || correctAnswer != null) {
       map['correct_answer'] = Variable<int>(correctAnswer);
+    }
+    if (!nullToAbsent || correctAnswerTextJson != null) {
+      map['correct_answer_text_json'] = Variable<String>(correctAnswerTextJson);
+    }
+    if (!nullToAbsent || answerOptionsJson != null) {
+      map['answer_options_json'] = Variable<String>(answerOptionsJson);
     }
     map['wait_for_answer'] = Variable<bool>(waitForAnswer);
     map['show_previous_animals'] = Variable<bool>(showPreviousAnimals);
@@ -2032,6 +2093,12 @@ class Scene extends DataClass implements Insertable<Scene> {
       correctAnswer: correctAnswer == null && nullToAbsent
           ? const Value.absent()
           : Value(correctAnswer),
+      correctAnswerTextJson: correctAnswerTextJson == null && nullToAbsent
+          ? const Value.absent()
+          : Value(correctAnswerTextJson),
+      answerOptionsJson: answerOptionsJson == null && nullToAbsent
+          ? const Value.absent()
+          : Value(answerOptionsJson),
       waitForAnswer: Value(waitForAnswer),
       showPreviousAnimals: Value(showPreviousAnimals),
       animalsJson: animalsJson == null && nullToAbsent
@@ -2076,6 +2143,12 @@ class Scene extends DataClass implements Insertable<Scene> {
       isQuestion: serializer.fromJson<bool>(json['isQuestion']),
       isPause: serializer.fromJson<bool>(json['isPause']),
       correctAnswer: serializer.fromJson<int?>(json['correctAnswer']),
+      correctAnswerTextJson: serializer.fromJson<String?>(
+        json['correctAnswerTextJson'],
+      ),
+      answerOptionsJson: serializer.fromJson<String?>(
+        json['answerOptionsJson'],
+      ),
       waitForAnswer: serializer.fromJson<bool>(json['waitForAnswer']),
       showPreviousAnimals: serializer.fromJson<bool>(
         json['showPreviousAnimals'],
@@ -2109,6 +2182,10 @@ class Scene extends DataClass implements Insertable<Scene> {
       'isQuestion': serializer.toJson<bool>(isQuestion),
       'isPause': serializer.toJson<bool>(isPause),
       'correctAnswer': serializer.toJson<int?>(correctAnswer),
+      'correctAnswerTextJson': serializer.toJson<String?>(
+        correctAnswerTextJson,
+      ),
+      'answerOptionsJson': serializer.toJson<String?>(answerOptionsJson),
       'waitForAnswer': serializer.toJson<bool>(waitForAnswer),
       'showPreviousAnimals': serializer.toJson<bool>(showPreviousAnimals),
       'animalsJson': serializer.toJson<String?>(animalsJson),
@@ -2138,6 +2215,8 @@ class Scene extends DataClass implements Insertable<Scene> {
     bool? isQuestion,
     bool? isPause,
     Value<int?> correctAnswer = const Value.absent(),
+    Value<String?> correctAnswerTextJson = const Value.absent(),
+    Value<String?> answerOptionsJson = const Value.absent(),
     bool? waitForAnswer,
     bool? showPreviousAnimals,
     Value<String?> animalsJson = const Value.absent(),
@@ -2176,6 +2255,12 @@ class Scene extends DataClass implements Insertable<Scene> {
     correctAnswer: correctAnswer.present
         ? correctAnswer.value
         : this.correctAnswer,
+    correctAnswerTextJson: correctAnswerTextJson.present
+        ? correctAnswerTextJson.value
+        : this.correctAnswerTextJson,
+    answerOptionsJson: answerOptionsJson.present
+        ? answerOptionsJson.value
+        : this.answerOptionsJson,
     waitForAnswer: waitForAnswer ?? this.waitForAnswer,
     showPreviousAnimals: showPreviousAnimals ?? this.showPreviousAnimals,
     animalsJson: animalsJson.present ? animalsJson.value : this.animalsJson,
@@ -2230,6 +2315,12 @@ class Scene extends DataClass implements Insertable<Scene> {
       correctAnswer: data.correctAnswer.present
           ? data.correctAnswer.value
           : this.correctAnswer,
+      correctAnswerTextJson: data.correctAnswerTextJson.present
+          ? data.correctAnswerTextJson.value
+          : this.correctAnswerTextJson,
+      answerOptionsJson: data.answerOptionsJson.present
+          ? data.answerOptionsJson.value
+          : this.answerOptionsJson,
       waitForAnswer: data.waitForAnswer.present
           ? data.waitForAnswer.value
           : this.waitForAnswer,
@@ -2275,6 +2366,8 @@ class Scene extends DataClass implements Insertable<Scene> {
           ..write('isQuestion: $isQuestion, ')
           ..write('isPause: $isPause, ')
           ..write('correctAnswer: $correctAnswer, ')
+          ..write('correctAnswerTextJson: $correctAnswerTextJson, ')
+          ..write('answerOptionsJson: $answerOptionsJson, ')
           ..write('waitForAnswer: $waitForAnswer, ')
           ..write('showPreviousAnimals: $showPreviousAnimals, ')
           ..write('animalsJson: $animalsJson, ')
@@ -2306,6 +2399,8 @@ class Scene extends DataClass implements Insertable<Scene> {
     isQuestion,
     isPause,
     correctAnswer,
+    correctAnswerTextJson,
+    answerOptionsJson,
     waitForAnswer,
     showPreviousAnimals,
     animalsJson,
@@ -2336,6 +2431,8 @@ class Scene extends DataClass implements Insertable<Scene> {
           other.isQuestion == this.isQuestion &&
           other.isPause == this.isPause &&
           other.correctAnswer == this.correctAnswer &&
+          other.correctAnswerTextJson == this.correctAnswerTextJson &&
+          other.answerOptionsJson == this.answerOptionsJson &&
           other.waitForAnswer == this.waitForAnswer &&
           other.showPreviousAnimals == this.showPreviousAnimals &&
           other.animalsJson == this.animalsJson &&
@@ -2364,6 +2461,8 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
   final Value<bool> isQuestion;
   final Value<bool> isPause;
   final Value<int?> correctAnswer;
+  final Value<String?> correctAnswerTextJson;
+  final Value<String?> answerOptionsJson;
   final Value<bool> waitForAnswer;
   final Value<bool> showPreviousAnimals;
   final Value<String?> animalsJson;
@@ -2390,6 +2489,8 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
     this.isQuestion = const Value.absent(),
     this.isPause = const Value.absent(),
     this.correctAnswer = const Value.absent(),
+    this.correctAnswerTextJson = const Value.absent(),
+    this.answerOptionsJson = const Value.absent(),
     this.waitForAnswer = const Value.absent(),
     this.showPreviousAnimals = const Value.absent(),
     this.animalsJson = const Value.absent(),
@@ -2417,6 +2518,8 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
     this.isQuestion = const Value.absent(),
     this.isPause = const Value.absent(),
     this.correctAnswer = const Value.absent(),
+    this.correctAnswerTextJson = const Value.absent(),
+    this.answerOptionsJson = const Value.absent(),
     this.waitForAnswer = const Value.absent(),
     this.showPreviousAnimals = const Value.absent(),
     this.animalsJson = const Value.absent(),
@@ -2445,6 +2548,8 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
     Expression<bool>? isQuestion,
     Expression<bool>? isPause,
     Expression<int>? correctAnswer,
+    Expression<String>? correctAnswerTextJson,
+    Expression<String>? answerOptionsJson,
     Expression<bool>? waitForAnswer,
     Expression<bool>? showPreviousAnimals,
     Expression<String>? animalsJson,
@@ -2472,6 +2577,9 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
       if (isQuestion != null) 'is_question': isQuestion,
       if (isPause != null) 'is_pause': isPause,
       if (correctAnswer != null) 'correct_answer': correctAnswer,
+      if (correctAnswerTextJson != null)
+        'correct_answer_text_json': correctAnswerTextJson,
+      if (answerOptionsJson != null) 'answer_options_json': answerOptionsJson,
       if (waitForAnswer != null) 'wait_for_answer': waitForAnswer,
       if (showPreviousAnimals != null)
         'show_previous_animals': showPreviousAnimals,
@@ -2502,6 +2610,8 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
     Value<bool>? isQuestion,
     Value<bool>? isPause,
     Value<int?>? correctAnswer,
+    Value<String?>? correctAnswerTextJson,
+    Value<String?>? answerOptionsJson,
     Value<bool>? waitForAnswer,
     Value<bool>? showPreviousAnimals,
     Value<String?>? animalsJson,
@@ -2529,6 +2639,9 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
       isQuestion: isQuestion ?? this.isQuestion,
       isPause: isPause ?? this.isPause,
       correctAnswer: correctAnswer ?? this.correctAnswer,
+      correctAnswerTextJson:
+          correctAnswerTextJson ?? this.correctAnswerTextJson,
+      answerOptionsJson: answerOptionsJson ?? this.answerOptionsJson,
       waitForAnswer: waitForAnswer ?? this.waitForAnswer,
       showPreviousAnimals: showPreviousAnimals ?? this.showPreviousAnimals,
       animalsJson: animalsJson ?? this.animalsJson,
@@ -2594,6 +2707,14 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
     if (correctAnswer.present) {
       map['correct_answer'] = Variable<int>(correctAnswer.value);
     }
+    if (correctAnswerTextJson.present) {
+      map['correct_answer_text_json'] = Variable<String>(
+        correctAnswerTextJson.value,
+      );
+    }
+    if (answerOptionsJson.present) {
+      map['answer_options_json'] = Variable<String>(answerOptionsJson.value);
+    }
     if (waitForAnswer.present) {
       map['wait_for_answer'] = Variable<bool>(waitForAnswer.value);
     }
@@ -2641,6 +2762,8 @@ class ScenesCompanion extends UpdateCompanion<Scene> {
           ..write('isQuestion: $isQuestion, ')
           ..write('isPause: $isPause, ')
           ..write('correctAnswer: $correctAnswer, ')
+          ..write('correctAnswerTextJson: $correctAnswerTextJson, ')
+          ..write('answerOptionsJson: $answerOptionsJson, ')
           ..write('waitForAnswer: $waitForAnswer, ')
           ..write('showPreviousAnimals: $showPreviousAnimals, ')
           ..write('animalsJson: $animalsJson, ')
@@ -3891,6 +4014,8 @@ typedef $$ScenesTableCreateCompanionBuilder =
       Value<bool> isQuestion,
       Value<bool> isPause,
       Value<int?> correctAnswer,
+      Value<String?> correctAnswerTextJson,
+      Value<String?> answerOptionsJson,
       Value<bool> waitForAnswer,
       Value<bool> showPreviousAnimals,
       Value<String?> animalsJson,
@@ -3919,6 +4044,8 @@ typedef $$ScenesTableUpdateCompanionBuilder =
       Value<bool> isQuestion,
       Value<bool> isPause,
       Value<int?> correctAnswer,
+      Value<String?> correctAnswerTextJson,
+      Value<String?> answerOptionsJson,
       Value<bool> waitForAnswer,
       Value<bool> showPreviousAnimals,
       Value<String?> animalsJson,
@@ -4055,6 +4182,16 @@ class $$ScenesTableFilterComposer
 
   ColumnFilters<int> get correctAnswer => $composableBuilder(
     column: $table.correctAnswer,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get correctAnswerTextJson => $composableBuilder(
+    column: $table.correctAnswerTextJson,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get answerOptionsJson => $composableBuilder(
+    column: $table.answerOptionsJson,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -4236,6 +4373,16 @@ class $$ScenesTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
+  ColumnOrderings<String> get correctAnswerTextJson => $composableBuilder(
+    column: $table.correctAnswerTextJson,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get answerOptionsJson => $composableBuilder(
+    column: $table.answerOptionsJson,
+    builder: (column) => ColumnOrderings(column),
+  );
+
   ColumnOrderings<bool> get waitForAnswer => $composableBuilder(
     column: $table.waitForAnswer,
     builder: (column) => ColumnOrderings(column),
@@ -4375,6 +4522,16 @@ class $$ScenesTableAnnotationComposer
     builder: (column) => column,
   );
 
+  GeneratedColumn<String> get correctAnswerTextJson => $composableBuilder(
+    column: $table.correctAnswerTextJson,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get answerOptionsJson => $composableBuilder(
+    column: $table.answerOptionsJson,
+    builder: (column) => column,
+  );
+
   GeneratedColumn<bool> get waitForAnswer => $composableBuilder(
     column: $table.waitForAnswer,
     builder: (column) => column,
@@ -4507,6 +4664,8 @@ class $$ScenesTableTableManager
                 Value<bool> isQuestion = const Value.absent(),
                 Value<bool> isPause = const Value.absent(),
                 Value<int?> correctAnswer = const Value.absent(),
+                Value<String?> correctAnswerTextJson = const Value.absent(),
+                Value<String?> answerOptionsJson = const Value.absent(),
                 Value<bool> waitForAnswer = const Value.absent(),
                 Value<bool> showPreviousAnimals = const Value.absent(),
                 Value<String?> animalsJson = const Value.absent(),
@@ -4533,6 +4692,8 @@ class $$ScenesTableTableManager
                 isQuestion: isQuestion,
                 isPause: isPause,
                 correctAnswer: correctAnswer,
+                correctAnswerTextJson: correctAnswerTextJson,
+                answerOptionsJson: answerOptionsJson,
                 waitForAnswer: waitForAnswer,
                 showPreviousAnimals: showPreviousAnimals,
                 animalsJson: animalsJson,
@@ -4561,6 +4722,8 @@ class $$ScenesTableTableManager
                 Value<bool> isQuestion = const Value.absent(),
                 Value<bool> isPause = const Value.absent(),
                 Value<int?> correctAnswer = const Value.absent(),
+                Value<String?> correctAnswerTextJson = const Value.absent(),
+                Value<String?> answerOptionsJson = const Value.absent(),
                 Value<bool> waitForAnswer = const Value.absent(),
                 Value<bool> showPreviousAnimals = const Value.absent(),
                 Value<String?> animalsJson = const Value.absent(),
@@ -4587,6 +4750,8 @@ class $$ScenesTableTableManager
                 isQuestion: isQuestion,
                 isPause: isPause,
                 correctAnswer: correctAnswer,
+                correctAnswerTextJson: correctAnswerTextJson,
+                answerOptionsJson: answerOptionsJson,
                 waitForAnswer: waitForAnswer,
                 showPreviousAnimals: showPreviousAnimals,
                 animalsJson: animalsJson,

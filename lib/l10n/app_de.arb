@@ -45,5 +45,10 @@
   "difficultyHard": "Schwer",
   "difficultyLevel": "Stufe {level}",
   "orsonGreeting": "Hallo, ich bin Orson die lila Katze",
-  "mervGreeting": "Hallo, ich bin Merv der gelbe Welpe"
+  "mervGreeting": "Hallo, ich bin Merv der gelbe Welpe",
+  "colorsInJungleP1": "Farben im Dschungel 1",
+  "colorsInJungleP2": "Farben im Dschungel 2",
+  "shapesInJungle": "Formen im Dschungel",
+  "addingFruits": "Früchte addieren",
+  "englishGreetings": "Englische Begrüßungen"
 }

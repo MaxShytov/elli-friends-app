@@ -23,7 +23,7 @@ class NextScene extends LessonEvent {}
 class PreviousScene extends LessonEvent {}
 
 class AnswerQuestion extends LessonEvent {
-  final int answer;
+  final dynamic answer;  // int или String
   AnswerQuestion(this.answer);
 
   @override
@@ -98,7 +98,7 @@ class LessonLoaded extends LessonState {
 
 class LessonAnswered extends LessonState {
   final bool isCorrect;
-  final int selectedAnswer;
+  final dynamic selectedAnswer;  // int или String
   final LessonLoaded loadedState;
 
   LessonAnswered(this.isCorrect, this.selectedAnswer, this.loadedState);
@@ -264,8 +264,37 @@ class LessonBloc extends Bloc<LessonEvent, LessonState> {
       final current = state as LessonLoaded;
       final scene = current.currentScene;
 
-      if (scene.waitForAnswer && scene.correctAnswer != null) {
-        final isCorrect = event.answer == scene.correctAnswer;
+      if (scene.waitForAnswer) {
+        bool isCorrect = false;
+
+        // Проверяем текстовый ответ
+        // correctAnswerText локализован, а event.answer содержит value (например "white")
+        // Ищем правильный ответ в answerOptions по совпадению label с correctAnswerText
+        // или напрямую сравниваем value с correctAnswerText (для нелокализованных данных)
+        if (scene.correctAnswerText != null && scene.answerOptions != null) {
+          // Если есть answerOptions, ищем option с label == correctAnswerText
+          // и сравниваем его value с event.answer
+          final correctOption = scene.answerOptions!.where(
+            (opt) => opt.label.toLowerCase() == scene.correctAnswerText!.toLowerCase()
+          ).firstOrNull;
+
+          if (correctOption != null) {
+            isCorrect = event.answer.toString().toLowerCase() ==
+                        correctOption.value.toString().toLowerCase();
+          } else {
+            // Fallback: прямое сравнение (если correctAnswerText == value)
+            isCorrect = event.answer.toString().toLowerCase() ==
+                        scene.correctAnswerText!.toLowerCase();
+          }
+        } else if (scene.correctAnswerText != null) {
+          // Нет answerOptions - прямое сравнение
+          isCorrect = event.answer.toString().toLowerCase() ==
+                      scene.correctAnswerText!.toLowerCase();
+        }
+        // Проверяем числовой ответ (для обратной совместимости)
+        else if (scene.correctAnswer != null) {
+          isCorrect = event.answer == scene.correctAnswer;
+        }
 
         // Обновляем счётчик правильных ответов
         final updatedState = isCorrect

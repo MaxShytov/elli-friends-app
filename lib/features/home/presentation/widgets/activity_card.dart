@@ -24,6 +24,16 @@ class ActivityCard extends StatelessWidget {
         return l10n.learnNumbers;
       case 'subtraction':
         return l10n.learnSubtraction;
+      case 'colors_jungle_p1':
+        return l10n.colorsInJungleP1;
+      case 'colors_jungle_p2':
+        return l10n.colorsInJungleP2;
+      case 'shapes_jungle':
+        return l10n.shapesInJungle;
+      case 'adding_fruits':
+        return l10n.addingFruits;
+      case 'english_greetings':
+        return l10n.englishGreetings;
       case 'letters':
         return l10n.learnLetters;
       case 'shapes':

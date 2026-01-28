@@ -172,4 +172,19 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get reset => 'Сбросить';
+
+  @override
+  String get colorsInJungleP1 => 'Цвета в джунглях 1';
+
+  @override
+  String get colorsInJungleP2 => 'Цвета в джунглях 2';
+
+  @override
+  String get shapesInJungle => 'Фигуры в джунглях';
+
+  @override
+  String get addingFruits => 'Сложение фруктов';
+
+  @override
+  String get englishGreetings => 'Английские приветствия';
 }

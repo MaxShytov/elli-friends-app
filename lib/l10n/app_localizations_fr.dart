@@ -171,4 +171,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get reset => 'Reset';
+
+  @override
+  String get colorsInJungleP1 => 'Les couleurs dans la jungle 1';
+
+  @override
+  String get colorsInJungleP2 => 'Les couleurs dans la jungle 2';
+
+  @override
+  String get shapesInJungle => 'Les formes dans la jungle';
+
+  @override
+  String get addingFruits => 'Addition des fruits';
+
+  @override
+  String get englishGreetings => 'Salutations en anglais';
 }

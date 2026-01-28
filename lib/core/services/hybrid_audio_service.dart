@@ -355,10 +355,12 @@ class HybridAudioService {
     required String text,
   }) async {
     final assetPath = _getBundledAssetPath(lessonId, sceneIndex, languageCode);
+    debugPrint('HybridAudio: Looking for bundled audio at: $assetPath');
 
     try {
       // Check if asset exists by trying to load it
       final data = await rootBundle.load(assetPath);
+      debugPrint('HybridAudio: Found bundled audio at: $assetPath (${data.lengthInBytes} bytes)');
 
       // Verify content hash matches (optional, for cache invalidation)
       // For now, we trust bundled assets
@@ -369,6 +371,7 @@ class HybridAudioService {
       );
     } catch (e) {
       // Asset doesn't exist
+      debugPrint('HybridAudio: Bundled audio not found at: $assetPath');
       return null;
     }
   }

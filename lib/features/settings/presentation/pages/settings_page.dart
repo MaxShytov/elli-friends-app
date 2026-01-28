@@ -219,8 +219,9 @@ class SettingsPage extends StatelessWidget {
 
           const SizedBox(height: AppDimensions.paddingLarge),
 
-          // Developer Settings (only in debug mode)
-          if (kDebugMode) ...[
+          // Developer Settings (temporarily shown in all builds for testing)
+          // TODO: Restore kDebugMode check before production release
+          if (true) ...[
             Card(
               elevation: 2,
               child: Column(

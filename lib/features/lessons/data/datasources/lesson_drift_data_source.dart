@@ -278,6 +278,20 @@ class LessonDriftDataSourceImpl implements LessonDriftDataSource {
         isQuestion: Value(scene.isQuestion),
         isPause: Value(scene.isPause),
         correctAnswer: Value(scene.correctAnswer),
+        correctAnswerTextJson: Value(
+          scene.correctAnswerText != null
+              ? jsonEncode({'en': scene.correctAnswerText})
+              : null,
+        ),
+        answerOptionsJson: Value(
+          scene.answerOptions != null
+              ? jsonEncode(
+                  scene.answerOptions!
+                      .map((o) => (o as AnswerOptionModel).toJson())
+                      .toList(),
+                )
+              : null,
+        ),
         waitForAnswer: Value(scene.waitForAnswer),
         showPreviousAnimals: Value(scene.showPreviousAnimals),
         animalsJson: Value(
@@ -354,6 +368,8 @@ class LessonDriftDataSourceImpl implements LessonDriftDataSource {
   SceneModel _sceneFromRow(Scene sceneRow, String locale) {
     final dialogueMap = _parseJsonMapOrNull(sceneRow.dialogueJson);
     final buttonTitleMap = _parseJsonMapOrNull(sceneRow.buttonTitleJson);
+    final correctAnswerTextMap = _parseJsonMapOrNull(sceneRow.correctAnswerTextJson);
+    final answerOptionsJson = _parseJsonListOrNull(sceneRow.answerOptionsJson);
     final animalsJson = _parseJsonListOrNull(sceneRow.animalsJson);
 
     return SceneModel(
@@ -368,6 +384,12 @@ class LessonDriftDataSourceImpl implements LessonDriftDataSource {
       isQuestion: sceneRow.isQuestion,
       isPause: sceneRow.isPause,
       correctAnswer: sceneRow.correctAnswer,
+      correctAnswerText: correctAnswerTextMap != null
+          ? _getLocalizedString(correctAnswerTextMap, locale)
+          : null,
+      answerOptions: answerOptionsJson
+          ?.map((opt) => AnswerOptionModel.fromJson(opt as Map<String, dynamic>, locale: locale))
+          .toList(),
       waitForAnswer: sceneRow.waitForAnswer,
       showPreviousAnimals: sceneRow.showPreviousAnimals,
       buttonTitle: buttonTitleMap != null
@@ -414,6 +436,20 @@ class LessonDriftDataSourceImpl implements LessonDriftDataSource {
             isQuestion: Value(scene.isQuestion),
             isPause: Value(scene.isPause),
             correctAnswer: Value(scene.correctAnswer),
+            correctAnswerTextJson: Value(
+              scene.correctAnswerText != null
+                  ? jsonEncode({'en': scene.correctAnswerText})
+                  : null,
+            ),
+            answerOptionsJson: Value(
+              scene.answerOptions != null
+                  ? jsonEncode(
+                      scene.answerOptions!
+                          .map((o) => (o as AnswerOptionModel).toJson())
+                          .toList(),
+                    )
+                  : null,
+            ),
             waitForAnswer: Value(scene.waitForAnswer),
             showPreviousAnimals: Value(scene.showPreviousAnimals),
             animalsJson: Value(
@@ -459,6 +495,20 @@ class LessonDriftDataSourceImpl implements LessonDriftDataSource {
             isQuestion: Value(scene.isQuestion),
             isPause: Value(scene.isPause),
             correctAnswer: Value(scene.correctAnswer),
+            correctAnswerTextJson: Value(
+              scene.correctAnswerText != null
+                  ? jsonEncode({'en': scene.correctAnswerText})
+                  : null,
+            ),
+            answerOptionsJson: Value(
+              scene.answerOptions != null
+                  ? jsonEncode(
+                      scene.answerOptions!
+                          .map((o) => (o as AnswerOptionModel).toJson())
+                          .toList(),
+                    )
+                  : null,
+            ),
             waitForAnswer: Value(scene.waitForAnswer),
             showPreviousAnimals: Value(scene.showPreviousAnimals),
             animalsJson: Value(

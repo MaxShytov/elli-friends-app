@@ -45,5 +45,10 @@
   "difficultyHard": "Difficile",
   "difficultyLevel": "Niveau {level}",
   "orsonGreeting": "Salut, je suis Orson le chat violet",
-  "mervGreeting": "Salut, je suis Merv le chiot jaune"
+  "mervGreeting": "Salut, je suis Merv le chiot jaune",
+  "colorsInJungleP1": "Les couleurs dans la jungle 1",
+  "colorsInJungleP2": "Les couleurs dans la jungle 2",
+  "shapesInJungle": "Les formes dans la jungle",
+  "addingFruits": "Addition des fruits",
+  "englishGreetings": "Salutations en anglais"
 }
