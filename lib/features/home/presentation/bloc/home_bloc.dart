@@ -87,27 +87,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         title: 'english_greetings', // Used as key for localization
         emoji: '👋',
       ),
-      Activity(
-        id: 'letters',
-        title: 'letters', // Used as key for localization
-        emoji: '🔤',
-        isLocked: true,
-        requiredStars: 10,
-      ),
-      Activity(
-        id: 'shapes',
-        title: 'shapes', // Used as key for localization
-        emoji: '⬜',
-        isLocked: true,
-        requiredStars: 20,
-      ),
-      Activity(
-        id: 'colors',
-        title: 'colors', // Used as key for localization
-        emoji: '🎨',
-        isLocked: true,
-        requiredStars: 30,
-      ),
     ];
   }
 
