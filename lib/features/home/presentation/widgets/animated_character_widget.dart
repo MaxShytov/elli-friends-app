@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:rive/rive.dart' as rive;
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_dimensions.dart';
+import '../../../../core/utils/responsive_helper.dart';
 import '../../../../l10n/app_localizations.dart';
 
 /// Widget displaying animated mascot characters (Orson and Merv) with cycling animations
@@ -139,21 +140,24 @@ class _AnimatedCharacterWidgetState extends State<AnimatedCharacterWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final responsive = ResponsiveHelper(context);
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        // Character animation container
+        // Character animation container - responsive size
         SizedBox(
-          width: AppDimensions.characterSize,
-          height: AppDimensions.characterSize,
+          width: responsive.characterSize,
+          height: responsive.characterSize,
           child: _buildContent(),
         ),
 
-        const SizedBox(height: AppDimensions.paddingMedium),
+        SizedBox(height: responsive.paddingMedium),
 
         // Greeting bubble
         Container(
-          padding: const EdgeInsets.all(AppDimensions.paddingMedium),
+          padding: EdgeInsets.all(responsive.paddingMedium),
+          constraints: BoxConstraints(maxWidth: responsive.maxContentWidth),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(AppDimensions.radiusMedium),
@@ -169,6 +173,7 @@ class _AnimatedCharacterWidgetState extends State<AnimatedCharacterWidget> {
             _getCharacterGreeting(context),
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: AppColors.textPrimary,
+                  fontSize: responsive.titleFontSize,
                 ),
             textAlign: TextAlign.center,
           ),

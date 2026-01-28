@@ -19,6 +19,7 @@ import '../../../../core/services/audio_manager.dart';
 import '../../../../core/services/api_key_service.dart';
 import '../../../../core/services/azure_tts_service.dart';
 import '../../../../core/services/hybrid_audio_service.dart';
+import '../../../../core/utils/responsive_helper.dart';
 import '../../../../l10n/app_localizations.dart';
 
 class LessonPage extends StatelessWidget {
@@ -492,28 +493,32 @@ class _LessonViewState extends State<LessonView> {
   }
 
   Widget _buildAnswerFeedback(bool isCorrect) {
+    final responsive = ResponsiveHelper(context);
+
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(responsive.isTablet ? 20.0 : 16.0),
+      constraints: BoxConstraints(maxWidth: responsive.maxDialogueWidth),
       decoration: BoxDecoration(
         color: isCorrect ? AppColors.correct : AppColors.incorrect,
         borderRadius: BorderRadius.circular(AppDimensions.radiusMedium),
       ),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(
             isCorrect ? Icons.check_circle : Icons.cancel,
             color: Colors.white,
-            size: 32,
+            size: responsive.isTablet ? 40.0 : 32.0,
           ),
           const SizedBox(width: 12),
           Text(
             isCorrect
               ? AppLocalizations.of(context)!.correct
               : AppLocalizations.of(context)!.tryAgain,
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: responsive.isTablet ? 24.0 : 20.0,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -542,40 +547,49 @@ class _LessonViewState extends State<LessonView> {
   }
 
   void _showCompletionDialog(BuildContext context, LessonCompleted state) {
+    final responsive = ResponsiveHelper(context);
+
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (dialogContext) => AlertDialog(
+        insetPadding: EdgeInsets.symmetric(
+          horizontal: responsive.isTablet ? 100 : 40,
+          vertical: 24,
+        ),
         title: Row(
           children: [
             const Text('🎉 '),
             Text(AppLocalizations.of(context)!.excellent),
           ],
         ),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              AppLocalizations.of(context)!.youEarnedStars(state.stars),
-              style: const TextStyle(fontSize: 18),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              '${state.correctAnswers} ${AppLocalizations.of(context)!.outOf} ${state.totalQuestions} ${AppLocalizations.of(context)!.correct}',
-              style: const TextStyle(fontSize: 16),
-            ),
-            const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                3,
-                (index) => Text(
-                  index < state.stars ? '⭐' : '☆',
-                  style: const TextStyle(fontSize: 32),
+        content: ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: responsive.maxDialogueWidth),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                AppLocalizations.of(context)!.youEarnedStars(state.stars),
+                style: TextStyle(fontSize: responsive.isTablet ? 22.0 : 18.0),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                '${state.correctAnswers} ${AppLocalizations.of(context)!.outOf} ${state.totalQuestions} ${AppLocalizations.of(context)!.correct}',
+                style: TextStyle(fontSize: responsive.isTablet ? 20.0 : 16.0),
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                  3,
+                  (index) => Text(
+                    index < state.stars ? '⭐' : '☆',
+                    style: TextStyle(fontSize: responsive.isTablet ? 48.0 : 32.0),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         actions: [
           TextButton(

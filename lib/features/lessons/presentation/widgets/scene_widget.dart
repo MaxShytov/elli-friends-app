@@ -4,6 +4,7 @@ import 'package:rive/rive.dart' as rive;
 import '../../domain/entities/lesson.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_dimensions.dart';
+import '../../../../core/utils/responsive_helper.dart';
 
 /// Widget for displaying a lesson scene
 class SceneWidget extends StatefulWidget {
@@ -242,11 +243,13 @@ class _SceneWidgetState extends State<SceneWidget>
   }
 
   Widget _buildCharacter(String character) {
+    final responsive = ResponsiveHelper(context);
+
     // Show Rive character if loaded
     if (_riveLoaded && _riveController != null) {
       return SizedBox(
-        width: 300,
-        height: 300,
+        width: responsive.riveCharacterSize,
+        height: responsive.riveCharacterSize,
         child: rive.RiveWidget(
           controller: _riveController!,
           fit: rive.Fit.contain,
@@ -257,8 +260,8 @@ class _SceneWidgetState extends State<SceneWidget>
     // Fallback to emoji while loading
     final emoji = _getCharacterEmoji(character);
     return Container(
-      width: AppDimensions.characterSize,
-      height: AppDimensions.characterSize,
+      width: responsive.characterSize,
+      height: responsive.characterSize,
       decoration: BoxDecoration(
         color: _getCharacterBgColor(character),
         shape: BoxShape.circle,
@@ -273,16 +276,18 @@ class _SceneWidgetState extends State<SceneWidget>
       child: Center(
         child: Text(
           emoji,
-          style: const TextStyle(fontSize: 64),
+          style: TextStyle(fontSize: responsive.isTablet ? 96.0 : 64.0),
         ),
       ),
     );
   }
 
   Widget _buildAnimals(List<Animal> animals, {required bool animated}) {
+    final responsive = ResponsiveHelper(context);
+
     return Wrap(
-      spacing: AppDimensions.paddingMedium,
-      runSpacing: AppDimensions.paddingMedium,
+      spacing: responsive.paddingMedium,
+      runSpacing: responsive.paddingMedium,
       alignment: WrapAlignment.center,
       children: animals.map((animal) {
         return Row(
@@ -299,7 +304,7 @@ class _SceneWidgetState extends State<SceneWidget>
                           padding: const EdgeInsets.all(4),
                           child: Text(
                             animal.emoji,
-                            style: const TextStyle(fontSize: 48),
+                            style: TextStyle(fontSize: responsive.animalEmojiSize),
                           ),
                         ),
                       );
@@ -309,7 +314,7 @@ class _SceneWidgetState extends State<SceneWidget>
                     padding: const EdgeInsets.all(4),
                     child: Text(
                       animal.emoji,
-                      style: const TextStyle(fontSize: 48),
+                      style: TextStyle(fontSize: responsive.animalEmojiSize),
                     ),
                   ),
           ),
@@ -319,11 +324,14 @@ class _SceneWidgetState extends State<SceneWidget>
   }
 
   Widget _buildDialogue(BuildContext context, String dialogue) {
+    final responsive = ResponsiveHelper(context);
+
     return Container(
-      padding: const EdgeInsets.all(AppDimensions.paddingMedium),
-      margin: const EdgeInsets.symmetric(
-        horizontal: AppDimensions.paddingMedium,
+      padding: EdgeInsets.all(responsive.paddingMedium),
+      margin: EdgeInsets.symmetric(
+        horizontal: responsive.paddingMedium,
       ),
+      constraints: BoxConstraints(maxWidth: responsive.maxDialogueWidth),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(AppDimensions.radiusMedium),
@@ -339,7 +347,7 @@ class _SceneWidgetState extends State<SceneWidget>
         dialogue,
         style: Theme.of(context).textTheme.titleMedium?.copyWith(
           color: AppColors.textPrimary,
-          fontSize: 16,
+          fontSize: responsive.dialogueFontSize,
         ),
         textAlign: TextAlign.center,
       ),

@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_dimensions.dart';
 import '../../../../core/services/audio_manager.dart';
+import '../../../../core/utils/responsive_helper.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../bloc/home_bloc.dart';
 import '../bloc/home_event.dart';
@@ -170,9 +171,11 @@ class _HomeScreenContent extends StatelessWidget {
   }
 
   Widget _buildHomeContent(BuildContext context, HomeReady state) {
+    final responsive = ResponsiveHelper(context);
+
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(AppDimensions.paddingLarge),
+        padding: EdgeInsets.all(responsive.paddingLarge),
         child: Column(
             children: [
               // Animated character with greeting
@@ -180,14 +183,14 @@ class _HomeScreenContent extends StatelessWidget {
 
               const SizedBox(height: AppDimensions.paddingLarge),
 
-              // Activity grid
+              // Activity grid - responsive columns
               GridView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: AppDimensions.paddingMedium,
-                  mainAxisSpacing: AppDimensions.paddingMedium,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: responsive.gridColumns,
+                  crossAxisSpacing: responsive.paddingMedium,
+                  mainAxisSpacing: responsive.paddingMedium,
                   childAspectRatio: 1.0,
                 ),
                 itemCount: state.activities.length,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_dimensions.dart';
+import '../../../../core/utils/responsive_helper.dart';
 
 /// Widget for displaying answer buttons during lessons
 class AnswerButtons extends StatelessWidget {
@@ -19,9 +20,11 @@ class AnswerButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final responsive = ResponsiveHelper(context);
+
     return Wrap(
-      spacing: 6,
-      runSpacing: 6,
+      spacing: responsive.isTablet ? 12 : 6,
+      runSpacing: responsive.isTablet ? 12 : 6,
       alignment: WrapAlignment.center,
       children: List.generate(
         maxNumber,
@@ -37,6 +40,8 @@ class AnswerButtons extends StatelessWidget {
             isSelected: isSelected,
             isCorrect: isCorrect,
             isDisabled: isDisabled,
+            size: responsive.answerButtonSize,
+            fontSize: responsive.answerButtonFontSize,
           );
         },
       ),
@@ -50,10 +55,14 @@ class _AnswerButton extends StatelessWidget {
   final bool isSelected;
   final bool isCorrect;
   final bool isDisabled;
+  final double size;
+  final double fontSize;
 
   const _AnswerButton({
     required this.number,
     required this.onTap,
+    required this.size,
+    required this.fontSize,
     this.isSelected = false,
     this.isCorrect = false,
     this.isDisabled = false,
@@ -78,13 +87,13 @@ class _AnswerButton extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(AppDimensions.radiusMedium),
         child: Container(
-          width: 56,
-          height: 56,
+          width: size,
+          height: size,
           alignment: Alignment.center,
           child: Text(
             number.toString(),
             style: TextStyle(
-              fontSize: 24,
+              fontSize: fontSize,
               fontWeight: FontWeight.bold,
               color: isDisabled ? Colors.grey.shade600 : Colors.white,
             ),
