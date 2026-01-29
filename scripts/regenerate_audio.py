@@ -74,8 +74,9 @@ def build_ssml(text, voice_profile, tone=None):
     else:
         pitch_str = str(base_pitch)
 
-    # Convert rate to percentage
-    rate_str = f"{int(base_rate * 100)}%"
+    # Convert rate to relative percentage (0.9 -> "-10%", 1.2 -> "+20%")
+    rate_percent = round((base_rate - 1.0) * 100)
+    rate_str = f"+{rate_percent}%" if rate_percent >= 0 else f"{rate_percent}%"
 
     # Build prosody attributes
     prosody_attrs = f'pitch="{pitch_str}" rate="{rate_str}"'
